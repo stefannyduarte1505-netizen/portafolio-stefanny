@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Instrument+Sans:wght@400;500&display=swap');
 
+/* Gilroy — servida desde el CDN de Figma Sites */
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://portafoliostefduarte.figma.site/_user_fonts/v1/e7e72722332c7b79a975e183710b822c70733a40');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://portafoliostefduarte.figma.site/_user_fonts/v1/ff762363b88add1df9a3c36ff1247796376b61e6');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://portafoliostefduarte.figma.site/_user_fonts/v1/2c0ecc3ef36100b6da86cb822853b328ead4205d');
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @theme {

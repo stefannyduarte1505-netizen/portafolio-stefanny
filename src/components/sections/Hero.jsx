@@ -1,6 +1,8 @@
 import Tag from '../ui/Tag'
 
-const skills = ['UX Design', 'UI Design', 'Figma', 'Prototyping', 'Research']
+const skills = ['Service Design', 'CX Design', 'Product Design', 'Branding', 'UX Strategy']
+
+const AVATAR = 'https://portafoliostefduarte.figma.site/_assets/v11/6bd60f16ef6da3cc25671f4ad02961d76aa18ec7.png'
 
 export default function Hero() {
   return (
@@ -8,28 +10,34 @@ export default function Hero() {
       {/* Left — Text */}
       <div className="flex flex-col gap-6 max-w-xl">
         <h1
-          className="m-0 leading-[1.1] tracking-[-0.09em] font-bold"
+          className="m-0 font-bold"
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 6vw, var(--text-display-xl))',
+            fontSize: 'clamp(2.5rem, 5vw, var(--text-display-xl))',
+            letterSpacing: '-0.045em',
+            lineHeight: 1.2,
             color: 'var(--color-ink)',
           }}
         >
-          Hola, soy
-          <br />
-          Stefanny Duarte
+          Hola,{' '}
+          <span style={{ color: 'var(--color-accent)' }}>
+            soy Stefanny
+          </span>
         </h1>
 
         <p
           style={{
             fontFamily: 'var(--font-body)',
+            fontWeight: 300,
             fontSize: 'var(--text-body)',
-            color: 'var(--color-ink-secondary)',
-            lineHeight: '1.6',
+            color: 'var(--color-ink)',
+            lineHeight: 1.6,
+            maxWidth: '520px',
           }}
         >
-          Diseñadora UX/UI apasionada por crear experiencias digitales
-          centradas en las personas.
+          Diseñadora con más de 6 años de experiencia en proyectos de retail y
+          corporativos, trabajando en la intersección entre experiencia, marca y espacio.
+          Especializada en Diseño CX, Diseño de Producto, Branding y Branding Espacial.
         </p>
 
         {/* Skill tags */}
@@ -39,33 +47,57 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTAs */}
         <div className="flex gap-4 mt-2">
           <a
             href="#projects"
-            className="px-6 py-3 rounded-[var(--radius-tag)] text-[var(--color-white)] text-[var(--text-label)] font-[var(--font-ui)] no-underline transition-opacity duration-200 hover:opacity-90"
-            style={{ backgroundColor: 'var(--color-accent)' }}
+            className="px-6 py-3 text-[var(--color-white)] no-underline transition-opacity duration-200 hover:opacity-90"
+            style={{
+              borderRadius: 'var(--radius-tag)',
+              backgroundColor: 'var(--color-accent)',
+              fontFamily: 'var(--font-ui)',
+              fontSize: 'var(--text-label)',
+            }}
           >
             Ver proyectos
           </a>
           <a
             href="#about"
-            className="px-6 py-3 rounded-[var(--radius-tag)] text-[var(--color-ink)] text-[var(--text-label)] font-[var(--font-ui)] no-underline border transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-            style={{ borderColor: 'var(--color-ink)' }}
+            className="px-6 py-3 no-underline border transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+            style={{
+              borderRadius: 'var(--radius-tag)',
+              borderColor: 'var(--color-ink)',
+              color: 'var(--color-ink)',
+              fontFamily: 'var(--font-ui)',
+              fontSize: 'var(--text-label)',
+            }}
           >
             Sobre mí
           </a>
         </div>
+
+        {/* Location */}
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 300,
+            fontSize: 'var(--text-caption)',
+            color: 'var(--color-ink-secondary)',
+            letterSpacing: '-0.03em',
+          }}
+        >
+          Lima · Barcelona
+        </p>
       </div>
 
       {/* Right — Avatar */}
-      <div className="relative flex-shrink-0">
+      <div className="flex-shrink-0">
         <div
-          className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden"
+          className="w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full overflow-hidden"
           style={{ boxShadow: 'var(--shadow-avatar)' }}
         >
           <img
-            src="/avatar.png"
+            src={AVATAR}
             alt="Stefanny Duarte"
             className="w-full h-full object-cover"
           />

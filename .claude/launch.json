@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "portafolio",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "/Users/stefanny/.nvm/versions/node/v24.14.0/bin/npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 5173
+      "port": 5174,
+      "cwd": "/Users/stefanny/Documents/portafolio-stefanny"
     }
   ]
 }
