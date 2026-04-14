@@ -3,10 +3,13 @@ import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import Tag from '../components/ui/Tag'
 import { getProject, projects } from '../data/projects'
+import { useReveal, revealStyle } from '../hooks/useScrollReveal'
 
 export default function ProjectPage() {
   const { slug } = useParams()
   const project = getProject(slug)
+
+  const galleryReveal = useReveal(0.08)
 
   if (!project) {
     return (
@@ -27,13 +30,14 @@ export default function ProjectPage() {
 
   const currentIndex = projects.findIndex((p) => p.id === slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
+  const hasGallery = project.gallery && project.gallery.length > 0
 
   return (
     <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
       <Navbar />
 
-      {/* Hero */}
-      <section className="px-10 pt-12 pb-0">
+      {/* ── Hero visual ─────────────────────────────────── */}
+      <section className="px-6 md:px-10 pt-12 pb-0">
         <div
           className="w-full overflow-hidden"
           style={{
@@ -43,28 +47,18 @@ export default function ProjectPage() {
           }}
         >
           {project.video ? (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            >
+            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
               <source src={project.video} />
             </video>
           ) : project.image ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
           ) : null}
         </div>
       </section>
 
-      {/* Title + meta */}
+      {/* ── Title + meta ─────────────────────────────────── */}
       <section
-        className="px-10 py-12"
+        className="px-6 md:px-10 py-10 md:py-12"
         style={{ borderBottom: '0.5px solid var(--color-border)' }}
       >
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -103,16 +97,16 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      {/* Description */}
+      {/* ── Description ──────────────────────────────────── */}
       {project.description && (
-        <section className="px-10 py-12" style={{ maxWidth: '780px' }}>
+        <section className="px-6 md:px-10 py-12" style={{ maxWidth: '800px' }}>
           <p
             style={{
               fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize: 'var(--text-body)',
-              color: 'var(--color-ink)',
-              lineHeight: 1.7,
+              color: 'var(--color-ink-secondary)',
+              lineHeight: 1.75,
               margin: 0,
             }}
           >
@@ -121,9 +115,46 @@ export default function ProjectPage() {
         </section>
       )}
 
-      {/* Next project */}
+      {/* ── Gallery ──────────────────────────────────────── */}
+      {hasGallery && (
+        <section
+          className="px-6 md:px-10 pb-16"
+          style={{ borderTop: '0.5px solid var(--color-border)', paddingTop: '3rem' }}
+        >
+          <div
+            ref={galleryReveal.ref}
+            className="grid grid-cols-1 md:grid-cols-2 gap-3"
+          >
+            {project.gallery.map((item, i) => {
+              // First image full-width, rest 2-col
+              const isFullWidth = i === 0
+              return (
+                <div
+                  key={i}
+                  style={{
+                    ...revealStyle(galleryReveal.visible, i, 0.06),
+                    gridColumn: isFullWidth ? '1 / -1' : undefined,
+                    overflow: 'hidden',
+                    borderRadius: '3px',
+                    backgroundColor: 'var(--color-dark)',
+                  }}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.caption}
+                    loading="lazy"
+                    className="w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* ── Next project ─────────────────────────────────── */}
       <section
-        className="px-10 py-16 mt-auto"
+        className="px-6 md:px-10 py-16"
         style={{ borderTop: '0.5px solid var(--color-border)' }}
       >
         <p
@@ -143,7 +174,7 @@ export default function ProjectPage() {
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <h2
-            className="m-0 hover:opacity-70 transition-opacity"
+            className="m-0 hover:opacity-60 transition-opacity"
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 700,

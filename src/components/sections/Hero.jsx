@@ -3,8 +3,9 @@ import { useReveal, revealStyle } from '../../hooks/useScrollReveal'
 
 const skills = ['Service Design', 'CX Design', 'Product Design', 'Branding', 'UX Strategy']
 
-const AVATAR =
-  'https://portafoliostefduarte.figma.site/_assets/v11/6bd60f16ef6da3cc25671f4ad02961d76aa18ec7.png'
+// Large hero portrait (home page version)
+const HERO_PORTRAIT =
+  'https://portafoliostefduarte.figma.site/_assets/v11/22284ecce5bb9dd9bcc42361dfb8fd3d36fb03b8.png'
 
 export default function Hero() {
   const textReveal = useReveal(0.05)
@@ -116,7 +117,7 @@ export default function Hero() {
           style={{ boxShadow: 'var(--shadow-avatar)' }}
         >
           <img
-            src={AVATAR}
+            src={HERO_PORTRAIT}
             alt="Stefanny Duarte"
             className="w-full h-full object-cover"
           />

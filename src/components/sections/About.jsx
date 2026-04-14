@@ -1,73 +1,50 @@
 import { useReveal, revealStyle } from '../../hooks/useScrollReveal'
 
-/* ── Inline SVG icons ─────────────────────────────────── */
-const IconCX = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="22" cy="22" r="5" stroke="currentColor" strokeWidth="1.4" />
-    <circle cx="22" cy="22" r="12" stroke="currentColor" strokeWidth="1.4" strokeDasharray="2.5 3" />
-    <circle cx="22" cy="22" r="19" stroke="currentColor" strokeWidth="1" opacity="0.3" />
-    <line x1="22" y1="2" x2="22" y2="7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    <line x1="22" y1="37" x2="22" y2="42" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    <line x1="2" y1="22" x2="7" y2="22" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    <line x1="37" y1="22" x2="42" y2="22" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-  </svg>
-)
+const BASE = 'https://portafoliostefduarte.figma.site/_assets/v11'
 
-const IconVisual = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <rect x="4" y="14" width="24" height="18" rx="2" stroke="currentColor" strokeWidth="1.4" />
-    <rect x="16" y="8" width="24" height="18" rx="2" stroke="currentColor" strokeWidth="1.4" opacity="0.45" />
-    <circle cx="12" cy="23" r="3" stroke="currentColor" strokeWidth="1.2" />
-    <line x1="17" y1="23" x2="22" y2="23" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-  </svg>
-)
-
-const IconMotion = () => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path
-      d="M38 22C38 30.837 30.837 38 22 38C13.163 38 6 30.837 6 22C6 13.163 13.163 6 22 6"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-    />
-    <path
-      d="M30 6 L38 6 L38 14"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M18 16 L29 22 L18 28 Z"
-      stroke="currentColor"
-      strokeWidth="1.3"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-/* ── Data ─────────────────────────────────────────────── */
+/* ── Service data with real Figma CDN icons ───────────── */
 const services = [
   {
-    icon: <IconCX />,
+    icon: `${BASE}/30abed449a40027304bbb2e2fd8acc702a71301d.svg`,
     title: 'Experience Design',
     subtitle: 'CX & UX Strategy',
     description:
       'Diseño experiencias holísticas de usuario y de cliente que alinean las necesidades del usuario con los objetivos de negocio y el propósito de marca. Mi enfoque integra journey mapping, diseño de puntos de contacto, marcos de decisión basados en datos y planeación estratégica de UX.',
+    toolIcons: [
+      `${BASE}/a25ada30843bbc6e7e1b17c4f582c1223049a719.svg`,
+      `${BASE}/fc50f048743a9d3ce4e16a798f82989aea945b13.svg`,
+      `${BASE}/b139f22520b20ef415180852e0a304d3368497bc.svg`,
+      `${BASE}/b3e64d44302d5db9e73468642443c3dd8b3f968d.svg`,
+      `${BASE}/a168cbe3b19d4000e5a371dfa3947dc370183926.svg`,
+    ],
   },
   {
-    icon: <IconVisual />,
+    icon: `${BASE}/d64121befbaf4d347314bf8e8e039f74b7968fd5.svg`,
     title: 'Visual & Art Direction',
     subtitle: 'Branding · Identidad',
     description:
       'Conecto las necesidades del usuario con el propósito de marca para generar impacto en el negocio. Especialista en el diseño de ecosistemas visuales, sistemas de identidad y el desarrollo de hojas de ruta estratégicas para la expresión de marca.',
+    toolIcons: [
+      `${BASE}/7376543f652433572fdea56b5df6be22ac89ed2c.svg`,
+      `${BASE}/c9d672d76d768049aeda872ccd65cca75bcd4338.svg`,
+      `${BASE}/e520b124d4dbaab88b412ef1ce9cf17a6093da2e.svg`,
+      `${BASE}/589c1c127c0ff15b4ff5fd0bd68a176cd1ce2fa2.svg`,
+      `${BASE}/dd4b01ce4a4677e9e45a5a8d4eacb4a6aa40411d.svg`,
+    ],
   },
   {
-    icon: <IconMotion />,
+    icon: `${BASE}/2065cfa17b84b529f7d502a6995b7d1e3701cbdd.svg`,
     title: 'Motion & Interaction',
     subtitle: 'Animación · Micro-UX',
     description:
       'Creación de sistemas dinámicos y micro-interacciones que elevan la narrativa de marca, mejorando el engagement y la respuesta emocional del usuario a través de experiencias animadas e interactivas.',
+    toolIcons: [
+      `${BASE}/c1ecd66a1deafd42faf94f56889f971fff20cb36.svg`,
+      `${BASE}/34cf79a3bc553eb4b3f07ddbb19a8689c84bae3c.svg`,
+      `${BASE}/ecc36bde608942f57ef70011788f6f787b03bcb2.svg`,
+      `${BASE}/c10ad39b0e405dc8e35bb16c593c960812111022.svg`,
+      `${BASE}/35f4ea0638581ca7ab4fd13493f8ee696bf509ca.svg`,
+    ],
   },
 ]
 
@@ -101,7 +78,10 @@ export default function About() {
       </div>
 
       {/* Bio */}
-      <div ref={bioReveal.ref} style={{ ...revealStyle(bioReveal.visible), maxWidth: '680px', marginBottom: '4rem' }}>
+      <div
+        ref={bioReveal.ref}
+        style={{ ...revealStyle(bioReveal.visible), maxWidth: '680px', marginBottom: '4rem' }}
+      >
         <p
           style={{
             fontFamily: 'var(--font-body)',
@@ -112,38 +92,37 @@ export default function About() {
             margin: 0,
           }}
         >
-          Diseñadora Estratégica con más de 6 años de experiencia en proyectos de retail y corporativos,
-          trabajando en la intersección entre experiencia, marca y espacio. Especializada en Diseño CX,
-          Diseño de Producto, Branding y Branding Espacial, con un enfoque en la creación de experiencias
-          basadas en investigación que se traducen en soluciones coherentes y alineadas con los objetivos de negocio.
+          Diseñadora Estratégica con más de 6 años de experiencia en proyectos de retail y
+          corporativos, trabajando en la intersección entre experiencia, marca y espacio.
+          Especializada en Diseño CX, Diseño de Producto, Branding y Branding Espacial, con
+          un enfoque en la creación de experiencias basadas en investigación que se traducen
+          en soluciones coherentes y alineadas con los objetivos de negocio.
         </p>
       </div>
 
       {/* 3-col services grid */}
-      <div
-        ref={gridReveal.ref}
-        className="grid grid-cols-1 md:grid-cols-3"
-      >
+      <div ref={gridReveal.ref} className="grid grid-cols-1 md:grid-cols-3">
         {services.map((svc, i) => (
           <div
             key={svc.title}
             style={{
               ...revealStyle(gridReveal.visible, i, 0.12),
               padding: '2.5rem 0',
-              paddingRight: 'clamp(0px, 4vw, 3rem)',
+              paddingRight: i < services.length - 1 ? 'clamp(16px, 4vw, 3rem)' : 0,
+              paddingLeft: i > 0 ? 'clamp(16px, 4vw, 3rem)' : 0,
               borderTop: '0.5px solid var(--color-border)',
               borderRight: i < services.length - 1 ? '0.5px solid var(--color-border)' : 'none',
-              paddingLeft: i > 0 ? 'clamp(0px, 4vw, 3rem)' : 0,
             }}
           >
-            {/* Icon */}
-            <div
-              style={{
-                color: 'var(--color-accent)',
-                marginBottom: '1.5rem',
-              }}
-            >
-              {svc.icon}
+            {/* Main icon */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <img
+                src={svc.icon}
+                alt={svc.title}
+                width="48"
+                height="48"
+                style={{ display: 'block' }}
+              />
             </div>
 
             {/* Title */}
@@ -161,7 +140,7 @@ export default function About() {
               {svc.title}
             </h3>
             <p
-              className="m-0 mb-4"
+              className="m-0 mb-5"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 300,
@@ -181,11 +160,26 @@ export default function About() {
                 fontSize: 'var(--text-body)',
                 color: 'var(--color-ink-secondary)',
                 lineHeight: 1.65,
-                margin: 0,
+                margin: '0 0 1.5rem',
               }}
             >
               {svc.description}
             </p>
+
+            {/* Tool icons row */}
+            <div className="flex items-center gap-3 flex-wrap">
+              {svc.toolIcons.map((src, j) => (
+                <img
+                  key={j}
+                  src={src}
+                  alt=""
+                  aria-hidden="true"
+                  width="28"
+                  height="28"
+                  style={{ display: 'block', opacity: 0.7 }}
+                />
+              ))}
+            </div>
           </div>
         ))}
       </div>
