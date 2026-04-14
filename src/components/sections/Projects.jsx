@@ -4,9 +4,9 @@ const featured = {
   title: 'Café Don Salazar',
   subtitle: 'Service Design',
   description:
-    'El proyecto propone una experiencia pop-up diseñada bajo un enfoque de Service Design, donde el espacio físico se convierte en el canal principal de interacción entre la marca y su audiencia. A través de estímulos sensoriales, una capa digital de autodescubrimientos y un panel comunitario, el journey invita a los usuarios a descubrir sus preferencias, explorar diversos métodos y variedades de café, y conectar con los valores de Café Don Salazar.',
+    "El proyecto propone una experiencia pop-up diseñada bajo un enfoque de Service Design, donde el espacio físico se convierte en el canal principal de interacción entre la marca y su audiencia. A través de estímulos sensoriales, una capa digital de autodescubrimiento y un panel comunitario, el 'journey' invita a los usuarios a descubrir sus preferencias, explorar diversos métodos y variedades de café, y conectar con los valores de Café Don Salazar. Más allá de una interacción puntual, la experiencia fue diseñada para fomentar la recurrencia, permitir el aprendizaje basado en datos y construir comunidad, fortaleciendo el vínculo entre los usuarios y la marca.",
   tags: ['Service Design', 'Spatial Branding', 'Product Design'],
-  image: null, // reemplaza con tu imagen: /public/cafe-don-salazar.jpg
+  image: 'https://portafoliostefduarte.figma.site/_assets/v11/bd3da450f72a2adc8c7d9a4185a000c0a6bb7d12.png',
   link: '#',
 }
 
@@ -15,16 +15,16 @@ const otherProjects = [
     id: 1,
     title: 'SOLE',
     subtitle: 'CX y omnicanalidad',
-    tags: ['Service Design', 'Branding', 'Project Manager'],
-    image: 'https://portafoliostefduarte.figma.site/_assets/v11/f522343723fe3e74347f0af95cf26798b8bb5104.png',
+    tags: ['Service Design', 'Product Design', 'Spatial Branding'],
+    image: 'https://portafoliostefduarte.figma.site/_assets/v11/7134ded3236332d772a732d32ed0bae73877311c.png',
     link: '#',
   },
   {
     id: 2,
     title: 'Kinta',
-    subtitle: 'Branding',
-    tags: ['Branding', 'Visual Identity'],
-    image: null,
+    subtitle: 'Spatial Branding & Art Direction',
+    tags: ['Branding', 'Spatial Branding'],
+    image: 'https://portafoliostefduarte.figma.site/_assets/v11/a4c0394cb84cc035bec1a4a814f268400f0f7ceb.png',
     link: '#',
   },
   {
@@ -33,6 +33,7 @@ const otherProjects = [
     subtitle: 'Web End to End',
     tags: ['Product Design', 'Branding', 'Project Manager'],
     video: 'https://portafoliostefduarte.figma.site/_videos/v1/bb27fad4b9d586bb62d8dc9440261faaf965d935',
+    image: 'https://portafoliostefduarte.figma.site/_assets/v11/1245f94e5a40c7ef21810cbd4273674df06d0a44.png',
     link: '#',
   },
 ]
