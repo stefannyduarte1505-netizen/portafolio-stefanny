@@ -6,11 +6,22 @@ const AVATAR =
 const links = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/#projects' },
+  { label: 'Projects', href: '/#projects', scrollId: 'projects' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+
+  function handleNav(e, link) {
+    if (!link.scrollId) return
+    const el = document.getElementById(link.scrollId)
+    if (el) {
+      e.preventDefault()
+      setOpen(false)
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+    // if element not found (e.g. on /about), let href navigate normally
+  }
 
   // Close mobile menu on any navigation
   useEffect(() => {
@@ -56,10 +67,11 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-10 list-none m-0 p-0">
-          {links.map(({ label, href }) => (
-            <li key={label}>
+          {links.map((link) => (
+            <li key={link.label}>
               <a
-                href={href}
+                href={link.href}
+                onClick={(e) => handleNav(e, link)}
                 className="no-underline transition-opacity duration-200 hover:opacity-50"
                 style={{
                   fontFamily: 'var(--font-display)',
@@ -69,7 +81,7 @@ export default function Navbar() {
                   color: 'var(--color-ink)',
                 }}
               >
-                {label}
+                {link.label}
               </a>
             </li>
           ))}
@@ -118,11 +130,11 @@ export default function Navbar() {
         }}
       >
         <ul className="list-none m-0 flex flex-col px-6 py-6 gap-5 p-0">
-          {links.map(({ label, href }) => (
-            <li key={label}>
+          {links.map((link) => (
+            <li key={link.label}>
               <a
-                href={href}
-                onClick={() => setOpen(false)}
+                href={link.href}
+                onClick={(e) => { handleNav(e, link); setOpen(false) }}
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontWeight: 400,
@@ -132,7 +144,7 @@ export default function Navbar() {
                   textDecoration: 'none',
                 }}
               >
-                {label}
+                {link.label}
               </a>
             </li>
           ))}

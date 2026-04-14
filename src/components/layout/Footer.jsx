@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
         {/* Nav links */}
-        <nav className="flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-12">
           {[
             { label: 'Home', href: '/' },
             { label: 'About', href: '/about' },
@@ -44,14 +44,14 @@ export default function Footer() {
             <a
               key={label}
               href={href}
+              className="opacity-80 hover:opacity-100 transition-opacity"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 400,
-                fontSize: 'var(--text-heading-lg)',
-                color: 'var(--color-accent)',
-                textDecoration: 'underline',
-                textUnderlinePosition: 'from-font',
-                letterSpacing: '-0.045em',
+                fontSize: 'var(--text-body)',
+                color: 'var(--color-white)',
+                textDecoration: 'none',
+                letterSpacing: '-0.03em',
               }}
             >
               {label}
