@@ -1,42 +1,8 @@
 import Tag from '../ui/Tag'
+import { projects } from '../../data/projects'
 
-const featured = {
-  title: 'Café Don Salazar',
-  subtitle: 'Service Design',
-  description:
-    "El proyecto propone una experiencia pop-up diseñada bajo un enfoque de Service Design, donde el espacio físico se convierte en el canal principal de interacción entre la marca y su audiencia. A través de estímulos sensoriales, una capa digital de autodescubrimiento y un panel comunitario, el 'journey' invita a los usuarios a descubrir sus preferencias, explorar diversos métodos y variedades de café, y conectar con los valores de Café Don Salazar. Más allá de una interacción puntual, la experiencia fue diseñada para fomentar la recurrencia, permitir el aprendizaje basado en datos y construir comunidad, fortaleciendo el vínculo entre los usuarios y la marca.",
-  tags: ['Service Design', 'Spatial Branding', 'Product Design'],
-  image: 'https://portafoliostefduarte.figma.site/_assets/v11/bd3da450f72a2adc8c7d9a4185a000c0a6bb7d12.png',
-  link: '#',
-}
-
-const otherProjects = [
-  {
-    id: 1,
-    title: 'SOLE',
-    subtitle: 'CX y omnicanalidad',
-    tags: ['Service Design', 'Product Design', 'Spatial Branding'],
-    image: 'https://portafoliostefduarte.figma.site/_assets/v11/7134ded3236332d772a732d32ed0bae73877311c.png',
-    link: '#',
-  },
-  {
-    id: 2,
-    title: 'Kinta',
-    subtitle: 'Spatial Branding & Art Direction',
-    tags: ['Branding', 'Spatial Branding'],
-    image: 'https://portafoliostefduarte.figma.site/_assets/v11/a4c0394cb84cc035bec1a4a814f268400f0f7ceb.png',
-    link: '#',
-  },
-  {
-    id: 3,
-    title: 'Modulor',
-    subtitle: 'Web End to End',
-    tags: ['Product Design', 'Branding', 'Project Manager'],
-    video: 'https://portafoliostefduarte.figma.site/_videos/v1/bb27fad4b9d586bb62d8dc9440261faaf965d935',
-    image: 'https://portafoliostefduarte.figma.site/_assets/v11/1245f94e5a40c7ef21810cbd4273674df06d0a44.png',
-    link: '#',
-  },
-]
+const featured = projects.find((p) => p.featured)
+const otherProjects = projects.filter((p) => !p.featured)
 
 export default function Projects() {
   return (
@@ -61,7 +27,7 @@ export default function Projects() {
           Projects
         </h2>
         <a
-          href="#"
+          href="/#projects"
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 300,
@@ -81,9 +47,10 @@ export default function Projects() {
         className="flex flex-col md:flex-row gap-12 pb-16"
         style={{ borderTop: '0.5px solid var(--color-border)', paddingTop: '2.5rem' }}
       >
-        {/* Image placeholder */}
-        <div
-          className="w-full md:w-[55%] flex-shrink-0 overflow-hidden"
+        {/* Image */}
+        <a
+          href={`/project/${featured.id}`}
+          className="w-full md:w-[55%] flex-shrink-0 overflow-hidden block"
           style={{
             aspectRatio: '16/10',
             backgroundColor: 'var(--color-dark)',
@@ -94,10 +61,10 @@ export default function Projects() {
             <img
               src={featured.image}
               alt={featured.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             />
           )}
-        </div>
+        </a>
 
         {/* Meta */}
         <div className="flex flex-col gap-5 justify-center">
@@ -149,7 +116,7 @@ export default function Projects() {
           </div>
 
           <a
-            href={featured.link}
+            href={`/project/${featured.id}`}
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 300,
@@ -188,7 +155,7 @@ export default function Projects() {
           {otherProjects.map((p) => (
             <a
               key={p.id}
-              href={p.link}
+              href={`/project/${p.id}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <div className="group flex flex-col gap-3">
