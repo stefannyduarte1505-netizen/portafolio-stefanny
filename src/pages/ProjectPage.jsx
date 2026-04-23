@@ -1,195 +1,164 @@
-import { useParams, Link } from 'react-router-dom'
-import Navbar from '../components/layout/Navbar'
+import { useEffect, useRef } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import Footer from '../components/layout/Footer'
-import Tag from '../components/ui/Tag'
-import { getProject, projects } from '../data/projects'
-import { useReveal, revealStyle } from '../hooks/useScrollReveal'
+import { getProject } from '../data/projects'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function ProjectPage() {
-  const { slug } = useParams()
-  const project = getProject(slug)
+  const { slug }   = useParams()
+  const navigate   = useNavigate()
+  const project    = getProject(slug)
+  const isMobile   = useIsMobile()
 
-  const galleryReveal = useReveal(0.08)
+  const IMG_H  = isMobile ? 50 : 58   // vh
+  const INFO_H = isMobile ? 50 : 42   // vh
+
+  const wrapperRef  = useRef(null)
+  const stripRef    = useRef(null)
+  const progressRef = useRef(null)
+
+  useEffect(() => { window.scrollTo(0, 0) }, [slug])
+
+  useEffect(() => {
+    const onScroll = () => {
+      const wrapper = wrapperRef.current
+      const strip   = stripRef.current
+      const bar     = progressRef.current
+      if (!wrapper || !strip) return
+
+      const stickyH   = window.innerHeight          // full vh sticky container
+      const scrollMax = wrapper.offsetHeight - stickyH
+      const scrolled  = Math.max(0, Math.min(scrollMax, -wrapper.getBoundingClientRect().top))
+      const progress  = scrollMax > 0 ? scrolled / scrollMax : 0
+
+      const totalW = strip.scrollWidth - window.innerWidth
+      strip.style.transform = `translateX(${-progress * totalW}px)`
+      if (bar) bar.style.transform = `scaleX(${progress})`
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [project])
 
   if (!project) {
     return (
-      <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
-        <Navbar />
-        <div className="px-10 py-32 text-center">
-          <p style={{ fontFamily: 'var(--font-display)', color: 'var(--color-ink)' }}>
-            Proyecto no encontrado.
-          </p>
-          <Link to="/#projects" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-            ← Volver a proyectos
-          </Link>
-        </div>
-        <Footer />
+      <div style={{ backgroundColor: '#F5F4F0', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ fontFamily: "'Gilda Display', serif", fontSize: '1.5rem', color: '#1A1815' }}>
+          Proyecto no encontrado.
+        </p>
       </div>
     )
   }
 
-  const currentIndex = projects.findIndex((p) => p.id === slug)
-  const nextProject = projects[(currentIndex + 1) % projects.length]
-  const hasGallery = project.gallery && project.gallery.length > 0
+  const gallery = project.gallery || []
+  // 1 scroll-screen per image → enough travel to move the full strip
+  const scrollH = `${Math.max(1, gallery.length) * 100}vh`
 
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
-      <Navbar />
+    <div style={{ backgroundColor: '#F5F4F0' }}>
 
-      {/* ── Hero visual ─────────────────────────────────── */}
-      <section className="px-6 md:px-10 pt-12 pb-0">
-        <div
-          className="w-full overflow-hidden"
-          style={{
-            aspectRatio: '16/9',
-            backgroundColor: 'var(--color-dark)',
-            borderRadius: '4px',
-          }}
-        >
-          {project.video ? (
-            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-              <source src={project.video} />
-            </video>
-          ) : project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-          ) : null}
-        </div>
-      </section>
-
-      {/* ── Title + meta ─────────────────────────────────── */}
-      <section
-        className="px-6 md:px-10 py-10 md:py-12"
-        style={{ borderBottom: '0.5px solid var(--color-border)' }}
+      {/* ── Close — fixed top right ── */}
+      <button
+        onClick={() => navigate(-1)}
+        style={{
+          position: 'fixed', top: '1.5rem', right: isMobile ? '1rem' : '2rem', zIndex: 200,
+          display: 'flex', alignItems: 'center',
+          padding: '0.6rem 2rem',
+          borderRadius: '100px',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          backgroundColor: 'rgba(245,244,240,0.55)',
+          boxShadow: '0 2px 24px rgba(0,0,0,0.07)',
+          border: 'none',
+          fontFamily: "'Poppins', sans-serif",
+          fontWeight: 400,
+          fontSize: '0.95rem',
+          letterSpacing: '0.04em',
+          color: '#000000',
+          transition: 'color 0.2s',
+          whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = '#820606'}
+        onMouseLeave={e => e.currentTarget.style.color = '#000000'}
       >
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <p
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 300,
-                fontSize: 'var(--text-heading-lg)',
-                color: 'var(--color-accent)',
-                letterSpacing: '-0.045em',
-                margin: '0 0 4px',
-              }}
-            >
-              {project.subtitle}
-            </p>
-            <h1
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 700,
-                fontSize: 'clamp(2.5rem, 6vw, var(--text-display-lg))',
-                color: 'var(--color-ink)',
-                letterSpacing: '-0.045em',
-                lineHeight: 1.1,
-                margin: 0,
-              }}
-            >
-              {project.title}
-            </h1>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <Tag key={tag} label={tag} />
-            ))}
-          </div>
-        </div>
-      </section>
+        Close
+      </button>
 
-      {/* ── Description ──────────────────────────────────── */}
-      {project.description && (
-        <section className="px-6 md:px-10 py-12" style={{ maxWidth: '800px' }}>
-          <p
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 300,
-              fontSize: 'var(--text-body)',
-              color: 'var(--color-ink-secondary)',
-              lineHeight: 1.75,
-              margin: 0,
-            }}
-          >
-            {project.description}
-          </p>
-        </section>
-      )}
+      {/* ── Scroll wrapper — creates vertical scroll space ── */}
+      <div ref={wrapperRef} style={{ height: scrollH }}>
 
-      {/* ── Gallery ──────────────────────────────────────── */}
-      {hasGallery && (
-        <section
-          className="px-6 md:px-10 pb-16"
-          style={{ borderTop: '0.5px solid var(--color-border)', paddingTop: '3rem' }}
-        >
-          <div
-            ref={galleryReveal.ref}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3"
-          >
-            {project.gallery.map((item, i) => {
-              // First image full-width, rest 2-col
-              const isFullWidth = i === 0
-              return (
-                <div
-                  key={i}
-                  style={{
-                    ...revealStyle(galleryReveal.visible, i, 0.06),
-                    gridColumn: isFullWidth ? '1 / -1' : undefined,
-                    overflow: 'hidden',
-                    borderRadius: '3px',
-                    backgroundColor: 'var(--color-dark)',
-                  }}
-                >
+        {/* Sticky full-viewport container */}
+        <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+
+          {/* TOP — image strip */}
+          <div style={{ position: 'relative', height: `${IMG_H}vh`, overflow: 'hidden', backgroundColor: '#0e0e0e', flexShrink: 0 }}>
+            <div
+              ref={stripRef}
+              style={{ display: 'flex', height: '100%', willChange: 'transform' }}
+            >
+              {gallery.map((img, i) => (
+                <div key={i} style={{ flexShrink: 0, height: '100%', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
                   <img
-                    src={item.src}
-                    alt={item.caption}
-                    loading="lazy"
-                    className="w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                    src={img.src}
+                    alt={img.caption || ''}
+                    draggable={false}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    style={{ height: '100%', width: 'auto', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
                   />
                 </div>
-              )
-            })}
+              ))}
+            </div>
+
+            {/* Progress bar */}
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', backgroundColor: 'rgba(255,255,255,0.08)' }}>
+              <div ref={progressRef} style={{ height: '100%', backgroundColor: 'rgba(255,255,255,0.5)', transformOrigin: 'left', transform: 'scaleX(0)', willChange: 'transform' }} />
+            </div>
+
+            {/* scroll hint */}
+            <span style={{ position: 'absolute', bottom: '1.4rem', right: '2rem', fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', pointerEvents: 'none' }}>
+              scroll
+            </span>
           </div>
-        </section>
-      )}
 
-      {/* ── Next project ─────────────────────────────────── */}
-      <section
-        className="px-6 md:px-10 py-16"
-        style={{ borderTop: '0.5px solid var(--color-border)' }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 300,
-            fontSize: 'var(--text-body)',
-            color: 'var(--color-accent)',
-            letterSpacing: '-0.02em',
-            margin: '0 0 8px',
-          }}
-        >
-          Siguiente proyecto
-        </p>
-        <Link
-          to={`/project/${nextProject.id}`}
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <h2
-            className="m-0 hover:opacity-60 transition-opacity"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 5vw, var(--text-display-lg))',
-              color: 'var(--color-ink)',
-              letterSpacing: '-0.045em',
-              lineHeight: 1.1,
-            }}
-          >
-            {nextProject.title} →
-          </h2>
-        </Link>
-      </section>
+          {/* BOTTOM — info panel (always visible, static) */}
+          <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#F5F4F0', flexShrink: 0 }}>
 
-      <Footer />
+            {/* Left — empty (desktop only) */}
+            {!isMobile && <div />}
+
+            {/* Right — project info */}
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '1.5rem' : '2.5rem 3rem 2.5rem 1.5rem', overflowY: 'auto' }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#B9111C', margin: '0 0 0.6rem' }}>
+                {project.subtitle}
+              </p>
+              <h1 style={{ fontFamily: "'Gilda Display', serif", fontWeight: 400, fontSize: 'clamp(1.6rem, 2.8vw, 3rem)', letterSpacing: '-0.02em', lineHeight: 1.05, color: '#1A1815', margin: '0 0 1rem' }}>
+                {project.title}
+              </h1>
+              {project.description && (
+                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: 'rgba(26,24,21,0.55)', margin: '0 0 1.25rem', maxWidth: '480px' }}>
+                  {project.description}
+                </p>
+              )}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', alignItems: 'center' }}>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.12em', color: 'rgba(26,24,21,0.28)', marginRight: '0.4rem' }}>
+                  {project.year}
+                </span>
+                {project.tags.map(tag => (
+                  <span key={tag} style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.38)', border: '0.5px solid rgba(26,24,21,0.15)', padding: '0.2rem 0.6rem', borderRadius: '100px' }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.2)', margin: '1.5rem 0 0' }}>
+                ← scroll to explore
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   )
 }

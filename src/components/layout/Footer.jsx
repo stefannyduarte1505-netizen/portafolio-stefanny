@@ -1,147 +1,192 @@
-const AVATAR = 'https://portafoliostefduarte.figma.site/_assets/v11/6bd60f16ef6da3cc25671f4ad02961d76aa18ec7.png'
+import { useRef, useState } from 'react'
+import { useIsMobile } from '../../hooks/useIsMobile'
+
+const LABEL = {
+  fontFamily: "'Poppins', sans-serif",
+  fontWeight: 300,
+  fontSize: '0.7rem',
+  letterSpacing: '0.04em',
+  textTransform: 'none',
+  color: 'rgba(255,255,255,0.45)',
+  marginBottom: '0.25rem',
+}
+
+const VALUE = {
+  fontFamily: "'Poppins', sans-serif",
+  fontWeight: 300,
+  fontSize: '0.85rem',
+  color: 'rgba(255,255,255,0.85)',
+  lineHeight: 1.5,
+}
+
+const FIELD_WRAP = {
+  display: 'flex',
+  flexDirection: 'column',
+  borderBottom: '0.5px solid rgba(255,255,255,0.25)',
+  paddingBottom: '0.6rem',
+  marginBottom: '1.5rem',
+}
+
+const INPUT_STYLE = {
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
+  fontFamily: "'Poppins', sans-serif",
+  fontWeight: 300,
+  fontSize: '0.9rem',
+  color: '#fff',
+  paddingTop: '0.35rem',
+  width: '100%',
+}
+
+function Field({ label, type = 'text', placeholder, isTextarea }) {
+  return (
+    <div style={FIELD_WRAP}>
+      <span style={LABEL}>{label}</span>
+      {isTextarea
+        ? <textarea
+            placeholder={placeholder}
+            rows={3}
+            style={{ ...INPUT_STYLE, resize: 'none', lineHeight: 1.6 }}
+          />
+        : <input type={type} placeholder={placeholder} style={INPUT_STYLE} />
+      }
+    </div>
+  )
+}
 
 export default function Footer() {
+  const [sent, setSent] = useState(false)
+  const isMobile = useIsMobile()
+
   return (
-    <footer style={{ backgroundColor: 'var(--color-accent)' }}>
-      {/* Top row */}
+    <footer
+      id="contact"
+      style={{
+        backgroundColor: '#1a1b22',
+        color: '#fff',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* ── Main grid ── */}
       <div
-        className="flex items-center justify-between px-10"
-        style={{ height: '99px' }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          minHeight: isMobile ? 'auto' : '80vh',
+          padding: isMobile ? '3rem 1.5rem 0' : '5rem 5vw 0',
+          gap: isMobile ? '2.5rem' : '4rem',
+        }}
       >
-        {/* Avatar + nombre */}
-        <div className="flex items-center gap-4">
-          <div
-            className="w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0"
-            style={{ boxShadow: '0px 4px 4px rgba(0,0,0,0.25)' }}
-          >
-            <img
-              src={AVATAR}
-              alt="Stefanny Duarte"
-              className="w-full h-full object-cover"
-            />
+        {/* LEFT — info */}
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1.5rem 2rem', paddingBottom: isMobile ? '0' : '3rem' }}>
+
+            <div>
+              <p style={LABEL}>Phone</p>
+              <p style={VALUE}>+51 999 999 999</p>
+            </div>
+
+            <div>
+              <p style={LABEL}>Email</p>
+              <a
+                href="mailto:stefanny.duarte@gmail.com"
+                style={{ ...VALUE, textDecoration: 'none', display: 'block' }}
+              >
+                stefanny.duarte@gmail.com
+              </a>
+            </div>
+
+            <div>
+              <p style={LABEL}>Address</p>
+              <p style={VALUE}>Lima, Perú<br />Barcelona, España</p>
+            </div>
+
+            <div>
+              <p style={LABEL}>Socials</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                <a href="https://www.linkedin.com/in/stefannyduarte/" target="_blank" rel="noopener noreferrer" style={{ ...VALUE, textDecoration: 'none' }}>LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" style={{ ...VALUE, textDecoration: 'none' }}>Behance</a>
+              </div>
+            </div>
+
           </div>
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: 'var(--text-heading-lg)',
-              color: 'var(--color-white)',
-              letterSpacing: '-0.045em',
-              lineHeight: 1.03,
-            }}
-          >
-            Stefanny Duarte
-          </span>
+
+          {/* space where the global "CONTACTO" label sits */}
+          <div style={{ paddingBottom: '2.5rem' }} />
         </div>
 
-        {/* Nav links */}
-        <nav className="hidden md:flex items-center gap-12">
-          {[
-            { label: 'Home', href: '/' },
-            { label: 'About', href: '/about' },
-            { label: 'Projects', href: '/#projects' },
-          ].map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="opacity-80 hover:opacity-100 transition-opacity"
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 400,
-                fontSize: 'var(--text-body)',
-                color: 'var(--color-white)',
-                textDecoration: 'none',
-                letterSpacing: '-0.03em',
-              }}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      {/* Bottom row */}
-      <div
-        className="flex items-end justify-between px-10 py-10"
-        style={{ borderTop: '0.5px solid rgba(255,255,255,0.2)' }}
-      >
-        {/* Left — contact info */}
-        <div className="flex flex-col gap-1">
-          <div
-            className="flex gap-3"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 300,
-              fontSize: 'var(--text-body)',
-              color: 'var(--color-white)',
-              lineHeight: 1.23,
-            }}
-          >
-            <span>Lima</span>
-            <span>·</span>
-            <span>Barcelona</span>
-          </div>
-          <a
-            href="mailto:stefanny.duarte@gmail.com"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 300,
-              fontSize: 'var(--text-body)',
-              color: 'var(--color-white)',
-              textDecoration: 'none',
-            }}
-          >
-            stefanny.duarte@gmail.com
-          </a>
-        </div>
-
-        {/* Right — social + copyright */}
-        <div className="flex flex-col items-end gap-4">
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.linkedin.com/in/stefannyduarte/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-80 hover:opacity-100 transition-opacity"
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontWeight: 300,
-                fontSize: 'var(--text-body)',
-                color: 'var(--color-white)',
-                textDecoration: 'none',
-              }}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-80 hover:opacity-100 transition-opacity"
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontWeight: 300,
-                fontSize: 'var(--text-body)',
-                color: 'var(--color-white)',
-                textDecoration: 'none',
-              }}
-            >
-              Behance
-            </a>
-          </div>
+        {/* RIGHT — form */}
+        <div style={{ paddingTop: '0.5rem' }}>
           <p
             style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 300,
-              fontSize: 'var(--text-caption)',
-              color: 'var(--color-white)',
-              letterSpacing: '-0.03em',
-              margin: 0,
+              fontFamily: "'Gilda Display', serif",
+              fontWeight: 400,
+              fontSize: 'clamp(1.1rem, 1.8vw, 1.6rem)',
+              color: '#fff',
+              lineHeight: 1.45,
+              marginBottom: '3rem',
+              maxWidth: '480px',
             }}
           >
-            © 2025 All Rights Reserved
+            Do not hesitate to contact me to discuss a possible project or discover more about my work.
           </p>
+
+          {!sent ? (
+            <form
+              onSubmit={(e) => { e.preventDefault(); setSent(true) }}
+              style={{ maxWidth: '480px' }}
+            >
+              <Field label="Name" placeholder="John Doe" />
+              <Field label="Email" type="email" placeholder="hello@example.com" />
+              <Field label="I work at" placeholder="Company name" />
+              <Field label="Details about the project" placeholder="My project is about..." isTextarea />
+
+              <button
+                type="submit"
+                style={{
+                  marginTop: '1rem',
+                  background: 'transparent',
+                  border: '0.5px solid rgba(255,255,255,0.5)',
+                  color: '#fff',
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 300,
+                  fontSize: '0.8rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'none',
+                  padding: '0.75rem 2.5rem',
+                  cursor: 'pointer',
+                  transition: 'border-color 0.2s, opacity 0.2s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = '#fff'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'}
+              >
+                send message
+              </button>
+            </form>
+          ) : (
+            <p style={{ ...VALUE, fontSize: '1rem', marginTop: '2rem' }}>
+              Thank you — I'll be in touch soon.
+            </p>
+          )}
         </div>
+      </div>
+
+      {/* ── Bottom bar ── */}
+      <div
+        style={{
+          borderTop: '0.5px solid rgba(255,255,255,0.12)',
+          padding: isMobile ? '1.5rem' : '1.2rem 5vw',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: isMobile ? '0.4rem' : 0,
+          justifyContent: 'space-between',
+          alignItems: isMobile ? 'flex-start' : 'center',
+        }}
+      >
+        <p style={{ ...LABEL, margin: 0 }}>© 2025 Stefanny Duarte — all rights reserved</p>
+        <p style={{ ...LABEL, margin: 0 }}>Spatial Branding & Experience Design</p>
       </div>
     </footer>
   )

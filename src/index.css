@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Instrument+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Gilda+Display&display=swap');
 
 /* Gilroy — servida desde el CDN de Figma Sites */
 @font-face {
@@ -74,6 +74,7 @@
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
+    cursor: none !important;
   }
 
   html {
@@ -81,6 +82,7 @@
     color: var(--color-ink);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
   }
 
   body {

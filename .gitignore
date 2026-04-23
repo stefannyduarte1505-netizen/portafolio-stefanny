@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Large video files
+public/hero-video.mov
+
+# Claude internal
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

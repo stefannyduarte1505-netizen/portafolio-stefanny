@@ -2,60 +2,120 @@ const BASE = 'https://portafoliostefduarte.figma.site'
 const A = (hash) => `${BASE}/_assets/v11/${hash}`
 const V = (hash) => `${BASE}/_videos/v1/${hash}`
 
+const g = (cover, folder, n) => [
+  { src: cover, caption: '' },
+  ...Array.from({ length: n }, (_, i) => ({ src: `/projects/${folder}/${i + 1}.png`, caption: '' })),
+]
+
 export const projects = [
-  {
-    id: 'cafe-don-salazar',
-    title: 'Café Don Salazar',
-    subtitle: 'Service Design',
-    description:
-      "El proyecto propone una experiencia pop-up diseñada bajo un enfoque de Service Design, donde el espacio físico se convierte en el canal principal de interacción entre la marca y su audiencia. A través de estímulos sensoriales, una capa digital de autodescubrimiento y un panel comunitario, el 'journey' invita a los usuarios a descubrir sus preferencias, explorar diversos métodos y variedades de café, y conectar con los valores de Café Don Salazar. Más allá de una interacción puntual, la experiencia fue diseñada para fomentar la recurrencia, permitir el aprendizaje basado en datos y construir comunidad, fortaleciendo el vínculo entre los usuarios y la marca.",
-    tags: ['Service Design', 'Spatial Branding', 'Product Design'],
-    image: A('bd3da450f72a2adc8c7d9a4185a000c0a6bb7d12.png'),
-    gallery: [],
-    featured: true,
-  },
-  {
-    id: 'sole',
-    title: 'SOLE',
-    subtitle: 'CX y omnicanalidad',
-    description: null,
-    tags: ['Service Design', 'Product Design', 'Spatial Branding'],
-    image: A('7134ded3236332d772a732d32ed0bae73877311c.png'),
-    gallery: [],
-    featured: false,
-  },
   {
     id: 'kinta',
     title: 'Kinta',
     subtitle: 'Spatial Branding & Art Direction',
+    year: '2024',
     description:
-      'Cuando el barrio inspira, el diseño se vuelve cultura. Proyecto integral de branding que abarca identidad visual y dirección de arte aplicados en materiales físicos, digitales e impresos. El concepto se aleja del minimalismo convencional para reinterpretar la identidad del barrio a través de gráficos expresivos, colores vibrantes e iconografía local.',
+      'Cuando el barrio inspira, el diseño se vuelve cultura. Proyecto integral de branding que abarca identidad visual y dirección de arte aplicados en materiales físicos, digitales e impresos.',
     tags: ['Branding', 'Spatial Branding'],
+    cover: '/covers/kinta.png',
     image: A('a4c0394cb84cc035bec1a4a814f268400f0f7ceb.png'),
-    gallery: [
-      { src: A('ca7e59795bee8ceffac2e729e263ed1f2744eb29.png'), caption: 'Sistema tipográfico' },
-      { src: A('4b2ed6b48afd02b96503bc51aed890bd7bc2aaa2.png'), caption: 'Papelería y tarjetas' },
-      { src: A('16ac867504e1430e9c90d9201b1482cad42bb875.png'), caption: 'Paleta de color' },
-      { src: A('6866ba8e04124beaf4bc5bc4a0f225bbb21ab8fa.png'), caption: 'Elementos gráficos' },
-      { src: A('e4565d7806cf5bb456834198045bcb5506903699.png'), caption: 'Aplicación digital' },
-      { src: A('1ae2df33ea42b78beed567d8db74450ef1e4c058.png'), caption: 'Aplicación digital' },
-      { src: A('356aa3f7c3b0675a03a708a52e9bfdf1e6f2566a.png'), caption: 'Identidad visual' },
-      { src: A('702a4b9aebc2479b85fdfb6c34c6001a1da607a1.png'), caption: 'Identidad visual' },
-      { src: A('58c7972b462e53eb0eebff6dc298a82d575dfdcb.png'), caption: 'Identidad visual' },
-      { src: A('c4c20a994a28cb3acc7048662acd1c7d22efed3d.png'), caption: 'Aplicación digital' },
-    ],
-    featured: false,
+    gallery: g('/covers/kinta.png', 'kinta', 4),
+  },
+  {
+    id: 'cafe-don-salazar',
+    title: 'Café Don Salazar',
+    subtitle: 'Service Design',
+    year: '2024',
+    description:
+      'El proyecto propone una experiencia pop-up diseñada bajo un enfoque de Service Design, donde el espacio físico se convierte en el canal principal de interacción entre la marca y su audiencia.',
+    tags: ['Service Design', 'Spatial Branding', 'Product Design'],
+    cover: '/covers/don-salazar.png',
+    image: A('bd3da450f72a2adc8c7d9a4185a000c0a6bb7d12.png'),
+    gallery: g('/covers/don-salazar.png', 'cafe-don-salazar', 9),
+  },
+  {
+    id: 'sole',
+    title: 'SOLE',
+    subtitle: 'CX y Omnicanalidad',
+    year: '2024',
+    description:
+      'Diseño de experiencia omnicanal centrada en el cliente. Integración de touchpoints físicos y digitales para construir una experiencia de marca coherente.',
+    tags: ['Service Design', 'Product Design', 'Spatial Branding'],
+    cover: '/covers/sole.png',
+    image: A('7134ded3236332d772a732d32ed0bae73877311c.png'),
+    gallery: g('/covers/sole.png', 'sole', 8),
   },
   {
     id: 'modulor',
     title: 'Modulor',
     subtitle: 'Web End to End',
-    description: null,
+    year: '2023',
+    description:
+      'Lideré la transformación completa de Modulor, desde el rebranding de su identidad visual hasta el despliegue de su nueva plataforma digital.',
     tags: ['Product Design', 'Branding', 'Project Manager'],
+    cover: '/covers/modulor.png',
     video: V('bb27fad4b9d586bb62d8dc9440261faaf965d935'),
     image: A('1245f94e5a40c7ef21810cbd4273674df06d0a44.png'),
     gallery: [],
-    featured: false,
+  },
+  {
+    id: 'kuna',
+    title: 'Kuna',
+    subtitle: 'Branding',
+    year: '2024',
+    description:
+      'Identidad visual completa para una marca de moda con raíces andinas. Sistema de marca que equilibra herencia cultural con estética contemporánea.',
+    tags: ['Branding', 'Art Direction'],
+    cover: '/covers/kuna.png',
+    image: '/covers/kuna.png',
+    gallery: [],
+  },
+  {
+    id: 'marea',
+    title: 'Marea',
+    subtitle: 'Experience Design',
+    year: '2023',
+    description:
+      'Diseño de experiencia para un espacio gastronómico frente al mar. Concepto espacial e identidad visual que captura la esencia del litoral.',
+    tags: ['Experience Design', 'Spatial Branding'],
+    cover: '/covers/marea.png',
+    image: '/covers/marea.png',
+    gallery: g('/covers/marea.png', 'marea', 7),
+  },
+  {
+    id: 's-collection',
+    title: 'S. Collection',
+    subtitle: 'Art Direction',
+    year: '2024',
+    description:
+      'Dirección de arte para colección de moda. Concepto editorial, selección de locaciones, casting y producción fotográfica.',
+    tags: ['Art Direction', 'Fashion'],
+    cover: '/covers/s-collection.png',
+    image: '/covers/s-collection.png',
+    gallery: [],
+  },
+  {
+    id: 'yuyito',
+    title: 'Yuyito',
+    subtitle: 'Branding & Espacial',
+    year: '2023',
+    description:
+      'Proyecto de branding e interiorismo para restaurante de cocina peruana contemporánea. La identidad visual dialoga con el diseño del espacio.',
+    tags: ['Branding', 'Spatial Branding'],
+    cover: '/covers/yuyito.png',
+    image: '/covers/yuyito.png',
+    gallery: g('/covers/yuyito.png', 'yuyito', 3),
+  },
+  {
+    id: 'enter-the-beyond',
+    title: 'Enter The Beyond',
+    subtitle: 'Motion & Art Direction',
+    year: '2024',
+    description:
+      'Proyecto de motion design y dirección de arte para una experiencia inmersiva. Narrativa visual que transporta al espectador a un universo propio.',
+    tags: ['Motion', 'Art Direction'],
+    cover: '/covers/enter-the-beyond.png',
+    image: '/covers/enter-the-beyond.png',
+    gallery: g('/covers/enter-the-beyond.png', 'enter-the-beyond', 4),
   },
 ]
 

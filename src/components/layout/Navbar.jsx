@@ -1,155 +1,85 @@
-import { useState, useEffect } from 'react'
-
-const AVATAR =
-  'https://portafoliostefduarte.figma.site/_assets/v11/6bd60f16ef6da3cc25671f4ad02961d76aa18ec7.png'
+import { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const links = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/#projects', scrollId: 'projects' },
+  { label: 'Home',    href: '/' },
+  { label: 'Contact', href: '#contact' },
+  { label: 'Works',   href: '#gallery' },
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const navigate  = useNavigate()
+  const location  = useLocation()
+  const isMobile  = useIsMobile()
 
-  function handleNav(e, link) {
-    if (!link.scrollId) return
-    const el = document.getElementById(link.scrollId)
-    if (el) {
-      e.preventDefault()
-      setOpen(false)
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-    // if element not found (e.g. on /about), let href navigate normally
-  }
-
-  // Close mobile menu on any navigation
   useEffect(() => {
-    const close = () => setOpen(false)
-    window.addEventListener('hashchange', close)
-    window.addEventListener('popstate', close)
-    return () => {
-      window.removeEventListener('hashchange', close)
-      window.removeEventListener('popstate', close)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const id = href.slice(1)
+      if (location.pathname === '/') {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        navigate('/')
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+        }, 300)
+      }
+    }
+  }
+
   return (
-    <>
-      <nav
-        className="flex items-center justify-between px-6 md:px-10 py-5 sticky top-0 z-50"
-        style={{ backgroundColor: 'var(--color-bg)' }}
-      >
-        {/* Avatar / Logo */}
-        <a href="/" aria-label="Inicio" className="flex items-center gap-3 no-underline">
-          <div
-            className="w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0"
-            style={{ boxShadow: 'var(--shadow-avatar)' }}
-          >
-            <img
-              src={AVATAR}
-              alt="Stefanny Duarte"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: '20px',
-              letterSpacing: '-0.045em',
-              color: 'var(--color-ink)',
-            }}
-          >
-            Stefanny Duarte
-          </span>
-        </a>
-
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-10 list-none m-0 p-0">
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={(e) => handleNav(e, link)}
-                className="no-underline transition-opacity duration-200 hover:opacity-50"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: 400,
-                  fontSize: 'var(--text-body)',
-                  letterSpacing: '-0.03em',
-                  color: 'var(--color-ink)',
-                }}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile — hamburger / X */}
-        <button
-          className="md:hidden flex flex-col justify-center gap-[5px] p-2 -mr-2"
-          onClick={() => setOpen((o) => !o)}
-          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+    <nav
+      style={{
+        position: 'fixed',
+        top: '1.5rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 100,
+        display: 'flex',
+        alignItems: 'center',
+        gap: isMobile ? '1.25rem' : '2.5rem',
+        padding: isMobile ? '0.5rem 1.25rem' : '0.6rem 2rem',
+        borderRadius: '100px',
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
+        backgroundColor: scrolled
+          ? 'rgba(245, 244, 240, 0.55)'
+          : 'rgba(245, 244, 240, 0.35)',
+        boxShadow: scrolled
+          ? '0 2px 24px rgba(0,0,0,0.07)'
+          : '0 1px 12px rgba(0,0,0,0.04)',
+        transition: 'background-color 0.3s, box-shadow 0.3s',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {links.map(({ label, href }) => (
+        <a
+          key={label}
+          href={href}
+          onClick={(e) => handleClick(e, href)}
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 400,
+            fontSize: isMobile ? '0.78rem' : '0.95rem',
+            letterSpacing: '0.04em',
+            color: '#1A1815',
+            textDecoration: 'none',
+            transition: 'color 0.2s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.color = '#820606'}
+          onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
         >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              style={{
-                display: 'block',
-                width: '22px',
-                height: '1.5px',
-                borderRadius: '2px',
-                backgroundColor: 'var(--color-ink)',
-                transformOrigin: 'center',
-                transition: 'transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.2s',
-                transform:
-                  open && i === 0
-                    ? 'translateY(6.5px) rotate(45deg)'
-                    : open && i === 2
-                    ? 'translateY(-6.5px) rotate(-45deg)'
-                    : 'none',
-                opacity: open && i === 1 ? 0 : 1,
-              }}
-            />
-          ))}
-        </button>
-      </nav>
-
-      {/* Mobile dropdown */}
-      <div
-        className="md:hidden fixed left-0 right-0 z-40 overflow-hidden"
-        style={{
-          top: '89px',
-          backgroundColor: 'var(--color-bg)',
-          borderBottom: open ? '0.5px solid var(--color-border)' : 'none',
-          maxHeight: open ? '240px' : '0',
-          transition: 'max-height 0.35s cubic-bezier(0.16,1,0.3,1)',
-        }}
-      >
-        <ul className="list-none m-0 flex flex-col px-6 py-6 gap-5 p-0">
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={(e) => { handleNav(e, link); setOpen(false) }}
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: 400,
-                  fontSize: 'var(--text-heading-md)',
-                  letterSpacing: '-0.045em',
-                  color: 'var(--color-ink)',
-                  textDecoration: 'none',
-                }}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+          {label}
+        </a>
+      ))}
+    </nav>
   )
 }
