@@ -63,7 +63,7 @@ export default function Footer() {
     <footer
       id="contact"
       style={{
-        backgroundColor: '#1a1b22',
+        backgroundColor: '#9A0809',
         color: '#fff',
         position: 'relative',
         overflow: 'hidden',

@@ -3,9 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
 const links = [
-  { label: 'Home',    href: '/' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'Works',   href: '#gallery' },
+  { label: 'Home',     href: '#top' },
+  { label: 'Projects', href: '#gallery' },
+  { label: 'About me', href: '#about' },
+  { label: 'Contact',  href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -14,6 +15,9 @@ export default function Navbar() {
   const location  = useLocation()
   const isMobile  = useIsMobile()
 
+  // Hide navbar on project pages
+  if (location.pathname.startsWith('/project/')) return null
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -21,17 +25,20 @@ export default function Navbar() {
   }, [])
 
   const handleClick = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      const id = href.slice(1)
-      if (location.pathname === '/') {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    e.preventDefault()
+    const scrollTo = (id) => {
+      if (id === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
-        navigate('/')
-        setTimeout(() => {
-          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-        }, 300)
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
       }
+    }
+    const id = href.slice(1)
+    if (location.pathname === '/') {
+      scrollTo(id)
+    } else {
+      navigate('/')
+      setTimeout(() => scrollTo(id), 300)
     }
   }
 

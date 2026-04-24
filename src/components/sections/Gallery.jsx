@@ -13,6 +13,7 @@ const PROJECTS = [
   { id: 's-collection',     title: 'S. Collection',    subtitle: 'Art Direction',                    cover: '/covers/s-collection.png'     },
   { id: 'yuyito',           title: 'Yuyito',           subtitle: 'Branding & Espacial',              cover: '/covers/yuyito.png'           },
   { id: 'enter-the-beyond', title: 'Enter The Beyond', subtitle: 'Motion & Art Direction',           cover: '/covers/enter-the-beyond.png' },
+  { id: 'root',             title: 'Root',             subtitle: 'UX Research & Service Design',     cover: '/covers/root.png'             },
 ]
 
 /* ── Card size — 16:9 ── */
@@ -21,18 +22,19 @@ const CARD_H = Math.round(CARD_W * 9 / 16)  // 439px
 
 /* ── Scattered positions within one patch (top-left of each card) ── */
 /* Lots of breathing room — no rows, no columns                       */
-const PATCH_W = 3400
-const PATCH_H = 2400
+const PATCH_W = 3800
+const PATCH_H = 2800
 const BASE_POS = [
   { idx: 0, x:    0, y:  200 },
   { idx: 1, x: 1300, y:    0 },
-  { idx: 2, x: 2500, y:  380 },
+  { idx: 2, x: 2700, y:  380 },
   { idx: 3, x:  500, y:  950 },
-  { idx: 4, x: 1700, y:  780 },
-  { idx: 5, x: 2700, y: 1100 },
-  { idx: 6, x:  160, y: 1620 },
-  { idx: 7, x: 1450, y: 1500 },
-  { idx: 8, x: 2600, y: 1820 },
+  { idx: 4, x: 1800, y:  780 },
+  { idx: 5, x: 2900, y: 1100 },
+  { idx: 6, x:  160, y: 1650 },
+  { idx: 7, x: 1500, y: 1500 },
+  { idx: 8, x: 2700, y: 1900 },
+  { idx: 9, x:  900, y: 2300 },
 ]
 
 /* ── Tile 3×3 patches for "infinite" feel ── */
@@ -175,20 +177,33 @@ export default function Gallery() {
           position: absolute;
           overflow: hidden;
         }
-        .pin-card img {
+        /* Cover image wrapper */
+        .pin-cover {
+          position: absolute; inset: 0;
+          pointer-events: none;
+        }
+        .pin-cover img {
           width: 100%; height: 100%;
           object-fit: cover; display: block;
           pointer-events: none; user-select: none;
           -webkit-user-drag: none;
-          transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+          transition: transform 0.55s cubic-bezier(0.16,1,0.3,1),
+                      opacity 0.4s ease;
         }
-        .pin-card:hover img { transform: scale(1.04); }
+        .pin-card:hover .pin-cover img {
+          transform: scale(1.06);
+          opacity: 0.55;
+        }
+
+        /* Dark overlay — always present, darkens on hover */
         .pin-info {
           position: absolute; inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+          background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
           opacity: 0; transition: opacity 0.3s ease;
           display: flex; flex-direction: column;
           justify-content: flex-end; padding: 1.5rem;
+          pointer-events: none;
+          z-index: 2;
         }
         .pin-card:hover .pin-info { opacity: 1; }
         .pin-title {
@@ -201,6 +216,29 @@ export default function Gallery() {
           font-size: clamp(0.6rem, 0.9vw, 0.75rem);
           letter-spacing: 0.1em; text-transform: uppercase;
           color: rgba(255,255,255,0.7); margin: 0;
+        }
+
+        /* Preview images — each covers the full card, stacked, fade in on hover */
+        .pin-preview {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.45s ease;
+          z-index: 3;
+        }
+        .pin-preview img {
+          width: 100%; height: 100%;
+          object-fit: cover; display: block;
+          pointer-events: none; user-select: none;
+          -webkit-user-drag: none;
+        }
+
+        .pin-card:hover .pin-preview-a {
+          opacity: 1;
         }
       `}</style>
 
@@ -241,14 +279,25 @@ export default function Gallery() {
               top:    `${item.y}px`,
               cursor: 'grab',
             }}
-            onPointerUp={() => {
-              if (!didDrag.current) navigate(`/project/${item.id}`)
+            onClick={() => {
+              if (didDrag.current) return
+              window.location.href = `/project/${item.id}`
             }}
           >
-            <img src={item.cover} alt={item.title} loading="lazy" />
+            {/* Cover image */}
+            <div className="pin-cover">
+              <img src={item.cover} alt={item.title} loading="lazy" />
+            </div>
+
+            {/* Hover overlay info */}
             <div className="pin-info">
               <p className="pin-title">{item.title}</p>
               <p className="pin-sub">{item.subtitle}</p>
+            </div>
+
+            {/* Preview images — appear inside the card on hover */}
+            <div className="pin-preview pin-preview-a">
+              <img src={`/projects/${item.id}/1.png`} alt="" loading="lazy" />
             </div>
           </div>
         ))}

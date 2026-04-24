@@ -60,7 +60,7 @@ export default function ProjectPage() {
 
       {/* ── Close — fixed top right ── */}
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => window.location.href = '/'}
         style={{
           position: 'fixed', top: '1.5rem', right: isMobile ? '1rem' : '2rem', zIndex: 200,
           display: 'flex', alignItems: 'center',
@@ -121,26 +121,18 @@ export default function ProjectPage() {
             </span>
           </div>
 
-          {/* BOTTOM — info panel (always visible, static) */}
+          {/* BOTTOM — info panel */}
           <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#F5F4F0', flexShrink: 0 }}>
 
-            {/* Left — empty (desktop only) */}
-            {!isMobile && <div />}
-
-            {/* Right — project info */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '1.5rem' : '2.5rem 3rem 2.5rem 1.5rem', overflowY: 'auto' }}>
+            {/* Left — subtitle + title + year + tags */}
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '1.5rem 1.5rem 0.5rem' : '2.5rem 2rem 2.5rem 3rem', overflowY: 'auto' }}>
               <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#B9111C', margin: '0 0 0.6rem' }}>
                 {project.subtitle}
               </p>
-              <h1 style={{ fontFamily: "'Gilda Display', serif", fontWeight: 400, fontSize: 'clamp(1.6rem, 2.8vw, 3rem)', letterSpacing: '-0.02em', lineHeight: 1.05, color: '#1A1815', margin: '0 0 1rem' }}>
+              <h1 style={{ fontFamily: "'Gilda Display', serif", fontWeight: 400, fontSize: 'clamp(1.8rem, 3.5vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 1.05, color: '#1A1815', margin: '0 0 1.5rem' }}>
                 {project.title}
               </h1>
-              {project.description && (
-                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: 'rgba(26,24,21,0.55)', margin: '0 0 1.25rem', maxWidth: '480px' }}>
-                  {project.description}
-                </p>
-              )}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', alignItems: 'center', marginBottom: '1rem' }}>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.12em', color: 'rgba(26,24,21,0.28)', marginRight: '0.4rem' }}>
                   {project.year}
                 </span>
@@ -150,9 +142,18 @@ export default function ProjectPage() {
                   </span>
                 ))}
               </div>
-              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.2)', margin: '1.5rem 0 0' }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.2)', margin: 0 }}>
                 ← scroll to explore
               </p>
+            </div>
+
+            {/* Right — description */}
+            <div style={{ display: 'flex', alignItems: 'center', padding: isMobile ? '0 1.5rem 1.5rem' : '2.5rem 3rem 2.5rem 1.5rem', overflowY: 'auto' }}>
+              {project.description && (
+                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: 'rgba(26,24,21,0.55)', margin: 0 }}>
+                  {project.description}
+                </p>
+              )}
             </div>
           </div>
 

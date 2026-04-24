@@ -3,6 +3,7 @@ import Footer from '../components/layout/Footer'
 import Hero   from '../components/sections/Hero'
 import Gallery from '../components/sections/Gallery'
 import AboutUs from '../components/sections/AboutUs'
+import { useHeroGallerySnap } from '../hooks/useHeroGallerySnap'
 
 function Sticky({ children, zIndex }) {
   return (
@@ -100,9 +101,10 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
 export default function Home() {
   const contactWrapRef = useRef(null)
   const aboutRef       = useRef(null)
+  useHeroGallerySnap()
 
   return (
-    <div style={{ backgroundColor: '#F5F4F0' }}>
+    <div id="top" style={{ backgroundColor: '#F5F4F0' }}>
       <SectionLabel contactWrapRef={contactWrapRef} aboutRef={aboutRef} />
 
       <main>
