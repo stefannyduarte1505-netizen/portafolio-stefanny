@@ -133,16 +133,16 @@ export default function ProjectPage() {
                 {project.title}
               </h1>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', alignItems: 'center', marginBottom: '1rem' }}>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.12em', color: 'rgba(26,24,21,0.28)', marginRight: '0.4rem' }}>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: '0.6rem', letterSpacing: '0.12em', color: '#1A1815', marginRight: '0.4rem' }}>
                   {project.year}
                 </span>
                 {project.tags.map(tag => (
-                  <span key={tag} style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.38)', border: '0.5px solid rgba(26,24,21,0.15)', padding: '0.2rem 0.6rem', borderRadius: '100px' }}>
+                  <span key={tag} style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1A1815', border: '0.5px solid rgba(26,24,21,0.4)', padding: '0.2rem 0.6rem', borderRadius: '100px' }}>
                     {tag}
                   </span>
                 ))}
               </div>
-              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.2)', margin: 0 }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1A1815', margin: 0 }}>
                 ← scroll to explore
               </p>
             </div>
@@ -150,7 +150,7 @@ export default function ProjectPage() {
             {/* Right — description */}
             <div style={{ display: 'flex', alignItems: 'center', padding: isMobile ? '0 1.5rem 1.5rem' : '2.5rem 3rem 2.5rem 1.5rem', overflowY: 'auto' }}>
               {project.description && (
-                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: 'rgba(26,24,21,0.55)', margin: 0 }}>
+                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: '#1A1815', margin: 0 }}>
                   {project.description}
                 </p>
               )}
