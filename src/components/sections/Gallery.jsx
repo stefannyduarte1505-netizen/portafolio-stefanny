@@ -50,7 +50,7 @@ const GRID = (() => {
           key:      `${tx}-${ty}-${pos.idx}`,
           id:       p.id,
           title:    p.title,
-          subtitle: p.subtitle,
+          tag:      p.tag,
           cover:    p.cover,
           x:        (tx - TILES_X / 2) * PATCH_W + pos.x - CARD_W / 2,
           y:        (ty - TILES_Y / 2) * PATCH_H + pos.y - CARD_H / 2,
