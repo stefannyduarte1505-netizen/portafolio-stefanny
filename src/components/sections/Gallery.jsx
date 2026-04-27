@@ -4,16 +4,16 @@ import { useNavigate } from 'react-router-dom'
 
 /* ── Project covers (cycle infinitely across the grid) ── */
 const PROJECTS = [
-  { id: 'kinta',            title: 'Kinta',            subtitle: 'Spatial Branding & Art Direction', cover: '/covers/kinta.png'            },
-  { id: 'cafe-don-salazar', title: 'Café Don Salazar', subtitle: 'Service Design',                   cover: '/covers/don-salazar.png'      },
-  { id: 'sole',             title: 'SOLE',             subtitle: 'CX y Omnicanalidad',               cover: '/covers/sole.png'             },
-  { id: 'modulor',          title: 'Modulor',          subtitle: 'Web End to End',                   cover: '/covers/modulor.png'          },
-  { id: 'kuna',             title: 'Kuna',             subtitle: 'Branding',                         cover: '/covers/kuna.png'             },
-  { id: 'marea',            title: 'Marea',            subtitle: 'Experience Design',                cover: '/covers/marea.png'            },
-  { id: 's-collection',     title: 'S. Collection',    subtitle: 'Art Direction',                    cover: '/covers/s-collection.png'     },
-  { id: 'yuyito',           title: 'Yuyito',           subtitle: 'Branding & Espacial',              cover: '/covers/yuyito.png'           },
-  { id: 'enter-the-beyond', title: 'Enter The Beyond', subtitle: 'Motion & Art Direction',           cover: '/covers/enter-the-beyond.png' },
-  { id: 'root',             title: 'Root',             subtitle: 'UX Research & Service Design',     cover: '/covers/root.png'             },
+  { id: 'kinta',            title: 'Kinta',            tag: 'Branding Consulting · Spatial Branding',  cover: '/covers/kinta.png'            },
+  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tag: 'Service Design · Spatial Branding',       cover: '/covers/don-salazar.png'      },
+  { id: 'sole',             title: 'SOLE',             tag: 'Service Design · Spatial Branding',       cover: '/covers/sole.png'             },
+  { id: 'modulor',          title: 'Modulor',          tag: 'Product Designer · Branding',             cover: '/covers/modulor.png'          },
+  { id: 'kuna',             title: 'Kuna',             tag: 'Spatial Branding · Product Design',       cover: '/covers/kuna.png'             },
+  { id: 'marea',            title: 'Marea',            tag: 'Product Designer · UX/UI',                cover: '/covers/marea.png'            },
+  { id: 's-collection',     title: 'S. Collection',    tag: 'Branding Consulting',                     cover: '/covers/s-collection.png'     },
+  { id: 'yuyito',           title: 'Yuyito',           tag: 'Branding Consulting · Spatial Branding',  cover: '/covers/yuyito.png'           },
+  { id: 'enter-the-beyond', title: 'Enter The Beyond', tag: 'Product Designer · UX/UI',                cover: '/covers/enter-the-beyond.png' },
+  { id: 'root',             title: 'Root',             tag: 'UX Research · Service Design',            cover: '/covers/root.png'             },
 ]
 
 /* ── Card size — 16:9 ── */
@@ -195,28 +195,43 @@ export default function Gallery() {
           opacity: 0.55;
         }
 
-        /* Dark overlay — always present, darkens on hover */
-        .pin-info {
+        /* Permanent corner label — bottom left, always visible */
+        .pin-label {
+          position: absolute;
+          bottom: 1.25rem;
+          left: 1.4rem;
+          pointer-events: none;
+          z-index: 4;
+          opacity: 0.92;
+          transition: opacity 0.3s ease;
+        }
+        .pin-card:hover .pin-label { opacity: 0; }
+        .pin-title {
+          font-family: "'Gilda Display', serif";
+          font-family: var(--font-display); font-weight: 600;
+          font-size: clamp(0.95rem, 1.5vw, 1.35rem);
+          letter-spacing: -0.02em; color: #fff;
+          margin: 0 0 0.3rem; line-height: 1.1;
+          text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+        }
+        .pin-tag {
+          font-family: "'Poppins', sans-serif";
+          font-weight: 300;
+          font-size: clamp(0.52rem, 0.75vw, 0.65rem);
+          letter-spacing: 0.12em; text-transform: uppercase;
+          color: rgba(255,255,255,0.75); margin: 0;
+          text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+
+        /* Gradient base so text is always readable */
+        .pin-gradient {
           position: absolute; inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
-          opacity: 0; transition: opacity 0.3s ease;
-          display: flex; flex-direction: column;
-          justify-content: flex-end; padding: 1.5rem;
+          background: linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 55%);
           pointer-events: none;
           z-index: 2;
+          transition: opacity 0.3s ease;
         }
-        .pin-card:hover .pin-info { opacity: 1; }
-        .pin-title {
-          font-family: var(--font-display); font-weight: 700;
-          font-size: clamp(1.1rem, 1.8vw, 1.6rem);
-          letter-spacing: -0.03em; color: #fff; margin: 0 0 0.2rem; line-height: 1.1;
-        }
-        .pin-sub {
-          font-family: var(--font-display); font-weight: 300;
-          font-size: clamp(0.6rem, 0.9vw, 0.75rem);
-          letter-spacing: 0.1em; text-transform: uppercase;
-          color: rgba(255,255,255,0.7); margin: 0;
-        }
+        .pin-card:hover .pin-gradient { opacity: 0; }
 
         /* Preview images — each covers the full card, stacked, fade in on hover */
         .pin-preview {
@@ -289,13 +304,16 @@ export default function Gallery() {
               <img src={item.cover} alt={item.title} loading="lazy" />
             </div>
 
-            {/* Hover overlay info */}
-            <div className="pin-info">
+            {/* Permanent gradient base so text is readable */}
+            <div className="pin-gradient" />
+
+            {/* Corner label — title + tags, always visible, hides on hover */}
+            <div className="pin-label">
               <p className="pin-title">{item.title}</p>
-              <p className="pin-sub">{item.subtitle}</p>
+              <p className="pin-tag">{item.tag}</p>
             </div>
 
-            {/* Preview images — appear inside the card on hover */}
+            {/* Preview image — fades in on hover */}
             <div className="pin-preview pin-preview-a">
               <img src={`/projects/${item.id}/1.png`} alt="" loading="lazy" />
             </div>
