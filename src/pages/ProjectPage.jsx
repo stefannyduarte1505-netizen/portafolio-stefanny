@@ -10,8 +10,8 @@ export default function ProjectPage() {
   const project    = getProject(slug)
   const isMobile   = useIsMobile()
 
-  const IMG_H  = isMobile ? 50 : 58   // vh
-  const INFO_H = isMobile ? 50 : 42   // vh
+  const IMG_H  = isMobile ? 42 : 58   // vh
+  const INFO_H = isMobile ? 58 : 42   // vh
 
   const wrapperRef  = useRef(null)
   const stripRef    = useRef(null)
@@ -122,7 +122,7 @@ export default function ProjectPage() {
           </div>
 
           {/* BOTTOM — info panel */}
-          <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#F5F4F0', flexShrink: 0 }}>
+          <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#F5F4F0', flexShrink: 0, overflowY: 'auto' }}>
 
             {/* Left — subtitle + title + year + tags */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '1.5rem 1.5rem 0.5rem' : '2.5rem 2rem 2.5rem 3rem', overflowY: 'auto' }}>
