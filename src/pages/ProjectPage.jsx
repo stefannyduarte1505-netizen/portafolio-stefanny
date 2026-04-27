@@ -60,7 +60,10 @@ export default function ProjectPage() {
 
       {/* ── Close — fixed top right ── */}
       <button
-        onClick={() => window.location.href = '/#gallery'}
+        onClick={() => {
+          sessionStorage.setItem('scrollToGallery', '1')
+          window.location.href = '/'
+        }}
         style={{
           position: 'fixed', top: '1.5rem', right: isMobile ? '1rem' : '2rem', zIndex: 200,
           display: 'flex', alignItems: 'center',

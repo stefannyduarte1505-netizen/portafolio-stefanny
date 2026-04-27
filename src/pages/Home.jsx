@@ -103,6 +103,17 @@ export default function Home() {
   const aboutRef       = useRef(null)
   useHeroGallerySnap()
 
+  // If returning from a project page, jump straight to gallery section
+  useEffect(() => {
+    if (sessionStorage.getItem('scrollToGallery')) {
+      sessionStorage.removeItem('scrollToGallery')
+      // Gallery starts exactly at 1 viewport height in the sticky layout
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: window.innerHeight, behavior: 'instant' })
+      })
+    }
+  }, [])
+
   return (
     <div id="top" style={{ backgroundColor: '#F5F4F0' }}>
       <SectionLabel contactWrapRef={contactWrapRef} aboutRef={aboutRef} />
