@@ -60,7 +60,7 @@ export default function ProjectPage() {
 
       {/* ── Close — fixed top right ── */}
       <button
-        onClick={() => window.location.href = '/'}
+        onClick={() => window.location.href = '/#gallery'}
         style={{
           position: 'fixed', top: '1.5rem', right: isMobile ? '1rem' : '2rem', zIndex: 200,
           display: 'flex', alignItems: 'center',
