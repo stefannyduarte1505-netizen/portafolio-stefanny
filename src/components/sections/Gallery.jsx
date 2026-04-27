@@ -214,13 +214,21 @@ export default function Gallery() {
           margin: 0 0 0.3rem; line-height: 1.1;
           text-shadow: 0 1px 8px rgba(0,0,0,0.5);
         }
+        .pin-tags {
+          display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem;
+        }
         .pin-tag {
           font-family: "'Poppins', sans-serif";
           font-weight: 300;
-          font-size: clamp(0.52rem, 0.75vw, 0.65rem);
-          letter-spacing: 0.12em; text-transform: uppercase;
-          color: rgba(255,255,255,0.75); margin: 0;
-          text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+          font-size: clamp(0.48rem, 0.65vw, 0.58rem);
+          letter-spacing: 0.08em; text-transform: uppercase;
+          color: rgba(255,255,255,0.9);
+          border: 0.5px solid rgba(255,255,255,0.55);
+          padding: 0.18rem 0.55rem;
+          border-radius: 100px;
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          background: rgba(0,0,0,0.18);
         }
 
         /* Gradient base so text is always readable */
@@ -307,10 +315,14 @@ export default function Gallery() {
             {/* Permanent gradient base so text is readable */}
             <div className="pin-gradient" />
 
-            {/* Corner label — title + tags, always visible, hides on hover */}
+            {/* Corner label — title + hashtag pills, always visible, hides on hover */}
             <div className="pin-label">
               <p className="pin-title">{item.title}</p>
-              <p className="pin-tag">{item.tag}</p>
+              <div className="pin-tags">
+                {item.tag.split('·').map(t => (
+                  <span key={t} className="pin-tag">#{t.trim()}</span>
+                ))}
+              </div>
             </div>
 
             {/* Preview image — fades in on hover */}
