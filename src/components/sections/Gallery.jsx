@@ -183,6 +183,78 @@ export default function Gallery() {
   }, [commit, startMomentum])
 
 
+  /* ── Mobile: simple vertical scroll list ── */
+  if (isMobile) {
+    return (
+      <section id="gallery" style={{ backgroundColor: '#F5F4F0', minHeight: '100svh', paddingTop: '1rem' }}>
+        <style>{`
+          .mob-label {
+            font-family: 'Poppins', sans-serif; font-weight: 300;
+            font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: #B9111C; padding: 1rem 1.25rem 0.75rem;
+          }
+          .mob-card {
+            position: relative; overflow: hidden;
+            margin: 0 1rem 1rem;
+            border-radius: 4px;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+          }
+          .mob-card img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+          }
+          .mob-card:active img { transform: scale(1.04); opacity: 0.7; }
+          .mob-gradient {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
+            pointer-events: none;
+          }
+          .mob-info {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 1rem 1.1rem 0.9rem;
+            pointer-events: none;
+          }
+          .mob-title {
+            font-family: 'Poppins', sans-serif; font-weight: 600;
+            font-size: 1rem; color: #fff; margin: 0 0 0.4rem;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+          }
+          .mob-tags {
+            display: flex; flex-wrap: wrap; gap: 0.25rem;
+          }
+          .mob-tag {
+            font-family: 'Poppins', sans-serif; font-weight: 300;
+            font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            border: 0.5px solid rgba(255,255,255,0.55);
+            padding: 0.15rem 0.5rem; border-radius: 100px;
+            background: rgba(0,0,0,0.15);
+          }
+        `}</style>
+        <p className="mob-label">Proyectos · tap to explore</p>
+        {PROJECTS.map(p => (
+          <div
+            key={p.id}
+            className="mob-card"
+            onClick={() => { window.location.href = `/project/${p.id}` }}
+          >
+            <img src={p.cover} alt={p.title} loading="lazy" />
+            <div className="mob-gradient" />
+            <div className="mob-info">
+              <p className="mob-title">{p.title}</p>
+              <div className="mob-tags">
+                {p.tag.split('·').map(t => (
+                  <span key={t} className="mob-tag">#{t.trim()}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+    )
+  }
+
   return (
     <section
       ref={sectionRef}
