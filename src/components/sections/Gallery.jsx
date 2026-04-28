@@ -1,6 +1,7 @@
 /* ── Project Gallery — infinite drag canvas + parallax CREATIVE DESIGNER ── */
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 /* ── Project covers (cycle infinitely across the grid) ── */
 const PROJECTS = [
@@ -16,55 +17,80 @@ const PROJECTS = [
   { id: 'root',             title: 'Root',             tag: 'UX Research · Service Design',            cover: '/covers/root.png'             },
 ]
 
-/* ── Card size — 16:9 ── */
-const CARD_W = 780
-const CARD_H = Math.round(CARD_W * 9 / 16)  // 439px
+/* ── Desktop layout ── */
+const DESK = {
+  CARD_W: 780,
+  CARD_H: Math.round(780 * 9 / 16),
+  PATCH_W: 3800,
+  PATCH_H: 2800,
+  BASE_POS: [
+    { idx: 0, x:    0, y:  200 },
+    { idx: 1, x: 1300, y:    0 },
+    { idx: 2, x: 2700, y:  380 },
+    { idx: 3, x:  500, y:  950 },
+    { idx: 4, x: 1800, y:  780 },
+    { idx: 5, x: 2900, y: 1100 },
+    { idx: 6, x:  160, y: 1650 },
+    { idx: 7, x: 1500, y: 1500 },
+    { idx: 8, x: 2700, y: 1900 },
+    { idx: 9, x:  900, y: 2300 },
+  ],
+}
 
-/* ── Scattered positions within one patch (top-left of each card) ── */
-/* Lots of breathing room — no rows, no columns                       */
-const PATCH_W = 3800
-const PATCH_H = 2800
-const BASE_POS = [
-  { idx: 0, x:    0, y:  200 },
-  { idx: 1, x: 1300, y:    0 },
-  { idx: 2, x: 2700, y:  380 },
-  { idx: 3, x:  500, y:  950 },
-  { idx: 4, x: 1800, y:  780 },
-  { idx: 5, x: 2900, y: 1100 },
-  { idx: 6, x:  160, y: 1650 },
-  { idx: 7, x: 1500, y: 1500 },
-  { idx: 8, x: 2700, y: 1900 },
-  { idx: 9, x:  900, y: 2300 },
-]
+/* ── Mobile layout — 2 staggered columns, tight spacing ── */
+const MOB = {
+  CARD_W: 245,
+  CARD_H: Math.round(245 * 9 / 16),
+  PATCH_W: 580,
+  PATCH_H: 870,
+  BASE_POS: [
+    { idx: 0, x:  10, y:  10  },
+    { idx: 1, x: 305, y:  45  },
+    { idx: 2, x:  10, y: 165  },
+    { idx: 3, x: 305, y: 205  },
+    { idx: 4, x:  10, y: 325  },
+    { idx: 5, x: 305, y: 360  },
+    { idx: 6, x:  10, y: 485  },
+    { idx: 7, x: 305, y: 520  },
+    { idx: 8, x:  10, y: 645  },
+    { idx: 9, x: 305, y: 680  },
+  ],
+}
 
-/* ── Tile 3×3 patches for "infinite" feel ── */
+/* ── Build infinite grid from layout config ── */
 const TILES_X = 3
 const TILES_Y = 3
-const GRID = (() => {
+function buildGrid(cfg) {
+  const { CARD_W, CARD_H, PATCH_W, PATCH_H, BASE_POS } = cfg
   const items = []
   for (let tx = 0; tx < TILES_X; tx++) {
     for (let ty = 0; ty < TILES_Y; ty++) {
       for (const pos of BASE_POS) {
         const p = PROJECTS[pos.idx]
         items.push({
-          key:      `${tx}-${ty}-${pos.idx}`,
-          id:       p.id,
-          title:    p.title,
-          tag:      p.tag,
-          cover:    p.cover,
-          x:        (tx - TILES_X / 2) * PATCH_W + pos.x - CARD_W / 2,
-          y:        (ty - TILES_Y / 2) * PATCH_H + pos.y - CARD_H / 2,
+          key:   `${tx}-${ty}-${pos.idx}`,
+          id:    p.id,
+          title: p.title,
+          tag:   p.tag,
+          cover: p.cover,
+          w:     CARD_W,
+          h:     CARD_H,
+          x:     (tx - TILES_X / 2) * PATCH_W + pos.x - CARD_W / 2,
+          y:     (ty - TILES_Y / 2) * PATCH_H + pos.y - CARD_H / 2,
         })
       }
     }
   }
   return items
-})()
+}
 
 export default function Gallery() {
   const navigate   = useNavigate()
+  const isMobile   = useIsMobile()
   const sectionRef = useRef(null)
   const canvasRef  = useRef(null)
+
+  const GRID = useMemo(() => buildGrid(isMobile ? MOB : DESK), [isMobile])
 
   const posRef   = useRef({ x: 0, y: 0 })
   const velRef   = useRef({ x: 0, y: 0 })
@@ -296,8 +322,8 @@ export default function Gallery() {
             draggable={false}
             className="pin-card"
             style={{
-              width:  `${CARD_W}px`,
-              height: `${CARD_H}px`,
+              width:  `${item.w}px`,
+              height: `${item.h}px`,
               left:   `${item.x}px`,
               top:    `${item.y}px`,
               cursor: 'grab',
