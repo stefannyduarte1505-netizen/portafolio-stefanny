@@ -164,12 +164,9 @@ export default function AboutUs() {
               maxWidth:   '480px',
             }}
           >
-            Diseñadora de Marca y Experiencia Digital con más de 6 años de experiencia en
-            proyectos de retail y corporativos, diseñando identidades de marca y los productos
-            digitales que las sostienen. Mi trabajo cruza Branding, Diseño de Producto y CX &amp;
-            Service Design, traduciendo investigación en sistemas coherentes y funcionales
-            alineados con los objetivos de negocio — partiendo de espacios físicos de retail y
-            aplicando ese mismo rigor a experiencias digitales.
+            <span style={{ fontWeight: 500, color: 'rgba(26,24,21,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', fontSize: 'clamp(0.6rem, 0.7vw, 0.7rem)' }}>Experience</span>
+            <br />
+            AkzoNobel, Barcelona — trade marketing &amp; POS design · GrupoModulor, Lima — brand &amp; phygital experience lead · Fahrenheit DDB, Lima — brand systems for multi-category retail.
           </p>
         </div>
 
