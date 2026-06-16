@@ -150,7 +150,7 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Spatial Branding &amp; Experience Design: conectando marcas, espacios y personas.
+            Brand &amp; Digital Experience Design: de espacios físicos a productos digitales.
           </h2>
 
           <p
@@ -164,11 +164,12 @@ export default function AboutUs() {
               maxWidth:   '480px',
             }}
           >
-            Diseñadora Estratégica con más de 6 años de experiencia en proyectos de retail y
-            corporativos, trabajando en la intersección entre experiencia, marca y espacio.
-            Especializada en Diseño CX, Diseño de Producto, Branding y Branding Espacial, con
-            un enfoque en la creación de experiencias basadas en investigación que se traducen
-            en soluciones coherentes, funcionales y alineadas con los objetivos de negocio.
+            Diseñadora de Marca y Experiencia Digital con más de 6 años de experiencia en
+            proyectos de retail y corporativos, diseñando identidades de marca y los productos
+            digitales que las sostienen. Mi trabajo cruza Branding, Diseño de Producto y CX &amp;
+            Service Design, traduciendo investigación en sistemas coherentes y funcionales
+            alineados con los objetivos de negocio — partiendo de espacios físicos de retail y
+            aplicando ese mismo rigor a experiencias digitales.
           </p>
         </div>
 
