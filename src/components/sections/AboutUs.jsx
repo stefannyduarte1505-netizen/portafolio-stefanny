@@ -153,23 +153,24 @@ export default function AboutUs() {
             Brand &amp; Digital Experience Design: de espacios físicos a productos digitales.
           </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
-            {[
-              { years: '2026 / actual',  role: 'Internship Customer Marketing',          company: 'AkzoNobel · Barcelona' },
-              { years: '2023 / actual',  role: 'Project Manager & Design Experience Lead', company: 'GrupoModulor · Lima'   },
-              { years: '2021 / 2023',    role: 'Strategic Creative Designer',             company: 'Fahrenheit DDB · Lima'  },
-            ].map(({ years, role, company }) => (
-              <div key={role} style={{ display: 'grid', gridTemplateColumns: 'clamp(5rem, 8vw, 7.5rem) 1fr', gap: '0 clamp(0.75rem, 1.5vw, 1.5rem)', alignItems: 'start' }}>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.6rem, 0.75vw, 0.72rem)', color: 'rgba(26,24,21,0.38)', paddingTop: '0.15em', whiteSpace: 'nowrap' }}>
-                  {years}
-                </span>
-                <div>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 'clamp(0.72rem, 0.85vw, 0.82rem)', color: '#1A1815', margin: '0 0 0.15em' }}>{role}</p>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.65rem, 0.78vw, 0.75rem)', color: 'rgba(26,24,21,0.5)', margin: 0 }}>{company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 300,
+              fontSize:   'clamp(0.78rem, 0.9vw, 0.9rem)',
+              lineHeight: 1.8,
+              color:      'rgba(26,24,21,0.65)',
+              margin:     0,
+              maxWidth:   '480px',
+            }}
+          >
+            Diseñadora de Marca y Experiencia Digital con más de 6 años de experiencia en
+            proyectos de retail y corporativos, diseñando identidades de marca y los productos
+            digitales que las sostienen. Mi trabajo cruza Branding, Diseño de Producto y CX &amp;
+            Service Design, traduciendo investigación en sistemas coherentes y funcionales
+            alineados con los objetivos de negocio — partiendo de espacios físicos de retail y
+            aplicando ese mismo rigor a experiencias digitales.
+          </p>
         </div>
 
         {/* Right — portrait photo (full, uncropped) */}
@@ -221,20 +222,23 @@ export default function AboutUs() {
             Me apasionan todas las disciplinas creativas y la estética visual.
           </h2>
 
-          <p
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontWeight: 300,
-              fontSize:   'clamp(0.78rem, 0.9vw, 0.9rem)',
-              lineHeight: 1.8,
-              color:      'rgba(26,24,21,0.65)',
-              margin:     0,
-            }}
-          >
-            En mi día a día como artista visual, fusiono el collage y la animación para
-            explorar composiciones, texturas y colores sobre mi propia fotografía,
-            dotándola de vida y movimiento.
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
+            {[
+              { years: '2026 / actual', role: 'Internship Customer Marketing',           company: 'AkzoNobel · Barcelona' },
+              { years: '2023 / actual', role: 'Project Manager & Design Experience Lead', company: 'GrupoModulor · Lima'   },
+              { years: '2021 / 2023',   role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB · Lima'  },
+            ].map(({ years, role, company }) => (
+              <div key={role} style={{ display: 'grid', gridTemplateColumns: 'clamp(5rem, 8vw, 7.5rem) 1fr', gap: '0 clamp(0.75rem, 1.5vw, 1.5rem)', alignItems: 'start' }}>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.6rem, 0.75vw, 0.72rem)', color: 'rgba(26,24,21,0.38)', paddingTop: '0.15em', whiteSpace: 'nowrap' }}>
+                  {years}
+                </span>
+                <div>
+                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 'clamp(0.72rem, 0.85vw, 0.82rem)', color: '#1A1815', margin: '0 0 0.15em' }}>{role}</p>
+                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.65rem, 0.78vw, 0.75rem)', color: 'rgba(26,24,21,0.5)', margin: 0 }}>{company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
