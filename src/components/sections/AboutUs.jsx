@@ -150,7 +150,7 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Brand &amp; Digital Experience Design: de espacios físicos a productos digitales.
+            Brand &amp; Digital Experience Design:<br />De espacios físicos a productos digitales.
           </h2>
 
           <p
