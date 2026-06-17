@@ -219,12 +219,8 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Me apasionan todas las disciplinas creativas y la estética visual.
-          </h2>
-
-          <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.65rem, 0.85vw, 0.78rem)', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(26,24,21,0.38)', margin: 0 }}>
             Experience
-          </p>
+          </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
             {[
