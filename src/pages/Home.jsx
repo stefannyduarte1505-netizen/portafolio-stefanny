@@ -76,8 +76,8 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
     <>
       {/* Hero */}
       <div ref={heroLayerRef} aria-hidden="true" style={{ ...base }}>
-        <span style={{ ...fontShared, fontSize: 'clamp(2.2rem,8.5vw,9.5rem)', color: '#B9111C', paddingLeft: '1rem' }}>Creative</span>
-        <span style={{ ...fontShared, fontSize: 'clamp(2.2rem,8.5vw,9.5rem)', color: '#B9111C', paddingLeft: 'clamp(1.5rem,9vw,10rem)' }}>Designer</span>
+        <span style={{ ...fontShared, fontSize: 'clamp(2.2rem,8.5vw,9.5rem)', color: '#B9111C', paddingLeft: '1rem' }}>Brand &amp;</span>
+        <span style={{ ...fontShared, fontSize: 'clamp(2.2rem,8.5vw,9.5rem)', color: '#B9111C', paddingLeft: 'clamp(1.5rem,9vw,10rem)' }}>Experience</span>
       </div>
 
       {/* Gallery */}
