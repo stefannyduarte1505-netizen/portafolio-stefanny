@@ -190,22 +190,24 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* ── Second text block — right-aligned on desktop, left on mobile ── */}
+      {/* ── Second text block — aligned with photo column ── */}
       <div
         style={{
-          display:        'flex',
-          justifyContent: isMobile ? 'flex-start' : 'flex-end',
-          paddingLeft:    PAD_H,
-          paddingRight:   PAD_H,
-          marginBottom:   'clamp(3rem, 5vw, 5rem)',
+          display:             'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap:                 isMobile ? '0' : 'clamp(2rem, 4vw, 4rem)',
+          paddingLeft:         PAD_H,
+          paddingRight:        PAD_H,
+          marginBottom:        'clamp(3rem, 5vw, 5rem)',
         }}
       >
+        {/* Empty left column on desktop to align with photo */}
+        {!isMobile && <div />}
         <div
           style={{
-            maxWidth: '520px',
-            display:  'flex',
+            display:       'flex',
             flexDirection: 'column',
-            gap: 'clamp(1rem, 1.5vw, 1.5rem)',
+            gap:           'clamp(1rem, 1.5vw, 1.5rem)',
           }}
         >
           <h2
