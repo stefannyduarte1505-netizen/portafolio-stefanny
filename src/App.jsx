@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
+import SolePage from './pages/SolePage'
 import Navbar from './components/layout/Navbar'
 import Cursor from './components/ui/Cursor'
 import useLenis from './hooks/useLenis'
@@ -19,6 +20,7 @@ function AppInner() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/project/sole" element={<SolePage />} />
         <Route path="/project/:slug" element={<ProjectPage />} />
       </Routes>
     </>
