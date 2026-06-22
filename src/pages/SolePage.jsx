@@ -133,6 +133,16 @@ export default function SolePage() {
         Close
       </button>
 
+      {/* ── Cover image ── */}
+      <div style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/7', overflow: 'hidden', backgroundColor: '#0e0e0e' }}>
+        <img
+          src="/covers/sole.png"
+          alt="SOLE"
+          draggable={false}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
+        />
+      </div>
+
       {/* ── Info header ── */}
       <div style={{
         paddingTop: 'clamp(5rem, 10vw, 8rem)',
