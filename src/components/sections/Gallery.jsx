@@ -1,6 +1,5 @@
-/* ── Project Gallery — infinite drag canvas + parallax CREATIVE DESIGNER ── */
-import { useRef, useEffect, useCallback, useMemo } from 'react'
-import { useNavigate } from 'react-router-dom'
+/* ── Project Gallery ── */
+import { useState } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
 /* ── Project covers (cycle infinitely across the grid) ── */
@@ -17,171 +16,14 @@ const PROJECTS = [
   { id: 'root',             title: 'Root',             tag: 'UX Research · Service Design',            cover: '/covers/root.png'             },
 ]
 
-/* ── Desktop layout ── */
-const DESK = {
-  CARD_W: 780,
-  CARD_H: Math.round(780 * 9 / 16),
-  PATCH_W: 3800,
-  PATCH_H: 2800,
-  BASE_POS: [
-    { idx: 0, x:    0, y:  200 },
-    { idx: 1, x: 1300, y:    0 },
-    { idx: 2, x: 2700, y:  380 },
-    { idx: 3, x:  500, y:  950 },
-    { idx: 4, x: 1800, y:  780 },
-    { idx: 5, x: 2900, y: 1100 },
-    { idx: 6, x:  160, y: 1650 },
-    { idx: 7, x: 1500, y: 1500 },
-    { idx: 8, x: 2700, y: 1900 },
-    { idx: 9, x:  900, y: 2300 },
-  ],
-}
 
-/* ── Mobile layout — 2 staggered columns, tight spacing ── */
-const MOB = {
-  CARD_W: 245,
-  CARD_H: Math.round(245 * 9 / 16),
-  PATCH_W: 580,
-  PATCH_H: 870,
-  BASE_POS: [
-    { idx: 0, x:  10, y:  10  },
-    { idx: 1, x: 305, y:  45  },
-    { idx: 2, x:  10, y: 165  },
-    { idx: 3, x: 305, y: 205  },
-    { idx: 4, x:  10, y: 325  },
-    { idx: 5, x: 305, y: 360  },
-    { idx: 6, x:  10, y: 485  },
-    { idx: 7, x: 305, y: 520  },
-    { idx: 8, x:  10, y: 645  },
-    { idx: 9, x: 305, y: 680  },
-  ],
-}
-
-/* ── Build infinite grid from layout config ── */
-const TILES_X = 3
-const TILES_Y = 3
-function buildGrid(cfg) {
-  const { CARD_W, CARD_H, PATCH_W, PATCH_H, BASE_POS } = cfg
-  const items = []
-  for (let tx = 0; tx < TILES_X; tx++) {
-    for (let ty = 0; ty < TILES_Y; ty++) {
-      for (const pos of BASE_POS) {
-        const p = PROJECTS[pos.idx]
-        items.push({
-          key:   `${tx}-${ty}-${pos.idx}`,
-          id:    p.id,
-          title: p.title,
-          tag:   p.tag,
-          cover: p.cover,
-          w:     CARD_W,
-          h:     CARD_H,
-          x:     (tx - TILES_X / 2) * PATCH_W + pos.x - CARD_W / 2,
-          y:     (ty - TILES_Y / 2) * PATCH_H + pos.y - CARD_H / 2,
-        })
-      }
-    }
-  }
-  return items
-}
 
 export default function Gallery() {
-  const navigate   = useNavigate()
-  const isMobile   = useIsMobile()
-  const sectionRef = useRef(null)
-  const canvasRef  = useRef(null)
+  const isMobile  = useIsMobile()
+  const [active, setActive] = useState(0)
 
-  const GRID = useMemo(() => buildGrid(isMobile ? MOB : DESK), [isMobile])
-
-  const posRef   = useRef({ x: 0, y: 0 })
-  const velRef   = useRef({ x: 0, y: 0 })
-  const dragRef  = useRef(false)
-  const rafRef   = useRef(null)
-  const lastPos  = useRef({ x: 0, y: 0 })
-  const lastT    = useRef(0)
-  const startPos = useRef({ x: 0, y: 0 })
-  const startPtr = useRef({ x: 0, y: 0 })
-  const didDrag  = useRef(false)
-
-  const commit = useCallback(() => {
-    if (canvasRef.current)
-      canvasRef.current.style.transform =
-        `translate3d(calc(-50% + ${posRef.current.x}px), calc(-50% + ${posRef.current.y}px), 0)`
-  }, [])
-
-  const stopMomentum = () => cancelAnimationFrame(rafRef.current)
-
-  const startMomentum = useCallback(() => {
-    const tick = () => {
-      velRef.current.x *= 0.92
-      velRef.current.y *= 0.92
-      posRef.current.x += velRef.current.x
-      posRef.current.y += velRef.current.y
-      commit()
-      if (Math.abs(velRef.current.x) > 0.05 || Math.abs(velRef.current.y) > 0.05)
-        rafRef.current = requestAnimationFrame(tick)
-    }
-    rafRef.current = requestAnimationFrame(tick)
-  }, [commit])
-
-  /* ── Drag interaction ── */
-  useEffect(() => {
-    commit()
-    const el = sectionRef.current
-    if (!el) return
-
-    /* Use window-level move/up so drag works outside the section
-       AND avoids setPointerCapture which hijacks click events       */
-    const onMove = (e) => {
-      if (!dragRef.current) return
-      const now = performance.now()
-      const dt  = Math.max(now - lastT.current, 1)
-      velRef.current.x = velRef.current.x * 0.5 + ((e.clientX - lastPos.current.x) / dt) * 16 * 0.5
-      velRef.current.y = velRef.current.y * 0.5 + ((e.clientY - lastPos.current.y) / dt) * 16 * 0.5
-      lastPos.current  = { x: e.clientX, y: e.clientY }
-      lastT.current    = now
-      posRef.current.x = startPos.current.x + (e.clientX - startPtr.current.x)
-      posRef.current.y = startPos.current.y + (e.clientY - startPtr.current.y)
-      commit()
-      if (Math.abs(e.clientX - startPtr.current.x) > 8 || Math.abs(e.clientY - startPtr.current.y) > 8)
-        didDrag.current = true
-    }
-
-    const onUp = () => {
-      if (!dragRef.current) return
-      dragRef.current = false
-      el.style.cursor = 'grab'
-      startMomentum()
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerup',   onUp)
-      window.removeEventListener('pointercancel', onUp)
-    }
-
-    const onDown = (e) => {
-      stopMomentum()
-      startPos.current = { ...posRef.current }
-      startPtr.current = { x: e.clientX, y: e.clientY }
-      lastPos.current  = { x: e.clientX, y: e.clientY }
-      lastT.current    = performance.now()
-      dragRef.current  = true
-      didDrag.current  = false
-      el.style.cursor  = 'grabbing'
-      /* Attach move/up to window so drag continues outside the element */
-      window.addEventListener('pointermove', onMove, { passive: true })
-      window.addEventListener('pointerup',   onUp)
-      window.addEventListener('pointercancel', onUp)
-    }
-
-    el.addEventListener('pointerdown', onDown, { passive: true })
-
-    return () => {
-      stopMomentum()
-      el.removeEventListener('pointerdown', onDown)
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerup',   onUp)
-      window.removeEventListener('pointercancel', onUp)
-    }
-  }, [commit, startMomentum])
-
+  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + PROJECTS.length) % PROJECTS.length) }
+  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % PROJECTS.length) }
 
   /* ── Mobile: horizontal scroll list ── */
   if (isMobile) {
@@ -269,180 +111,135 @@ export default function Gallery() {
     )
   }
 
+  const ap = PROJECTS[active]
+
   return (
     <section
-      ref={sectionRef}
-      className="gallery-section"
+      id="gallery"
       style={{
-        position:        'relative',
-        width:           '100%',
-        height:          '100svh',
-        overflow:        'hidden',
+        width: '100%', height: '100svh',
         backgroundColor: '#F5F4F0',
-        cursor:          'grab',
-        userSelect:      'none',
-        touchAction:     'none',
+        display: 'flex', flexDirection: 'column',
+        overflow: 'hidden',
       }}
     >
       <style>{`
-        .pin-card {
-          position: absolute;
+        .acc-track {
+          display: flex;
+          flex: 1;
+          min-height: 0;
+        }
+        .acc-card {
+          position: relative;
           overflow: hidden;
+          cursor: pointer;
+          transition: flex 0.65s cubic-bezier(0.16,1,0.3,1);
+          flex-shrink: 0;
         }
-        /* Cover image wrapper */
-        .pin-cover {
+        .acc-card img.acc-img {
           position: absolute; inset: 0;
-          pointer-events: none;
-        }
-        .pin-cover img {
           width: 100%; height: 100%;
           object-fit: cover; display: block;
           pointer-events: none; user-select: none;
-          -webkit-user-drag: none;
-          transition: transform 0.55s cubic-bezier(0.16,1,0.3,1),
-                      opacity 0.4s ease;
+          transition: opacity 0.45s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
         }
-        .pin-card:hover .pin-cover img {
-          transform: scale(1.06);
-          opacity: 0.55;
-        }
+        .acc-card.collapsed img.acc-img { opacity: 0.55; }
+        .acc-card.active img.acc-img { transform: scale(1.03); opacity: 1; }
 
-        /* Permanent corner label — bottom left, always visible */
-        .pin-label {
-          position: absolute;
-          bottom: 1.25rem;
-          left: 1.4rem;
+        /* Vertical title on collapsed cards */
+        .acc-vtitle {
+          position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%) rotate(-90deg);
+          white-space: nowrap;
+          font-family: 'Poppins', sans-serif; font-weight: 300;
+          font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.7);
           pointer-events: none;
-          z-index: 4;
-          opacity: 0.92;
           transition: opacity 0.3s ease;
         }
-        .pin-card:hover .pin-label { opacity: 0; }
-        .pin-title {
-          font-family: "'Gilda Display', serif";
-          font-family: var(--font-display); font-weight: 600;
-          font-size: clamp(0.95rem, 1.5vw, 1.35rem);
-          letter-spacing: -0.02em; color: #fff;
-          margin: 0 0 0.3rem; line-height: 1.1;
-          text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-        }
-        .pin-tags {
-          display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem;
-        }
-        .pin-tag {
-          font-family: "'Poppins', sans-serif";
-          font-weight: 300;
-          font-size: clamp(0.48rem, 0.65vw, 0.58rem);
-          letter-spacing: 0.08em; text-transform: uppercase;
-          color: rgba(255,255,255,0.9);
-          border: 0.5px solid rgba(255,255,255,0.55);
-          padding: 0.18rem 0.55rem;
-          border-radius: 100px;
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          background: rgba(0,0,0,0.18);
-        }
+        .acc-card.active .acc-vtitle { opacity: 0; }
 
-        /* Gradient base so text is always readable */
-        .pin-gradient {
+        /* Active card overlay — info panel at top */
+        .acc-info {
           position: absolute; inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 55%);
-          pointer-events: none;
-          z-index: 2;
-          transition: opacity 0.3s ease;
-        }
-        .pin-card:hover .pin-gradient { opacity: 0; }
-
-        /* Preview images — each covers the full card, stacked, fade in on hover */
-        .pin-preview {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
+          display: flex; flex-direction: column;
+          background: linear-gradient(to bottom,
+            rgba(245,244,240,0.97) 0%,
+            rgba(245,244,240,0.92) 36%,
+            transparent 70%
+          );
+          padding: clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem) 0;
           pointer-events: none;
           opacity: 0;
-          transition: opacity 0.45s ease;
-          z-index: 3;
+          transition: opacity 0.4s ease;
         }
-        .pin-preview img {
-          width: 100%; height: 100%;
-          object-fit: cover; display: block;
-          pointer-events: none; user-select: none;
-          -webkit-user-drag: none;
-        }
+        .acc-card.active .acc-info { opacity: 1; pointer-events: auto; }
 
-        .pin-card:hover .pin-preview-a {
-          opacity: 1;
+        .acc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: clamp(0.75rem,1.5vw,1.25rem); }
+        .acc-tag {
+          font-family: 'Poppins', sans-serif; font-weight: 400;
+          font-size: clamp(0.52rem, 0.65vw, 0.65rem); letter-spacing: 0.1em; text-transform: uppercase;
+          color: #1A1815; border: 0.5px solid rgba(26,24,21,0.35);
+          padding: 0.25rem 0.7rem; border-radius: 100px;
         }
+        .acc-title {
+          font-family: 'Gilda Display', serif; font-weight: 400;
+          font-size: clamp(1.4rem, 3.2vw, 4rem); letter-spacing: -0.02em; line-height: 1.1;
+          color: #B9111C; margin: 0;
+          max-width: 20ch;
+        }
+        .acc-arrows {
+          display: flex; gap: 0.5rem;
+          position: absolute; top: clamp(1.5rem,3vw,2.5rem); right: clamp(1.5rem,3vw,2.5rem);
+          pointer-events: auto;
+        }
+        .acc-arrow {
+          width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem);
+          border-radius: 100px; border: 0.5px solid rgba(26,24,21,0.3);
+          background: rgba(245,244,240,0.7); backdrop-filter: blur(8px);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 0.85rem; color: #1A1815; cursor: pointer;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .acc-arrow:hover { background: rgba(245,244,240,0.95); border-color: rgba(26,24,21,0.6); }
       `}</style>
 
-      {/* ── Label ── */}
-      <div
-        className="gallery-label"
-        style={{
-          position: 'absolute', top: '1.75rem', left: '2rem', zIndex: 10,
-          fontFamily: 'var(--font-display)', fontWeight: 300,
-          fontSize: 'clamp(0.6rem, 0.9vw, 0.72rem)', letterSpacing: '0.2em',
-          textTransform: 'uppercase', color: '#B9111C',
-        }}
-      >
-        Proyectos · drag to explore
-      </div>
+      <div className="acc-track">
+        {PROJECTS.map((p, i) => {
+          const isActive = i === active
+          return (
+            <div
+              key={p.id}
+              className={`acc-card ${isActive ? 'active' : 'collapsed'}`}
+              style={{ flex: isActive ? 5 : 1 }}
+              onMouseEnter={() => setActive(i)}
+              onClick={() => window.location.href = `/project/${p.id}`}
+            >
+              <img className="acc-img" src={p.cover} alt={p.title} loading={i < 3 ? 'eager' : 'lazy'} />
 
-      {/* ── Infinite drag canvas — z-index: 2 encima del texto ── */}
-      <div
-        ref={canvasRef}
-        draggable={false}
-        style={{
-          position:   'absolute',
-          top:        '50%',
-          left:       '50%',
-          willChange: 'transform',
-          zIndex:     2,
-        }}
-      >
-        {GRID.map((item) => (
-          <div
-            key={item.key}
-            draggable={false}
-            className="pin-card"
-            style={{
-              width:  `${item.w}px`,
-              height: `${item.h}px`,
-              left:   `${item.x}px`,
-              top:    `${item.y}px`,
-              cursor: 'grab',
-            }}
-            onClick={() => {
-              if (didDrag.current) return
-              window.location.href = `/project/${item.id}`
-            }}
-          >
-            {/* Cover image */}
-            <div className="pin-cover">
-              <img src={item.cover} alt={item.title} loading="lazy" />
-            </div>
+              {/* Collapsed: vertical title */}
+              <span className="acc-vtitle">{p.title}</span>
 
-            {/* Permanent gradient base so text is readable */}
-            <div className="pin-gradient" />
+              {/* Active: info overlay */}
+              <div className="acc-info">
+                {/* Arrows */}
+                <div className="acc-arrows">
+                  <button className="acc-arrow" onClick={prev}>←</button>
+                  <button className="acc-arrow" onClick={next}>→</button>
+                </div>
 
-            {/* Corner label — title + hashtag pills, always visible, hides on hover */}
-            <div className="pin-label">
-              <p className="pin-title">{item.title}</p>
-              <div className="pin-tags">
-                {item.tag.split('·').map(t => (
-                  <span key={t} className="pin-tag">#{t.trim()}</span>
-                ))}
+                {/* Tags */}
+                <div className="acc-tags">
+                  {p.tag.split('·').map(t => (
+                    <span key={t} className="acc-tag">{t.trim()}</span>
+                  ))}
+                </div>
+
+                {/* Title */}
+                <h2 className="acc-title">{p.title}</h2>
               </div>
             </div>
-
-            {/* Preview image — fades in on hover */}
-            <div className="pin-preview pin-preview-a">
-              <img src={`/projects/${item.id}/1.png`} alt="" loading="lazy" />
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )
