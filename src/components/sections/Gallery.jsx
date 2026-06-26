@@ -2,19 +2,15 @@
 import { useState } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
-/* ── Project covers (cycle infinitely across the grid) ── */
 const PROJECTS = [
-  { id: 'kinta',            title: 'Kinta',            tag: 'Branding Consulting · Spatial Branding',  cover: '/covers/kinta.png'            },
-  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tag: 'Service Design · Spatial Branding',       cover: '/covers/don-salazar.png'      },
-  { id: 'sole',             title: 'SOLE',             tag: 'Service Design · Spatial Branding',       cover: '/covers/sole.png'             },
-  { id: 'modulor',          title: 'Modulor',          tag: 'Product Designer · Branding',             cover: '/covers/modulor.png'          },
-  { id: 'kuna',             title: 'Kuna',             tag: 'Spatial Branding · Product Design',       cover: '/covers/kuna.png'             },
-  { id: 'marea',            title: 'Marea',            tag: 'Product Designer · UX/UI',                cover: '/covers/marea.png'            },
-  { id: 's-collection',     title: 'S. Collection',    tag: 'Branding Consulting',                     cover: '/covers/s-collection.png'     },
-  { id: 'yuyito',           title: 'Yuyito',           tag: 'Branding Consulting · Spatial Branding',  cover: '/covers/yuyito.png'           },
-  { id: 'enter-the-beyond', title: 'Enter The Beyond', tag: 'Product Designer · UX/UI',                cover: '/covers/enter-the-beyond.png' },
-  { id: 'root',             title: 'Root',             tag: 'UX Research · Service Design',            cover: '/covers/root.png'             },
+  { id: 'sole',             title: 'SOLE',             tag: 'Service Design · Spatial Branding',  cover: '/covers/sole.png'        },
+  { id: 'root',             title: 'Root',             tag: 'UX Research · Service Design',       cover: '/covers/root.png'        },
+  { id: 'kuna',             title: 'Kuna',             tag: 'Spatial Branding · Product Design',  cover: '/covers/kuna.png'        },
+  { id: 'modulor',          title: 'Modulor',          tag: 'Product Designer · Branding',        cover: '/covers/modulor.png'     },
+  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tag: 'Service Design · Spatial Branding',  cover: '/covers/don-salazar.png' },
 ]
+
+const N = PROJECTS.length
 
 
 
@@ -22,8 +18,11 @@ export default function Gallery() {
   const isMobile  = useIsMobile()
   const [active, setActive] = useState(0)
 
-  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + PROJECTS.length) % PROJECTS.length) }
-  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % PROJECTS.length) }
+  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + N) % N) }
+  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % N) }
+
+  // 3 visible cards: active, active+1, active+2
+  const visible = [0, 1, 2].map(offset => PROJECTS[(active + offset) % N])
 
   /* ── Mobile: horizontal scroll list ── */
   if (isMobile) {
@@ -204,14 +203,14 @@ export default function Gallery() {
       `}</style>
 
       <div className="acc-track">
-        {PROJECTS.map((p, i) => {
-          const isActive = i === active
+        {visible.map((p, i) => {
+          const isActive = i === 0
           return (
             <div
               key={p.id}
               className={`acc-card ${isActive ? 'active' : 'collapsed'}`}
               style={{ flex: isActive ? 5 : 1 }}
-              onMouseEnter={() => setActive(i)}
+              onMouseEnter={() => setActive((active + i) % N)}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
               <img className="acc-img" src={p.cover} alt={p.title} loading={i < 3 ? 'eager' : 'lazy'} />
