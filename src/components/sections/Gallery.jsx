@@ -164,7 +164,7 @@ export default function Gallery() {
           display: flex;
           flex: 1;
           min-height: 0;
-          gap: 0;
+          gap: 1px;
         }
         .acc-panel {
           position: relative;
@@ -178,10 +178,11 @@ export default function Gallery() {
           width: 100%; height: 100%;
           object-fit: cover; display: block;
           pointer-events: none; user-select: none;
+          transform: none;
           transition: opacity 0.4s ease;
         }
         .acc-panel.collapsed img { opacity: 0.6; }
-        .acc-panel.active img { opacity: 1; }
+        .acc-panel.active img { opacity: 1; transform: none; }
         .acc-vtitle {
           position: absolute; bottom: 1.5rem; left: 50%;
           transform: translateX(-50%) rotate(-90deg);
