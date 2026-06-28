@@ -123,119 +123,102 @@ export default function Gallery() {
       }}
     >
       <style>{`
+        .acc-info-bar {
+          flex-shrink: 0;
+          padding: clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,4vw,3.5rem);
+          display: flex;
+          flex-direction: column;
+          gap: clamp(0.5rem,1vw,0.85rem);
+          position: relative;
+        }
+        .acc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .acc-tag {
+          font-family: 'Poppins', sans-serif; font-weight: 400;
+          font-size: clamp(0.52rem, 0.62vw, 0.65rem); letter-spacing: 0.1em; text-transform: uppercase;
+          color: #1A1815; border: 0.5px solid rgba(26,24,21,0.35);
+          padding: 0.28rem 0.75rem; border-radius: 100px;
+        }
+        .acc-title {
+          font-family: 'Gilda Display', serif; font-weight: 400;
+          font-size: clamp(1.6rem, 3.8vw, 5rem); letter-spacing: -0.02em; line-height: 1.05;
+          color: #B9111C; margin: 0;
+        }
+        .acc-arrows {
+          display: flex; gap: 0.5rem;
+          position: absolute;
+          bottom: clamp(1.5rem,3vw,2.5rem);
+          right: clamp(1.5rem,4vw,3.5rem);
+        }
+        .acc-arrow {
+          height: clamp(2rem,2.8vw,3rem); padding: 0 clamp(1rem,1.8vw,1.8rem);
+          border-radius: 100px; border: 0.5px solid rgba(26,24,21,0.3);
+          background: transparent;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 0.9rem; color: #1A1815; cursor: pointer;
+          transition: background 0.2s, border-color 0.2s;
+          white-space: nowrap;
+        }
+        .acc-arrow:hover { background: rgba(26,24,21,0.06); border-color: rgba(26,24,21,0.55); }
+
         .acc-track {
           display: flex;
           flex: 1;
           min-height: 0;
         }
-        .acc-card {
+        .acc-panel {
           position: relative;
           overflow: hidden;
           cursor: pointer;
           transition: flex 0.65s cubic-bezier(0.16,1,0.3,1);
           flex-shrink: 0;
         }
-        .acc-card img.acc-img {
+        .acc-panel img {
           position: absolute; inset: 0;
           width: 100%; height: 100%;
           object-fit: cover; display: block;
           pointer-events: none; user-select: none;
-          transition: opacity 0.45s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
-        }
-        .acc-card.collapsed img.acc-img { opacity: 0.55; }
-        .acc-card.active img.acc-img { transform: scale(1.03); opacity: 1; }
-
-        /* Vertical title on collapsed cards */
-        .acc-vtitle {
-          position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%) rotate(-90deg);
-          white-space: nowrap;
-          font-family: 'Poppins', sans-serif; font-weight: 300;
-          font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
-          color: rgba(255,255,255,0.7);
-          pointer-events: none;
-          transition: opacity 0.3s ease;
-        }
-        .acc-card.active .acc-vtitle { opacity: 0; }
-
-        /* Active card overlay — info panel at top */
-        .acc-info {
-          position: absolute; inset: 0;
-          display: flex; flex-direction: column;
-          background: linear-gradient(to bottom,
-            rgba(245,244,240,0.97) 0%,
-            rgba(245,244,240,0.92) 36%,
-            transparent 70%
-          );
-          padding: clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem) 0;
-          pointer-events: none;
-          opacity: 0;
           transition: opacity 0.4s ease;
         }
-        .acc-card.active .acc-info { opacity: 1; pointer-events: auto; }
-
-        .acc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: clamp(0.75rem,1.5vw,1.25rem); }
-        .acc-tag {
-          font-family: 'Poppins', sans-serif; font-weight: 400;
-          font-size: clamp(0.52rem, 0.65vw, 0.65rem); letter-spacing: 0.1em; text-transform: uppercase;
-          color: #1A1815; border: 0.5px solid rgba(26,24,21,0.35);
-          padding: 0.25rem 0.7rem; border-radius: 100px;
+        .acc-panel.collapsed img { opacity: 0.6; }
+        .acc-panel.active img { opacity: 1; }
+        .acc-vtitle {
+          position: absolute; bottom: 1.5rem; left: 50%;
+          transform: translateX(-50%) rotate(-90deg);
+          white-space: nowrap;
+          font-family: 'Poppins', sans-serif; font-weight: 300;
+          font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.75); pointer-events: none;
         }
-        .acc-title {
-          font-family: 'Gilda Display', serif; font-weight: 400;
-          font-size: clamp(1.4rem, 3.2vw, 4rem); letter-spacing: -0.02em; line-height: 1.1;
-          color: #B9111C; margin: 0;
-          max-width: 20ch;
-        }
-        .acc-arrows {
-          display: flex; gap: 0.5rem;
-          position: absolute; top: clamp(1.5rem,3vw,2.5rem); right: clamp(1.5rem,3vw,2.5rem);
-          pointer-events: auto;
-        }
-        .acc-arrow {
-          width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem);
-          border-radius: 100px; border: 0.5px solid rgba(26,24,21,0.3);
-          background: rgba(245,244,240,0.7); backdrop-filter: blur(8px);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 0.85rem; color: #1A1815; cursor: pointer;
-          transition: background 0.2s, border-color 0.2s;
-        }
-        .acc-arrow:hover { background: rgba(245,244,240,0.95); border-color: rgba(26,24,21,0.6); }
       `}</style>
 
+      {/* ── Top info bar — always white, shows active project ── */}
+      <div className="acc-info-bar">
+        <div className="acc-tags">
+          {ap.tag.split('·').map(t => (
+            <span key={t} className="acc-tag">{t.trim()}</span>
+          ))}
+        </div>
+        <h2 className="acc-title">{ap.title}</h2>
+        <div className="acc-arrows">
+          <button className="acc-arrow" onClick={prev}>←</button>
+          <button className="acc-arrow" onClick={next}>→</button>
+        </div>
+      </div>
+
+      {/* ── Image strip — 3 panels ── */}
       <div className="acc-track">
         {visible.map((p, i) => {
           const isActive = i === 0
           return (
             <div
               key={p.id}
-              className={`acc-card ${isActive ? 'active' : 'collapsed'}`}
+              className={`acc-panel ${isActive ? 'active' : 'collapsed'}`}
               style={{ flex: isActive ? 5 : 1 }}
               onMouseEnter={() => setActive((active + i) % N)}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
-              <img className="acc-img" src={p.cover} alt={p.title} loading={i < 3 ? 'eager' : 'lazy'} />
-
-              {/* Collapsed: vertical title */}
-              <span className="acc-vtitle">{p.title}</span>
-
-              {/* Active: info overlay */}
-              <div className="acc-info">
-                {/* Arrows */}
-                <div className="acc-arrows">
-                  <button className="acc-arrow" onClick={prev}>←</button>
-                  <button className="acc-arrow" onClick={next}>→</button>
-                </div>
-
-                {/* Tags */}
-                <div className="acc-tags">
-                  {p.tag.split('·').map(t => (
-                    <span key={t} className="acc-tag">{t.trim()}</span>
-                  ))}
-                </div>
-
-                {/* Title */}
-                <h2 className="acc-title">{p.title}</h2>
-              </div>
+              <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
+              {!isActive && <span className="acc-vtitle">{p.title}</span>}
             </div>
           )
         })}
