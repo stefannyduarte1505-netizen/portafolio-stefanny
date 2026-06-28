@@ -174,7 +174,7 @@ export default function Gallery() {
           flex-shrink: 0;
         }
         .acc-panel {
-          background-size: auto 100%;
+          background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           background-color: #F5F4F0;
