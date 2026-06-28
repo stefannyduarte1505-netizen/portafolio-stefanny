@@ -16,13 +16,15 @@ const N = PROJECTS.length
 
 export default function Gallery() {
   const isMobile  = useIsMobile()
-  const [active, setActive] = useState(0)
+  const [active, setActive]     = useState(0)   // window start (arrows only)
+  const [expanded, setExpanded] = useState(0)   // which of the 3 is big (0,1,2)
 
-  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + N) % N) }
-  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % N) }
+  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + N) % N); setExpanded(0) }
+  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % N); setExpanded(0) }
 
-  // 3 visible cards: active, active+1, active+2
+  // 3 visible cards: fixed window, only changes with arrows
   const visible = [0, 1, 2].map(offset => PROJECTS[(active + offset) % N])
+  const ap = visible[expanded]
 
   /* ── Mobile: horizontal scroll list ── */
   if (isMobile) {
@@ -109,8 +111,6 @@ export default function Gallery() {
       </section>
     )
   }
-
-  const ap = PROJECTS[active]
 
   return (
     <section
@@ -213,17 +213,17 @@ export default function Gallery() {
       {/* ── Image strip — 3 panels ── */}
       <div className="acc-track">
         {visible.map((p, i) => {
-          const isActive = i === 0
+          const isExpanded = i === expanded
           return (
             <div
               key={p.id}
-              className={`acc-panel ${isActive ? 'active' : 'collapsed'}`}
-              style={{ flex: isActive ? 5 : 1 }}
-              onMouseEnter={() => !isActive && setActive((active + i) % N)}
+              className={`acc-panel ${isExpanded ? 'active' : 'collapsed'}`}
+              style={{ flex: isExpanded ? 5 : 1 }}
+              onMouseEnter={() => setExpanded(i)}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
               <div className="acc-panel-bg" style={{ backgroundImage: `url(${p.cover})` }} />
-              {!isActive && <span className="acc-vtitle">{p.title}</span>}
+              {!isExpanded && <span className="acc-vtitle">{p.title}</span>}
             </div>
           )
         })}
