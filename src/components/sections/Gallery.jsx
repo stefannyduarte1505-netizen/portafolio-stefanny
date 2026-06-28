@@ -219,7 +219,6 @@ export default function Gallery() {
               key={p.id}
               className={`acc-panel ${isExpanded ? 'active' : 'collapsed'}`}
               style={{ flex: isExpanded ? 5 : 1 }}
-              onMouseEnter={() => setExpanded(i)}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
               <div className="acc-panel-bg" style={{ backgroundImage: `url(${p.cover})` }} />
