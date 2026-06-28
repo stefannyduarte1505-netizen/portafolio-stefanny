@@ -19,8 +19,8 @@ export default function Gallery() {
   const [active, setActive]     = useState(0)   // window start (arrows only)
   const [expanded, setExpanded] = useState(0)   // which of the 3 is big (0,1,2)
 
-  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + N) % N); setExpanded(0) }
-  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % N); setExpanded(0) }
+  const prev = (e) => { e.stopPropagation(); setActive(i => (i - 1 + N) % N) }
+  const next = (e) => { e.stopPropagation(); setActive(i => (i + 1) % N) }
 
   // 3 visible cards: fixed window, only changes with arrows
   const visible = [0, 1, 2].map(offset => PROJECTS[(active + offset) % N])
