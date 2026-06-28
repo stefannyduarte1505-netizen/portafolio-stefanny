@@ -173,16 +173,14 @@ export default function Gallery() {
           transition: flex 1.1s cubic-bezier(0.76,0,0.24,1);
           flex-shrink: 0;
         }
-        .acc-panel img {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%;
-          object-fit: cover; display: block;
-          pointer-events: none; user-select: none;
-          transform: none;
-          transition: opacity 0.4s ease;
+        .acc-panel {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: flex 1.1s cubic-bezier(0.76,0,0.24,1), opacity 0.4s ease;
         }
-        .acc-panel.collapsed img { opacity: 0.6; }
-        .acc-panel.active img { opacity: 1; transform: none; }
+        .acc-panel.collapsed { opacity: 0.6; }
+        .acc-panel.active    { opacity: 1; }
         .acc-vtitle {
           position: absolute; bottom: 1.5rem; left: 50%;
           transform: translateX(-50%) rotate(-90deg);
@@ -215,10 +213,9 @@ export default function Gallery() {
             <div
               key={p.id}
               className={`acc-panel ${isActive ? 'active' : 'collapsed'}`}
-              style={{ flex: isActive ? 5 : 1 }}
+              style={{ flex: isActive ? 5 : 1, backgroundImage: `url(${p.cover})` }}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
-              <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
               {!isActive && <span className="acc-vtitle">{p.title}</span>}
             </div>
           )
