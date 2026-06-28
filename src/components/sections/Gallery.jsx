@@ -173,20 +173,14 @@ export default function Gallery() {
           transition: flex 0.65s cubic-bezier(0.16,1,0.3,1);
           flex-shrink: 0;
         }
-        .acc-panel-bg {
-          position: absolute;
-          top: 0; left: 0;
-          width: 100vw;
-          height: 100%;
-          background-size: contain;
+        .acc-panel {
+          background-size: auto 100%;
           background-position: center;
           background-repeat: no-repeat;
           background-color: #F5F4F0;
-          pointer-events: none;
-          transition: opacity 0.4s ease;
         }
-        .acc-panel.collapsed .acc-panel-bg { opacity: 0.6; }
-        .acc-panel.active    .acc-panel-bg { opacity: 1; }
+        .acc-panel.collapsed { opacity: 0.6; }
+        .acc-panel.active    { opacity: 1; }
         .acc-vtitle {
           position: absolute; bottom: 1.5rem; left: 50%;
           transform: translateX(-50%) rotate(-90deg);
@@ -219,10 +213,9 @@ export default function Gallery() {
             <div
               key={p.id}
               className={`acc-panel ${isExpanded ? 'active' : 'collapsed'}`}
-              style={{ flex: isExpanded ? 5 : 1 }}
+              style={{ flex: isExpanded ? 5 : 1, backgroundImage: `url(${p.cover})` }}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
-              <div className="acc-panel-bg" style={{ backgroundImage: `url(${p.cover})` }} />
               {!isExpanded && <span className="acc-vtitle">{p.title}</span>}
             </div>
           )
