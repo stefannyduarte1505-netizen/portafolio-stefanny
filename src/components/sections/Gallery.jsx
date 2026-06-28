@@ -170,7 +170,7 @@ export default function Gallery() {
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          transition: flex 1.1s cubic-bezier(0.76,0,0.24,1);
+          transition: flex 0.65s cubic-bezier(0.16,1,0.3,1);
           flex-shrink: 0;
         }
         .acc-panel-bg {
