@@ -164,12 +164,13 @@ export default function Gallery() {
           display: flex;
           flex: 1;
           min-height: 0;
+          gap: 0;
         }
         .acc-panel {
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          transition: flex 0.65s cubic-bezier(0.16,1,0.3,1);
+          transition: flex 1.1s cubic-bezier(0.76,0,0.24,1);
           flex-shrink: 0;
         }
         .acc-panel img {
@@ -214,7 +215,6 @@ export default function Gallery() {
               key={p.id}
               className={`acc-panel ${isActive ? 'active' : 'collapsed'}`}
               style={{ flex: isActive ? 5 : 1 }}
-              onMouseEnter={() => setActive((active + i) % N)}
               onClick={() => window.location.href = `/project/${p.id}`}
             >
               <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
