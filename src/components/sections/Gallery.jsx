@@ -178,9 +178,10 @@ export default function Gallery() {
           top: 0; left: 0;
           width: 100vw;
           height: 100%;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
           background-repeat: no-repeat;
+          background-color: #F5F4F0;
           pointer-events: none;
           transition: opacity 0.4s ease;
         }
