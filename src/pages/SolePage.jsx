@@ -44,29 +44,37 @@ const OUTCOMES = [
   'Reducción de carga cognitiva al cliente mediante jerarquía visual clara y herramientas de personalización digital.',
 ]
 
-/* ── Image carousel ── */
-function ImageCarousel({ images }) {
-  const [idx, setIdx] = useState(0)
-  const prev = () => setIdx(i => (i - 1 + images.length) % images.length)
-  const next = () => setIdx(i => (i + 1) % images.length)
+/* ── Image accordion — same animation as gallery ── */
+function ImageAccordion({ images }) {
+  const [active, setActive] = useState(0)
+  const N = images.length
+  const prev = () => setActive(i => (i - 1 + N) % N)
+  const next = () => setActive(i => (i + 1) % N)
+  const visible = [0, 1, 2].map(o => images[(active + o) % N])
 
   return (
-    <div style={{ position: 'relative', width: '100%' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px' }}>
-        {images.map((src, i) => (
-          <div key={i} style={{ aspectRatio: '4/3', overflow: 'hidden', backgroundColor: '#e0ddd8' }}>
-            <img
-              src={src}
-              alt=""
-              draggable={false}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
-            />
-          </div>
+    <div style={{ width: '100%' }}>
+      <style>{`
+        .sp-acc { display: flex; height: clamp(220px, 38vw, 480px); gap: 1px; }
+        .sp-panel {
+          overflow: hidden; cursor: pointer;
+          background-size: cover; background-position: center; background-repeat: no-repeat;
+          background-color: #e0ddd8;
+          transition: flex 0.65s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+        }
+        .sp-panel.sp-active  { opacity: 1; }
+        .sp-panel.sp-collapsed { opacity: 0.65; }
+      `}</style>
+      <div className="sp-acc">
+        {visible.map((src, i) => (
+          <div
+            key={src}
+            className={`sp-panel ${i === 0 ? 'sp-active' : 'sp-collapsed'}`}
+            style={{ flex: i === 0 ? 5 : 1, backgroundImage: `url(${src})` }}
+          />
         ))}
       </div>
-
-      {/* Nav arrows */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '0.75rem', paddingRight: '0.25rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '0.75rem' }}>
         <button onClick={prev} style={arrowStyle}>←</button>
         <button onClick={next} style={arrowStyle}>→</button>
       </div>
@@ -199,7 +207,7 @@ export default function SolePage() {
           }}>
             {SECTIONS[0].body}
           </p>
-          <ImageCarousel images={SECTIONS[0].images} />
+          <ImageAccordion images={SECTIONS[0].images} />
         </div>
 
         {/* Section 2 — Estrategia (2-col) + images */}
@@ -229,7 +237,7 @@ export default function SolePage() {
               </div>
             ))}
           </div>
-          <ImageCarousel images={SECTIONS[1].images} />
+          <ImageAccordion images={SECTIONS[1].images} />
         </div>
 
         {/* Section 3 — Spatial Branding */}
@@ -249,7 +257,7 @@ export default function SolePage() {
           }}>
             {SECTIONS[2].body}
           </p>
-          <ImageCarousel images={SECTIONS[2].images} />
+          <ImageAccordion images={SECTIONS[2].images} />
         </div>
 
         {/* Outcomes */}
