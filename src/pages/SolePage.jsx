@@ -125,7 +125,7 @@ export default function SolePage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <div style={{ backgroundColor: '#F5F4F0', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#ffffff', minHeight: '100vh' }}>
 
       {/* ── Close button ── */}
       <button
