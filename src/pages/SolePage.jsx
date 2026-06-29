@@ -15,7 +15,7 @@ const SECTIONS = [
   {
     heading: 'El reto',
     body: 'Más allá del diagnóstico general de la tienda física, identifiqué tres fricciones específicas de producto al espacio: el espacio físico no alcanza para mostrar todo el inventario de SKUs sin saturar el local; el consumidor no logra proyectar cómo se verán los acabados de un electrodoméstico premium en su propia cocina antes de comprar; y la atención humana se cuela de botella mientras la cartelería estática con información técnica densa eleva la carga cognitiva al cliente.',
-    images: ['/projects/sole/1.png', '/projects/sole/2.png', '/projects/sole/3.png'],
+    images: ['/projects/sole/strategic-1.png', '/projects/sole/strategic-2.png', '/projects/sole/strategic-3.png', '/projects/sole/strategic-4.png'],
   },
   {
     cols: [
