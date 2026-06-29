@@ -62,9 +62,23 @@ function ImageAccordion({ images }) {
           background-color: #e0ddd8;
           transition: flex 0.65s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
         }
-        .sp-panel.sp-active  { opacity: 1; }
+        .sp-panel.sp-active    { opacity: 1; }
         .sp-panel.sp-collapsed { opacity: 0.65; }
+        .sp-arrow {
+          height: clamp(2rem,2.8vw,3rem); padding: 0 clamp(1rem,1.8vw,1.8rem);
+          border-radius: 100px; border: 0.5px solid rgba(26,24,21,0.3);
+          background: transparent; display: flex; align-items: center;
+          justify-content: center; font-size: 0.9rem; color: #1A1815;
+          cursor: pointer; white-space: nowrap;
+          transition: background 0.2s, border-color 0.2s;
+          font-family: 'Poppins', sans-serif;
+        }
+        .sp-arrow:hover { background: rgba(26,24,21,0.06); border-color: rgba(26,24,21,0.55); }
       `}</style>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginBottom: '0.75rem' }}>
+        <button className="sp-arrow" onClick={prev}>←</button>
+        <button className="sp-arrow" onClick={next}>→</button>
+      </div>
       <div className="sp-acc">
         {visible.map((src, i) => (
           <div
@@ -73,10 +87,6 @@ function ImageAccordion({ images }) {
             style={{ flex: i === 0 ? 5 : 1, backgroundImage: `url(${src})` }}
           />
         ))}
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '0.75rem' }}>
-        <button onClick={prev} style={arrowStyle}>←</button>
-        <button onClick={next} style={arrowStyle}>→</button>
       </div>
     </div>
   )
