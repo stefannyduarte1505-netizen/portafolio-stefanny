@@ -1,4 +1,4 @@
-/* ── Project Gallery — scroll-driven showcase ── */
+/* ── Project Gallery — horizontal slide, scroll-driven ── */
 import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
@@ -94,140 +94,155 @@ export default function Gallery() {
     )
   }
 
-  /* ── Desktop: scroll-driven full-screen ── */
-  const p = PROJECTS[active]
-
+  /* ── Desktop: scroll-driven horizontal slide ── */
   return (
     <div ref={wrapRef} id="gallery" style={{ height: `${N * 100}vh`, position: 'relative' }}>
       <style>{`
-        @keyframes gal-fadein {
-          from { opacity: 0; transform: translateY(14px); }
-          to   { opacity: 1; transform: translateY(0); }
+        .gal-strip {
+          display: flex;
+          width: ${N * 100}vw;
+          height: 100%;
+          will-change: transform;
+          transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .gal-text { animation: gal-fadein 0.55s cubic-bezier(0.16,1,0.3,1) both; }
-        .gal-img-layer {
-          position: absolute; inset: 0;
-          background-size: cover; background-position: center;
-          transition: opacity 0.75s ease;
+        .gal-slide {
+          width: 100vw;
+          height: 100%;
+          flex-shrink: 0;
+          display: flex;
         }
-        .gal-view-btn {
-          position: absolute; bottom: 2.25rem; right: 2.25rem;
-          font-family: 'Poppins', sans-serif; font-weight: 300;
-          font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-          color: rgba(255,255,255,0.55);
-          background: transparent; border: none; cursor: pointer;
-          transition: color 0.2s;
+        .gal-left {
+          width: 38%;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem);
+          border-right: 0.5px solid rgba(26,24,21,0.1);
+          background: #F5F4F0;
         }
-        .gal-view-btn:hover { color: rgba(255,255,255,0.95); }
+        .gal-right {
+          flex: 1;
+          background: #F5F4F0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          overflow: hidden;
+          padding: clamp(1.5rem, 3vw, 3rem);
+        }
+        .gal-right img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          display: block;
+          object-fit: contain;
+        }
         .gal-dot {
           width: 5px; height: 5px; border-radius: 50%;
           transition: background-color 0.35s, transform 0.35s;
+          flex-shrink: 0;
         }
+        .gal-view-link {
+          font-family: 'Poppins', sans-serif; font-weight: 300;
+          font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(26,24,21,0.32); background: none; border: none; cursor: pointer;
+          padding: 0; transition: color 0.2s; display: block; margin-top: clamp(1rem, 1.5vw, 1.5rem);
+        }
+        .gal-view-link:hover { color: #B9111C; }
       `}</style>
 
       {/* Sticky frame */}
       <div style={{
         position: 'sticky', top: 0,
         height: '100vh', zIndex: 2,
-        display: 'flex', overflow: 'hidden',
-        backgroundColor: '#F5F4F0',
+        overflow: 'hidden',
       }}>
-
-        {/* ── LEFT column ── */}
-        <div style={{
-          width: '38%', flexShrink: 0,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          padding: 'clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem)',
-          borderRight: '0.5px solid rgba(26,24,21,0.1)',
-          position: 'relative',
-        }}>
-
-          {/* Top: section label + counter */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <p style={{
-              fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-              fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-              color: 'rgba(26,24,21,0.32)', margin: 0,
-            }}>
-              Projects
-            </p>
-            <p style={{
-              fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-              fontSize: '0.6rem', letterSpacing: '0.12em',
-              color: 'rgba(26,24,21,0.28)', margin: 0,
-            }}>
-              {String(active + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
-            </p>
-          </div>
-
-          {/* Middle: tags (animated on change) */}
-          <div key={`tags-${active}`} className="gal-text">
-            {p.tags.map(tag => (
-              <p key={tag} style={{
-                fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-                fontSize: 'clamp(0.62rem, 0.78vw, 0.75rem)',
-                letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: 'rgba(26,24,21,0.45)', margin: '0 0 0.45rem',
-              }}>
-                {tag}
-              </p>
-            ))}
-          </div>
-
-          {/* Bottom: title + dots + scroll hint */}
-          <div>
-            <div key={`title-${active}`} className="gal-text">
-              <h2 style={{
-                fontFamily: "'Gilda Display', serif", fontWeight: 400,
-                fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
-                letterSpacing: '-0.02em', lineHeight: 0.95,
-                color: '#B9111C', margin: '0 0 clamp(1.5rem, 2.5vw, 2.5rem)',
-              }}>
-                {p.title}
-              </h2>
-            </div>
-
-            {/* Progress dots */}
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
-              {PROJECTS.map((_, i) => (
-                <div key={i} className="gal-dot" style={{
-                  backgroundColor: i === active ? '#B9111C' : 'rgba(26,24,21,0.18)',
-                  transform: i === active ? 'scale(1.35)' : 'scale(1)',
-                }} />
-              ))}
-            </div>
-
-            <p style={{
-              fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-              fontSize: '0.58rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-              color: 'rgba(26,24,21,0.25)', margin: 0,
-            }}>
-              scroll to explore
-            </p>
-          </div>
-        </div>
-
-        {/* ── RIGHT column: image crossfade ── */}
+        {/* Horizontal strip */}
         <div
-          style={{ flex: 1, position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
-          onClick={() => { window.location.href = `/project/${p.id}` }}
+          className="gal-strip"
+          style={{ transform: `translateX(-${active * 100}vw)` }}
         >
-          {PROJECTS.map((proj, i) => (
-            <div
-              key={proj.id}
-              className="gal-img-layer"
-              style={{
-                backgroundImage: `url(${proj.cover})`,
-                opacity: i === active ? 1 : 0,
-              }}
-            />
+          {PROJECTS.map((p, i) => (
+            <div key={p.id} className="gal-slide">
+
+              {/* LEFT: project info */}
+              <div className="gal-left">
+                {/* Top: label + counter */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <p style={{
+                    fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+                    fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+                    color: 'rgba(26,24,21,0.32)', margin: 0,
+                  }}>
+                    Projects
+                  </p>
+                  <p style={{
+                    fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+                    fontSize: '0.6rem', letterSpacing: '0.12em',
+                    color: 'rgba(26,24,21,0.28)', margin: 0,
+                  }}>
+                    {String(i + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
+                  </p>
+                </div>
+
+                {/* Middle: tags */}
+                <div>
+                  {p.tags.map(tag => (
+                    <p key={tag} style={{
+                      fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+                      fontSize: 'clamp(0.62rem, 0.78vw, 0.75rem)',
+                      letterSpacing: '0.14em', textTransform: 'uppercase',
+                      color: 'rgba(26,24,21,0.45)', margin: '0 0 0.45rem',
+                    }}>
+                      {tag}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Bottom: title + dots */}
+                <div>
+                  <h2 style={{
+                    fontFamily: "'Gilda Display', serif", fontWeight: 400,
+                    fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+                    letterSpacing: '-0.02em', lineHeight: 0.95,
+                    color: '#B9111C', margin: '0 0 clamp(1.5rem, 2.5vw, 2.5rem)',
+                  }}>
+                    {p.title}
+                  </h2>
+
+                  {/* Progress dots */}
+                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    {PROJECTS.map((_, j) => (
+                      <div key={j} className="gal-dot" style={{
+                        backgroundColor: j === active ? '#B9111C' : 'rgba(26,24,21,0.18)',
+                        transform: j === active ? 'scale(1.4)' : 'scale(1)',
+                      }} />
+                    ))}
+                  </div>
+
+                  <p style={{
+                    fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+                    fontSize: '0.58rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                    color: 'rgba(26,24,21,0.25)', margin: 0,
+                  }}>
+                    scroll to explore
+                  </p>
+                </div>
+              </div>
+
+              {/* RIGHT: full image, no crop */}
+              <div
+                className="gal-right"
+                onClick={() => { window.location.href = `/project/${p.id}` }}
+              >
+                <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
+              </div>
+
+            </div>
           ))}
-
-          <button className="gal-view-btn">
-            View project →
-          </button>
         </div>
-
       </div>
     </div>
   )
