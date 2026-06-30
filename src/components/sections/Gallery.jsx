@@ -31,13 +31,13 @@ export default function Gallery() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [isMobile])
 
-  /* ── Mobile: horizontal swipe cards ── */
+  /* ── Mobile ── */
   if (isMobile) {
     return (
       <section id="gallery" style={{ backgroundColor: '#F5F4F0', height: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <style>{`
           .mob-label { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B9111C; padding:0 1.25rem 0.75rem; flex-shrink:0; }
-          .mob-track { display:flex; flex-direction:row; overflow-x:auto; overflow-y:hidden; gap:0.75rem; padding:0.5rem 1.25rem 1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+          .mob-track { display:flex; overflow-x:auto; overflow-y:hidden; gap:0.75rem; padding:0.5rem 1.25rem 1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
           .mob-track::-webkit-scrollbar { display:none; }
           .mob-card { position:relative; overflow:hidden; flex-shrink:0; width:78vw; aspect-ratio:3/4; border-radius:6px; cursor:pointer; scroll-snap-align:start; }
           .mob-card img { width:100%; height:100%; object-fit:cover; display:block; }
@@ -71,44 +71,14 @@ export default function Gallery() {
   return (
     <div ref={wrapRef} id="gallery" style={{ height: `${N * 100}vh`, position: 'relative' }}>
       <style>{`
-        .gal-dot { width:5px; height:5px; border-radius:50%; transition:background-color 0.35s, transform 0.35s; flex-shrink:0; }
-
-        /* Left text — fade+slide on project change */
         @keyframes gal-in {
-          from { opacity:0; transform:translateY(18px); }
+          from { opacity:0; transform:translateY(14px); }
           to   { opacity:1; transform:translateY(0); }
         }
         .gal-text { animation: gal-in 0.5s cubic-bezier(0.16,1,0.3,1) both; }
-
-        /* Right image strip — vertical slide */
-        .gal-img-strip {
-          display: flex;
-          flex-direction: column;
-          height: ${N * 100}%;   /* N * 100% of the 100vh right panel */
-          transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-          will-change: transform;
-        }
-        .gal-img-item {
-          flex-shrink: 0;
-          height: calc(100vh);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: clamp(2rem, 4vw, 4rem);
-          background: #F5F4F0;
-          cursor: pointer;
-        }
-        .gal-img-item img {
-          max-width: 100%;
-          max-height: 100%;
-          width: auto;
-          height: auto;
-          display: block;
-          object-fit: contain;
-        }
       `}</style>
 
-      {/* ── Sticky frame ── */}
+      {/* Sticky frame */}
       <div style={{
         position: 'sticky', top: 0,
         height: '100vh', zIndex: 2,
@@ -117,66 +87,83 @@ export default function Gallery() {
         backgroundColor: '#F5F4F0',
       }}>
 
-        {/* ── LEFT: fixed info panel ── */}
+        {/* ── LEFT: info panel ── */}
         <div style={{
-          width: '38%', flexShrink: 0,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+          width: '38%',
+          flexShrink: 0,
+          display: 'flex',
+          flexDirection: 'column',
           padding: 'clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem)',
-          borderRight: '0.5px solid rgba(26,24,21,0.1)',
+          gap: 'clamp(1rem, 1.5vw, 1.5rem)',
           overflow: 'hidden',
         }}>
+          {/* Label */}
+          <p style={{
+            fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+            fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: 'rgba(26,24,21,0.32)', margin: 0,
+          }}>
+            Projects
+          </p>
 
-          {/* Top: label + counter */}
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.6rem', letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', margin:0 }}>
-              Projects
-            </p>
-            <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.6rem', letterSpacing:'0.12em', color:'rgba(26,24,21,0.28)', margin:0 }}>
-              {String(active + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
-            </p>
+          {/* Title — top-aligned, animated */}
+          <div key={`title-${active}`} className="gal-text">
+            <h2 style={{
+              fontFamily: "'Gilda Display', serif", fontWeight: 400,
+              fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
+              letterSpacing: '-0.02em', lineHeight: 0.95,
+              color: '#B9111C', margin: 0,
+            }}>
+              {p.title}
+            </h2>
           </div>
 
-          {/* Middle: tags (animated) */}
-          <div key={`tags-${active}`} className="gal-text">
+          {/* Tags — animated */}
+          <div key={`tags-${active}`} className="gal-text" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
             {p.tags.map(tag => (
-              <p key={tag} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.62rem,0.78vw,0.75rem)', letterSpacing:'0.14em', textTransform:'uppercase', color:'rgba(26,24,21,0.45)', margin:'0 0 0.45rem' }}>
+              <p key={tag} style={{
+                fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+                fontSize: 'clamp(0.62rem, 0.78vw, 0.75rem)',
+                letterSpacing: '0.14em', textTransform: 'uppercase',
+                color: 'rgba(26,24,21,0.45)', margin: 0,
+              }}>
                 {tag}
               </p>
             ))}
-          </div>
-
-          {/* Bottom: title + dots + hint */}
-          <div key={`title-${active}`} className="gal-text">
-            <h2 style={{ fontFamily:"'Gilda Display',serif", fontWeight:400, fontSize:'clamp(2.8rem,5.5vw,6.5rem)', letterSpacing:'-0.02em', lineHeight:0.95, color:'#B9111C', margin:'0 0 clamp(1.5rem,2.5vw,2.5rem)' }}>
-              {p.title}
-            </h2>
-            <div style={{ display:'flex', gap:'0.5rem', alignItems:'center', marginBottom:'0.75rem' }}>
-              {PROJECTS.map((_, j) => (
-                <div key={j} className="gal-dot" style={{
-                  backgroundColor: j === active ? '#B9111C' : 'rgba(26,24,21,0.18)',
-                  transform: j === active ? 'scale(1.4)' : 'scale(1)',
-                }} />
-              ))}
-            </div>
-            <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(26,24,21,0.25)', margin:0 }}>
-              scroll to explore
-            </p>
           </div>
         </div>
 
         {/* ── RIGHT: vertical image strip ── */}
         <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-          <div
-            className="gal-img-strip"
-            style={{ transform: `translateY(-${active * 100}vh)` }}
-          >
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: `${N * 100}vh`,
+            transform: `translateY(-${active * 100}vh)`,
+            transition: 'transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)',
+            willChange: 'transform',
+          }}>
             {PROJECTS.map((proj, i) => (
               <div
                 key={proj.id}
-                className="gal-img-item"
                 onClick={() => { window.location.href = `/project/${proj.id}` }}
+                style={{
+                  height: '100vh',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 'clamp(2rem, 4vw, 4rem)',
+                  backgroundColor: '#F5F4F0',
+                  cursor: 'pointer',
+                }}
               >
-                <img src={proj.cover} alt={proj.title} loading={i === 0 ? 'eager' : 'lazy'} />
+                <img
+                  src={proj.cover}
+                  alt={proj.title}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
+                />
               </div>
             ))}
           </div>
