@@ -8,8 +8,12 @@ const POPPINS = "'Poppins', sans-serif"
 function ScrollSection({ label, heading, body, images }) {
   const wrapRef = useRef(null)
   const [active, setActive] = useState(0)
+  const activeRef = useRef(0)
   const N = images.length
 
+  useEffect(() => { activeRef.current = active }, [active])
+
+  // Sync active from scroll position
   useEffect(() => {
     const onScroll = () => {
       const wrap = wrapRef.current
@@ -21,6 +25,32 @@ function ScrollSection({ label, heading, body, images }) {
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
+  }, [N])
+
+  // One wheel event = one card advance
+  useEffect(() => {
+    let locked = false
+    const onWheel = (e) => {
+      const wrap = wrapRef.current
+      if (!wrap) return
+      const rect = wrap.getBoundingClientRect()
+      const inSection = rect.top <= 0 && rect.bottom >= window.innerHeight
+      if (!inSection) return
+
+      const dir = e.deltaY > 0 ? 1 : -1
+      const next = activeRef.current + dir
+      if (next < 0 || next > N - 1) return
+
+      e.preventDefault()
+      if (locked) return
+      locked = true
+
+      const target = rect.top + window.scrollY + next * window.innerHeight
+      window.scrollTo({ top: target, behavior: 'smooth' })
+      setTimeout(() => { locked = false }, 950)
+    }
+    window.addEventListener('wheel', onWheel, { passive: false, capture: true })
+    return () => window.removeEventListener('wheel', onWheel, { capture: true })
   }, [N])
 
   return (

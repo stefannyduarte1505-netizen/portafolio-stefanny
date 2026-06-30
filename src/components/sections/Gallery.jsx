@@ -1,6 +1,7 @@
 /* ── Project Gallery — vertical slide, scroll-driven ── */
 import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import { getLenis } from '../../hooks/useLenis'
 
 const PROJECTS = [
   { id: 'sole',             title: 'SOLE',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
@@ -15,7 +16,11 @@ export default function Gallery() {
   const isMobile = useIsMobile()
   const wrapRef  = useRef(null)
   const [active, setActive] = useState(0)
+  const activeRef = useRef(0)
 
+  useEffect(() => { activeRef.current = active }, [active])
+
+  // Sync active index from scroll position (fallback / mobile)
   useEffect(() => {
     if (isMobile) return
     const onScroll = () => {
@@ -29,6 +34,38 @@ export default function Gallery() {
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
+  }, [isMobile])
+
+  // One wheel event = one card advance
+  useEffect(() => {
+    if (isMobile) return
+    let locked = false
+    const onWheel = (e) => {
+      const wrap = wrapRef.current
+      if (!wrap) return
+      const rect = wrap.getBoundingClientRect()
+      const inSection = rect.top <= 0 && rect.bottom >= window.innerHeight
+      if (!inSection) return
+
+      const dir = e.deltaY > 0 ? 1 : -1
+      const next = activeRef.current + dir
+      if (next < 0 || next > N - 1) return
+
+      e.preventDefault()
+      if (locked) return
+      locked = true
+
+      const target = rect.top + window.scrollY + next * window.innerHeight
+      const lenis = getLenis()
+      if (lenis) {
+        lenis.scrollTo(target, { duration: 1.0, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
+      } else {
+        window.scrollTo({ top: target, behavior: 'smooth' })
+      }
+      setTimeout(() => { locked = false }, 950)
+    }
+    window.addEventListener('wheel', onWheel, { passive: false, capture: true })
+    return () => window.removeEventListener('wheel', onWheel, { capture: true })
   }, [isMobile])
 
   /* ── Mobile ── */
