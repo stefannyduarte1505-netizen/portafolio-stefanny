@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 
+const GILDA = "'Gilda Display', serif"
+const POPPINS = "'Poppins', sans-serif"
+
 /* ── Scroll-driven vertical slide (same as home gallery) ── */
 function ScrollSection({ label, heading, body, images }) {
   const wrapRef = useRef(null)
@@ -31,21 +34,22 @@ function ScrollSection({ label, heading, body, images }) {
           padding:'clamp(2.5rem,4vw,5rem) clamp(2rem,3.5vw,4rem)',
           gap:'clamp(1rem,1.5vw,1.8rem)',
           borderRight:'0.5px solid rgba(26,24,21,0.08)',
+          overflowY:'auto',
         }}>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(26,24,21,0.3)', margin:0 }}>
+          <p style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(26,24,21,0.3)', margin:0 }}>
             {label}
           </p>
-          <h2 style={{ fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400, fontSize:'clamp(1.5rem,2.6vw,3rem)', letterSpacing:'-0.01em', lineHeight:1.15, color:'#B9111C', margin:0 }}>
+          <h2 style={{ fontFamily:GILDA, fontWeight:400, fontSize:'clamp(1.5rem,2.6vw,3rem)', letterSpacing:'-0.01em', lineHeight:1.15, color:'#B9111C', margin:0 }}>
             {heading}
           </h2>
-          <div style={{ display:'flex', flexDirection:'column', gap:'0.8rem' }}>
+          <div style={{ display:'flex', flexDirection:'column', gap:'1rem' }}>
             {body.split('\n\n').map((para, i) => (
-              <p key={i} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.7rem,0.8vw,0.8rem)', lineHeight:1.9, color:'rgba(26,24,21,0.55)', margin:0 }}>
+              <p key={i} style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.65)', margin:0 }}>
                 {para}
               </p>
             ))}
           </div>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.55rem', letterSpacing:'0.18em', color:'rgba(26,24,21,0.22)', margin:'auto 0 0' }}>
+          <p style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'0.55rem', letterSpacing:'0.18em', color:'rgba(26,24,21,0.22)', margin:'auto 0 0' }}>
             {String(active + 1).padStart(2,'0')} / {String(N).padStart(2,'0')}
           </p>
         </div>
@@ -88,10 +92,10 @@ function FullBleed({ src, height = '80vh' }) {
 function MetaRow({ label, value }) {
   return (
     <div style={{ display:'grid', gridTemplateColumns:'clamp(4rem,6vw,6rem) 1fr', gap:'0 1rem', paddingBottom:'0.65rem', borderBottom:'0.5px solid rgba(26,24,21,0.08)' }}>
-      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', paddingTop:'0.12em' }}>
+      <span style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', paddingTop:'0.12em' }}>
         {label}
       </span>
-      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.72rem', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
+      <span style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
         {value}
       </span>
     </div>
@@ -164,7 +168,7 @@ export default function SolePage() {
           backgroundColor:'rgba(255,255,255,0.75)',
           boxShadow:'0 2px 20px rgba(0,0,0,0.07)',
           border:'0.5px solid rgba(26,24,21,0.12)', cursor:'pointer',
-          fontFamily:"'Poppins',sans-serif", fontWeight:300,
+          fontFamily:POPPINS, fontWeight:300,
           fontSize:'0.78rem', letterSpacing:'0.06em', color:'#1A1815',
           transition:'color 0.2s',
         }}
@@ -184,7 +188,7 @@ export default function SolePage() {
       }}>
         {/* Left: tagline */}
         <h1 style={{
-          fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400,
+          fontFamily:GILDA, fontWeight:400,
           fontSize:'clamp(1.5rem,3vw,3.2rem)',
           letterSpacing:'-0.01em', lineHeight:1.25,
           color:'#B9111C', margin:0,
@@ -201,7 +205,7 @@ export default function SolePage() {
           <div style={{ display:'flex', flexWrap:'wrap', gap:'0.35rem', paddingTop:'0.5rem' }}>
             {['Spatial Branding','Product Design','Service Design'].map(tag => (
               <span key={tag} style={{
-                fontFamily:"'Poppins',sans-serif", fontWeight:300,
+                fontFamily:POPPINS, fontWeight:300,
                 fontSize:'0.58rem', letterSpacing:'0.1em', textTransform:'uppercase',
                 color:'rgba(26,24,21,0.5)', border:'0.5px solid rgba(26,24,21,0.25)',
                 padding:'0.25rem 0.65rem', borderRadius:'100px',
@@ -231,12 +235,12 @@ export default function SolePage() {
 
       {/* ── Outcomes ── */}
       <div style={{ padding:`clamp(4rem,8vw,7rem) ${PAD}`, backgroundColor:'#fff', borderTop:'0.5px solid rgba(26,24,21,0.08)' }}>
-        <h2 style={{ fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400, fontSize:'clamp(1.1rem,1.8vw,1.8rem)', letterSpacing:'-0.01em', color:'#B9111C', margin:`0 0 clamp(1.5rem,3vw,2.5rem)` }}>
+        <h2 style={{ fontFamily:GILDA, fontWeight:400, fontSize:'clamp(1.5rem,2.2vw,2.2rem)', letterSpacing:'-0.01em', color:'#B9111C', margin:`0 0 clamp(1.5rem,3vw,2.5rem)` }}>
           Outcomes
         </h2>
         <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4,1fr)', gap: isMobile ? '1.5rem' : 'clamp(1rem,2vw,2rem)' }}>
           {OUTCOMES.map((text, i) => (
-            <p key={i} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.68rem,0.78vw,0.78rem)', lineHeight:1.85, color:'rgba(26,24,21,0.55)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.15)' }}>
+            <p key={i} style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.6)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.15)' }}>
               {text}
             </p>
           ))}
