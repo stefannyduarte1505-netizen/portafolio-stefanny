@@ -108,11 +108,11 @@ function ScrollSection({ label, heading, body, images }) {
 }
 
 /* ── Full-bleed photo divider ── */
-function FullBleed({ src, height = '80vh' }) {
+function FullBleed({ src }) {
   return (
-    <div style={{ width:'100%', height, overflow:'hidden', backgroundColor:'#111' }}>
+    <div style={{ width:'100%', backgroundColor:'#fff' }}>
       <img src={src} alt="" draggable={false}
-        style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', pointerEvents:'none', userSelect:'none' }}
+        style={{ width:'100%', height:'auto', display:'block', pointerEvents:'none', userSelect:'none' }}
       />
     </div>
   )
