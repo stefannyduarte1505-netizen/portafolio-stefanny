@@ -108,10 +108,11 @@ const SECTIONS = [
     heading: 'Research & Strategy',
     body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
     images: [
-      '/projects/sole/frame-1.png',
-      '/projects/sole/frame-2.png',
-      '/projects/sole/frame-3.png',
-      '/projects/sole/frame-4.png',
+      '/projects/sole/research-1.png',
+      '/projects/sole/research-2.png',
+      '/projects/sole/research-3.png',
+      '/projects/sole/research-4.png',
+      '/projects/sole/research-5.png',
     ],
   },
   {
@@ -119,10 +120,9 @@ const SECTIONS = [
     heading: 'Digital Strategy',
     body: 'To extend the in store experience beyond what physical space allows, I designed an interactive kiosk that functions as a virtual catalog, giving users full access to the product range, while adapting the experience to each brand\'s identity.\n\nSole: Informational Catalog — A clear, browsable catalog experience: product categories, specs, and technical sheets, built for quick decision-making and trust.\n\nS•Collection: Real Time Visualizer — A premium, immersive mode where users customize materials, colors, and finishes directly onto a real kitchen render, closing the gap between imagination and purchase.',
     images: [
-      '/projects/sole/frame-5.png',
-      '/projects/sole/frame-6.png',
-      '/projects/sole/frame-7.png',
-      '/projects/sole/frame-8.png',
+      '/projects/sole/digital-1.png',
+      '/projects/sole/digital-2.png',
+      '/projects/sole/digital-3.png',
     ],
   },
   {
@@ -130,14 +130,11 @@ const SECTIONS = [
     heading: 'Spatial Branding & Signage System',
     body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S•Collection\'s ritual and exclusivity.\n\nQR signage is embedded directly into furniture, countertops, cabinets, displays, turning every surface into an entry point to the digital catalog without breaking the spatial narrative.\n\nA minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage, consistent across both lines, rendered in each brand\'s own color language.',
     images: [
-      '/projects/sole/strategic-1.png',
-      '/projects/sole/strategic-2.png',
-      '/projects/sole/strategic-3.png',
-      '/projects/sole/strategic-4.png',
-      '/projects/sole/solution-6.png',
-      '/projects/sole/solution-7.png',
-      '/projects/sole/solution-8.png',
-      '/projects/sole/solution-9.png',
+      '/projects/sole/spatial-1.png',
+      '/projects/sole/spatial-2.png',
+      '/projects/sole/spatial-3.png',
+      '/projects/sole/spatial-4.png',
+      '/projects/sole/spatial-5.png',
     ],
   },
 ]
@@ -216,19 +213,19 @@ export default function SolePage() {
       </div>
 
       {/* ── Hero full-bleed photo ── */}
-      <FullBleed src="/projects/sole/1.png" height={isMobile ? '55vw' : '75vh'} />
+      <FullBleed src="/projects/sole/cover-hero.png" height={isMobile ? '55vw' : '75vh'} />
 
       {/* ── Research & Strategy ── */}
       <ScrollSection {...SECTIONS[0]} />
 
       {/* ── Environment full-bleed ── */}
-      <FullBleed src="/projects/sole/2.png" height={isMobile ? '60vw' : '70vh'} />
+      <FullBleed src="/projects/sole/cover-after-research.png" height={isMobile ? '60vw' : '70vh'} />
 
       {/* ── Digital Strategy ── */}
       <ScrollSection {...SECTIONS[1]} />
 
       {/* ── Spatial full-bleed ── */}
-      <FullBleed src="/projects/sole/3.png" height={isMobile ? '60vw' : '70vh'} />
+      <FullBleed src="/projects/sole/cover-after-digital.png" height={isMobile ? '60vw' : '70vh'} />
 
       {/* ── Spatial Branding ── */}
       <ScrollSection {...SECTIONS[2]} />
