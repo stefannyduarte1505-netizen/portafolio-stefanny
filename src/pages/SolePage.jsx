@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 
-/* ── Same scroll-driven vertical slide as home gallery ── */
+/* ── Scroll-driven vertical slide (same as home gallery) ── */
 function ScrollSection({ label, heading, body, images }) {
   const wrapRef = useRef(null)
   const [active, setActive] = useState(0)
@@ -13,8 +13,7 @@ function ScrollSection({ label, heading, body, images }) {
       if (!wrap) return
       const scrolled = -wrap.getBoundingClientRect().top
       if (scrolled < 0) { setActive(0); return }
-      const idx = Math.min(N - 1, Math.floor(scrolled / window.innerHeight))
-      setActive(idx)
+      setActive(Math.min(N - 1, Math.floor(scrolled / window.innerHeight)))
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
@@ -23,37 +22,32 @@ function ScrollSection({ label, heading, body, images }) {
 
   return (
     <div ref={wrapRef} style={{ height: `${N * 100}vh`, position: 'relative' }}>
-      <div style={{
-        position: 'sticky', top: 0,
-        height: '100vh',
-        display: 'flex',
-        overflow: 'hidden',
-        backgroundColor: '#fff',
-      }}>
-        {/* LEFT: text */}
+      <div style={{ position:'sticky', top:0, height:'100vh', display:'flex', overflow:'hidden', backgroundColor:'#fff' }}>
+
+        {/* LEFT */}
         <div style={{
-          width: '38%', flexShrink: 0,
-          display: 'flex', flexDirection: 'column',
-          padding: 'clamp(2.5rem,4vw,4rem) clamp(2rem,3.5vw,3.5rem)',
-          gap: 'clamp(1rem,1.5vw,1.5rem)',
-          overflow: 'hidden',
+          width:'40%', flexShrink:0,
+          display:'flex', flexDirection:'column',
+          padding:'clamp(2.5rem,4vw,5rem) clamp(2rem,3.5vw,4rem)',
+          gap:'clamp(1rem,1.5vw,1.8rem)',
+          borderRight:'0.5px solid rgba(26,24,21,0.08)',
         }}>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.6rem', letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', margin:0 }}>
+          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.22em', textTransform:'uppercase', color:'rgba(26,24,21,0.3)', margin:0 }}>
             {label}
           </p>
-          <h2 style={{ fontFamily:"'Gilda Display',serif", fontWeight:400, fontSize:'clamp(1.6rem,2.8vw,3.2rem)', letterSpacing:'-0.01em', lineHeight:1.1, color:'#B9111C', margin:0 }}>
+          <h2 style={{ fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400, fontSize:'clamp(1.5rem,2.6vw,3rem)', letterSpacing:'-0.01em', lineHeight:1.15, color:'#B9111C', margin:0 }}>
             {heading}
           </h2>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.72rem,0.82vw,0.82rem)', lineHeight:1.85, color:'rgba(26,24,21,0.6)', margin:0, maxWidth:'420px' }}>
+          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.7rem,0.8vw,0.8rem)', lineHeight:1.9, color:'rgba(26,24,21,0.55)', margin:0 }}>
             {body}
           </p>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.15em', color:'rgba(26,24,21,0.28)', margin:'auto 0 0' }}>
+          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.55rem', letterSpacing:'0.18em', color:'rgba(26,24,21,0.22)', margin:'auto 0 0' }}>
             {String(active + 1).padStart(2,'0')} / {String(N).padStart(2,'0')}
           </p>
         </div>
 
-        {/* RIGHT: vertical image strip */}
-        <div style={{ flex:1, overflow:'hidden', position:'relative' }}>
+        {/* RIGHT: slide strip */}
+        <div style={{ flex:1, overflow:'hidden' }}>
           <div style={{
             display:'flex', flexDirection:'column',
             height:`${N * 100}vh`,
@@ -62,14 +56,9 @@ function ScrollSection({ label, heading, body, images }) {
             willChange:'transform',
           }}>
             {images.map((src, i) => (
-              <div key={src} style={{
-                height:'100vh', flexShrink:0,
-                display:'flex', alignItems:'center', justifyContent:'center',
-                padding:'clamp(2rem,4vw,4rem)',
-                backgroundColor:'#fff',
-              }}>
-                <img src={src} alt="" loading={i === 0 ? 'eager' : 'lazy'}
-                  style={{ maxWidth:'100%', maxHeight:'100%', width:'auto', height:'auto', display:'block', objectFit:'contain' }}
+              <div key={src} style={{ height:'100vh', flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', padding:'clamp(2rem,4vw,5rem)', backgroundColor:'#fff' }}>
+                <img src={src} alt="" loading={i===0?'eager':'lazy'}
+                  style={{ maxWidth:'100%', maxHeight:'100%', width:'auto', height:'auto', objectFit:'contain', display:'block' }}
                 />
               </div>
             ))}
@@ -80,26 +69,36 @@ function ScrollSection({ label, heading, body, images }) {
   )
 }
 
-function InfoRow({ label, value }) {
+/* ── Full-bleed photo divider ── */
+function FullBleed({ src, height = '80vh' }) {
   return (
-    <div style={{ display:'flex', gap:'clamp(1rem,3vw,2.5rem)', paddingBottom:'0.75rem', borderBottom:'0.5px solid rgba(26,24,21,0.1)' }}>
-      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.58rem,0.7vw,0.68rem)', letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(26,24,21,0.35)', minWidth:'clamp(3.5rem,5vw,5rem)', paddingTop:'0.1em' }}>
+    <div style={{ width:'100%', height, overflow:'hidden', backgroundColor:'#111' }}>
+      <img src={src} alt="" draggable={false}
+        style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', pointerEvents:'none', userSelect:'none' }}
+      />
+    </div>
+  )
+}
+
+/* ── Metadata row ── */
+function MetaRow({ label, value }) {
+  return (
+    <div style={{ display:'grid', gridTemplateColumns:'clamp(4rem,6vw,6rem) 1fr', gap:'0 1rem', paddingBottom:'0.65rem', borderBottom:'0.5px solid rgba(26,24,21,0.08)' }}>
+      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', paddingTop:'0.12em' }}>
         {label}
       </span>
-      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.65rem,0.8vw,0.78rem)', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
+      <span style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.72rem', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
         {value}
       </span>
     </div>
   )
 }
 
-const TAGS = ['Spatial Branding', 'Product Design', 'Service Design']
-
 const SECTIONS = [
   {
     label: 'Research & Strategy',
-    heading: 'El reto',
-    body: 'Más allá del diagnóstico general de la tienda física, identifiqué tres fricciones específicas: el espacio no alcanza para mostrar todo el inventario sin saturar el local; el consumidor no logra proyectar cómo se verán los acabados de un electrodoméstico premium en su propia cocina; y la atención humana se convierte en cuello de botella mientras la cartelería estática eleva la carga cognitiva del cliente.',
+    heading: 'Two users, one gap.',
+    body: 'Two distinct user profiles — a practical family buyer and an aspirational design-driven buyer — revealed the same underlying tension: strong emotional intent, consistently undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
     images: [
       '/projects/sole/frame-1.png',
       '/projects/sole/frame-2.png',
@@ -110,7 +109,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Sole: Phygital Experience',
-    body: 'Mediante un enfoque de Service Design, transformamos la exhibición de retail en un ecosistema interactivo y omnicanal. Un sistema de señalética inteligente articula una ruta de eficiencia transaccional y otra de exploración profunda, permitiendo al usuario navegar el espacio según su perfil de compra.',
+    body: 'To extend the in-store experience beyond the store itself, an online experience was designed around what matters most to shoppers: clarity. A premium omnichannel catalog lets the user explore, configure, and own — bridging digital to physical for quick decision-making and confidence at every touchpoint.',
     images: [
       '/projects/sole/frame-5.png',
       '/projects/sole/frame-6.png',
@@ -119,18 +118,18 @@ const SECTIONS = [
     ],
   },
   {
-    label: 'Spatial Branding',
-    heading: 'Signage System',
-    body: 'Una auditoría de UX retail identificó tres fricciones concretas: contaminación visual por saturación de producto expuesto, fachadas cerradas que actuaban como barrera psicológica de ingreso, y una distribución espacial donde el punto focal era el mostrador de pago en vez de la experiencia con el producto.',
+    label: 'Spatial Branding & Signage System',
+    heading: 'Space as a brand medium.',
+    body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S·Collection\'s ritual and exclusivity. Signage is embedded directly into furniture, countertops, cabinets and displays — turning every surface into a connection point to the digital catalog without breaking the spatial narrative. A minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage consistent across both lines.',
     images: [
       '/projects/sole/strategic-1.png',
       '/projects/sole/strategic-2.png',
       '/projects/sole/strategic-3.png',
       '/projects/sole/strategic-4.png',
-      '/projects/sole/strategic-6.png',
-      '/projects/sole/strategic-7.png',
-      '/projects/sole/strategic-8.png',
-      '/projects/sole/strategic-9.png',
+      '/projects/sole/solution-6.png',
+      '/projects/sole/solution-7.png',
+      '/projects/sole/solution-8.png',
+      '/projects/sole/solution-9.png',
     ],
   },
 ]
@@ -149,20 +148,20 @@ export default function SolePage() {
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
   return (
-    <div style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
+    <div style={{ backgroundColor:'#fff', minHeight:'100vh' }}>
 
       {/* ── Close ── */}
       <button
-        onClick={() => { sessionStorage.setItem('scrollToGallery','1'); window.location.href = '/' }}
+        onClick={() => { sessionStorage.setItem('scrollToGallery','1'); window.location.href='/' }}
         style={{
           position:'fixed', top:'1.5rem', right: isMobile ? '1rem' : '2rem', zIndex:200,
-          padding:'0.6rem 2rem', borderRadius:'100px',
+          padding:'0.55rem 1.75rem', borderRadius:'100px',
           backdropFilter:'blur(14px)', WebkitBackdropFilter:'blur(14px)',
-          backgroundColor:'rgba(255,255,255,0.7)',
-          boxShadow:'0 2px 24px rgba(0,0,0,0.07)',
+          backgroundColor:'rgba(255,255,255,0.75)',
+          boxShadow:'0 2px 20px rgba(0,0,0,0.07)',
           border:'0.5px solid rgba(26,24,21,0.12)', cursor:'pointer',
-          fontFamily:"'Poppins',sans-serif", fontWeight:400,
-          fontSize:'0.85rem', letterSpacing:'0.04em', color:'#1A1815',
+          fontFamily:"'Poppins',sans-serif", fontWeight:300,
+          fontSize:'0.78rem', letterSpacing:'0.06em', color:'#1A1815',
           transition:'color 0.2s',
         }}
         onMouseEnter={e => e.currentTarget.style.color='#B9111C'}
@@ -171,63 +170,69 @@ export default function SolePage() {
         Close
       </button>
 
-      {/* ── Hero cover ── */}
-      <div style={{ width:'100%', height: isMobile ? '60vh' : '100vh', overflow:'hidden', backgroundColor:'#0e0e0e', position:'relative' }}>
-        <img src="/covers/sole.png" alt="SOLE" draggable={false}
-          style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', pointerEvents:'none', userSelect:'none' }}
-        />
-        <div style={{ position:'absolute', bottom: isMobile ? '2rem' : '3.5rem', left: isMobile ? '1.5rem' : '3.5rem' }}>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.58rem,0.7vw,0.68rem)', letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(255,255,255,0.5)', margin:'0 0 0.5rem' }}>
-            Service Design · Spatial Branding
-          </p>
-          <h1 style={{ fontFamily:"'Gilda Display',serif", fontWeight:400, fontSize:'clamp(2rem,5vw,5.5rem)', letterSpacing:'-0.02em', lineHeight:1, color:'#fff', margin:0 }}>
-            SOLE
-          </h1>
-        </div>
-      </div>
-
-      {/* ── Project info ── */}
+      {/* ── Editorial header ── */}
       <div style={{
-        paddingTop:'clamp(3rem,6vw,6rem)',
-        paddingLeft:PAD, paddingRight:PAD,
-        paddingBottom:'clamp(2.5rem,5vw,4rem)',
         display:'grid',
         gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-        gap: isMobile ? '2rem' : 'clamp(2rem,6vw,6rem)',
+        gap: isMobile ? '2.5rem' : 'clamp(2rem,6vw,6rem)',
+        padding:`clamp(5rem,10vw,9rem) ${PAD} clamp(3rem,5vw,5rem)`,
         alignItems:'start',
-        borderBottom:'0.5px solid rgba(26,24,21,0.1)',
       }}>
-        <div style={{ display:'flex', flexDirection:'column', gap:'0.75rem' }}>
-          <InfoRow label="Cliente"  value="Sole S.Collection, retail de electrodomésticos." />
-          <InfoRow label="Proyecto" value="Sole: Phygital Experience" />
-          <InfoRow label="Rol"      value="Liderazgo de Strategic Design, GAD y Branding Espacial." />
-          <InfoRow label="Equipo"   value="Ximena Palma, Daniella Raes, Nicola, Giancarlo" />
-        </div>
-        <div style={{ display:'flex', flexWrap:'wrap', gap:'0.4rem', alignItems:'flex-start', paddingTop: isMobile ? 0 : '0.1rem' }}>
-          {TAGS.map(tag => (
-            <span key={tag} style={{
-              fontFamily:"'Poppins',sans-serif", fontWeight:400,
-              fontSize:'clamp(0.58rem,0.68vw,0.68rem)', letterSpacing:'0.1em', textTransform:'uppercase',
-              color:'#1A1815', border:'0.5px solid rgba(26,24,21,0.4)',
-              padding:'0.3rem 0.75rem', borderRadius:'100px',
-            }}>
-              {tag}
-            </span>
-          ))}
+        {/* Left: tagline */}
+        <h1 style={{
+          fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400,
+          fontSize:'clamp(1.5rem,3vw,3.2rem)',
+          letterSpacing:'-0.01em', lineHeight:1.25,
+          color:'#B9111C', margin:0,
+        }}>
+          A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience — where technology builds confidence at every decision point.
+        </h1>
+
+        {/* Right: metadata */}
+        <div style={{ display:'flex', flexDirection:'column', gap:'0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
+          <MetaRow label="Cliente"  value="Sole S·Collection, retail de electrodomésticos." />
+          <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
+          <MetaRow label="Rol"      value="Liderazgo de Strategic Design, GAD y Branding Espacial, dirigiendo la metodología de co-creación en GrupoModulor." />
+          <MetaRow label="Equipo"   value="Ximena Palma, Daniella Raes, Nicola, Giancarlo Grande" />
+          <div style={{ display:'flex', flexWrap:'wrap', gap:'0.35rem', paddingTop:'0.5rem' }}>
+            {['Spatial Branding','Product Design','Service Design'].map(tag => (
+              <span key={tag} style={{
+                fontFamily:"'Poppins',sans-serif", fontWeight:300,
+                fontSize:'0.58rem', letterSpacing:'0.1em', textTransform:'uppercase',
+                color:'rgba(26,24,21,0.5)', border:'0.5px solid rgba(26,24,21,0.25)',
+                padding:'0.25rem 0.65rem', borderRadius:'100px',
+              }}>{tag}</span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ── Scroll sections ── */}
-      {SECTIONS.map(s => <ScrollSection key={s.label} {...s} />)}
+      {/* ── Hero full-bleed photo ── */}
+      <FullBleed src="/covers/sole.png" height={isMobile ? '55vw' : '75vh'} />
+
+      {/* ── Research & Strategy ── */}
+      <ScrollSection {...SECTIONS[0]} />
+
+      {/* ── Environment full-bleed ── */}
+      <FullBleed src="/projects/sole/strategic-6.png" height={isMobile ? '60vw' : '70vh'} />
+
+      {/* ── Digital Strategy ── */}
+      <ScrollSection {...SECTIONS[1]} />
+
+      {/* ── Spatial full-bleed ── */}
+      <FullBleed src="/projects/sole/strategic-7.png" height={isMobile ? '60vw' : '70vh'} />
+
+      {/* ── Spatial Branding ── */}
+      <ScrollSection {...SECTIONS[2]} />
 
       {/* ── Outcomes ── */}
-      <div style={{ paddingLeft:PAD, paddingRight:PAD, paddingTop:'clamp(4rem,8vw,7rem)', paddingBottom:'clamp(4rem,8vw,7rem)', backgroundColor:'#fff' }}>
-        <h2 style={{ fontFamily:"'Gilda Display',serif", fontWeight:400, fontSize:'clamp(1.1rem,1.8vw,1.7rem)', letterSpacing:'-0.01em', color:'#B9111C', margin:'0 0 clamp(1.5rem,3vw,2.5rem)' }}>
+      <div style={{ padding:`clamp(4rem,8vw,7rem) ${PAD}`, backgroundColor:'#fff', borderTop:'0.5px solid rgba(26,24,21,0.08)' }}>
+        <h2 style={{ fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400, fontSize:'clamp(1.1rem,1.8vw,1.8rem)', letterSpacing:'-0.01em', color:'#B9111C', margin:`0 0 clamp(1.5rem,3vw,2.5rem)` }}>
           Outcomes
         </h2>
         <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4,1fr)', gap: isMobile ? '1.5rem' : 'clamp(1rem,2vw,2rem)' }}>
           {OUTCOMES.map((text, i) => (
-            <p key={i} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.68rem,0.78vw,0.78rem)', lineHeight:1.8, color:'rgba(26,24,21,0.6)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.18)' }}>
+            <p key={i} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.68rem,0.78vw,0.78rem)', lineHeight:1.85, color:'rgba(26,24,21,0.55)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.15)' }}>
               {text}
             </p>
           ))}
