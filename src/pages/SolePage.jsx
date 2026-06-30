@@ -24,7 +24,7 @@ function ScrollSection({ label, heading, body, images }) {
   }, [N])
 
   return (
-    <div ref={wrapRef} style={{ height: `${N * 100}vh`, position: 'relative' }}>
+    <div ref={wrapRef} style={{ height: `${(N + 1) * 100}vh`, position: 'relative' }}>
       <div style={{ position:'sticky', top:0, height:'100vh', display:'flex', overflow:'hidden', backgroundColor:'#fff' }}>
 
         {/* LEFT */}

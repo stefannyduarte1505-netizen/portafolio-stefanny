@@ -69,7 +69,7 @@ export default function Gallery() {
   const p = PROJECTS[active]
 
   return (
-    <div ref={wrapRef} id="gallery" style={{ height: `${N * 100}vh`, position: 'relative' }}>
+    <div ref={wrapRef} id="gallery" style={{ height: `${(N + 1) * 100}vh`, position: 'relative' }}>
       <style>{`
         @keyframes gal-in {
           from { opacity:0; transform:translateY(14px); }
