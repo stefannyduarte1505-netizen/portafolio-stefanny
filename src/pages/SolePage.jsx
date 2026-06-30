@@ -38,9 +38,13 @@ function ScrollSection({ label, heading, body, images }) {
           <h2 style={{ fontFamily:"'Gilda Display',serif", fontStyle:'italic', fontWeight:400, fontSize:'clamp(1.5rem,2.6vw,3rem)', letterSpacing:'-0.01em', lineHeight:1.15, color:'#B9111C', margin:0 }}>
             {heading}
           </h2>
-          <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.7rem,0.8vw,0.8rem)', lineHeight:1.9, color:'rgba(26,24,21,0.55)', margin:0 }}>
-            {body}
-          </p>
+          <div style={{ display:'flex', flexDirection:'column', gap:'0.8rem' }}>
+            {body.split('\n\n').map((para, i) => (
+              <p key={i} style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'clamp(0.7rem,0.8vw,0.8rem)', lineHeight:1.9, color:'rgba(26,24,21,0.55)', margin:0 }}>
+                {para}
+              </p>
+            ))}
+          </div>
           <p style={{ fontFamily:"'Poppins',sans-serif", fontWeight:300, fontSize:'0.55rem', letterSpacing:'0.18em', color:'rgba(26,24,21,0.22)', margin:'auto 0 0' }}>
             {String(active + 1).padStart(2,'0')} / {String(N).padStart(2,'0')}
           </p>
@@ -97,8 +101,8 @@ function MetaRow({ label, value }) {
 const SECTIONS = [
   {
     label: 'Research & Strategy',
-    heading: 'Two users, one gap.',
-    body: 'Two distinct user profiles — a practical family buyer and an aspirational design-driven buyer — revealed the same underlying tension: strong emotional intent, consistently undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
+    heading: 'Research & Strategy',
+    body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
     images: [
       '/projects/sole/frame-1.png',
       '/projects/sole/frame-2.png',
@@ -108,8 +112,8 @@ const SECTIONS = [
   },
   {
     label: 'Digital Strategy',
-    heading: 'Sole: Phygital Experience',
-    body: 'To extend the in-store experience beyond the store itself, an online experience was designed around what matters most to shoppers: clarity. A premium omnichannel catalog lets the user explore, configure, and own — bridging digital to physical for quick decision-making and confidence at every touchpoint.',
+    heading: 'Digital Strategy',
+    body: 'To extend the in store experience beyond what physical space allows, I designed an interactive kiosk that functions as a virtual catalog, giving users full access to the product range, while adapting the experience to each brand\'s identity.\n\nSole: Informational Catalog — A clear, browsable catalog experience: product categories, specs, and technical sheets, built for quick decision-making and trust.\n\nS•Collection: Real Time Visualizer — A premium, immersive mode where users customize materials, colors, and finishes directly onto a real kitchen render, closing the gap between imagination and purchase.',
     images: [
       '/projects/sole/frame-5.png',
       '/projects/sole/frame-6.png',
@@ -119,8 +123,8 @@ const SECTIONS = [
   },
   {
     label: 'Spatial Branding & Signage System',
-    heading: 'Space as a brand medium.',
-    body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S·Collection\'s ritual and exclusivity. Signage is embedded directly into furniture, countertops, cabinets and displays — turning every surface into a connection point to the digital catalog without breaking the spatial narrative. A minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage consistent across both lines.',
+    heading: 'Spatial Branding & Signage System',
+    body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S•Collection\'s ritual and exclusivity.\n\nQR signage is embedded directly into furniture, countertops, cabinets, displays, turning every surface into an entry point to the digital catalog without breaking the spatial narrative.\n\nA minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage, consistent across both lines, rendered in each brand\'s own color language.',
     images: [
       '/projects/sole/strategic-1.png',
       '/projects/sole/strategic-2.png',
@@ -190,10 +194,10 @@ export default function SolePage() {
 
         {/* Right: metadata */}
         <div style={{ display:'flex', flexDirection:'column', gap:'0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Sole S·Collection, retail de electrodomésticos." />
+          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail." />
           <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
-          <MetaRow label="Rol"      value="Liderazgo de Strategic Design, GAD y Branding Espacial, dirigiendo la metodología de co-creación en GrupoModulor." />
-          <MetaRow label="Equipo"   value="Ximena Palma, Daniella Raes, Nicola, Giancarlo Grande" />
+          <MetaRow label="Rol"      value="Service Design Lead — directed UX/UI strategy, the co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
+          <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display:'flex', flexWrap:'wrap', gap:'0.35rem', paddingTop:'0.5rem' }}>
             {['Spatial Branding','Product Design','Service Design'].map(tag => (
               <span key={tag} style={{
