@@ -62,8 +62,8 @@ function ImageAccordion({ images }) {
           background-color: #e0ddd8;
           transition: flex 0.65s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
         }
-        .sp-panel.sp-active    { opacity: 1; }
-        .sp-panel.sp-collapsed { opacity: 0.65; }
+        .sp-panel.sp-active    { opacity: 1; filter: blur(0px); }
+        .sp-panel.sp-collapsed { opacity: 0.65; filter: blur(2px); }
         .sp-arrow {
           height: clamp(2rem,2.8vw,3rem); padding: 0 clamp(1rem,1.8vw,1.8rem);
           border-radius: 100px; border: 0.5px solid rgba(26,24,21,0.3);

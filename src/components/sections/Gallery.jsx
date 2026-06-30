@@ -179,8 +179,8 @@ export default function Gallery() {
           background-repeat: no-repeat;
           background-color: #F5F4F0;
         }
-        .acc-panel.collapsed { opacity: 0.6; }
-        .acc-panel.active    { opacity: 1; }
+        .acc-panel.collapsed { opacity: 0.6; filter: blur(2px); }
+        .acc-panel.active    { opacity: 1; filter: blur(0px); }
         .acc-vtitle {
           position: absolute; bottom: 1.5rem; left: 50%;
           transform: translateX(-50%) rotate(-90deg);
