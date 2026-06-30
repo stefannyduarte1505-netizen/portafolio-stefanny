@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 
-const GILDA = "'Gilda Display', serif"
+const GILDA  = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
 
 /* ── Scroll-driven vertical slide (same as home gallery) ── */
@@ -44,7 +44,7 @@ function ScrollSection({ label, heading, body, images }) {
           </h2>
           <div style={{ display:'flex', flexDirection:'column', gap:'1rem' }}>
             {body.split('\n\n').map((para, i) => (
-              <p key={i} style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.65)', margin:0 }}>
+              <p key={i} style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.65)', margin:0 }}>
                 {para}
               </p>
             ))}
@@ -95,7 +95,7 @@ function MetaRow({ label, value }) {
       <span style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(26,24,21,0.32)', paddingTop:'0.12em' }}>
         {label}
       </span>
-      <span style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
+      <span style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'15px', color:'rgba(26,24,21,0.65)', lineHeight:1.6 }}>
         {value}
       </span>
     </div>
@@ -240,7 +240,7 @@ export default function SolePage() {
         </h2>
         <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4,1fr)', gap: isMobile ? '1.5rem' : 'clamp(1rem,2vw,2rem)' }}>
           {OUTCOMES.map((text, i) => (
-            <p key={i} style={{ fontFamily:GILDA, fontWeight:400, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.6)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.15)' }}>
+            <p key={i} style={{ fontFamily:POPPINS, fontWeight:300, fontSize:'15px', lineHeight:1.85, color:'rgba(26,24,21,0.6)', margin:0, paddingTop:'1rem', borderTop:'0.5px solid rgba(26,24,21,0.15)' }}>
               {text}
             </p>
           ))}
