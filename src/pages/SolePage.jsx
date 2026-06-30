@@ -216,19 +216,19 @@ export default function SolePage() {
       </div>
 
       {/* ── Hero full-bleed photo ── */}
-      <FullBleed src="/covers/sole.png" height={isMobile ? '55vw' : '75vh'} />
+      <FullBleed src="/projects/sole/1.png" height={isMobile ? '55vw' : '75vh'} />
 
       {/* ── Research & Strategy ── */}
       <ScrollSection {...SECTIONS[0]} />
 
       {/* ── Environment full-bleed ── */}
-      <FullBleed src="/projects/sole/strategic-6.png" height={isMobile ? '60vw' : '70vh'} />
+      <FullBleed src="/projects/sole/2.png" height={isMobile ? '60vw' : '70vh'} />
 
       {/* ── Digital Strategy ── */}
       <ScrollSection {...SECTIONS[1]} />
 
       {/* ── Spatial full-bleed ── */}
-      <FullBleed src="/projects/sole/strategic-7.png" height={isMobile ? '60vw' : '70vh'} />
+      <FullBleed src="/projects/sole/3.png" height={isMobile ? '60vw' : '70vh'} />
 
       {/* ── Spatial Branding ── */}
       <ScrollSection {...SECTIONS[2]} />
