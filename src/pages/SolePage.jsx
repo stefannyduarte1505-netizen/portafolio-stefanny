@@ -41,21 +41,18 @@ function ScrollSection({ label, heading, body, images }) {
       const current = activeRef.current
 
       if (dir > 0) {
-        // Scrolling down: advance one card
         const next = current + 1
-        if (next > N - 1) return
-        e.preventDefault()
+        if (next > N - 1) return   // at last card → let scroll exit naturally
+        e.preventDefault()          // absorb inertia even while locked
         if (locked) return
         locked = true
         window.scrollTo(0, rect.top + window.scrollY + next * window.innerHeight)
         setTimeout(() => { locked = false }, 900)
       } else {
-        // Scrolling up: if already at card 0, let scroll exit section naturally
-        if (current === 0) return
-        e.preventDefault()
+        if (current === 0) return   // at card 0 → let scroll exit upward naturally
+        e.preventDefault()          // absorb inertia even while locked
         if (locked) return
         locked = true
-        // Jump straight to section start (card 0)
         window.scrollTo(0, rect.top + window.scrollY)
         setTimeout(() => { locked = false }, 900)
       }
