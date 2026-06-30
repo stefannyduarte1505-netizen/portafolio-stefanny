@@ -27,7 +27,7 @@ function ScrollSection({ label, heading, body, images }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [N])
 
-  // One wheel event = one card advance
+  // Wheel: down = next card, up = jump to section start
   useEffect(() => {
     let locked = false
     const onWheel = (e) => {
@@ -38,16 +38,27 @@ function ScrollSection({ label, heading, body, images }) {
       if (!inSection) return
 
       const dir = e.deltaY > 0 ? 1 : -1
-      const next = activeRef.current + dir
-      if (next < 0 || next > N - 1) return
+      const current = activeRef.current
 
-      e.preventDefault()
-      if (locked) return
-      locked = true
-
-      const target = rect.top + window.scrollY + next * window.innerHeight
-      window.scrollTo({ top: target, behavior: 'smooth' })
-      setTimeout(() => { locked = false }, 950)
+      if (dir > 0) {
+        // Scrolling down: advance one card
+        const next = current + 1
+        if (next > N - 1) return
+        e.preventDefault()
+        if (locked) return
+        locked = true
+        window.scrollTo(0, rect.top + window.scrollY + next * window.innerHeight)
+        setTimeout(() => { locked = false }, 900)
+      } else {
+        // Scrolling up: if already at card 0, let scroll exit section naturally
+        if (current === 0) return
+        e.preventDefault()
+        if (locked) return
+        locked = true
+        // Jump straight to section start (card 0)
+        window.scrollTo(0, rect.top + window.scrollY)
+        setTimeout(() => { locked = false }, 900)
+      }
     }
     window.addEventListener('wheel', onWheel, { passive: false, capture: true })
     return () => window.removeEventListener('wheel', onWheel, { capture: true })
