@@ -8,12 +8,9 @@ const POPPINS = "'Poppins', sans-serif"
 function ScrollSection({ label, heading, body, images }) {
   const wrapRef = useRef(null)
   const [active, setActive] = useState(0)
-  const activeRef = useRef(0)
   const N = images.length
 
-  useEffect(() => { activeRef.current = active }, [active])
-
-  // Sync active from scroll position
+  // Sync active from scroll position (drives CSS animation)
   useEffect(() => {
     const onScroll = () => {
       const wrap = wrapRef.current
@@ -33,27 +30,32 @@ function ScrollSection({ label, heading, body, images }) {
     const onWheel = (e) => {
       const wrap = wrapRef.current
       if (!wrap) return
+
+      // Compute section position from live scroll — no stale state
       const rect = wrap.getBoundingClientRect()
-      const inSection = rect.top <= 0 && rect.bottom >= window.innerHeight
-      if (!inSection) return
+      const sectionTop = rect.top + window.scrollY
+      const scrolledIn = window.scrollY - sectionTop  // same as -rect.top
+
+      // Only active while scrolling through the N cards
+      if (scrolledIn < 0 || scrolledIn >= N * window.innerHeight) return
 
       const dir = e.deltaY > 0 ? 1 : -1
-      const current = activeRef.current
+      const current = Math.floor(scrolledIn / window.innerHeight)
 
       if (dir > 0) {
         const next = current + 1
-        if (next > N - 1) return   // at last card → let scroll exit naturally
-        e.preventDefault()          // absorb inertia even while locked
+        if (next >= N) return         // past last card → exit naturally
+        e.preventDefault()            // absorb inertia even while locked
         if (locked) return
         locked = true
-        window.scrollTo(0, rect.top + window.scrollY + next * window.innerHeight)
+        window.scrollTo(0, sectionTop + next * window.innerHeight)
         setTimeout(() => { locked = false }, 900)
       } else {
-        if (current === 0) return   // at card 0 → let scroll exit upward naturally
-        e.preventDefault()          // absorb inertia even while locked
+        if (current === 0) return     // at card 0 → exit upward naturally
+        e.preventDefault()            // absorb inertia even while locked
         if (locked) return
         locked = true
-        window.scrollTo(0, rect.top + window.scrollY)
+        window.scrollTo(0, sectionTop)
         setTimeout(() => { locked = false }, 900)
       }
     }
