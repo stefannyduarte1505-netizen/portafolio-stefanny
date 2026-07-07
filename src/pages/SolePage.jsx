@@ -10,61 +10,57 @@ function ScrollSection({ label, heading, body, images }) {
   const [active, setActive] = useState(0)
   const N = images.length
 
-  // Sync active from scroll position (drives CSS animation)
   useEffect(() => {
-    const onScroll = () => {
-      const wrap = wrapRef.current
-      if (!wrap) return
-      const scrolled = -wrap.getBoundingClientRect().top
-      if (scrolled < 0) { setActive(0); return }
-      setActive(Math.min(N - 1, Math.floor(scrolled / window.innerHeight)))
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [N])
-
-  // Wheel: down = next card, up = jump to section start
-  useEffect(() => {
+    const wrap = wrapRef.current
+    if (!wrap) return
     let locked = false
+
+    const scrolledIn = () => -wrap.getBoundingClientRect().top
+    const sectionTop  = () =>  wrap.getBoundingClientRect().top + window.scrollY
+
+    // Drive CSS animation from scroll position
+    const onScroll = () => {
+      const s = scrolledIn()
+      if (s < 0) { setActive(0); return }
+      setActive(Math.min(N - 1, Math.floor(s / window.innerHeight)))
+    }
+
+    // One wheel gesture = one card; up = jump to section start
     const onWheel = (e) => {
-      const wrap = wrapRef.current
-      if (!wrap) return
+      const s = scrolledIn()
+      if (s < 0 || s >= N * window.innerHeight) return   // outside active zone
 
-      // Compute section position from live scroll — no stale state
-      const rect = wrap.getBoundingClientRect()
-      const sectionTop = rect.top + window.scrollY
-      const scrolledIn = window.scrollY - sectionTop  // same as -rect.top
-
-      // Only active while scrolling through the N cards
-      if (scrolledIn < 0 || scrolledIn >= N * window.innerHeight) return
-
-      const dir = e.deltaY > 0 ? 1 : -1
-      const current = Math.floor(scrolledIn / window.innerHeight)
+      const dir     = e.deltaY > 0 ? 1 : -1
+      const current = Math.floor(s / window.innerHeight)
 
       if (dir > 0) {
-        const next = current + 1
-        if (next >= N) return         // past last card → exit naturally
-        e.preventDefault()            // absorb inertia even while locked
+        if (current >= N - 1) return          // at last card → exit naturally
+        e.preventDefault()
         if (locked) return
         locked = true
-        window.scrollTo({ top: sectionTop + next * window.innerHeight, behavior: 'instant' })
+        window.scrollTo({ top: sectionTop() + (current + 1) * window.innerHeight, behavior: 'instant' })
         setTimeout(() => { locked = false }, 900)
       } else {
-        if (current === 0) return     // at card 0 → exit upward naturally
-        e.preventDefault()            // absorb inertia even while locked
+        if (current === 0) return             // at first card → exit upward naturally
+        e.preventDefault()
         if (locked) return
         locked = true
-        window.scrollTo({ top: sectionTop, behavior: 'instant' })
+        window.scrollTo({ top: sectionTop(), behavior: 'instant' })
         setTimeout(() => { locked = false }, 900)
       }
     }
-    window.addEventListener('wheel', onWheel, { passive: false, capture: true })
-    return () => window.removeEventListener('wheel', onWheel, { capture: true })
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('wheel',  onWheel,  { passive: false, capture: true })
+    onScroll()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('wheel',  onWheel, { capture: true })
+    }
   }, [N])
 
   return (
-    <div ref={wrapRef} style={{ height: `${(N + 1) * 100}vh`, position: 'relative' }}>
+    <div ref={wrapRef} style={{ height: `${N * 100}vh`, position: 'relative' }}>
       <div style={{ position:'sticky', top:0, height:'100vh', display:'flex', overflow:'hidden', backgroundColor:'#fff' }}>
 
         {/* LEFT */}
@@ -188,7 +184,12 @@ const OUTCOMES = [
 
 export default function SolePage() {
   const isMobile = useIsMobile()
-  useEffect(() => { window.scrollTo(0, 0) }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    // Disable CSS smooth-scroll so wheel snapping is always instant
+    document.documentElement.style.scrollBehavior = 'auto'
+    return () => { document.documentElement.style.scrollBehavior = '' }
+  }, [])
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
