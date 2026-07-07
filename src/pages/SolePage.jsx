@@ -48,14 +48,14 @@ function ScrollSection({ label, heading, body, images }) {
         e.preventDefault()            // absorb inertia even while locked
         if (locked) return
         locked = true
-        window.scrollTo(0, sectionTop + next * window.innerHeight)
+        window.scrollTo({ top: sectionTop + next * window.innerHeight, behavior: 'instant' })
         setTimeout(() => { locked = false }, 900)
       } else {
         if (current === 0) return     // at card 0 → exit upward naturally
         e.preventDefault()            // absorb inertia even while locked
         if (locked) return
         locked = true
-        window.scrollTo(0, sectionTop)
+        window.scrollTo({ top: sectionTop, behavior: 'instant' })
         setTimeout(() => { locked = false }, 900)
       }
     }
