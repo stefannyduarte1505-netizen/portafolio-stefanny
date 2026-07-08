@@ -4,7 +4,7 @@ import { useIsMobile } from '../../hooks/useIsMobile'
 import { getLenis } from '../../hooks/useLenis'
 
 const PROJECTS = [
-  { id: 'sole',             title: 'SOLE',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
+  { id: 'sole',             title: 'Sole',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
   { id: 'root',             title: 'Root',             tags: ['UX Research', 'Service Design'],       cover: '/covers/root.png'        },
   { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'        },
   { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'     },
@@ -149,7 +149,7 @@ export default function Gallery() {
               fontFamily: "'Gilda Display', serif", fontWeight: 400,
               fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
               letterSpacing: '-0.02em', lineHeight: 0.95,
-              color: '#B9111C', margin: 0,
+              color: '#1A1815', margin: 0,
             }}>
               {p.title}
             </h2>
