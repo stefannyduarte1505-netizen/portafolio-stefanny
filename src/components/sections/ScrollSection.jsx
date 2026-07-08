@@ -86,7 +86,6 @@ export default function ScrollSection({ label, heading, body, images }) {
             ref={el => { imageRefs.current[i] = el }}
             style={{
               padding: 'clamp(0.75rem,1.5vw,1.5rem)',
-              borderBottom: i < images.length - 1 ? '0.5px solid rgba(26,24,21,0.06)' : 'none',
             }}
           >
             <img
