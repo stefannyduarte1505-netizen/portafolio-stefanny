@@ -13,41 +13,60 @@ function ScrollSection({ label, heading, body, images }) {
   useEffect(() => {
     const wrap = wrapRef.current
     if (!wrap) return
-    let locked = false
 
-    const scrolledIn = () => -wrap.getBoundingClientRect().top
+    // targetCard is the explicit source of truth — avoids float rounding in Math.floor
+    const targetCard = { current: 0 }
+    let locked = false
+    let lockTimer = null
+
+    const scrolledIn  = () => -wrap.getBoundingClientRect().top
     const sectionTop  = () =>  wrap.getBoundingClientRect().top + window.scrollY
 
-    // Drive CSS animation from scroll position
-    const onScroll = () => {
-      const s = scrolledIn()
-      if (s < 0) { setActive(0); return }
-      setActive(Math.min(N - 1, Math.floor(s / window.innerHeight)))
+    const goTo = (card) => {
+      targetCard.current = card
+      setActive(card)
+      window.scrollTo({ top: sectionTop() + card * window.innerHeight, behavior: 'instant' })
+      locked = true
+      clearTimeout(lockTimer)
+      lockTimer = setTimeout(() => { locked = false }, 880)
     }
 
-    // One wheel gesture = one card; up = jump to section start
+    // Keep active in sync for smooth CSS transition
+    const onScroll = () => {
+      const s = scrolledIn()
+      if (s < 0) { setActive(0); if (!locked) targetCard.current = 0; return }
+      const card = Math.min(N - 1, Math.floor(s / window.innerHeight))
+      setActive(card)
+      if (!locked) targetCard.current = card   // update only when not mid-snap
+    }
+
     const onWheel = (e) => {
       const s = scrolledIn()
       if (s < 0 || s >= N * window.innerHeight) return   // outside active zone
 
-      const dir     = e.deltaY > 0 ? 1 : -1
-      const current = Math.floor(s / window.innerHeight)
+      const dir = e.deltaY > 0 ? 1 : -1
 
       if (dir > 0) {
-        e.preventDefault()                    // always absorb while inside active zone
-        if (locked) return
-        locked = true
-        // next card, or if at last card snap to buffer zone so natural scroll takes over
-        const next = Math.min(N, current + 1)
-        window.scrollTo({ top: sectionTop() + next * window.innerHeight, behavior: 'instant' })
-        setTimeout(() => { locked = false }, 850)
-      } else {
-        if (current === 0) return             // at first card → exit upward naturally
         e.preventDefault()
         if (locked) return
-        locked = true
-        window.scrollTo({ top: sectionTop(), behavior: 'instant' })
-        setTimeout(() => { locked = false }, 850)
+        const next = targetCard.current + 1
+        if (next >= N) {
+          // Last card reached — snap to buffer so handler deactivates, then natural scroll exits
+          goTo(N - 1)   // re-affirm last card position first so it's cleanly visible
+          locked = true
+          clearTimeout(lockTimer)
+          lockTimer = setTimeout(() => {
+            window.scrollTo({ top: sectionTop() + N * window.innerHeight, behavior: 'instant' })
+            locked = false
+          }, 400)
+          return
+        }
+        goTo(next)
+      } else {
+        if (targetCard.current === 0) return   // at first card → exit upward naturally
+        e.preventDefault()
+        if (locked) return
+        goTo(0)
       }
     }
 
@@ -57,6 +76,7 @@ function ScrollSection({ label, heading, body, images }) {
     return () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('wheel',  onWheel, { capture: true })
+      clearTimeout(lockTimer)
     }
   }, [N])
 
