@@ -34,19 +34,20 @@ function ScrollSection({ label, heading, body, images }) {
       const current = Math.floor(s / window.innerHeight)
 
       if (dir > 0) {
-        if (current >= N - 1) return          // at last card → exit naturally
-        e.preventDefault()
+        e.preventDefault()                    // always absorb while inside active zone
         if (locked) return
         locked = true
-        window.scrollTo({ top: sectionTop() + (current + 1) * window.innerHeight, behavior: 'instant' })
-        setTimeout(() => { locked = false }, 900)
+        // next card, or if at last card snap to buffer zone so natural scroll takes over
+        const next = Math.min(N, current + 1)
+        window.scrollTo({ top: sectionTop() + next * window.innerHeight, behavior: 'instant' })
+        setTimeout(() => { locked = false }, 850)
       } else {
         if (current === 0) return             // at first card → exit upward naturally
         e.preventDefault()
         if (locked) return
         locked = true
         window.scrollTo({ top: sectionTop(), behavior: 'instant' })
-        setTimeout(() => { locked = false }, 900)
+        setTimeout(() => { locked = false }, 850)
       }
     }
 
@@ -60,7 +61,7 @@ function ScrollSection({ label, heading, body, images }) {
   }, [N])
 
   return (
-    <div ref={wrapRef} style={{ height: `${N * 100}vh`, position: 'relative' }}>
+    <div ref={wrapRef} style={{ height: `${(N + 1) * 100}vh`, position: 'relative' }}>
       <div style={{ position:'sticky', top:0, height:'100vh', display:'flex', overflow:'hidden', backgroundColor:'#fff' }}>
 
         {/* LEFT */}
