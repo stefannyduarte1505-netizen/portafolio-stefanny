@@ -103,7 +103,7 @@ export default function AboutUs() {
     <section
       id="about"
       style={{
-        backgroundColor: '#F5F4F0',
+        backgroundColor: '#ffffff',
         overflow: 'hidden',
         paddingTop:    'clamp(3rem, 6vw, 6rem)',
         paddingBottom: 'clamp(3rem, 6vw, 6rem)',

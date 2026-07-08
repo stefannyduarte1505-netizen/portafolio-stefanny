@@ -115,14 +115,14 @@ export default function Home() {
   }, [])
 
   return (
-    <div id="top" style={{ backgroundColor: '#F5F4F0' }}>
+    <div id="top" style={{ backgroundColor: '#ffffff' }}>
       <SectionLabel contactWrapRef={contactWrapRef} aboutRef={aboutRef} />
 
       <main>
         <Sticky zIndex={1}><Hero /></Sticky>
         <Gallery />
 
-        <div style={{ position: 'relative', zIndex: 3, backgroundColor: '#F5F4F0' }}>
+        <div style={{ position: 'relative', zIndex: 3, backgroundColor: '#ffffff' }}>
           <div ref={aboutRef}>
             <AboutUs />
           </div>

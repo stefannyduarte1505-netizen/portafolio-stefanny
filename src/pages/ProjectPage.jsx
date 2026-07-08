@@ -43,7 +43,7 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div style={{ backgroundColor: '#F5F4F0', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ backgroundColor: '#ffffff', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ fontFamily: "'Gilda Display', serif", fontSize: '1.5rem', color: '#1A1815' }}>
           Proyecto no encontrado.
         </p>
@@ -56,7 +56,7 @@ export default function ProjectPage() {
   const scrollH = `${Math.max(1, gallery.length) * 100}vh`
 
   return (
-    <div style={{ backgroundColor: '#F5F4F0' }}>
+    <div style={{ backgroundColor: '#ffffff' }}>
 
       {/* ── Close — fixed top right ── */}
       <button
@@ -71,7 +71,7 @@ export default function ProjectPage() {
           borderRadius: '100px',
           backdropFilter: 'blur(14px)',
           WebkitBackdropFilter: 'blur(14px)',
-          backgroundColor: 'rgba(245,244,240,0.55)',
+          backgroundColor: 'rgba(255,255,255,0.55)',
           boxShadow: '0 2px 24px rgba(0,0,0,0.07)',
           border: 'none',
           fontFamily: "'Poppins', sans-serif",
@@ -125,7 +125,7 @@ export default function ProjectPage() {
           </div>
 
           {/* BOTTOM — info panel */}
-          <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#F5F4F0', flexShrink: 0, overflowY: 'auto' }}>
+          <div style={{ height: `${INFO_H}vh`, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', backgroundColor: '#ffffff', flexShrink: 0, overflowY: 'auto' }}>
 
             {/* Left — subtitle + title + year + tags */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '1.5rem 1.5rem 0.5rem' : '2.5rem 2rem 2.5rem 3rem', overflowY: 'auto' }}>

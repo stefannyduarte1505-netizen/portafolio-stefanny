@@ -71,7 +71,7 @@ export default function Gallery() {
   /* ── Mobile ── */
   if (isMobile) {
     return (
-      <section id="gallery" style={{ backgroundColor: '#F5F4F0', height: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <section id="gallery" style={{ backgroundColor: '#ffffff', height: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <style>{`
           .mob-label { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B9111C; padding:0 1.25rem 0.75rem; flex-shrink:0; }
           .mob-track { display:flex; overflow-x:auto; overflow-y:hidden; gap:0.75rem; padding:0.5rem 1.25rem 1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
@@ -121,7 +121,7 @@ export default function Gallery() {
         height: '100vh', zIndex: 2,
         display: 'flex',
         overflow: 'hidden',
-        backgroundColor: '#F5F4F0',
+        backgroundColor: '#ffffff',
       }}>
 
         {/* ── LEFT: info panel ── */}
@@ -191,7 +191,7 @@ export default function Gallery() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   padding: 'clamp(2rem, 4vw, 4rem)',
-                  backgroundColor: '#F5F4F0',
+                  backgroundColor: '#ffffff',
                   cursor: 'pointer',
                 }}
               >

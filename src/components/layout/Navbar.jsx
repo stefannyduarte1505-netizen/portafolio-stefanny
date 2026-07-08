@@ -61,7 +61,7 @@ export default function Navbar() {
         display: 'flex', alignItems: 'center', gap: '2.5rem',
         padding: '0.6rem 2rem', borderRadius: '100px',
         backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-        backgroundColor: scrolled ? 'rgba(245,244,240,0.55)' : 'rgba(245,244,240,0.35)',
+        backgroundColor: scrolled ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.35)',
         boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.07)' : '0 1px 12px rgba(0,0,0,0.04)',
         transition: 'background-color 0.3s, box-shadow 0.3s',
         whiteSpace: 'nowrap',
@@ -90,7 +90,7 @@ export default function Navbar() {
           width: '42px', height: '42px',
           borderRadius: '100px',
           backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-          backgroundColor: scrolled || open ? 'rgba(245,244,240,0.85)' : 'rgba(245,244,240,0.55)',
+          backgroundColor: scrolled || open ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.55)',
           boxShadow: '0 2px 16px rgba(0,0,0,0.08)',
           border: 'none', cursor: 'pointer',
           display: 'flex', flexDirection: 'column',
@@ -120,7 +120,7 @@ export default function Navbar() {
       {/* Full-screen overlay menu */}
       <div style={{
         position: 'fixed', inset: 0, zIndex: 150,
-        backgroundColor: '#F5F4F0',
+        backgroundColor: '#ffffff',
         display: 'flex', flexDirection: 'column',
         justifyContent: 'center', alignItems: 'flex-start',
         padding: '0 2.5rem',
