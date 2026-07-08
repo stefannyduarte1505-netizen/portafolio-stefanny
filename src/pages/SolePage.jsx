@@ -28,7 +28,7 @@ function ScrollSection({ label, heading, body, images }) {
       window.scrollTo({ top: sectionTop() + card * window.innerHeight, behavior: 'instant' })
       locked = true
       clearTimeout(lockTimer)
-      lockTimer = setTimeout(() => { locked = false }, 880)
+      lockTimer = setTimeout(() => { locked = false }, 580)
     }
 
     // Keep active in sync for smooth CSS transition
@@ -117,7 +117,7 @@ function ScrollSection({ label, heading, body, images }) {
             display:'flex', flexDirection:'column',
             height:`${N * 100}vh`,
             transform:`translateY(-${active * 100}vh)`,
-            transition:'transform 0.85s cubic-bezier(0.16,1,0.3,1)',
+            transition:'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)',
             willChange:'transform',
           }}>
             {images.map((src, i) => (
