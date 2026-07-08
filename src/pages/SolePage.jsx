@@ -138,7 +138,7 @@ export default function SolePage() {
       <FullBleed src="/projects/sole/cover-hero.png" />
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/sole/cover-after-research.png" />
-      <ScrollSection {...SECTIONS[1]} />
+      <ScrollSection {...SECTIONS[1]} reverse />
       <FullBleed src="/projects/sole/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
 

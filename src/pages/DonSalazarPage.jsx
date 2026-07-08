@@ -125,7 +125,7 @@ export default function DonSalazarPage() {
       <FullBleed src="/projects/don-salazar/cover-hero.png" />
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/don-salazar/cover-after-research.png" />
-      <ScrollSection {...SECTIONS[1]} />
+      <ScrollSection {...SECTIONS[1]} reverse />
       <FullBleed src="/projects/don-salazar/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
 

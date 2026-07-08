@@ -117,7 +117,7 @@ export default function ModulorPage() {
 
       <FullBleed src="/projects/modulor/cover-hero.png" />
       <ScrollSection {...SECTIONS[0]} />
-      <ScrollSection {...SECTIONS[1]} />
+      <ScrollSection {...SECTIONS[1]} reverse />
 
     </div>
   )

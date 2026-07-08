@@ -117,7 +117,7 @@ export default function RootPage() {
       <FullBleed src="/projects/root/cover-hero.png" />
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/root/cover-after-research.png" />
-      <ScrollSection {...SECTIONS[1]} />
+      <ScrollSection {...SECTIONS[1]} reverse />
 
     </div>
   )
