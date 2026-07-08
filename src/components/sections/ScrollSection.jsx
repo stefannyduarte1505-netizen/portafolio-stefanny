@@ -36,7 +36,6 @@ export default function ScrollSection({ label, heading, body, images }) {
         flexDirection: 'column',
         padding: 'clamp(2.5rem,4vw,5rem) clamp(2rem,3.5vw,4rem)',
         gap: 'clamp(1rem,1.5vw,1.8rem)',
-        borderRight: '0.5px solid rgba(26,24,21,0.08)',
         overflowY: 'auto',
         backgroundColor: '#fff',
         boxSizing: 'border-box',
