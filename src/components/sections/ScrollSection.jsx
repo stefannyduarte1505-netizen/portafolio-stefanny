@@ -1,0 +1,111 @@
+import { useEffect, useRef, useState } from 'react'
+
+const GILDA   = "'Gilda Display', serif"
+const POPPINS = "'Poppins', sans-serif"
+
+export default function ScrollSection({ label, heading, body, images }) {
+  const [active, setActive] = useState(0)
+  const N = images.length
+  const imageRefs = useRef([])
+
+  useEffect(() => {
+    imageRefs.current = imageRefs.current.slice(0, N)
+    const observers = imageRefs.current.map((el, i) => {
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(i) },
+        { threshold: 0.5 }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach(o => o?.disconnect())
+  }, [N])
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-start', backgroundColor: '#fff' }}>
+
+      {/* LEFT — sticky info panel */}
+      <div style={{
+        width: '40%',
+        flexShrink: 0,
+        position: 'sticky',
+        top: 0,
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 'clamp(2.5rem,4vw,5rem) clamp(2rem,3.5vw,4rem)',
+        gap: 'clamp(1rem,1.5vw,1.8rem)',
+        borderRight: '0.5px solid rgba(26,24,21,0.08)',
+        overflowY: 'auto',
+        backgroundColor: '#fff',
+        boxSizing: 'border-box',
+      }}>
+        <p style={{
+          fontFamily: POPPINS, fontWeight: 300, fontSize: '0.58rem',
+          letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: 'rgba(26,24,21,0.3)', margin: 0,
+        }}>
+          {label}
+        </p>
+
+        <h2 style={{
+          fontFamily: GILDA, fontWeight: 400,
+          fontSize: 'clamp(1.5rem,2.6vw,3rem)',
+          letterSpacing: '-0.01em', lineHeight: 1.15,
+          color: '#B9111C', margin: 0,
+        }}>
+          {heading}
+        </h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {body.split('\n\n').map((para, i) => (
+            <p key={i} style={{
+              fontFamily: POPPINS, fontWeight: 300, fontSize: '15px',
+              lineHeight: 1.85, color: 'rgba(26,24,21,0.65)', margin: 0,
+            }}>
+              {para}
+            </p>
+          ))}
+        </div>
+
+        <p style={{
+          fontFamily: POPPINS, fontWeight: 300, fontSize: '0.55rem',
+          letterSpacing: '0.18em', color: 'rgba(26,24,21,0.22)',
+          margin: 'auto 0 0',
+        }}>
+          {String(active + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
+        </p>
+      </div>
+
+      {/* RIGHT — images scroll naturally */}
+      <div style={{ flex: 1, backgroundColor: '#fff' }}>
+        {images.map((src, i) => (
+          <div
+            key={src}
+            ref={el => { imageRefs.current[i] = el }}
+            style={{
+              height: '100vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 'clamp(2rem,4vw,5rem)',
+            }}
+          >
+            <img
+              src={src}
+              alt=""
+              loading={i === 0 ? 'eager' : 'lazy'}
+              style={{
+                maxWidth: '100%', maxHeight: '100%',
+                width: 'auto', height: 'auto',
+                objectFit: 'contain', display: 'block',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+    </div>
+  )
+}
