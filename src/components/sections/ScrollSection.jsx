@@ -78,29 +78,22 @@ export default function ScrollSection({ label, heading, body, images }) {
         </p>
       </div>
 
-      {/* RIGHT — images scroll naturally */}
+      {/* RIGHT — images scroll naturally at their own size */}
       <div style={{ flex: 1, backgroundColor: '#fff' }}>
         {images.map((src, i) => (
           <div
             key={src}
             ref={el => { imageRefs.current[i] = el }}
             style={{
-              height: '100vh',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 'clamp(2rem,4vw,5rem)',
+              padding: 'clamp(0.75rem,1.5vw,1.5rem)',
+              borderBottom: i < images.length - 1 ? '0.5px solid rgba(26,24,21,0.06)' : 'none',
             }}
           >
             <img
               src={src}
               alt=""
               loading={i === 0 ? 'eager' : 'lazy'}
-              style={{
-                maxWidth: '100%', maxHeight: '100%',
-                width: 'auto', height: 'auto',
-                objectFit: 'contain', display: 'block',
-              }}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
             />
           </div>
         ))}
