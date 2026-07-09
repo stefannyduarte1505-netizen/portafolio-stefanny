@@ -1,7 +1,6 @@
-/* ── Project Gallery — vertical slide, scroll-driven ── */
+/* ── Project Gallery — sticky left + natural scroll right (same as ScrollSection) ── */
 import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
-import { getLenis } from '../../hooks/useLenis'
 
 const PROJECTS = [
   { id: 'sole',             title: 'Sole',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
@@ -13,59 +12,23 @@ const PROJECTS = [
 const N = PROJECTS.length
 
 export default function Gallery() {
-  const isMobile = useIsMobile()
-  const wrapRef  = useRef(null)
+  const isMobile   = useIsMobile()
   const [active, setActive] = useState(0)
-  const activeRef = useRef(0)
+  const cardRefs   = useRef([])
 
-  useEffect(() => { activeRef.current = active }, [active])
-
-  // Sync active index from scroll position (fallback / mobile)
   useEffect(() => {
     if (isMobile) return
-    const onScroll = () => {
-      const wrap = wrapRef.current
-      if (!wrap) return
-      const scrolled = -wrap.getBoundingClientRect().top
-      if (scrolled < 0) { setActive(0); return }
-      const idx = Math.min(N - 1, Math.floor(scrolled / window.innerHeight))
-      setActive(idx)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [isMobile])
-
-  // One wheel event = one card advance
-  useEffect(() => {
-    if (isMobile) return
-    let locked = false
-    const onWheel = (e) => {
-      const wrap = wrapRef.current
-      if (!wrap) return
-      const rect = wrap.getBoundingClientRect()
-      const inSection = rect.top <= 0 && rect.bottom >= window.innerHeight
-      if (!inSection) return
-
-      const dir = e.deltaY > 0 ? 1 : -1
-      const next = activeRef.current + dir
-      if (next < 0 || next > N - 1) return
-
-      e.preventDefault()
-      if (locked) return
-      locked = true
-
-      const target = rect.top + window.scrollY + next * window.innerHeight
-      const lenis = getLenis()
-      if (lenis) {
-        lenis.scrollTo(target, { duration: 1.0, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
-      } else {
-        window.scrollTo({ top: target, behavior: 'smooth' })
-      }
-      setTimeout(() => { locked = false }, 950)
-    }
-    window.addEventListener('wheel', onWheel, { passive: false, capture: true })
-    return () => window.removeEventListener('wheel', onWheel, { capture: true })
+    cardRefs.current = cardRefs.current.slice(0, N)
+    const observers = cardRefs.current.map((el, i) => {
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(i) },
+        { threshold: 0.5 }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach(o => o?.disconnect())
   }, [isMobile])
 
   /* ── Mobile ── */
@@ -106,135 +69,119 @@ export default function Gallery() {
   const p = PROJECTS[active]
 
   return (
-    <div ref={wrapRef} id="gallery" style={{ height: `${(N + 1) * 100}vh`, position: 'relative' }}>
+    <div id="gallery" style={{ display: 'flex', alignItems: 'flex-start', backgroundColor: '#ffffff' }}>
       <style>{`
         @keyframes gal-in {
-          from { opacity:0; transform:translateY(14px); }
+          from { opacity:0; transform:translateY(10px); }
           to   { opacity:1; transform:translateY(0); }
         }
-        .gal-text { animation: gal-in 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+        .gal-text { animation: gal-in 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
 
-        .gal-card { position:relative; overflow:hidden; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
-        .gal-card img { transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
-        .gal-card:hover img { transform: scale(1.04); }
+        .gal-card { position:relative; overflow:hidden; width:100%; }
+        .gal-card img { display:block; width:100%; height:auto; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
+        .gal-card:hover img { transform: scale(1.03); }
         .gal-card-overlay {
           position:absolute; inset:0;
           display:flex; align-items:flex-end; justify-content:flex-end;
-          padding: clamp(1.5rem,3vw,2.5rem);
+          padding: clamp(1rem,2vw,1.5rem);
           opacity:0;
-          transition: opacity 0.35s ease;
+          transition: opacity 0.3s ease;
           pointer-events:none;
         }
         .gal-card:hover .gal-card-overlay { opacity:1; }
         .gal-card-arrow {
-          width:48px; height:48px; border-radius:50%;
+          width:44px; height:44px; border-radius:50%;
           background:#1A1815;
           display:flex; align-items:center; justify-content:center;
-          transform: translateY(8px);
-          transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+          transform: translateY(6px);
+          transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
         }
         .gal-card:hover .gal-card-arrow { transform: translateY(0); }
-        .gal-card-arrow svg { width:16px; height:16px; }
       `}</style>
 
-      {/* Sticky frame */}
+      {/* LEFT — sticky info panel */}
       <div style={{
-        position: 'sticky', top: 0,
-        height: '100vh', zIndex: 2,
+        width: '38%',
+        flexShrink: 0,
+        position: 'sticky',
+        top: 0,
+        height: '100vh',
         display: 'flex',
-        overflow: 'hidden',
+        flexDirection: 'column',
+        padding: 'clamp(2.5rem,4vw,4rem) clamp(2rem,3.5vw,3.5rem)',
+        gap: 'clamp(1rem,1.5vw,1.5rem)',
         backgroundColor: '#ffffff',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
       }}>
-
-        {/* ── LEFT: info panel ── */}
-        <div style={{
-          width: '38%',
-          flexShrink: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          padding: 'clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem)',
-          gap: 'clamp(1rem, 1.5vw, 1.5rem)',
-          overflow: 'hidden',
+        <p style={{
+          fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+          fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: 'rgba(26,24,21,0.32)', margin: 0,
         }}>
-          {/* Label */}
-          <p style={{
-            fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-            fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: 'rgba(26,24,21,0.32)', margin: 0,
+          Projects
+        </p>
+
+        <div key={`title-${active}`} className="gal-text">
+          <h2 style={{
+            fontFamily: "'Gilda Display', serif", fontWeight: 400,
+            fontSize: 'clamp(2.8rem,5.5vw,6.5rem)',
+            letterSpacing: '-0.02em', lineHeight: 0.95,
+            color: '#1A1815', margin: 0,
           }}>
-            Projects
-          </p>
-
-          {/* Title — top-aligned, animated */}
-          <div key={`title-${active}`} className="gal-text">
-            <h2 style={{
-              fontFamily: "'Gilda Display', serif", fontWeight: 400,
-              fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)',
-              letterSpacing: '-0.02em', lineHeight: 0.95,
-              color: '#1A1815', margin: 0,
-            }}>
-              {p.title}
-            </h2>
-          </div>
-
-          {/* Tags — animated */}
-          <div key={`tags-${active}`} className="gal-text" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-            {p.tags.map(tag => (
-              <p key={tag} style={{
-                fontFamily: "'Poppins', sans-serif", fontWeight: 300,
-                fontSize: 'clamp(0.62rem, 0.78vw, 0.75rem)',
-                letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: 'rgba(26,24,21,0.45)', margin: 0,
-              }}>
-                {tag}
-              </p>
-            ))}
-          </div>
+            {p.title}
+          </h2>
         </div>
 
-        {/* ── RIGHT: vertical image strip ── */}
-        <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: `${N * 100}vh`,
-            transform: `translateY(-${active * 100}vh)`,
-            transition: 'transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)',
-            willChange: 'transform',
-          }}>
-            {PROJECTS.map((proj, i) => (
-              <div
-                key={proj.id}
-                onClick={() => { window.location.href = `/project/${proj.id}` }}
-                style={{
-                  height: '100vh',
-                  flexShrink: 0,
-                  padding: 'clamp(2rem, 4vw, 4rem)',
-                  backgroundColor: '#ffffff',
-                  cursor: 'pointer',
-                }}
-              >
-                <div className="gal-card">
-                  <img
-                    src={proj.cover}
-                    alt={proj.title}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
-                  />
-                  <div className="gal-card-overlay">
-                    <div className="gal-card-arrow">
-                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 13L13 3M13 3H6M13 3V10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
+        <div key={`tags-${active}`} className="gal-text" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+          {p.tags.map(tag => (
+            <p key={tag} style={{
+              fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+              fontSize: 'clamp(0.62rem,0.78vw,0.75rem)',
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: 'rgba(26,24,21,0.45)', margin: 0,
+            }}>
+              {tag}
+            </p>
+          ))}
+        </div>
+
+        <p style={{
+          fontFamily: "'Poppins', sans-serif", fontWeight: 300,
+          fontSize: '0.55rem', letterSpacing: '0.18em',
+          color: 'rgba(26,24,21,0.22)', margin: 'auto 0 0',
+        }}>
+          {String(active + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
+        </p>
+      </div>
+
+      {/* RIGHT — project covers scroll naturally */}
+      <div style={{ flex: 1, backgroundColor: '#ffffff' }}>
+        {PROJECTS.map((proj, i) => (
+          <div
+            key={proj.id}
+            ref={el => { cardRefs.current[i] = el }}
+            onClick={() => { window.location.href = `/project/${proj.id}` }}
+            style={{ padding: 'clamp(0.75rem,1.5vw,1.5rem)', cursor: 'pointer' }}
+          >
+            <div className="gal-card">
+              <img
+                src={proj.cover}
+                alt={proj.title}
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+              <div className="gal-card-overlay">
+                <div className="gal-card-arrow">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-
+        ))}
       </div>
+
     </div>
   )
 }
