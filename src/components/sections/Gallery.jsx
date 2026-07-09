@@ -113,6 +113,28 @@ export default function Gallery() {
           to   { opacity:1; transform:translateY(0); }
         }
         .gal-text { animation: gal-in 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+
+        .gal-card { position:relative; overflow:hidden; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+        .gal-card img { transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
+        .gal-card:hover img { transform: scale(1.04); }
+        .gal-card-overlay {
+          position:absolute; inset:0;
+          display:flex; align-items:flex-end; justify-content:flex-end;
+          padding: clamp(1.5rem,3vw,2.5rem);
+          opacity:0;
+          transition: opacity 0.35s ease;
+          pointer-events:none;
+        }
+        .gal-card:hover .gal-card-overlay { opacity:1; }
+        .gal-card-arrow {
+          width:48px; height:48px; border-radius:50%;
+          background:#1A1815;
+          display:flex; align-items:center; justify-content:center;
+          transform: translateY(8px);
+          transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .gal-card:hover .gal-card-arrow { transform: translateY(0); }
+        .gal-card-arrow svg { width:16px; height:16px; }
       `}</style>
 
       {/* Sticky frame */}
@@ -187,20 +209,26 @@ export default function Gallery() {
                 style={{
                   height: '100vh',
                   flexShrink: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   padding: 'clamp(2rem, 4vw, 4rem)',
                   backgroundColor: '#ffffff',
                   cursor: 'pointer',
                 }}
               >
-                <img
-                  src={proj.cover}
-                  alt={proj.title}
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
-                />
+                <div className="gal-card">
+                  <img
+                    src={proj.cover}
+                    alt={proj.title}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
+                  />
+                  <div className="gal-card-overlay">
+                    <div className="gal-card-arrow">
+                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 13L13 3M13 3H6M13 3V10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
