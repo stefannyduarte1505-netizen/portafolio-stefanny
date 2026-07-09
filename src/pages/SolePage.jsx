@@ -34,11 +34,10 @@ const SECTIONS = [
     heading: 'Research & Strategy',
     body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
     images: [
-      '/projects/sole/research-1.png',
-      '/projects/sole/research-2.png',
-      '/projects/sole/research-3.png',
-      '/projects/sole/research-4.png',
-      '/projects/sole/research-5.png',
+      '/projects/sole/1.png',
+      '/projects/sole/2.png',
+      '/projects/sole/3.png',
+      '/projects/sole/4.png',
     ],
   },
   {
@@ -46,9 +45,8 @@ const SECTIONS = [
     heading: 'Digital Strategy',
     body: 'One digital product, two experiences. The Virtual Catalog MVP extends the in-store inventory through interactive touch screens, adapting its interface to each audience: a Light Mode for the practical Sole buyer, offering autonomous browsing, product specs, and first-party data capture, and a Dark Mode for the aspirational S•Collection buyer, where users combine and apply finishes at real size before purchasing. Same catalog, two experiences designed for two very different moments of decision.',
     images: [
-      '/projects/sole/digital-1.png',
-      '/projects/sole/digital-2.png',
-      '/projects/sole/digital-3.png',
+      '/projects/sole/5.png',
+      '/projects/sole/6.png',
     ],
   },
   {
@@ -56,11 +54,8 @@ const SECTIONS = [
     heading: 'Spatial Branding & Signage System',
     body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S•Collection\'s ritual and exclusivity.\n\nQR signage is embedded directly into furniture, countertops, cabinets, displays, turning every surface into an entry point to the digital catalog without breaking the spatial narrative.\n\nA minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage, consistent across both lines, rendered in each brand\'s own color language.',
     images: [
-      '/projects/sole/spatial-1.png',
-      '/projects/sole/spatial-2.png',
-      '/projects/sole/spatial-3.png',
-      '/projects/sole/spatial-4.png',
-      '/projects/sole/spatial-5.png',
+      '/projects/sole/7.png',
+      '/projects/sole/8.png',
     ],
   },
 ]
