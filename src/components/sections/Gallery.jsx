@@ -69,7 +69,7 @@ export default function Gallery() {
   const p = PROJECTS[active]
 
   return (
-    <div id="gallery" style={{ display: 'flex', alignItems: 'flex-start', backgroundColor: '#ffffff' }}>
+    <div id="gallery" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'flex-start', backgroundColor: '#ffffff' }}>
       <style>{`
         @keyframes gal-in {
           from { opacity:0; transform:translateY(10px); }
@@ -158,11 +158,12 @@ export default function Gallery() {
       {/* RIGHT — project covers scroll naturally */}
       <div style={{ flex: 1, backgroundColor: '#ffffff' }}>
         {PROJECTS.map((proj, i) => (
-          <div
+          <a
             key={proj.id}
+            href={`/project/${proj.id}`}
             ref={el => { cardRefs.current[i] = el }}
-            onClick={() => { window.location.href = `/project/${proj.id}` }}
-            style={{ padding: 'clamp(0.75rem,1.5vw,1.5rem)', cursor: 'pointer' }}
+            data-cursor="gallery"
+            style={{ display: 'block', padding: 'clamp(0.75rem,1.5vw,1.5rem)', textDecoration: 'none' }}
           >
             <div className="gal-card">
               <img
@@ -178,7 +179,7 @@ export default function Gallery() {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
