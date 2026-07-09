@@ -98,7 +98,7 @@ export default function ModulorPage() {
           A full brand and digital transformation for a 16-year-old strategic design firm ready to compete globally — unifying identity, narrative, and product into one coherent ecosystem built to attract retailers, corporates, and entrepreneurs across Latin America and beyond.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima · 2023" />
+          <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima,2023" />
           <MetaRow label="Proyecto" value="GrupoModulor: Rebranding & Web End-to-End" />
           <MetaRow label="Rol"      value="Project Manager & Design Experience Lead — directed the full brand transformation and digital product deployment, from identity system to web platform launch." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>

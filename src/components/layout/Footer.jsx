@@ -185,7 +185,7 @@ export default function Footer() {
           alignItems: isMobile ? 'flex-start' : 'center',
         }}
       >
-        <p style={{ ...LABEL, margin: 0 }}>© 2025 Stefanny Duarte — all rights reserved</p>
+        <p style={{ ...LABEL, margin: 0 }}>© 2025 Stefanny Duarte all rights reserved</p>
         <p style={{ ...LABEL, margin: 0 }}>Spatial Branding & Experience Design</p>
       </div>
     </footer>

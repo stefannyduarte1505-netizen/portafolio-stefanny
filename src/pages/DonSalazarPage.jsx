@@ -105,7 +105,7 @@ export default function DonSalazarPage() {
           A sensory and digital pop-up experience that turns coffee discovery into a guided ritual — built to convert university students from "just a coffee" into specialty coffee believers.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Don Salazar, specialty coffee retail (Villa Rica, 1942) · GrupoModulor · 2024" />
+          <MetaRow label="Cliente"  value="Don Salazar, specialty coffee retail (Villa Rica, 1942),GrupoModulor,2024" />
           <MetaRow label="Proyecto" value="Café Don Salazar: Phygital Pop-Up Experience" />
           <MetaRow label="Rol"      value="Service Design Lead — directed the spatial concept, digital flow, and co-creation strategy at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />

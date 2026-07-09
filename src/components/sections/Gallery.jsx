@@ -48,7 +48,7 @@ export default function Gallery() {
           .mob-tags { display:flex; flex-wrap:wrap; gap:0.25rem; }
           .mob-tag { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.5rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.9); border:0.5px solid rgba(255,255,255,0.55); padding:0.15rem 0.5rem; border-radius:100px; }
         `}</style>
-        <p className="mob-label">Proyectos · swipe to explore</p>
+        <p className="mob-label">Proyectos swipe to explore</p>
         <div className="mob-track">
           {PROJECTS.map(p => (
             <div key={p.id} className="mob-card" onClick={() => { window.location.href = `/project/${p.id}` }}>

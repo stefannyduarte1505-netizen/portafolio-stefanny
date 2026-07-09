@@ -21,7 +21,7 @@ const services = [
   {
     icon: `${BASE}/d64121befbaf4d347314bf8e8e039f74b7968fd5.svg`,
     title: 'Visual & Art Direction',
-    subtitle: 'Branding · Identidad',
+    subtitle: 'Branding, Identidad',
     description:
       'Conecto las necesidades del usuario con el propósito de marca para generar impacto en el negocio. Especialista en el diseño de ecosistemas visuales, sistemas de identidad y el desarrollo de hojas de ruta estratégicas para la expresión de marca.',
     toolIcons: [
@@ -35,7 +35,7 @@ const services = [
   {
     icon: `${BASE}/2065cfa17b84b529f7d502a6995b7d1e3701cbdd.svg`,
     title: 'Motion & Interaction',
-    subtitle: 'Animación · Micro-UX',
+    subtitle: 'Animación, Micro-UX',
     description:
       'Creación de sistemas dinámicos y micro-interacciones que elevan la narrativa de marca, mejorando el engagement y la respuesta emocional del usuario a través de experiencias animadas e interactivas.',
     toolIcons: [

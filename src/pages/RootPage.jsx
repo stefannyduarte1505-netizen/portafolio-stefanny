@@ -97,7 +97,7 @@ export default function RootPage() {
           In an era of information overload and AI-driven pressure, the problem isn't access to knowledge — it's knowing whether you're learning in the right direction. ROOT transforms scattered curiosity into structured, personalized learning paths that adapt to your pace, your time, and your goals.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Digital Product Design · Master's Project, BAU Barcelona · 2026" />
+          <MetaRow label="Cliente"  value="Digital Product Design,Master's Project, BAU Barcelona,2026" />
           <MetaRow label="Proyecto" value="ROOT: Learning Self-Management Platform" />
           <MetaRow label="Rol"      value="UX/UI Designer & Researcher — co-leading research, product strategy, and interface design." />
           <MetaRow label="Equipo"   value="Mora Celaya, Alfredo Duarte, Stefanny Duarte, Alexandra Hilaire, Sara Prats." />

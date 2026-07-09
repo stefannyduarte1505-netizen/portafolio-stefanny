@@ -226,9 +226,9 @@ export default function AboutUs() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
             {[
-              { years: '2026 / actual', role: 'Internship Customer Marketing',           company: 'AkzoNobel · Barcelona' },
-              { years: '2023 / actual', role: 'Project Manager & Design Experience Lead', company: 'GrupoModulor · Lima'   },
-              { years: '2021 / 2023',   role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB · Lima'  },
+              { years: '2026 / actual', role: 'Internship Customer Marketing',           company: 'AkzoNobel, Barcelona' },
+              { years: '2023 / actual', role: 'Project Manager & Design Experience Lead', company: 'GrupoModulor, Lima'   },
+              { years: '2021 / 2023',   role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB, Lima'  },
             ].map(({ years, role, company }) => (
               <div key={role} style={{ display: 'grid', gridTemplateColumns: 'clamp(5rem, 8vw, 7.5rem) 1fr', gap: '0 clamp(0.75rem, 1.5vw, 1.5rem)', alignItems: 'start' }}>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.6rem, 0.75vw, 0.72rem)', color: 'rgba(26,24,21,0.38)', paddingTop: '0.15em', whiteSpace: 'nowrap' }}>

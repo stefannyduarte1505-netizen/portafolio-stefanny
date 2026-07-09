@@ -116,7 +116,7 @@ export default function SolePage() {
           A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience — where technology builds confidence at every decision point.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail · GrupoModulor · 2024" />
+          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail,GrupoModulor,2024" />
           <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
           <MetaRow label="Rol"      value="Service Design Lead — directed UX/UI strategy, co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />

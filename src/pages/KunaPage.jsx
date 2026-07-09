@@ -108,7 +108,7 @@ export default function KunaPage() {
           A spatial and service design strategy that transforms a rebranded luxury textile store into a sophisticated home — where 5,000 years of Andean heritage become a lived, sensory experience that converts curiosity into lasting brand loyalty.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand · GrupoModulor · 2024" />
+          <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand,GrupoModulor,2024" />
           <MetaRow label="Proyecto" value="KUNA: Heritage Experience & Retail Design Strategy" />
           <MetaRow label="Rol"      value="Service Design Lead — directed spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Paola Abal, Giancarlo Grande." />
