@@ -7,7 +7,7 @@ import { useHeroGallerySnap } from '../hooks/useHeroGallerySnap'
 
 function Sticky({ children, zIndex }) {
   return (
-    <div style={{ position: 'sticky', top: 0, zIndex, height: '100svh', overflow: 'hidden' }}>
+    <div style={{ position: 'sticky', top: 0, zIndex, height: '100svh', overflow: 'hidden', pointerEvents: 'none' }}>
       {children}
     </div>
   )
