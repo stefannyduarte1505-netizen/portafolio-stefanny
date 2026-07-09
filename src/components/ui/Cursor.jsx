@@ -132,10 +132,11 @@ export default function Cursor() {
       <div ref={xplOutRef} style={{ ...base }}>
         {/* inner: scale + opacity with transition */}
         <div ref={xplInRef} style={{
-          width: 120, height: 120,
-          marginLeft: -60, marginTop: -60,
+          width: 118, height: 118,
+          marginLeft: -59, marginTop: -59,
           borderRadius: '50%',
-          backgroundColor: '#1A1815',
+          backgroundColor: '#ffffff',
+          mixBlendMode: 'difference',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -149,7 +150,7 @@ export default function Cursor() {
             fontSize: '0.58rem',
             letterSpacing: '0.28em',
             textTransform: 'uppercase',
-            color: '#ffffff',
+            color: '#1A1815',
             userSelect: 'none',
           }}>
             EXPLORE
