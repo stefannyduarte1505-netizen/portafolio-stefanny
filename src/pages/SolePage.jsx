@@ -113,12 +113,12 @@ export default function SolePage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience — where technology builds confidence at every decision point.
+          A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience,where technology builds confidence at every decision point.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail,GrupoModulor,2024" />
           <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
-          <MetaRow label="Rol"      value="Service Design Lead — directed UX/UI strategy, co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
+          <MetaRow label="Rol"      value="Service Design Lead,directed UX/UI strategy, co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Product Design', 'UX/UI', 'Service Design', 'Spatial Branding'].map(tag => (

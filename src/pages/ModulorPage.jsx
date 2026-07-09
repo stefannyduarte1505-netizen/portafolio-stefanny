@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Modulor needed to evolve from a well-established local consultancy into a globally positioned strategic design firm. The challenge: translating 16 years of expertise into a digital presence that could speak to three very different audiences simultaneously, without losing coherence.\n\nModulor\'s positioning gap wasn\'t a visual problem — it was a narrative one. The firm had the expertise; what it needed was a coherent digital ecosystem that could communicate that expertise to three distinct audiences without diluting its identity.',
+    body: 'Modulor needed to evolve from a well-established local consultancy into a globally positioned strategic design firm. The challenge: translating 16 years of expertise into a digital presence that could speak to three very different audiences simultaneously, without losing coherence.\n\nModulor\'s positioning gap wasn\'t a visual problem,it was a narrative one. The firm had the expertise; what it needed was a coherent digital ecosystem that could communicate that expertise to three distinct audiences without diluting its identity.',
     images: [
       '/projects/modulor/research-1.png',
       '/projects/modulor/research-2.png',
@@ -42,7 +42,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy & Brand System',
     heading: 'Digital Strategy & Brand System',
-    body: 'The digital strategy operates through two conversion layers. The Insights channel positions Modulor as a thought leader in strategic design and innovation, capturing newsletter subscribers at the moment of highest content engagement and building a qualified audience of decision-makers. The contact flow was designed as a structured qualification funnel, guiding each audience type toward the right service — Arquitectura de Oficinas, Phygital, or Business — turning intent into conversation before a single call is made.\n\nThe rebranding centers on #6930FA, a bold, distinctive purple that signals innovation and positions Modulor apart from the neutral, corporate-grey aesthetic typical of consultancies in the region. Paired with a clean geometric wordmark, the system communicates precision, forward-thinking, and creative confidence — qualities that speak directly to all three audience profiles.',
+    body: 'The digital strategy operates through two conversion layers. The Insights channel positions Modulor as a thought leader in strategic design and innovation, capturing newsletter subscribers at the moment of highest content engagement and building a qualified audience of decision-makers. The contact flow was designed as a structured qualification funnel, guiding each audience type toward the right service,Arquitectura de Oficinas, Phygital, or Business,turning intent into conversation before a single call is made.\n\nThe rebranding centers on #6930FA, a bold, distinctive purple that signals innovation and positions Modulor apart from the neutral, corporate-grey aesthetic typical of consultancies in the region. Paired with a clean geometric wordmark, the system communicates precision, forward-thinking, and creative confidence,qualities that speak directly to all three audience profiles.',
     images: [
       '/projects/modulor/digital-1.png',
       '/projects/modulor/digital-2.png',
@@ -95,12 +95,12 @@ export default function ModulorPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A full brand and digital transformation for a 16-year-old strategic design firm ready to compete globally — unifying identity, narrative, and product into one coherent ecosystem built to attract retailers, corporates, and entrepreneurs across Latin America and beyond.
+          A full brand and digital transformation for a 16-year-old strategic design firm ready to compete globally,unifying identity, narrative, and product into one coherent ecosystem built to attract retailers, corporates, and entrepreneurs across Latin America and beyond.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima,2023" />
           <MetaRow label="Proyecto" value="GrupoModulor: Rebranding & Web End-to-End" />
-          <MetaRow label="Rol"      value="Project Manager & Design Experience Lead — directed the full brand transformation and digital product deployment, from identity system to web platform launch." />
+          <MetaRow label="Rol"      value="Project Manager & Design Experience Lead,directed the full brand transformation and digital product deployment, from identity system to web platform launch." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Product Design', 'Branding', 'Project Management'].map(tag => (
               <span key={tag} style={{

@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Adults between 25 and 44 show the highest willingness to learn — and face the highest barriers of time and money. Technology workers fear becoming obsolete due to AI, freelancers face career disruption urgency, and established professionals need to stay current without sacrificing limited weekly hours.',
+    body: 'Adults between 25 and 44 show the highest willingness to learn,and face the highest barriers of time and money. Technology workers fear becoming obsolete due to AI, freelancers face career disruption urgency, and established professionals need to stay current without sacrificing limited weekly hours.',
     images: [
       '/projects/root/research-1.png',
       '/projects/root/research-2.png',
@@ -45,7 +45,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Digital Strategy',
-    body: 'ROOT is built around one central metaphor: cultivating your own knowledge garden — where every lesson is a plant that grows at your own pace. Three brand attributes drive every design decision: motivation (no pressure, just process), organization (clear paths that eliminate chaos), and entertainment (learning should feel fluid, not heavy).',
+    body: 'ROOT is built around one central metaphor: cultivating your own knowledge garden,where every lesson is a plant that grows at your own pace. Three brand attributes drive every design decision: motivation (no pressure, just process), organization (clear paths that eliminate chaos), and entertainment (learning should feel fluid, not heavy).',
     images: [
       '/projects/root/digital-1.png',
       '/projects/root/digital-2.png',
@@ -94,12 +94,12 @@ export default function RootPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          In an era of information overload and AI-driven pressure, the problem isn't access to knowledge — it's knowing whether you're learning in the right direction. ROOT transforms scattered curiosity into structured, personalized learning paths that adapt to your pace, your time, and your goals.
+          In an era of information overload and AI-driven pressure, the problem isn't access to knowledge,it's knowing whether you're learning in the right direction. ROOT transforms scattered curiosity into structured, personalized learning paths that adapt to your pace, your time, and your goals.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="Digital Product Design,Master's Project, BAU Barcelona,2026" />
           <MetaRow label="Proyecto" value="ROOT: Learning Self-Management Platform" />
-          <MetaRow label="Rol"      value="UX/UI Designer & Researcher — co-leading research, product strategy, and interface design." />
+          <MetaRow label="Rol"      value="UX/UI Designer & Researcher,co-leading research, product strategy, and interface design." />
           <MetaRow label="Equipo"   value="Mora Celaya, Alfredo Duarte, Stefanny Duarte, Alexandra Hilaire, Sara Prats." />
           <MetaRow label="Advisors" value="Cesar Úbeda, Jordi Hernandez, Sarah Romero, Jorge Agundez, Jose Saura." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
