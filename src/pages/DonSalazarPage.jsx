@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Texto por agregar.',
+    body: 'As the third generation of coffee growers from Villa Rica, Don Salazar\'s responsibility is to make Peru\'s finest specialty coffee accessible, without losing the craft behind it. Located next to a university campus inside a mall, the pop-up surfaced a clear business problem: students default to cappuccino and americano, never daring to try specialty coffee, even though they have the time and curiosity to do so.',
     images: [
       '/projects/don-salazar/research-1.png',
       '/projects/don-salazar/research-2.png',
@@ -43,7 +43,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Digital Strategy',
-    body: 'Texto por agregar.',
+    body: 'Built around the concept "Discover Your Ideal Coffee," the digital layer transforms a sensory first impression into an informed purchase decision. A self-discovery kiosk guides the user through a personalized flow, from category and coffee type to brewing method, revealing real specs at every step: ratio, temperature, caffeine level, and brew time, until the system generates their ideal result. From there, users can save their recipe and pay directly from the screen.\n\nEvery interaction is also a data point, capturing what users explore, where they hesitate, and what they ultimately choose. A Community Panel completes the experience, letting visitors trace the full value chain from farm to cup and share their impressions, turning a single visit into a lasting connection with the brand.',
     images: [
       '/projects/don-salazar/digital-1.png',
       '/projects/don-salazar/digital-2.png',
@@ -52,7 +52,7 @@ const SECTIONS = [
   {
     label: 'Spatial Branding & Signage System',
     heading: 'Spatial Branding & Signage System',
-    body: 'Texto por agregar.',
+    body: 'The physical space translates the "Discover Your Ideal Coffee" concept into a sensory journey. An interactive mural and dispensing furniture invite users to smell, touch, and observe, identifying preferences before ever placing an order.\n\nSignage follows a warm, natural palette — green, ochre, and orange — paired with mixed serif and script typography that nods to Villa Rica\'s heritage without resorting to folklore. QR-enabled panels extend the in-store ritual into a virtual catalog, while community pegboards display the brand\'s production journey, turning transparency itself into a piece of spatial storytelling.',
     images: [
       '/projects/don-salazar/spatial-1.png',
       '/projects/don-salazar/spatial-2.png',
@@ -102,15 +102,15 @@ export default function DonSalazarPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          Tagline del proyecto por agregar.
+          A sensory and digital pop-up experience that turns coffee discovery into a guided ritual — built to convert university students from "just a coffee" into specialty coffee believers.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Café Don Salazar" />
-          <MetaRow label="Proyecto" value="Café Don Salazar" />
-          <MetaRow label="Rol"      value="Por agregar" />
-          <MetaRow label="Equipo"   value="Por agregar" />
+          <MetaRow label="Cliente"  value="Don Salazar, specialty coffee retail (Villa Rica, 1942) · GrupoModulor · 2024" />
+          <MetaRow label="Proyecto" value="Café Don Salazar: Phygital Pop-Up Experience" />
+          <MetaRow label="Rol"      value="Service Design Lead — directed the spatial concept, digital flow, and co-creation strategy at GrupoModulor." />
+          <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
-            {['Service Design', 'Spatial Branding'].map(tag => (
+            {['Service Design', 'Spatial Branding', 'Product Design'].map(tag => (
               <span key={tag} style={{
                 fontFamily: POPPINS, fontWeight: 300,
                 fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase',

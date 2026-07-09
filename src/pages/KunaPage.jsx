@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Texto por agregar.',
+    body: 'KUNA recently repositioned itself to lead with cultural depth over product volume — "each thread carries 5,000 years of history." The challenge: translate that repositioning into a physical store experience where two very different profiles arrive with the same expectation: an experience that justifies the price before they even touch the product.',
     images: [
       '/projects/kuna/research-1.png',
       '/projects/kuna/research-2.png',
@@ -43,7 +43,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Digital Strategy',
-    body: 'Texto por agregar.',
+    body: 'The digital layer is intentionally invisible — technology as a quiet support tool, never as the protagonist. Four digital initiatives extend the KUNA experience beyond the physical transaction, each addressing a distinct moment in the customer relationship.\n\nThe KUNA Lifestyle Club transforms purchase into a continuous, personalized relationship, rewarding loyalty through dedicated spaces and exclusive benefits. The Artistic Experience KUNA bridges Peruvian ancestral craft and the modern traveler\'s need for immediacy, turning brief moments of consideration into confident, memorable purchase decisions. Express KUNA Service positions the store as a platform for cultural visibility, giving national and international exposure to ancestral techniques and contemporary Peruvian artists. Finally, Garment Care extends the brand\'s promise beyond the sale, educating users on how to preserve each garment according to its materials.\n\nTogether, these four initiatives move the user from first purchase to lasting brand loyalty, turning every touchpoint into an opportunity to deepen the relationship.',
     images: [
       '/projects/kuna/digital-1.png',
       '/projects/kuna/digital-2.png',
@@ -54,7 +54,7 @@ const SECTIONS = [
   {
     label: 'Spatial Branding & Signage System',
     heading: 'Spatial Branding & Signage System',
-    body: 'Texto por agregar.',
+    body: 'The store is conceived as a sophisticated, cultured home — one that integrates Andean origin into contemporary life without compromise. True elegance comes from essence.\n\nSpatial branding functions as a strategic orientation tool: it structures the user\'s journey, reinforces brand identity, and narrates KUNA\'s values through architectural gestures, material choices, and visual codes. Less is more — every element earns its place.',
     images: [
       '/projects/kuna/spatial-1.png',
       '/projects/kuna/spatial-2.png',
@@ -105,15 +105,15 @@ export default function KunaPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          Tagline del proyecto por agregar.
+          A spatial and service design strategy that transforms a rebranded luxury textile store into a sophisticated home — where 5,000 years of Andean heritage become a lived, sensory experience that converts curiosity into lasting brand loyalty.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Por agregar" />
-          <MetaRow label="Proyecto" value="Kuna" />
-          <MetaRow label="Rol"      value="Por agregar" />
-          <MetaRow label="Equipo"   value="Por agregar" />
+          <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand · GrupoModulor · 2024" />
+          <MetaRow label="Proyecto" value="KUNA: Heritage Experience & Retail Design Strategy" />
+          <MetaRow label="Rol"      value="Service Design Lead — directed spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor." />
+          <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Paola Abal, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
-            {['Spatial Branding', 'Product Design'].map(tag => (
+            {['Service Design', 'Spatial Branding', 'Brand Strategy'].map(tag => (
               <span key={tag} style={{
                 fontFamily: POPPINS, fontWeight: 300,
                 fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase',

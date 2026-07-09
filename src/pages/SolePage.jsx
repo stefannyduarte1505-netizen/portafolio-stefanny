@@ -44,7 +44,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Digital Strategy',
-    body: 'To extend the in store experience beyond what physical space allows, I designed an interactive kiosk that functions as a virtual catalog, giving users full access to the product range, while adapting the experience to each brand\'s identity.\n\nSole: Informational Catalog — A clear, browsable catalog experience: product categories, specs, and technical sheets, built for quick decision-making and trust.\n\nS•Collection: Real Time Visualizer — A premium, immersive mode where users customize materials, colors, and finishes directly onto a real kitchen render, closing the gap between imagination and purchase.',
+    body: 'One digital product, two experiences. The Virtual Catalog MVP extends the in-store inventory through interactive touch screens, adapting its interface to each audience: a Light Mode for the practical Sole buyer, offering autonomous browsing, product specs, and first-party data capture, and a Dark Mode for the aspirational S•Collection buyer, where users combine and apply finishes at real size before purchasing. Same catalog, two experiences designed for two very different moments of decision.',
     images: [
       '/projects/sole/digital-1.png',
       '/projects/sole/digital-2.png',
@@ -81,7 +81,6 @@ export default function SolePage() {
   return (
     <div style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
 
-      {/* Close */}
       <button
         onClick={() => { sessionStorage.setItem('scrollToGallery', '1'); window.location.href = '/' }}
         style={{
@@ -101,7 +100,6 @@ export default function SolePage() {
         Close
       </button>
 
-      {/* Editorial header */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
@@ -118,12 +116,12 @@ export default function SolePage() {
           A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience — where technology builds confidence at every decision point.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail." />
+          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail · GrupoModulor · 2024" />
           <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
-          <MetaRow label="Rol"      value="Service Design Lead — directed UX/UI strategy, the co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
+          <MetaRow label="Rol"      value="Service Design Lead — directed UX/UI strategy, co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
-            {['Spatial Branding', 'Product Design', 'Service Design'].map(tag => (
+            {['Product Design', 'UX/UI', 'Service Design', 'Spatial Branding'].map(tag => (
               <span key={tag} style={{
                 fontFamily: POPPINS, fontWeight: 300,
                 fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -142,7 +140,6 @@ export default function SolePage() {
       <FullBleed src="/projects/sole/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
 
-      {/* Outcomes */}
       <div style={{ padding: `clamp(4rem,8vw,7rem) ${PAD}`, backgroundColor: '#fff', borderTop: '0.5px solid rgba(26,24,21,0.08)' }}>
         <h2 style={{ fontFamily: GILDA, fontWeight: 400, fontSize: 'clamp(1.5rem,2.2vw,2.2rem)', letterSpacing: '-0.01em', color: '#B9111C', margin: `0 0 clamp(1.5rem,3vw,2.5rem)` }}>
           Outcomes
