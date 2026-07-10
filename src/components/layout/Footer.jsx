@@ -74,7 +74,7 @@ export default function Footer() {
     setSending(true)
     setError(null)
     try {
-      await emailjs.sendForm(EJS_SERVICE, EJS_TEMPLATE, formRef.current, EJS_KEY)
+      await emailjs.sendForm(EJS_SERVICE, EJS_TEMPLATE, formRef.current, { publicKey: EJS_KEY })
       setSent(true)
     } catch {
       setError('Something went wrong. Please email me directly.')
