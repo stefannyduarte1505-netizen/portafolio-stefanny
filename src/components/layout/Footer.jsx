@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
 const EJS_SERVICE  = 'service_o1vpa0f'
-const EJS_TEMPLATE = 'template_f2hge94'
+const EJS_TEMPLATE = 'template_efrum1q'
 const EJS_KEY      = 'UkT_bFrGDNWRHYN-F'
 
 const LABEL = {
