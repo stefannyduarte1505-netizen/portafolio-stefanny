@@ -19,51 +19,6 @@ export default function Cursor() {
 
     document.documentElement.style.cursor = 'none'
 
-    /* ── position loop ── */
-    const onMove = (e) => { posRef.current = { x: e.clientX, y: e.clientY } }
-
-    const tick = () => {
-      const { x, y } = posRef.current
-      const t = `translate(${x}px,${y}px)`
-      dot.style.transform  = t
-      ring.style.transform = t
-      if (xplOut) xplOut.style.transform = t
-      rafRef.current = requestAnimationFrame(tick)
-    }
-    rafRef.current = requestAnimationFrame(tick)
-
-    /* ── state machine ── */
-    const setState = (next) => {
-      if (stateRef.current === next) return
-      stateRef.current = next
-
-      // dot
-      if (next === 'default') {
-        dot.style.opacity = '1'
-        dot.style.transform = dot.style.transform // keep current translate
-        ring.style.opacity = '0'
-        ring.style.width = '0px'; ring.style.height = '0px'
-      } else if (next === 'link') {
-        dot.style.opacity = '0'
-        ring.style.opacity = '1'
-        ring.style.width = '36px'; ring.style.height = '36px'
-      } else if (next === 'gallery') {
-        dot.style.opacity = '0'
-        ring.style.opacity = '0'
-        ring.style.width = '0px'; ring.style.height = '0px'
-      } else {
-        dot.style.opacity = '1'
-        ring.style.opacity = '0'
-        ring.style.width = '0px'; ring.style.height = '0px'
-      }
-
-      // explore circle
-      if (xplIn) {
-        xplIn.style.transform = next === 'gallery' ? 'scale(1)' : 'scale(0)'
-        xplIn.style.opacity   = next === 'gallery' ? '1'        : '0'
-      }
-    }
-
     /* ── selectors ── */
     const GALLERY = '[data-cursor="gallery"]'
     const LINK    = 'a, button, [role="button"]'
@@ -75,14 +30,56 @@ export default function Cursor() {
       return 'default'
     }
 
-    const onOver     = (e) => setState(resolve(e.target))
-    const onOut      = (e) => setState(resolve(e.relatedTarget))
-    const onLeave    = () => { dot.style.opacity = '0'; ring.style.opacity = '0'; if (xplIn) xplIn.style.transform = 'scale(0)', xplIn.style.opacity = '0' }
-    const onEnter    = () => { if (stateRef.current === 'default') dot.style.opacity = '1' }
+    /* ── state machine ── */
+    const setState = (next) => {
+      if (stateRef.current === next) return
+      stateRef.current = next
+
+      if (next === 'default') {
+        dot.style.opacity  = '1'
+        ring.style.opacity = '0'
+        ring.style.width = '0px'; ring.style.height = '0px'
+      } else if (next === 'link') {
+        dot.style.opacity  = '0'
+        ring.style.opacity = '1'
+        ring.style.width = '36px'; ring.style.height = '36px'
+      } else if (next === 'gallery') {
+        dot.style.opacity  = '0'
+        ring.style.opacity = '0'
+        ring.style.width = '0px'; ring.style.height = '0px'
+      }
+
+      if (xplIn) {
+        xplIn.style.transform = next === 'gallery' ? 'scale(1)' : 'scale(0)'
+        xplIn.style.opacity   = next === 'gallery' ? '1'        : '0'
+      }
+    }
+
+    /* ── position + state loop (elementFromPoint = always correct) ── */
+    const onMove = (e) => { posRef.current = { x: e.clientX, y: e.clientY } }
+
+    const tick = () => {
+      const { x, y } = posRef.current
+      const t = `translate(${x}px,${y}px)`
+      dot.style.transform  = t
+      ring.style.transform = t
+      if (xplOut) xplOut.style.transform = t
+
+      const el = document.elementFromPoint(x, y)
+      setState(resolve(el))
+
+      rafRef.current = requestAnimationFrame(tick)
+    }
+    rafRef.current = requestAnimationFrame(tick)
+
+    const onLeave = () => {
+      dot.style.opacity = '0'
+      ring.style.opacity = '0'
+      if (xplIn) { xplIn.style.transform = 'scale(0)'; xplIn.style.opacity = '0' }
+    }
+    const onEnter = () => { if (stateRef.current === 'default') dot.style.opacity = '1' }
 
     document.addEventListener('mousemove',  onMove,  { passive: true })
-    document.addEventListener('mouseover',  onOver,  { passive: true })
-    document.addEventListener('mouseout',   onOut,   { passive: true })
     document.addEventListener('mouseleave', onLeave)
     document.addEventListener('mouseenter', onEnter)
 
@@ -90,8 +87,6 @@ export default function Cursor() {
       document.documentElement.style.cursor = ''
       cancelAnimationFrame(rafRef.current)
       document.removeEventListener('mousemove',  onMove)
-      document.removeEventListener('mouseover',  onOver)
-      document.removeEventListener('mouseout',   onOut)
       document.removeEventListener('mouseleave', onLeave)
       document.removeEventListener('mouseenter', onEnter)
     }
