@@ -1,5 +1,10 @@
 import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { useIsMobile } from '../../hooks/useIsMobile'
+
+const EJS_SERVICE  = 'service_o1vpa0f'
+const EJS_TEMPLATE = 'template_f2hge94'
+const EJS_KEY      = 'UkT_bFrGDNWRHYN-F'
 
 const LABEL = {
   fontFamily: "'Poppins', sans-serif",
@@ -39,25 +44,44 @@ const INPUT_STYLE = {
   width: '100%',
 }
 
-function Field({ label, type = 'text', placeholder, isTextarea }) {
+function Field({ label, type = 'text', placeholder, isTextarea, name }) {
   return (
     <div style={FIELD_WRAP}>
       <span style={LABEL}>{label}</span>
       {isTextarea
         ? <textarea
+            name={name}
             placeholder={placeholder}
             rows={3}
+            required
             style={{ ...INPUT_STYLE, resize: 'none', lineHeight: 1.6 }}
           />
-        : <input type={type} placeholder={placeholder} style={INPUT_STYLE} />
+        : <input type={type} name={name} placeholder={placeholder} required style={INPUT_STYLE} />
       }
     </div>
   )
 }
 
 export default function Footer() {
-  const [sent, setSent] = useState(false)
-  const isMobile = useIsMobile()
+  const [sent, setSent]       = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError]     = useState(null)
+  const formRef               = useRef(null)
+  const isMobile              = useIsMobile()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSending(true)
+    setError(null)
+    try {
+      await emailjs.sendForm(EJS_SERVICE, EJS_TEMPLATE, formRef.current, EJS_KEY)
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please email me directly.')
+    } finally {
+      setSending(false)
+    }
+  }
 
   return (
     <footer
@@ -134,17 +158,21 @@ export default function Footer() {
           </p>
 
           {!sent ? (
-            <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true) }}
-              style={{ maxWidth: '480px' }}
-            >
-              <Field label="Name" placeholder="John Doe" />
-              <Field label="Email" type="email" placeholder="hello@example.com" />
-              <Field label="I work at" placeholder="Company name" />
-              <Field label="Details about the project" placeholder="My project is about..." isTextarea />
+            <form ref={formRef} onSubmit={handleSubmit} style={{ maxWidth: '480px' }}>
+              <Field label="Name" placeholder="John Doe" name="name" />
+              <Field label="Email" type="email" placeholder="hello@example.com" name="email" />
+              <Field label="I work at" placeholder="Company name" name="company" />
+              <Field label="Details about the project" placeholder="My project is about..." isTextarea name="message" />
+
+              {error && (
+                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', marginBottom: '0.75rem' }}>
+                  {error}
+                </p>
+              )}
 
               <button
                 type="submit"
+                disabled={sending}
                 style={{
                   marginTop: '1rem',
                   background: 'transparent',
@@ -156,13 +184,14 @@ export default function Footer() {
                   letterSpacing: '0.1em',
                   textTransform: 'none',
                   padding: '0.75rem 2.5rem',
-                  cursor: 'pointer',
+                  cursor: sending ? 'default' : 'pointer',
+                  opacity: sending ? 0.5 : 1,
                   transition: 'border-color 0.2s, opacity 0.2s',
                 }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = '#fff'}
+                onMouseEnter={e => { if (!sending) e.currentTarget.style.borderColor = '#fff' }}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'}
               >
-                send message
+                {sending ? 'sending...' : 'send message'}
               </button>
             </form>
           ) : (
