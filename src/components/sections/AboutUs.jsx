@@ -150,7 +150,7 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Brand &amp; Digital Experience Design:<br />De espacios físicos a productos digitales.
+            Brand &amp; Digital Experience Design:<br />From strategic thinking to digital execution.
           </h2>
 
           <p
@@ -164,12 +164,11 @@ export default function AboutUs() {
               maxWidth:   '480px',
             }}
           >
-            Diseñadora de Marca y Experiencia Digital con más de 6 años de experiencia en
-            proyectos de retail y corporativos, diseñando identidades de marca y los productos
-            digitales que las sostienen. Mi trabajo cruza Branding, Diseño de Producto y CX &amp;
-            Service Design, traduciendo investigación en sistemas coherentes y funcionales
-            alineados con los objetivos de negocio — partiendo de espacios físicos de retail y
-            aplicando ese mismo rigor a experiencias digitales.
+            Brand &amp; Digital Experience Designer with 6+ years of experience across retail and
+            corporate projects, designing brand identities and the digital products that carry them.
+            My work sits at the intersection of Branding, Product Design, and CX &amp; Service Design,
+            translating research into coherent, functional systems aligned with business goals, from
+            physical retail spaces to fully digital experiences.
           </p>
         </div>
 
@@ -270,7 +269,7 @@ export default function AboutUs() {
             letterSpacing: '-0.01em',
           }}
         >
-          Me apasionan todas las disciplinas creativas y la estética visual.
+          Creative Direction / Personal Work
         </h2>
         <p
           style={{
@@ -282,8 +281,9 @@ export default function AboutUs() {
             margin:     0,
           }}
         >
-          Más allá del diseño, utilizo el formato del short fashion film para experimentar
-          con el storytelling, fusionando narrativa y estética visual en una sola expresión.
+          Beyond client work, I use short fashion film as a personal laboratory for art direction
+          and visual storytelling, experimenting with the same principles of narrative, composition,
+          and brand aesthetics that I bring to every project.
         </p>
       </div>
     </section>
