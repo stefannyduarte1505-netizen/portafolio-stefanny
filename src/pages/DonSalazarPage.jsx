@@ -34,8 +34,10 @@ const SECTIONS = [
     heading: 'Research & Strategy',
     body: 'As the third generation of coffee growers from Villa Rica, Don Salazar\'s responsibility is to make Peru\'s finest specialty coffee accessible, without losing the craft behind it. Located next to a university campus inside a mall, the pop-up surfaced a clear business problem: students default to cappuccino and americano, never daring to try specialty coffee, even though they have the time and curiosity to do so.',
     images: [
-      '/projects/don-salazar/1.png',
-      '/projects/don-salazar/2.png',
+      '/projects/don-salazar/research-1.png',
+      '/projects/don-salazar/research-2.png',
+      '/projects/don-salazar/research-3.png',
+      '/projects/don-salazar/research-4.png',
     ],
   },
   {
@@ -43,7 +45,8 @@ const SECTIONS = [
     heading: 'Digital Strategy',
     body: 'Built around the concept "Discover Your Ideal Coffee," the digital layer transforms a sensory first impression into an informed purchase decision. A self-discovery kiosk guides the user through a personalized flow, from category and coffee type to brewing method, revealing real specs at every step: ratio, temperature, caffeine level, and brew time, until the system generates their ideal result. From there, users can save their recipe and pay directly from the screen.\n\nEvery interaction is also a data point, capturing what users explore, where they hesitate, and what they ultimately choose. A Community Panel completes the experience, letting visitors trace the full value chain from farm to cup and share their impressions, turning a single visit into a lasting connection with the brand.',
     images: [
-      '/projects/don-salazar/3.png',
+      '/projects/don-salazar/digital-1.png',
+      '/projects/don-salazar/digital-2.png',
     ],
   },
   {
@@ -51,8 +54,9 @@ const SECTIONS = [
     heading: 'Spatial Branding & Signage System',
     body: 'The physical space translates the "Discover Your Ideal Coffee" concept into a sensory journey. An interactive mural and dispensing furniture invite users to smell, touch, and observe, identifying preferences before ever placing an order.\n\nSignage follows a warm, natural palette,green, ochre, and orange,paired with mixed serif and script typography that nods to Villa Rica\'s heritage without resorting to folklore. QR-enabled panels extend the in-store ritual into a virtual catalog, while community pegboards display the brand\'s production journey, turning transparency itself into a piece of spatial storytelling.',
     images: [
-      '/projects/don-salazar/4.png',
-      '/projects/don-salazar/5.png',
+      '/projects/don-salazar/spatial-1.png',
+      '/projects/don-salazar/spatial-2.png',
+      '/projects/don-salazar/spatial-3.png',
     ],
   },
 ]

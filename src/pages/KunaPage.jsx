@@ -34,8 +34,10 @@ const SECTIONS = [
     heading: 'Research & Strategy',
     body: 'KUNA recently repositioned itself to lead with cultural depth over product volume,"each thread carries 5,000 years of history." The challenge: translate that repositioning into a physical store experience where two very different profiles arrive with the same expectation: an experience that justifies the price before they even touch the product.',
     images: [
-      '/projects/kuna/1.png',
-      '/projects/kuna/2.png',
+      '/projects/kuna/research-1.png',
+      '/projects/kuna/research-2.png',
+      '/projects/kuna/research-3.png',
+      '/projects/kuna/research-4.png',
     ],
   },
   {
@@ -43,15 +45,10 @@ const SECTIONS = [
     heading: 'Digital Strategy',
     body: 'The digital layer is intentionally invisible,technology as a quiet support tool, never as the protagonist. Four digital initiatives extend the KUNA experience beyond the physical transaction, each addressing a distinct moment in the customer relationship.\n\nThe KUNA Lifestyle Club transforms purchase into a continuous, personalized relationship, rewarding loyalty through dedicated spaces and exclusive benefits. The Artistic Experience KUNA bridges Peruvian ancestral craft and the modern traveler\'s need for immediacy, turning brief moments of consideration into confident, memorable purchase decisions. Express KUNA Service positions the store as a platform for cultural visibility, giving national and international exposure to ancestral techniques and contemporary Peruvian artists. Finally, Garment Care extends the brand\'s promise beyond the sale, educating users on how to preserve each garment according to its materials.\n\nTogether, these four initiatives move the user from first purchase to lasting brand loyalty, turning every touchpoint into an opportunity to deepen the relationship.',
     images: [
-      '/projects/kuna/3.png',
-    ],
-  },
-  {
-    label: 'Spatial Branding & Signage System',
-    heading: 'Spatial Branding & Signage System',
-    body: 'The store is conceived as a sophisticated, cultured home,one that integrates Andean origin into contemporary life without compromise. True elegance comes from essence.\n\nSpatial branding functions as a strategic orientation tool: it structures the user\'s journey, reinforces brand identity, and narrates KUNA\'s values through architectural gestures, material choices, and visual codes. Less is more,every element earns its place.',
-    images: [
-      '/projects/kuna/4.png',
+      '/projects/kuna/digital-1.png',
+      '/projects/kuna/digital-2.png',
+      '/projects/kuna/digital-3.png',
+      '/projects/kuna/digital-4.png',
     ],
   },
 ]
@@ -121,7 +118,6 @@ export default function KunaPage() {
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/kuna/cover-after-research.png" />
       <ScrollSection {...SECTIONS[1]} reverse />
-      <ScrollSection {...SECTIONS[2]} />
 
     </div>
   )

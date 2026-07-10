@@ -34,10 +34,12 @@ const SECTIONS = [
     heading: 'Research & Strategy',
     body: 'Adults between 25 and 44 show the highest willingness to learn,and face the highest barriers of time and money. Technology workers fear becoming obsolete due to AI, freelancers face career disruption urgency, and established professionals need to stay current without sacrificing limited weekly hours.',
     images: [
-      '/projects/root/1.png',
-      '/projects/root/2.png',
-      '/projects/root/3.png',
-      '/projects/root/4.png',
+      '/projects/root/research-1.png',
+      '/projects/root/research-2.png',
+      '/projects/root/research-3.png',
+      '/projects/root/research-4.png',
+      '/projects/root/research-5.png',
+      '/projects/root/research-6.png',
     ],
   },
   {
@@ -45,8 +47,8 @@ const SECTIONS = [
     heading: 'Digital Strategy',
     body: 'ROOT is built around one central metaphor: cultivating your own knowledge garden,where every lesson is a plant that grows at your own pace. Three brand attributes drive every design decision: motivation (no pressure, just process), organization (clear paths that eliminate chaos), and entertainment (learning should feel fluid, not heavy).',
     images: [
-      '/projects/root/5.png',
-      '/projects/root/6.png',
+      '/projects/root/digital-1.png',
+      '/projects/root/digital-2.png',
     ],
   },
 ]
