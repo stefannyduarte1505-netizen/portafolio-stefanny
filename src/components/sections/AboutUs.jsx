@@ -114,7 +114,7 @@ export default function AboutUs() {
         style={{
           fontFamily:    "'Poppins', sans-serif",
           fontWeight:    300,
-          fontSize:      'clamp(0.65rem, 0.85vw, 0.78rem)',
+          fontSize:      'clamp(1.3rem, 1.7vw, 1.56rem)',
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
           color:         'rgba(26,24,21,0.38)',
@@ -143,7 +143,7 @@ export default function AboutUs() {
             style={{
               fontFamily:    "'Gilda Display', serif",
               fontWeight:    400,
-              fontSize:      'clamp(1.2rem, 2vw, 1.9rem)',
+              fontSize:      'clamp(2.4rem, 4vw, 3.8rem)',
               lineHeight:    1.25,
               color:         '#B9111C',
               margin:        0,
@@ -157,7 +157,7 @@ export default function AboutUs() {
             style={{
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 300,
-              fontSize:   'clamp(0.78rem, 0.9vw, 0.9rem)',
+              fontSize:   'clamp(1.56rem, 1.8vw, 1.8rem)',
               lineHeight: 1.8,
               color:      'rgba(26,24,21,0.65)',
               margin:     0,
@@ -213,7 +213,7 @@ export default function AboutUs() {
             style={{
               fontFamily:    "'Gilda Display', serif",
               fontWeight:    400,
-              fontSize:      'clamp(1.2rem, 2vw, 1.9rem)',
+              fontSize:      'clamp(2.4rem, 4vw, 3.8rem)',
               lineHeight:    1.25,
               color:         '#B9111C',
               margin:        0,
@@ -230,12 +230,12 @@ export default function AboutUs() {
               { years: '2021 / 2023',   role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB, Lima'  },
             ].map(({ years, role, company }) => (
               <div key={role} style={{ display: 'grid', gridTemplateColumns: 'clamp(5rem, 8vw, 7.5rem) 1fr', gap: '0 clamp(0.75rem, 1.5vw, 1.5rem)', alignItems: 'start' }}>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.6rem, 0.75vw, 0.72rem)', color: 'rgba(26,24,21,0.38)', paddingTop: '0.15em', whiteSpace: 'nowrap' }}>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(1.2rem, 1.5vw, 1.44rem)', color: 'rgba(26,24,21,0.38)', paddingTop: '0.15em', whiteSpace: 'nowrap' }}>
                   {years}
                 </span>
                 <div>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 'clamp(0.72rem, 0.85vw, 0.82rem)', color: '#1A1815', margin: '0 0 0.15em' }}>{role}</p>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(0.65rem, 0.78vw, 0.75rem)', color: 'rgba(26,24,21,0.5)', margin: 0 }}>{company}</p>
+                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: 'clamp(1.44rem, 1.7vw, 1.64rem)', color: '#1A1815', margin: '0 0 0.15em' }}>{role}</p>
+                  <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: 'clamp(1.3rem, 1.56vw, 1.5rem)', color: 'rgba(26,24,21,0.5)', margin: 0 }}>{company}</p>
                 </div>
               </div>
             ))}
@@ -262,7 +262,7 @@ export default function AboutUs() {
           style={{
             fontFamily:    "'Gilda Display', serif",
             fontWeight:    400,
-            fontSize:      'clamp(1.2rem, 2vw, 1.9rem)',
+            fontSize:      'clamp(2.4rem, 4vw, 3.8rem)',
             lineHeight:    1.25,
             color:         '#B9111C',
             margin:        0,
@@ -275,7 +275,7 @@ export default function AboutUs() {
           style={{
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 300,
-            fontSize:   'clamp(0.78rem, 0.9vw, 0.9rem)',
+            fontSize:   'clamp(1.56rem, 1.8vw, 1.8rem)',
             lineHeight: 1.8,
             color:      'rgba(26,24,21,0.65)',
             margin:     0,
