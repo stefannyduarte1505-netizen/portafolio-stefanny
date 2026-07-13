@@ -51,6 +51,17 @@ const SECTIONS = [
       '/projects/kuna/digital-4.png',
     ],
   },
+  {
+    label: 'Spatial Branding & Signage System',
+    heading: 'Spatial Branding & Signage System',
+    body: 'The store is conceived as a sophisticated, cultured home,one that integrates Andean origin into contemporary life without compromise. True elegance comes from essence.\n\nSpatial branding functions as a strategic orientation tool: it structures the user\'s journey, reinforces brand identity, and narrates KUNA\'s values through architectural gestures, material choices, and visual codes. Less is more,every element earns its place.',
+    images: [
+      '/projects/kuna/spatial-1.png',
+      '/projects/kuna/spatial-2.png',
+      '/projects/kuna/spatial-3.png',
+      '/projects/kuna/spatial-4.png',
+    ],
+  },
 ]
 
 export default function KunaPage() {
@@ -118,6 +129,7 @@ export default function KunaPage() {
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/kuna/cover-after-research.png" />
       <ScrollSection {...SECTIONS[1]} reverse />
+      <ScrollSection {...SECTIONS[2]} />
 
     </div>
   )
