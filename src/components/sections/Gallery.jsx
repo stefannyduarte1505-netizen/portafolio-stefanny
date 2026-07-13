@@ -123,14 +123,17 @@ export default function Gallery() {
         </p>
 
         <div key={`title-${active}`} className="gal-text">
-          <h2 style={{
-            fontFamily: "'Gilda Display', serif", fontWeight: 400,
-            fontSize: 'clamp(2.8rem,5.5vw,6.5rem)',
-            letterSpacing: '-0.02em', lineHeight: 0.95,
-            color: '#1A1815', margin: 0,
-          }}>
-            {p.title}
-          </h2>
+          <a href={`/project/${p.id}`} style={{ textDecoration: 'none' }}>
+            <h2 style={{
+              fontFamily: "'Gilda Display', serif", fontWeight: 400,
+              fontSize: 'clamp(2.8rem,5.5vw,6.5rem)',
+              letterSpacing: '-0.02em', lineHeight: 0.95,
+              color: '#1A1815', margin: 0,
+              cursor: 'pointer',
+            }}>
+              {p.title}
+            </h2>
+          </a>
         </div>
 
         <div key={`tags-${active}`} className="gal-text" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
