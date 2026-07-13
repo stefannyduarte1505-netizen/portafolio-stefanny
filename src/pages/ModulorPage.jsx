@@ -95,7 +95,7 @@ export default function ModulorPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A full brand and digital transformation for a 16-year-old strategic design firm ready to compete globally,unifying identity, narrative, and product into one coherent ecosystem built to attract retailers, corporates, and entrepreneurs across Latin America and beyond.
+          A full brand and digital transformation for a 16-year-old strategic design firm, unifying identity, narrative, and product into one coherent ecosystem to compete globally.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima,2023" />
