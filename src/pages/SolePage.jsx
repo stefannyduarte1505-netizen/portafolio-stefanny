@@ -65,12 +65,6 @@ const SECTIONS = [
   },
 ]
 
-const OUTCOMES = [
-  'Sistema de señalética inteligente que articula rutas de eficiencia transaccional y exploración profunda.',
-  'Plataforma de visualización de materiales en tiempo real integrada con catálogo digital de SKUs.',
-  'Manual de Spatial Branding para replicabilidad en nuevas tiendas Sole a escala nacional.',
-  'Reducción de carga cognitiva mediante jerarquía visual clara y herramientas de personalización digital.',
-]
 
 export default function SolePage() {
   const isMobile = useIsMobile()
@@ -140,18 +134,6 @@ export default function SolePage() {
       <FullBleed src="/projects/sole/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
 
-      <div style={{ padding: `clamp(4rem,8vw,7rem) ${PAD}`, backgroundColor: '#fff', borderTop: '0.5px solid rgba(26,24,21,0.08)' }}>
-        <h2 style={{ fontFamily: GILDA, fontWeight: 400, fontSize: 'clamp(1.5rem,2.2vw,2.2rem)', letterSpacing: '-0.01em', color: '#B9111C', margin: `0 0 clamp(1.5rem,3vw,2.5rem)` }}>
-          Outcomes
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4,1fr)', gap: isMobile ? '1.5rem' : 'clamp(1rem,2vw,2rem)' }}>
-          {OUTCOMES.map((text, i) => (
-            <p key={i} style={{ fontFamily: POPPINS, fontWeight: 300, fontSize: '15px', lineHeight: 1.85, color: 'rgba(26,24,21,0.6)', margin: 0, paddingTop: '1rem', borderTop: '0.5px solid rgba(26,24,21,0.15)' }}>
-              {text}
-            </p>
-          ))}
-        </div>
-      </div>
 
     </div>
   )
