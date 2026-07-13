@@ -94,7 +94,7 @@ export default function KunaPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A spatial and service design strategy that transforms a rebranded luxury textile store into a sophisticated home,where 5,000 years of Andean heritage become a lived, sensory experience that converts curiosity into lasting brand loyalty.
+          A service design strategy that transforms a luxury textile store into a sophisticated home, where 5,000 years of Andean heritage become a lived experience that converts curiosity into lasting loyalty.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand,GrupoModulor,2024" />
