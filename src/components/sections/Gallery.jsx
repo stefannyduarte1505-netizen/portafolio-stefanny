@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
 const PROJECTS = [
-  { id: 'sole',             title: 'SOLE, Phygital Experience', tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
+  { id: 'sole',             title: 'Sole',              tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
   { id: 'root',             title: 'Root',             tags: ['UX Research', 'Service Design'],       cover: '/covers/root.png'        },
   { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'        },
   { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'     },
