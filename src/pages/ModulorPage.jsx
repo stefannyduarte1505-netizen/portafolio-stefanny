@@ -42,7 +42,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy & Brand System',
     heading: 'Digital Strategy & Brand System',
-    body: 'The digital strategy operates through two conversion layers. The Insights channel positions Modulor as a thought leader in strategic design and innovation, capturing newsletter subscribers at the moment of highest content engagement and building a qualified audience of decision-makers. The contact flow was designed as a structured qualification funnel, guiding each audience type toward the right service,Arquitectura de Oficinas, Phygital, or Business,turning intent into conversation before a single call is made.\n\nThe rebranding centers on #6930FA, a bold, distinctive purple that signals innovation and positions Modulor apart from the neutral, corporate-grey aesthetic typical of consultancies in the region. Paired with a clean geometric wordmark, the system communicates precision, forward-thinking, and creative confidence,qualities that speak directly to all three audience profiles.',
+    body: 'The digital strategy operates through two conversion layers: the Insights channel builds a qualified audience of decision-makers through thought leadership and newsletter capture, while the contact flow qualifies each audience toward the right service (Arquitectura de Oficinas, Phygital, or Business) before a single call is made.\n\nThe rebranding uses a bold purple that signals innovation and sets Modulor apart from the corporate-grey aesthetic of regional consultancies. Paired with a clean geometric wordmark, the system communicates precision, forward-thinking, and creative confidence.',
     images: [
       '/projects/modulor/digital-1.png',
       '/projects/modulor/digital-2.png',
