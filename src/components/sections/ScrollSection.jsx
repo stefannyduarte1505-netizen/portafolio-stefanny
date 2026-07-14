@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
 
 export default function ScrollSection({ label, heading, body, images, reverse = false }) {
+  const isMobile = useIsMobile()
   const [active, setActive] = useState(0)
   const N = images.length
   const imageRefs = useRef([])
@@ -22,6 +24,51 @@ export default function ScrollSection({ label, heading, body, images, reverse = 
     return () => observers.forEach(o => o?.disconnect())
   }, [N])
 
+  /* ── Mobile: title then images stacked ── */
+  if (isMobile) {
+    return (
+      <div style={{ backgroundColor: '#fff', padding: '2rem 1.25rem' }}>
+        <p style={{
+          fontFamily: POPPINS, fontWeight: 300, fontSize: '0.58rem',
+          letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: 'rgba(26,24,21,0.3)', margin: '0 0 0.75rem',
+        }}>
+          {label}
+        </p>
+        <h2 style={{
+          fontFamily: GILDA, fontWeight: 400,
+          fontSize: 'clamp(1.6rem,7vw,2.4rem)',
+          letterSpacing: '-0.01em', lineHeight: 1.15,
+          color: '#B9111C', margin: '0 0 1.25rem',
+        }}>
+          {heading}
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.75rem' }}>
+          {body.split('\n\n').map((para, i) => (
+            <p key={i} style={{
+              fontFamily: POPPINS, fontWeight: 300, fontSize: '0.9rem',
+              lineHeight: 1.8, color: 'rgba(26,24,21,0.65)', margin: 0,
+            }}>
+              {para}
+            </p>
+          ))}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          {images.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              loading={i === 0 ? 'eager' : 'lazy'}
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  /* ── Desktop: sticky panel + image strip ── */
   const infoPanel = (
     <div style={{
       width: '40%',
