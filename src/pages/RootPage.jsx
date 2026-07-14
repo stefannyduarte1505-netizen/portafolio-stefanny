@@ -97,7 +97,7 @@ export default function RootPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          In an era of information overload and AI-driven pressure, the problem isn't access to knowledge, it's knowing whether you're learning in the right direction. ROOT transforms scattered curiosity into personalized paths that adapt to your pace and goals.
+          The problem isn't access to knowledge, it's knowing whether you're learning in the right direction. ROOT transforms scattered curiosity into personalized paths that adapt to your pace and goals.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="Digital Product Design,Master's Project, BAU Barcelona,2026" />
