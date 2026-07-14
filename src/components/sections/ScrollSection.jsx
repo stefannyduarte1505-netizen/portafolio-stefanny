@@ -28,13 +28,6 @@ export default function ScrollSection({ label, heading, body, images, reverse = 
   if (isMobile) {
     return (
       <div style={{ backgroundColor: '#fff', padding: '2rem 1.25rem' }}>
-        <p style={{
-          fontFamily: POPPINS, fontWeight: 300, fontSize: '0.58rem',
-          letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: 'rgba(26,24,21,0.3)', margin: '0 0 0.75rem',
-        }}>
-          {label}
-        </p>
         <h2 style={{
           fontFamily: GILDA, fontWeight: 400,
           fontSize: 'clamp(1.6rem,7vw,2.4rem)',
