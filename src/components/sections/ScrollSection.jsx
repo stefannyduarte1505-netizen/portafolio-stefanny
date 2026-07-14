@@ -77,14 +77,6 @@ export default function ScrollSection({ label, heading, body, images, reverse = 
       backgroundColor: '#fff',
       boxSizing: 'border-box',
     }}>
-      <p style={{
-        fontFamily: POPPINS, fontWeight: 300, fontSize: '0.58rem',
-        letterSpacing: '0.22em', textTransform: 'uppercase',
-        color: 'rgba(26,24,21,0.3)', margin: 0,
-      }}>
-        {label}
-      </p>
-
       <h2 style={{
         fontFamily: GILDA, fontWeight: 400,
         fontSize: 'clamp(1.5rem,2.6vw,3rem)',
