@@ -129,6 +129,7 @@ export default function KunaPage() {
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src="/projects/kuna/cover-after-research.png" />
       <ScrollSection {...SECTIONS[1]} reverse />
+      <FullBleed src="/projects/kuna/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
 
     </div>
