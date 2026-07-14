@@ -49,6 +49,8 @@ const SECTIONS = [
       '/projects/sole/digital-1.png',
       '/projects/sole/digital-2.png',
       '/projects/sole/digital-3.png',
+      '/projects/sole/digital-4.png',
+      '/projects/sole/digital-5.png',
     ],
   },
   {

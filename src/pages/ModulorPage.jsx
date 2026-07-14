@@ -37,6 +37,8 @@ const SECTIONS = [
       '/projects/modulor/research-1.png',
       '/projects/modulor/research-2.png',
       '/projects/modulor/research-3.png',
+      '/projects/modulor/research-4.png',
+      '/projects/modulor/research-5.png',
     ],
   },
   {
@@ -48,8 +50,6 @@ const SECTIONS = [
       '/projects/modulor/digital-2.png',
       '/projects/modulor/digital-3.png',
       '/projects/modulor/digital-4.png',
-      '/projects/modulor/digital-5.png',
-      '/projects/modulor/digital-6.png',
     ],
   },
 ]
@@ -116,6 +116,7 @@ export default function ModulorPage() {
 
       <FullBleed src="/projects/modulor/cover-hero.png" />
       <ScrollSection {...SECTIONS[0]} />
+      <FullBleed src="/projects/modulor/cover-after-research.png" />
       <ScrollSection {...SECTIONS[1]} reverse />
 
     </div>

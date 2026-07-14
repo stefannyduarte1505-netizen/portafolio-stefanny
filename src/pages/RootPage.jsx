@@ -49,6 +49,9 @@ const SECTIONS = [
     images: [
       '/projects/root/digital-1.png',
       '/projects/root/digital-2.png',
+      '/projects/root/digital-3.png',
+      '/projects/root/digital-4.png',
+      '/projects/root/digital-5.png',
     ],
   },
 ]
