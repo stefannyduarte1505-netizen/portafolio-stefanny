@@ -165,6 +165,7 @@ export default function Gallery() {
             key={proj.id}
             href={`/project/${proj.id}`}
             ref={el => { cardRefs.current[i] = el }}
+            data-cursor="default"
             style={{ display: 'block', padding: 'clamp(0.75rem,1.5vw,1.5rem)', textDecoration: 'none' }}
           >
             <div className="gal-card" data-cursor="gallery">

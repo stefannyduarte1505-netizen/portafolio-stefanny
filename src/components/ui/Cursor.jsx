@@ -26,6 +26,7 @@ export default function Cursor() {
     const resolve = (el) => {
       if (!el) return 'default'
       if (el.closest(GALLERY)) return 'gallery'
+      if (el.closest('[data-cursor="default"]')) return 'default'
       if (el.closest(LINK))    return 'link'
       return 'default'
     }
