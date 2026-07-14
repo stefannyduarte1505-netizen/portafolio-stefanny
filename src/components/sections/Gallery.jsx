@@ -34,33 +34,29 @@ export default function Gallery() {
   /* ── Mobile ── */
   if (isMobile) {
     return (
-      <section id="gallery" style={{ position: 'relative', zIndex: 2, backgroundColor: '#ffffff', height: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <section id="gallery" style={{ position: 'relative', zIndex: 2, backgroundColor: '#ffffff', padding: '3rem 1.25rem 4rem' }}>
         <style>{`
-          .mob-label { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B9111C; padding:0 1.25rem 0.75rem; flex-shrink:0; }
-          .mob-track { display:flex; overflow-x:auto; overflow-y:hidden; gap:0.75rem; padding:0.5rem 1.25rem 1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-          .mob-track::-webkit-scrollbar { display:none; }
-          .mob-card { position:relative; overflow:hidden; flex-shrink:0; width:78vw; aspect-ratio:3/4; border-radius:6px; cursor:pointer; scroll-snap-align:start; }
-          .mob-card img { width:100%; height:100%; object-fit:cover; display:block; }
-          .mob-card:active img { opacity:0.75; }
-          .mob-gradient { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 55%); pointer-events:none; }
-          .mob-info { position:absolute; bottom:0; left:0; right:0; padding:1rem; pointer-events:none; }
-          .mob-title { font-family:'Poppins',sans-serif; font-weight:600; font-size:1.05rem; color:#fff; margin:0 0 0.45rem; }
-          .mob-tags { display:flex; flex-wrap:wrap; gap:0.25rem; }
-          .mob-tag { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.5rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.9); border:0.5px solid rgba(255,255,255,0.55); padding:0.15rem 0.5rem; border-radius:100px; }
+          .mob-label { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B9111C; margin:0 0 2rem; }
+          .mob-card-v { position:relative; overflow:hidden; width:100%; border-radius:6px; margin-bottom:1.25rem; }
+          .mob-card-v img { width:100%; height:auto; display:block; }
+          .mob-gradient { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 60%); pointer-events:none; }
+          .mob-info-v { position:absolute; bottom:0; left:0; right:0; padding:1.25rem 1rem; display:flex; align-items:flex-end; justify-content:space-between; gap:0.75rem; }
+          .mob-title { font-family:'Gilda Display',serif; font-weight:400; font-size:1.5rem; color:#fff; margin:0; line-height:1.1; }
+          .mob-explore { flex-shrink:0; font-family:'Poppins',sans-serif; font-weight:400; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:#fff; border:0.5px solid rgba(255,255,255,0.7); padding:0.45rem 0.9rem; border-radius:100px; text-decoration:none; white-space:nowrap; }
         `}</style>
-        <p className="mob-label">Proyectos swipe to explore</p>
-        <div className="mob-track">
-          {PROJECTS.map(p => (
-            <div key={p.id} className="mob-card" onClick={() => { window.location.href = `/project/${p.id}` }}>
-              <img src={p.cover} alt={p.title} loading="lazy" />
+        <p className="mob-label">Projects</p>
+        {PROJECTS.map((p, i) => (
+          <a key={p.id} href={`/project/${p.id}`} style={{ display: 'block', textDecoration: 'none' }}>
+            <div className="mob-card-v">
+              <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
               <div className="mob-gradient" />
-              <div className="mob-info">
+              <div className="mob-info-v">
                 <p className="mob-title">{p.title}</p>
-                <div className="mob-tags">{p.tags.map(t => <span key={t} className="mob-tag">#{t}</span>)}</div>
+                <span className="mob-explore">Explore</span>
               </div>
             </div>
-          ))}
-        </div>
+          </a>
+        ))}
       </section>
     )
   }
