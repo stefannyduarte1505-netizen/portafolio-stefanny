@@ -48,8 +48,8 @@ const SECTIONS = [
     images: [
       '/projects/modulor/digital-1.png',
       '/projects/modulor/digital-2.png',
-      '/projects/modulor/digital-3.png',
-      '/projects/modulor/digital-4.png',
+      '/projects/modulor/digital-5.png',
+      '/projects/modulor/digital-6.png',
     ],
   },
 ]
