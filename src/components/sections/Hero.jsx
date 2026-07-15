@@ -1,10 +1,14 @@
 import { useEffect, useRef } from 'react'
 import logoSvg from '../../assets/logo-stefduart.svg'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { t } from '../../translations'
 
 export default function Hero() {
   const sectionRef = useRef(null)
   const isMobile   = useIsMobile()
+  const { lang }   = useLanguage()
+  const tr         = t[lang].hero
 
   useEffect(() => {
     const section = sectionRef.current
@@ -51,7 +55,7 @@ export default function Hero() {
           </div>
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '38%', zIndex: 2, display: 'flex', alignItems: 'center', padding: '0 1.25rem 2rem' }}>
             <p style={{ fontFamily: "'Gilda Display', serif", fontWeight: 400, fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)', color: 'rgba(26,24,21,0.5)', lineHeight: 1.6, margin: 0 }}>
-              Brand &amp; Digital Experience Design:<br />From strategic thinking to digital execution.
+              {tr.line1}<br />{tr.line2}
             </p>
           </div>
         </>
@@ -60,7 +64,7 @@ export default function Hero() {
         <>
           <div style={{ position: 'absolute', left: '2.5rem', top: '38%', zIndex: 3, maxWidth: '320px' }}>
             <p style={{ fontFamily: "'Gilda Display', serif", fontWeight: 400, fontSize: 'clamp(0.85rem, 1.1vw, 1rem)', color: 'rgba(26,24,21,0.45)', lineHeight: 1.55, margin: 0 }}>
-              Brand &amp; Digital Experience Design:<br />From strategic thinking to digital execution.
+              {tr.line1}<br />{tr.line2}
             </p>
           </div>
           <div style={{ position: 'absolute', top: 0, bottom: 0, left: '50%', right: 0, zIndex: 2, overflow: 'hidden' }}>

@@ -1,6 +1,8 @@
 /* ── About — bio + photo grid, then video strips ───────────────────────── */
 import { useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { t } from '../../translations'
 
 const BASE = 'https://portafoliostefduarte.figma.site'
 const V = (hash) => `${BASE}/_videos/v1/${hash}`
@@ -99,6 +101,8 @@ const PAD_H = 'clamp(1.5rem, 5vw, 5rem)'
 
 export default function AboutUs() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang].about
   return (
     <section
       id="about"
@@ -122,7 +126,7 @@ export default function AboutUs() {
           paddingLeft:   PAD_H,
         }}
       >
-        about me
+        {tr.label}
       </p>
 
       {/* ── Bio grid: text left / photo right ── */}
@@ -150,7 +154,7 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Brand &amp; Digital Experience Design:<br />From strategic thinking to digital execution.
+            {tr.headline1}<br />{tr.headline2}
           </h2>
 
           <p
@@ -164,11 +168,7 @@ export default function AboutUs() {
               maxWidth:   '480px',
             }}
           >
-            Brand &amp; Digital Experience Designer with 6+ years of experience across retail and
-            corporate projects, designing brand identities and the digital products that carry them.
-            My work sits at the intersection of Branding, Product Design, and CX &amp; Service Design,
-            translating research into coherent, functional systems aligned with business goals, from
-            physical retail spaces to fully digital experiences.
+            {tr.bio}
           </p>
         </div>
 
@@ -220,7 +220,7 @@ export default function AboutUs() {
               letterSpacing: '-0.01em',
             }}
           >
-            Experience
+            {tr.experienceHeading}
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
@@ -269,7 +269,7 @@ export default function AboutUs() {
             letterSpacing: '-0.01em',
           }}
         >
-          Creative Direction / Personal Work
+          {tr.creativeHeading}
         </h2>
         <p
           style={{
@@ -281,9 +281,7 @@ export default function AboutUs() {
             margin:     0,
           }}
         >
-          Beyond client work, I use short fashion film as a personal laboratory for art direction
-          and visual storytelling, experimenting with the same principles of narrative, composition,
-          and brand aesthetics that I bring to every project.
+          {tr.creativeBio}
         </p>
       </div>
     </section>

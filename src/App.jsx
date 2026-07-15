@@ -8,6 +8,8 @@ import ModulorPage from './pages/ModulorPage'
 import DonSalazarPage from './pages/DonSalazarPage'
 import Navbar from './components/layout/Navbar'
 import Cursor from './components/ui/Cursor'
+import LangToggle from './components/ui/LangToggle'
+import { LanguageProvider } from './contexts/LanguageContext'
 import useLenis from './hooks/useLenis'
 import './index.css'
 
@@ -15,12 +17,12 @@ function AppInner() {
   const location = useLocation()
   const isProjectPage = location.pathname.startsWith('/project/')
 
-  // Lenis only runs on home — project pages use native scroll
   useLenis(!isProjectPage)
 
   return (
     <>
       <Cursor />
+      <LangToggle />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,8 +39,10 @@ function AppInner() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppInner />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <AppInner />
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }

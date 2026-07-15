@@ -1,6 +1,8 @@
 /* ── Project Gallery — sticky left + natural scroll right (same as ScrollSection) ── */
 import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { t } from '../../translations'
 
 const PROJECTS = [
   { id: 'sole',             title: 'Sole',              tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
@@ -13,6 +15,8 @@ const N = PROJECTS.length
 
 export default function Gallery() {
   const isMobile   = useIsMobile()
+  const { lang }   = useLanguage()
+  const tr         = t[lang]
   const [active, setActive] = useState(0)
   const cardRefs   = useRef([])
 
@@ -44,7 +48,7 @@ export default function Gallery() {
           .mob-title { font-family:'Gilda Display',serif; font-weight:400; font-size:1.5rem; color:#fff; margin:0; line-height:1.1; }
           .mob-explore { flex-shrink:0; font-family:'Poppins',sans-serif; font-weight:400; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:#fff; border:0.5px solid rgba(255,255,255,0.7); padding:0.45rem 0.9rem; border-radius:100px; text-decoration:none; white-space:nowrap; }
         `}</style>
-        <p className="mob-label">Projects</p>
+        <p className="mob-label">{tr.gallery.mobileLabel}</p>
         {PROJECTS.map((p, i) => (
           <a key={p.id} href={`/project/${p.id}`} style={{ display: 'block', textDecoration: 'none' }}>
             <div className="mob-card-v">
@@ -52,7 +56,7 @@ export default function Gallery() {
               <div className="mob-gradient" />
               <div className="mob-info-v">
                 <p className="mob-title">{p.title}</p>
-                <span className="mob-explore">Explore</span>
+                <span className="mob-explore">{tr.explore}</span>
               </div>
             </div>
           </a>
@@ -115,7 +119,7 @@ export default function Gallery() {
           fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase',
           color: 'rgba(26,24,21,0.32)', margin: 0,
         }}>
-          Projects
+          {tr.gallery.label}
         </p>
 
         <div key={`title-${active}`} className="gal-text">

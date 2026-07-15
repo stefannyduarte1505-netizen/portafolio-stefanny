@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -28,49 +30,23 @@ function MetaRow({ label, value }) {
   )
 }
 
-const SECTIONS = [
-  {
-    label: 'Research & Strategy',
-    heading: 'Research & Strategy',
-    body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, met by a physical and digital experience that doesn\'t yet support it. From these insights, the project focused on three priorities: improving the in-store experience to match the emotional intent of the visit, creating moments worth remembering after leaving, and building enough reward logic to bring people back.',
-    images: [
-      '/projects/sole/research-1.png',
-      '/projects/sole/research-2.png',
-      '/projects/sole/research-3.png',
-      '/projects/sole/research-4.png',
-      '/projects/sole/research-5.png',
-    ],
-  },
-  {
-    label: 'Digital Strategy',
-    heading: 'Digital Strategy',
-    body: 'One digital product, two experiences. The Virtual Catalog MVP extends the in-store inventory through interactive touch screens, adapting its interface to each audience: a Light Mode for the practical Sole buyer, offering autonomous browsing, product specs, and first-party data capture, and a Dark Mode for the aspirational S•Collection buyer, where users combine and apply finishes at real size before purchasing. Same catalog, two experiences designed for two very different moments of decision.',
-    images: [
-      '/projects/sole/digital-1.png',
-      '/projects/sole/digital-2.png',
-      '/projects/sole/digital-3.png',
-      '/projects/sole/digital-4.png',
-      '/projects/sole/digital-5.png',
-    ],
-  },
-  {
-    label: 'Spatial Branding & Signage System',
-    heading: 'Spatial Branding & Signage System',
-    body: 'Color sets the positioning before a single word is read: warm wood for Sole\'s everyday family life, matte black and marble for S•Collection\'s ritual and exclusivity.\n\nQR signage is embedded directly into furniture, countertops, cabinets, displays, turning every surface into an entry point to the digital catalog without breaking the spatial narrative.\n\nA minimal icon system (touch, recipe, temperature) extends that logic into wordless, functional signage, consistent across both lines, rendered in each brand\'s own color language.',
-    images: [
-      '/projects/sole/spatial-1.png',
-      '/projects/sole/spatial-2.png',
-      '/projects/sole/spatial-3.png',
-      '/projects/sole/spatial-4.png',
-      '/projects/sole/spatial-5.png',
-    ],
-  },
-]
-
+const IMAGES = {
+  research: ['/projects/sole/research-1.png','/projects/sole/research-2.png','/projects/sole/research-3.png','/projects/sole/research-4.png','/projects/sole/research-5.png'],
+  digital:  ['/projects/sole/digital-1.png','/projects/sole/digital-2.png','/projects/sole/digital-3.png','/projects/sole/digital-4.png','/projects/sole/digital-5.png'],
+  spatial:  ['/projects/sole/spatial-1.png','/projects/sole/spatial-2.png','/projects/sole/spatial-3.png','/projects/sole/spatial-4.png','/projects/sole/spatial-5.png'],
+}
 
 export default function SolePage() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  const SECTIONS = [
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.sole.research, images: IMAGES.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.sole.digital,  images: IMAGES.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.sole.spatial,  images: IMAGES.spatial  },
+  ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
@@ -93,7 +69,7 @@ export default function SolePage() {
         onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
         onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
       >
-        Close
+        {tr.close}
       </button>
 
       <div style={{
@@ -109,12 +85,12 @@ export default function SolePage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A service design and product strategy project that turned a saturated showroom into a guided, omnichannel experience,where technology builds confidence at every decision point.
+          {tr.sole.hero}
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail,GrupoModulor,2024" />
+          <MetaRow label="Cliente"  value="Sole & S•Collection, appliance retail · GrupoModulor · 2024" />
           <MetaRow label="Proyecto" value="Sole: Phygital Experience" />
-          <MetaRow label="Rol"      value="Service Design Lead,directed UX/UI strategy, co-creation methodology, and cross-functional alignment between brand, product, and operations at GrupoModulor." />
+          <MetaRow label="Rol"      value="Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Product Design', 'UX/UI', 'Service Design', 'Spatial Branding'].map(tag => (
@@ -135,7 +111,6 @@ export default function SolePage() {
       <ScrollSection {...SECTIONS[1]} reverse />
       <FullBleed src="/projects/sole/cover-after-digital.png" />
       <ScrollSection {...SECTIONS[2]} />
-
 
     </div>
   )

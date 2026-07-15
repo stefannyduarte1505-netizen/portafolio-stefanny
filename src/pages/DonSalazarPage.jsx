@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -28,42 +30,23 @@ function MetaRow({ label, value }) {
   )
 }
 
-const SECTIONS = [
-  {
-    label: 'Research & Strategy',
-    heading: 'Research & Strategy',
-    body: 'As the third generation of coffee growers from Villa Rica, Don Salazar\'s responsibility is to make Peru\'s finest specialty coffee accessible, without losing the craft behind it. Located next to a university campus inside a mall, the pop-up surfaced a clear business problem: students default to cappuccino and americano, never daring to try specialty coffee, even though they have the time and curiosity to do so.',
-    images: [
-      '/projects/don-salazar/research-1.png',
-      '/projects/don-salazar/research-2.png',
-      '/projects/don-salazar/research-3.png',
-      '/projects/don-salazar/research-4.png',
-    ],
-  },
-  {
-    label: 'Digital Strategy',
-    heading: 'Digital Strategy',
-    body: 'Built around the concept "Discover Your Ideal Coffee," the digital layer turns a sensory first impression into an informed purchase decision. A self-discovery kiosk guides the user through a personalized flow, from category and coffee type to brewing method, revealing real specs at every step: ratio, temperature, caffeine level, and brew time, until the system generates their ideal result. From there, users can save their recipe and pay directly from the screen.\n\nEvery interaction is also a data point, capturing what users explore, where they hesitate, and what they ultimately choose. A Community Panel lets visitors trace the full value chain from farm to cup and share their impressions. The goal: give someone a specific reason to come back.',
-    images: [
-      '/projects/don-salazar/digital-1.png',
-      '/projects/don-salazar/digital-2.png',
-    ],
-  },
-  {
-    label: 'Spatial Branding & Signage System',
-    heading: 'Spatial Branding & Signage System',
-    body: 'The physical space makes "Discover Your Ideal Coffee" literal. An interactive mural and dispensing furniture invite users to smell, touch, and observe, identifying preferences before placing an order.\n\nSignage follows a warm, natural palette: green, ochre, and orange, paired with mixed serif and script typography that references Villa Rica\'s heritage without leaning into folklore. QR-enabled panels extend the in-store ritual into a virtual catalog, while community pegboards show the production journey from farm to cup.',
-    images: [
-      '/projects/don-salazar/spatial-1.png',
-      '/projects/don-salazar/spatial-2.png',
-      '/projects/don-salazar/spatial-3.png',
-    ],
-  },
-]
+const IMAGES = {
+  research: ['/projects/don-salazar/research-1.png','/projects/don-salazar/research-2.png','/projects/don-salazar/research-3.png','/projects/don-salazar/research-4.png'],
+  digital:  ['/projects/don-salazar/digital-1.png','/projects/don-salazar/digital-2.png'],
+  spatial:  ['/projects/don-salazar/spatial-1.png','/projects/don-salazar/spatial-2.png','/projects/don-salazar/spatial-3.png'],
+}
 
 export default function DonSalazarPage() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  const SECTIONS = [
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.donSalazar.research, images: IMAGES.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.donSalazar.digital,  images: IMAGES.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.donSalazar.spatial,  images: IMAGES.spatial  },
+  ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
@@ -86,7 +69,7 @@ export default function DonSalazarPage() {
         onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
         onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
       >
-        Close
+        {tr.close}
       </button>
 
       <div style={{
@@ -102,12 +85,12 @@ export default function DonSalazarPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A sensory and digital pop-up experience that turns coffee discovery into a guided ritual, built to shift university students from ordering on autopilot to actually choosing what they drink.
+          {tr.donSalazar.hero}
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Don Salazar, specialty coffee retail (Villa Rica, 1942),GrupoModulor,2024" />
+          <MetaRow label="Cliente"  value="Don Salazar, specialty coffee retail (Villa Rica, 1942) · GrupoModulor · 2024" />
           <MetaRow label="Proyecto" value="Café Don Salazar: Phygital Pop-Up Experience" />
-          <MetaRow label="Rol"      value="Service Design Lead,directed the spatial concept, digital flow, and co-creation strategy at GrupoModulor." />
+          <MetaRow label="Rol"      value="Service Design Lead · spatial concept, digital flow, and co-creation strategy at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Grace Huayanca, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Service Design', 'Spatial Branding', 'Product Design'].map(tag => (

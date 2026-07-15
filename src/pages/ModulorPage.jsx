@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -28,35 +30,21 @@ function MetaRow({ label, value }) {
   )
 }
 
-const SECTIONS = [
-  {
-    label: 'Research & Strategy',
-    heading: 'Research & Strategy',
-    body: 'Modulor needed to evolve from a well-established local consultancy into a globally positioned strategic design firm. The challenge: translating 16 years of expertise into a digital presence that could speak to three very different audiences at once, without losing coherence.\n\nModulor\'s positioning gap was a narrative one. The firm had the expertise; what it lacked was a digital ecosystem that could carry that expertise to three distinct audiences without losing what made it distinct.',
-    images: [
-      '/projects/modulor/research-1.png',
-      '/projects/modulor/research-2.png',
-      '/projects/modulor/research-3.png',
-      '/projects/modulor/research-4.png',
-    ],
-  },
-  {
-    label: 'Digital Strategy & Brand System',
-    heading: 'Digital Strategy & Brand System',
-    body: 'The digital strategy operates through two conversion layers: the Insights channel builds a qualified audience of decision-makers through content and newsletter capture, while the contact flow routes each audience toward the right service (Arquitectura de Oficinas, Phygital, or Business) before a single call is made.\n\nThe rebranding uses a bold purple that sets Modulor apart from the corporate-grey aesthetic of regional consultancies. Paired with a clean geometric wordmark, the system positions Modulor as something different from the firms it competes against.',
-    images: [
-      '/projects/modulor/digital-1.png',
-      '/projects/modulor/digital-2.png',
-      '/projects/modulor/digital-3.png',
-      '/projects/modulor/digital-4.png',
-      '/projects/modulor/digital-5.png',
-    ],
-  },
-]
+const IMAGES = {
+  research: ['/projects/modulor/research-1.png','/projects/modulor/research-2.png','/projects/modulor/research-3.png','/projects/modulor/research-4.png'],
+  digital:  ['/projects/modulor/digital-1.png','/projects/modulor/digital-2.png','/projects/modulor/digital-3.png','/projects/modulor/digital-4.png','/projects/modulor/digital-5.png'],
+}
 
 export default function ModulorPage() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  const SECTIONS = [
+    { label: 'Research & Strategy',       heading: 'Research & Strategy',       body: tr.modulor.research, images: IMAGES.research },
+    { label: 'Digital Strategy & Brand',  heading: 'Digital Strategy & Brand',  body: tr.modulor.digital,  images: IMAGES.digital  },
+  ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
@@ -79,7 +67,7 @@ export default function ModulorPage() {
         onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
         onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
       >
-        Close
+        {tr.close}
       </button>
 
       <div style={{
@@ -95,12 +83,12 @@ export default function ModulorPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A full brand and digital transformation for a 16-year-old strategic design firm. The work spanned identity, narrative, and digital product, with one goal: make 16 years of expertise legible to three very different audiences at once.
+          {tr.modulor.hero}
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima,2023" />
+          <MetaRow label="Cliente"  value="GrupoModulor® · Strategic Design & Innovation Consultancy, Lima · 2023" />
           <MetaRow label="Proyecto" value="GrupoModulor: Rebranding & Web End-to-End" />
-          <MetaRow label="Rol"      value="Project Manager & Design Experience Lead,directed the full brand transformation and digital product deployment, from identity system to web platform launch." />
+          <MetaRow label="Rol"      value="Project Manager & Design Experience Lead · full brand transformation and digital product deployment, from identity system to web platform launch." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Product Design', 'Branding', 'Project Management'].map(tag => (
               <span key={tag} style={{

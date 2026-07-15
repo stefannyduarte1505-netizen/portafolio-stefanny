@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -28,37 +30,21 @@ function MetaRow({ label, value }) {
   )
 }
 
-const SECTIONS = [
-  {
-    label: 'Research & Strategy',
-    heading: 'Research & Strategy',
-    body: 'Adults between 25 and 44 show the highest willingness to learn, and face the highest barriers of time and money. Technology workers fear becoming obsolete, freelancers are watching their skills shift faster than they can retrain, and established professionals need to stay current without giving up what little time they have.',
-    images: [
-      '/projects/root/research-1.png',
-      '/projects/root/research-2.png',
-      '/projects/root/research-3.png',
-      '/projects/root/research-4.png',
-      '/projects/root/research-5.png',
-      '/projects/root/research-6.png',
-    ],
-  },
-  {
-    label: 'Digital Strategy',
-    heading: 'Digital Strategy',
-    body: 'ROOT centers on one image: a knowledge garden where lessons grow at your own pace and nothing gets lost. Three things shaped every design decision: motivation (no pressure, just process), organization (clear paths over open fields), and entertainment, because if the interface feels like homework, people stop using it.',
-    images: [
-      '/projects/root/digital-1.png',
-      '/projects/root/digital-2.png',
-      '/projects/root/digital-3.png',
-      '/projects/root/digital-4.png',
-      '/projects/root/digital-5.png',
-    ],
-  },
-]
+const IMAGES = {
+  research: ['/projects/root/research-1.png','/projects/root/research-2.png','/projects/root/research-3.png','/projects/root/research-4.png','/projects/root/research-5.png','/projects/root/research-6.png'],
+  digital:  ['/projects/root/digital-1.png','/projects/root/digital-2.png','/projects/root/digital-3.png','/projects/root/digital-4.png','/projects/root/digital-5.png'],
+}
 
 export default function RootPage() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  const SECTIONS = [
+    { label: 'Research & Strategy', heading: 'Research & Strategy', body: tr.root.research, images: IMAGES.research },
+    { label: 'Digital Strategy',    heading: 'Digital Strategy',    body: tr.root.digital,  images: IMAGES.digital  },
+  ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
@@ -81,7 +67,7 @@ export default function RootPage() {
         onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
         onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
       >
-        Close
+        {tr.close}
       </button>
 
       <div style={{
@@ -97,12 +83,12 @@ export default function RootPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          Having access to information was never the hard part. Knowing whether you're learning in the right direction was. ROOT turns scattered curiosity into personalized paths that adapt to your pace and goals.
+          {tr.root.hero}
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="Digital Product Design,Master's Project, BAU Barcelona,2026" />
+          <MetaRow label="Cliente"  value="Digital Product Design · Master's Project, BAU Barcelona · 2026" />
           <MetaRow label="Proyecto" value="ROOT: Learning Self-Management Platform" />
-          <MetaRow label="Rol"      value="UX/UI Designer & Researcher,co-leading research, product strategy, and interface design." />
+          <MetaRow label="Rol"      value="UX/UI Designer & Researcher · co-leading research, product strategy, and interface design." />
           <MetaRow label="Equipo"   value="Mora Celaya, Alfredo Duarte, Stefanny Duarte, Alexandra Hilaire, Sara Prats." />
           <MetaRow label="Advisors" value="Cesar Úbeda, Jordi Hernandez, Sarah Romero, Jorge Agundez, Jose Saura." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>

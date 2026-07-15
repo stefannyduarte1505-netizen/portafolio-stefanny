@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -28,45 +30,23 @@ function MetaRow({ label, value }) {
   )
 }
 
-const SECTIONS = [
-  {
-    label: 'Research & Strategy',
-    heading: 'Research & Strategy',
-    body: 'KUNA recently repositioned itself to lead with cultural depth over product volume,"each thread carries 5,000 years of history." The challenge: translate that repositioning into a physical store experience where two very different profiles arrive with the same expectation: an experience that justifies the price before they even touch the product.',
-    images: [
-      '/projects/kuna/research-1.png',
-      '/projects/kuna/research-2.png',
-      '/projects/kuna/research-3.png',
-      '/projects/kuna/research-4.png',
-    ],
-  },
-  {
-    label: 'Digital Strategy',
-    heading: 'Digital Strategy',
-    body: 'Technology here is a support tool, not the protagonist. Four initiatives extend the KUNA experience beyond the transaction: the Lifestyle Club rewards loyalty through dedicated spaces and exclusive benefits; Artistic Experience KUNA bridges ancestral craft and the modern traveler\'s need for immediacy; Express KUNA Service gives visibility to ancestral techniques and Peruvian artists; and Garment Care educates users on preserving each piece according to its materials, so the relationship with the product continues long after the purchase.',
-    images: [
-      '/projects/kuna/digital-1.png',
-      '/projects/kuna/digital-2.png',
-      '/projects/kuna/digital-3.png',
-      '/projects/kuna/digital-4.png',
-    ],
-  },
-  {
-    label: 'Spatial Branding & Signage System',
-    heading: 'Spatial Branding & Signage System',
-    body: 'The store is conceived as a sophisticated home: Andean origin integrated into contemporary life, without decoration for its own sake.\n\nSpatial branding carries the work that signage alone can\'t do. It orients the visitor, holds the brand\'s identity, and tells KUNA\'s story through the choices themselves: architecture, materials, visual language. Nothing is there to fill space.',
-    images: [
-      '/projects/kuna/spatial-1.png',
-      '/projects/kuna/spatial-2.png',
-      '/projects/kuna/spatial-3.png',
-      '/projects/kuna/spatial-4.png',
-    ],
-  },
-]
+const IMAGES = {
+  research: ['/projects/kuna/research-1.png','/projects/kuna/research-2.png','/projects/kuna/research-3.png','/projects/kuna/research-4.png'],
+  digital:  ['/projects/kuna/digital-1.png','/projects/kuna/digital-2.png','/projects/kuna/digital-3.png','/projects/kuna/digital-4.png'],
+  spatial:  ['/projects/kuna/spatial-1.png','/projects/kuna/spatial-2.png','/projects/kuna/spatial-3.png','/projects/kuna/spatial-4.png'],
+}
 
 export default function KunaPage() {
   const isMobile = useIsMobile()
+  const { lang } = useLanguage()
+  const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  const SECTIONS = [
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.kuna.research, images: IMAGES.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.kuna.digital,  images: IMAGES.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.kuna.spatial,  images: IMAGES.spatial  },
+  ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
@@ -89,7 +69,7 @@ export default function KunaPage() {
         onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
         onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
       >
-        Close
+        {tr.close}
       </button>
 
       <div style={{
@@ -105,12 +85,12 @@ export default function KunaPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A service design strategy that transforms a luxury textile store into a sophisticated home, where 5,000 years of Andean heritage become a lived experience that converts curiosity into lasting loyalty.
+          {tr.kuna.hero}
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
-          <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand,GrupoModulor,2024" />
+          <MetaRow label="Cliente"  value="KUNA, luxury Andean textile brand · GrupoModulor · 2024" />
           <MetaRow label="Proyecto" value="KUNA: Heritage Experience & Retail Design Strategy" />
-          <MetaRow label="Rol"      value="Service Design Lead,directed spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor." />
+          <MetaRow label="Rol"      value="Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor." />
           <MetaRow label="Equipo"   value="Ximena Pizarro, Daniela Raez, Nicole Closa, Paola Abal, Giancarlo Grande." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {['Service Design', 'Spatial Branding', 'Brand Strategy'].map(tag => (
