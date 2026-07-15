@@ -3,13 +3,13 @@ import { useLanguage } from '../../contexts/LanguageContext'
 const POPPINS = "'Poppins', sans-serif"
 
 const pillStyle = {
-  padding: '0.45rem 1rem', borderRadius: '100px',
+  padding: '0.6rem 1.5rem', borderRadius: '100px',
   backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-  backgroundColor: 'rgba(255,255,255,0.75)',
-  boxShadow: '0 2px 20px rgba(0,0,0,0.07)',
-  border: '0.5px solid rgba(26,24,21,0.12)', cursor: 'pointer',
-  fontFamily: POPPINS, fontWeight: 300,
-  fontSize: '0.72rem', letterSpacing: '0.1em',
+  backgroundColor: 'rgba(255,255,255,0.35)',
+  boxShadow: '0 1px 12px rgba(0,0,0,0.04)',
+  border: 'none', cursor: 'pointer',
+  fontFamily: POPPINS, fontWeight: 400,
+  fontSize: '0.95rem', letterSpacing: '0.04em',
   color: '#1A1815', transition: 'color 0.2s',
 }
 
