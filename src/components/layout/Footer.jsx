@@ -109,7 +109,7 @@ export default function Footer() {
 
             <div>
               <p style={LABEL}>Phone</p>
-              <p style={VALUE}>+51 999 999 999</p>
+              <p style={VALUE}>+51 996 318 127<br />+51 675 109 303</p>
             </div>
 
             <div>
@@ -154,7 +154,7 @@ export default function Footer() {
               maxWidth: '480px',
             }}
           >
-            Do not hesitate to contact me to discuss a possible project or discover more about my work.
+            Open to new projects and collaborations. Let's connect.
           </p>
 
           {!sent ? (
