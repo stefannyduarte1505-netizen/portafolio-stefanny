@@ -31,7 +31,7 @@ export const t = {
     /* ── Footer ── */
     footer: {
       label: "let's talk",
-      heading: "Let's work together",
+      heading: "Open to new projects and collaborations. Let's connect.",
       namePlaceholder: 'Name',
       emailPlaceholder: 'Email',
       companyPlaceholder: 'Company',
@@ -113,7 +113,7 @@ export const t = {
     /* ── Footer ── */
     footer: {
       label: 'hablemos',
-      heading: 'Trabajemos juntos',
+      heading: 'Abierta a nuevos proyectos y colaboraciones. Hablemos.',
       namePlaceholder: 'Nombre',
       emailPlaceholder: 'Email',
       companyPlaceholder: 'Empresa',

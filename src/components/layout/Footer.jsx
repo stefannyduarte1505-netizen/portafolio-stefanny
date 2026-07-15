@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { t } from '../../translations'
 
 const EJS_SERVICE  = 'service_o1vpa0f'
 const EJS_TEMPLATE = 'template_efrum1q'
@@ -68,6 +70,8 @@ export default function Footer() {
   const [error, setError]     = useState(null)
   const formRef               = useRef(null)
   const isMobile              = useIsMobile()
+  const { lang }              = useLanguage()
+  const tr                    = t[lang].footer
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -154,7 +158,7 @@ export default function Footer() {
               maxWidth: '480px',
             }}
           >
-            Open to new projects and collaborations. Let's connect.
+            {tr.heading}
           </p>
 
           {!sent ? (
