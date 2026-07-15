@@ -43,7 +43,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy',
     heading: 'Digital Strategy',
-    body: 'The digital layer is intentionally invisible, technology as a quiet support tool, never as the protagonist. Four initiatives extend the KUNA experience beyond the transaction: the Lifestyle Club rewards loyalty through dedicated spaces and exclusive benefits; Artistic Experience KUNA bridges ancestral craft and the modern traveler\'s immediacy; Express KUNA Service gives national and international visibility to ancestral techniques and Peruvian artists; and Garment Care educates users on preserving each piece according to its materials, turning every touchpoint into an opportunity to deepen the relationship.',
+    body: 'Technology here is a support tool, not the protagonist. Four initiatives extend the KUNA experience beyond the transaction: the Lifestyle Club rewards loyalty through dedicated spaces and exclusive benefits; Artistic Experience KUNA bridges ancestral craft and the modern traveler\'s need for immediacy; Express KUNA Service gives visibility to ancestral techniques and Peruvian artists; and Garment Care educates users on preserving each piece according to its materials, so the relationship with the product continues long after the purchase.',
     images: [
       '/projects/kuna/digital-1.png',
       '/projects/kuna/digital-2.png',
@@ -54,7 +54,7 @@ const SECTIONS = [
   {
     label: 'Spatial Branding & Signage System',
     heading: 'Spatial Branding & Signage System',
-    body: 'The store is conceived as a sophisticated, cultured home,one that integrates Andean origin into contemporary life without compromise. True elegance comes from essence.\n\nSpatial branding functions as a strategic orientation tool: it structures the user\'s journey, reinforces brand identity, and narrates KUNA\'s values through architectural gestures, material choices, and visual codes. Less is more,every element earns its place.',
+    body: 'The store is conceived as a sophisticated home: Andean origin integrated into contemporary life, without decoration for its own sake.\n\nSpatial branding carries the work that signage alone can\'t do. It orients the visitor, holds the brand\'s identity, and tells KUNA\'s story through the choices themselves: architecture, materials, visual language. Nothing is there to fill space.',
     images: [
       '/projects/kuna/spatial-1.png',
       '/projects/kuna/spatial-2.png',

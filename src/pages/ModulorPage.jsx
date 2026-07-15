@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Modulor needed to evolve from a well-established local consultancy into a globally positioned strategic design firm. The challenge: translating 16 years of expertise into a digital presence that could speak to three very different audiences simultaneously, without losing coherence.\n\nModulor\'s positioning gap wasn\'t a visual problem,it was a narrative one. The firm had the expertise; what it needed was a coherent digital ecosystem that could communicate that expertise to three distinct audiences without diluting its identity.',
+    body: 'Modulor needed to evolve from a well-established local consultancy into a globally positioned strategic design firm. The challenge: translating 16 years of expertise into a digital presence that could speak to three very different audiences at once, without losing coherence.\n\nModulor\'s positioning gap was a narrative one. The firm had the expertise; what it lacked was a digital ecosystem that could carry that expertise to three distinct audiences without losing what made it distinct.',
     images: [
       '/projects/modulor/research-1.png',
       '/projects/modulor/research-2.png',
@@ -43,7 +43,7 @@ const SECTIONS = [
   {
     label: 'Digital Strategy & Brand System',
     heading: 'Digital Strategy & Brand System',
-    body: 'The digital strategy operates through two conversion layers: the Insights channel builds a qualified audience of decision-makers through thought leadership and newsletter capture, while the contact flow qualifies each audience toward the right service (Arquitectura de Oficinas, Phygital, or Business) before a single call is made.\n\nThe rebranding uses a bold purple that signals innovation and sets Modulor apart from the corporate-grey aesthetic of regional consultancies. Paired with a clean geometric wordmark, the system communicates precision, forward-thinking, and creative confidence.',
+    body: 'The digital strategy operates through two conversion layers: the Insights channel builds a qualified audience of decision-makers through content and newsletter capture, while the contact flow routes each audience toward the right service (Arquitectura de Oficinas, Phygital, or Business) before a single call is made.\n\nThe rebranding uses a bold purple that sets Modulor apart from the corporate-grey aesthetic of regional consultancies. Paired with a clean geometric wordmark, the system positions Modulor as something different from the firms it competes against.',
     images: [
       '/projects/modulor/digital-1.png',
       '/projects/modulor/digital-2.png',
@@ -95,7 +95,7 @@ export default function ModulorPage() {
           letterSpacing: '-0.01em', lineHeight: 1.25,
           color: '#B9111C', margin: 0,
         }}>
-          A full brand and digital transformation for a 16-year-old strategic design firm, unifying identity, narrative, and product into one coherent ecosystem to compete globally.
+          A full brand and digital transformation for a 16-year-old strategic design firm. The work spanned identity, narrative, and digital product, with one goal: make 16 years of expertise legible to three very different audiences at once.
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingTop: isMobile ? 0 : '0.4rem' }}>
           <MetaRow label="Cliente"  value="GrupoModulor®, Strategic Design & Innovation Consultancy, Lima,2023" />

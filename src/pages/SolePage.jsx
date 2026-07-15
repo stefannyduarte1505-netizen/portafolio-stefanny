@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     label: 'Research & Strategy',
     heading: 'Research & Strategy',
-    body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, undermined by a physical and digital experience that doesn\'t yet support it. From these insights, three strategic pillars emerged to close that gap: Experience, Recall, and Reward.',
+    body: 'Two distinct user profiles, a practical family buyer and an aspirational design-driven buyer, revealed the same underlying tension: strong emotional motivation to visit the store, met by a physical and digital experience that doesn\'t yet support it. From these insights, the project focused on three priorities: improving the in-store experience to match the emotional intent of the visit, creating moments worth remembering after leaving, and building enough reward logic to bring people back.',
     images: [
       '/projects/sole/research-1.png',
       '/projects/sole/research-2.png',
