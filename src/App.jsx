@@ -8,8 +8,10 @@ import ModulorPage from './pages/ModulorPage'
 import DonSalazarPage from './pages/DonSalazarPage'
 import Navbar from './components/layout/Navbar'
 import Cursor from './components/ui/Cursor'
-import LangToggle from './components/ui/LangToggle'
+import { LangButton, CloseButton } from './components/ui/LangToggle'
 import { LanguageProvider } from './contexts/LanguageContext'
+import { useLanguage } from './contexts/LanguageContext'
+import { t } from './translations'
 import useLenis from './hooks/useLenis'
 import './index.css'
 
@@ -19,10 +21,15 @@ function AppInner() {
 
   useLenis(!isProjectPage)
 
+  const { lang } = useLanguage()
+
   return (
     <>
       <Cursor />
-      <LangToggle />
+      <div style={{ position: 'fixed', top: '1.5rem', right: '2rem', zIndex: 300, display: 'flex', gap: '0.5rem' }}>
+        {isProjectPage && <CloseButton label={t[lang].close} />}
+        <LangButton />
+      </div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

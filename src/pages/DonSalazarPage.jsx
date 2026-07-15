@@ -53,25 +53,6 @@ export default function DonSalazarPage() {
   return (
     <div style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
 
-      <button
-        onClick={() => { sessionStorage.setItem('scrollToGallery', '1'); window.location.href = '/' }}
-        style={{
-          position: 'fixed', top: '1.5rem', right: isMobile ? '1rem' : '2rem', zIndex: 200,
-          padding: '0.55rem 1.75rem', borderRadius: '100px',
-          backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-          backgroundColor: 'rgba(255,255,255,0.75)',
-          boxShadow: '0 2px 20px rgba(0,0,0,0.07)',
-          border: '0.5px solid rgba(26,24,21,0.12)', cursor: 'pointer',
-          fontFamily: POPPINS, fontWeight: 300,
-          fontSize: '0.78rem', letterSpacing: '0.06em', color: '#1A1815',
-          transition: 'color 0.2s',
-        }}
-        onMouseEnter={e => e.currentTarget.style.color = '#B9111C'}
-        onMouseLeave={e => e.currentTarget.style.color = '#1A1815'}
-      >
-        {tr.close}
-      </button>
-
       <div style={{
         display: 'grid',
         gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
