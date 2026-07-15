@@ -163,10 +163,10 @@ export default function Footer() {
 
           {!sent ? (
             <form ref={formRef} onSubmit={handleSubmit} style={{ maxWidth: '480px' }}>
-              <Field label="Name" placeholder="John Doe" name="name" />
-              <Field label="Email" type="email" placeholder="hello@example.com" name="email" />
-              <Field label="I work at" placeholder="Company name" name="company" />
-              <Field label="Details about the project" placeholder="My project is about..." isTextarea name="message" />
+              <Field label={tr.nameLabel}    placeholder="John Doe"             name="name" />
+              <Field label={tr.emailLabel}   type="email" placeholder="hello@example.com" name="email" />
+              <Field label={tr.companyLabel} placeholder="Company name"          name="company" />
+              <Field label={tr.messageLabel} placeholder="My project is about..." isTextarea name="message" />
 
               {error && (
                 <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300, fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', marginBottom: '0.75rem' }}>
@@ -195,7 +195,7 @@ export default function Footer() {
                 onMouseEnter={e => { if (!sending) e.currentTarget.style.borderColor = '#fff' }}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'}
               >
-                {sending ? 'sending...' : 'send message'}
+                {sending ? tr.sending : tr.send}
               </button>
             </form>
           ) : (
