@@ -30,10 +30,15 @@ function MetaRow({ label, value }) {
   )
 }
 
-const IMAGES = {
+const IMAGES_EN = {
   research: ['/projects/kuna/research-1.png','/projects/kuna/research-2.png','/projects/kuna/research-3.png','/projects/kuna/research-4.png'],
   digital:  ['/projects/kuna/digital-1.png','/projects/kuna/digital-2.png','/projects/kuna/digital-3.png','/projects/kuna/digital-4.png'],
   spatial:  ['/projects/kuna/spatial-1.png','/projects/kuna/spatial-2.png','/projects/kuna/spatial-3.png','/projects/kuna/spatial-4.png'],
+}
+const IMAGES_ES = {
+  research: ['/projects/kuna/es/research-1.png','/projects/kuna/es/research-2.png','/projects/kuna/es/research-3.png','/projects/kuna/es/research-4.png'],
+  digital:  ['/projects/kuna/es/digital-1.png','/projects/kuna/es/digital-2.png','/projects/kuna/es/digital-3.png','/projects/kuna/es/digital-4.png'],
+  spatial:  ['/projects/kuna/es/spatial-1.png','/projects/kuna/es/spatial-2.png','/projects/kuna/es/spatial-3.png','/projects/kuna/es/spatial-4.png'],
 }
 
 export default function KunaPage() {
@@ -42,10 +47,12 @@ export default function KunaPage() {
   const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  const imgs = lang === 'es' ? IMAGES_ES : IMAGES_EN
+
   const SECTIONS = [
-    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.kuna.research, images: IMAGES.research },
-    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.kuna.digital,  images: IMAGES.digital  },
-    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.kuna.spatial,  images: IMAGES.spatial  },
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.kuna.research, images: imgs.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.kuna.digital,  images: imgs.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.kuna.spatial,  images: imgs.spatial  },
   ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
@@ -86,11 +93,11 @@ export default function KunaPage() {
         </div>
       </div>
 
-      <FullBleed src="/projects/kuna/cover-hero.png" />
+      <FullBleed src={`/projects/kuna/${lang === 'es' ? 'es/' : ''}cover-hero.png`} />
       <ScrollSection {...SECTIONS[0]} />
-      <FullBleed src="/projects/kuna/cover-after-research.png" />
+      <FullBleed src={`/projects/kuna/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
-      <FullBleed src="/projects/kuna/cover-after-digital.png" />
+      <FullBleed src={`/projects/kuna/${lang === 'es' ? 'es/' : ''}cover-after-digital.png`} />
       <ScrollSection {...SECTIONS[2]} />
 
     </div>

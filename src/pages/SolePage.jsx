@@ -30,9 +30,14 @@ function MetaRow({ label, value }) {
   )
 }
 
-const IMAGES = {
+const IMAGES_EN = {
   research: ['/projects/sole/research-1.png','/projects/sole/research-2.png','/projects/sole/research-3.png','/projects/sole/research-4.png','/projects/sole/research-5.png'],
   digital:  ['/projects/sole/digital-1.png','/projects/sole/digital-2.png','/projects/sole/digital-3.png','/projects/sole/digital-4.png','/projects/sole/digital-5.png'],
+  spatial:  ['/projects/sole/spatial-1.png','/projects/sole/spatial-2.png','/projects/sole/spatial-3.png','/projects/sole/spatial-4.png','/projects/sole/spatial-5.png'],
+}
+const IMAGES_ES = {
+  research: ['/projects/sole/es/research-1.png','/projects/sole/es/research-2.png','/projects/sole/es/research-3.png','/projects/sole/es/research-4.png','/projects/sole/es/research-5.png'],
+  digital:  ['/projects/sole/es/digital-1.png','/projects/sole/es/digital-2.png','/projects/sole/es/digital-3.png','/projects/sole/es/digital-4.png','/projects/sole/es/digital-5.png'],
   spatial:  ['/projects/sole/spatial-1.png','/projects/sole/spatial-2.png','/projects/sole/spatial-3.png','/projects/sole/spatial-4.png','/projects/sole/spatial-5.png'],
 }
 
@@ -42,10 +47,12 @@ export default function SolePage() {
   const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  const imgs = lang === 'es' ? IMAGES_ES : IMAGES_EN
+
   const SECTIONS = [
-    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.sole.research, images: IMAGES.research },
-    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.sole.digital,  images: IMAGES.digital  },
-    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.sole.spatial,  images: IMAGES.spatial  },
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.sole.research, images: imgs.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.sole.digital,  images: imgs.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.sole.spatial,  images: imgs.spatial  },
   ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
@@ -86,11 +93,11 @@ export default function SolePage() {
         </div>
       </div>
 
-      <FullBleed src="/projects/sole/cover-hero.png" />
+      <FullBleed src={`/projects/sole/${lang === 'es' ? 'es/' : ''}cover-hero.png`} />
       <ScrollSection {...SECTIONS[0]} />
-      <FullBleed src="/projects/sole/cover-after-research.png" />
+      <FullBleed src={`/projects/sole/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
-      <FullBleed src="/projects/sole/cover-after-digital.png" />
+      <FullBleed src={`/projects/sole/${lang === 'es' ? 'es/' : ''}cover-after-digital.png`} />
       <ScrollSection {...SECTIONS[2]} />
 
     </div>

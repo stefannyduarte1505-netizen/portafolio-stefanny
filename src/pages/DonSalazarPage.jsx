@@ -30,10 +30,15 @@ function MetaRow({ label, value }) {
   )
 }
 
-const IMAGES = {
+const IMAGES_EN = {
   research: ['/projects/don-salazar/research-1.png','/projects/don-salazar/research-2.png','/projects/don-salazar/research-3.png','/projects/don-salazar/research-4.png'],
   digital:  ['/projects/don-salazar/digital-1.png','/projects/don-salazar/digital-2.png'],
   spatial:  ['/projects/don-salazar/spatial-1.png','/projects/don-salazar/spatial-2.png','/projects/don-salazar/spatial-3.png'],
+}
+const IMAGES_ES = {
+  research: ['/projects/don-salazar/es/research-1.png','/projects/don-salazar/es/research-2.png','/projects/don-salazar/es/research-3.png','/projects/don-salazar/es/research-4.png'],
+  digital:  ['/projects/don-salazar/es/digital-1.png','/projects/don-salazar/es/digital-2.png'],
+  spatial:  ['/projects/don-salazar/es/spatial-1.png','/projects/don-salazar/es/spatial-2.png'],
 }
 
 export default function DonSalazarPage() {
@@ -42,10 +47,12 @@ export default function DonSalazarPage() {
   const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  const imgs = lang === 'es' ? IMAGES_ES : IMAGES_EN
+
   const SECTIONS = [
-    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.donSalazar.research, images: IMAGES.research },
-    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.donSalazar.digital,  images: IMAGES.digital  },
-    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.donSalazar.spatial,  images: IMAGES.spatial  },
+    { label: 'Research & Strategy',          heading: 'Research & Strategy',          body: tr.donSalazar.research, images: imgs.research },
+    { label: 'Digital Strategy',             heading: 'Digital Strategy',             body: tr.donSalazar.digital,  images: imgs.digital  },
+    { label: 'Spatial Branding & Signage',   heading: 'Spatial Branding & Signage',   body: tr.donSalazar.spatial,  images: imgs.spatial  },
   ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
@@ -86,11 +93,11 @@ export default function DonSalazarPage() {
         </div>
       </div>
 
-      <FullBleed src="/projects/don-salazar/cover-hero.png" />
+      <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-hero.png`} />
       <ScrollSection {...SECTIONS[0]} />
-      <FullBleed src="/projects/don-salazar/cover-after-research.png" />
+      <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
-      <FullBleed src="/projects/don-salazar/cover-after-digital.png" />
+      <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-after-digital.png`} />
       <ScrollSection {...SECTIONS[2]} />
 
     </div>

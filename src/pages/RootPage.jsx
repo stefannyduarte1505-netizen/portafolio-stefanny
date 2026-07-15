@@ -30,9 +30,13 @@ function MetaRow({ label, value }) {
   )
 }
 
-const IMAGES = {
+const IMAGES_EN = {
   research: ['/projects/root/research-1.png','/projects/root/research-2.png','/projects/root/research-3.png','/projects/root/research-4.png','/projects/root/research-5.png','/projects/root/research-6.png'],
   digital:  ['/projects/root/digital-1.png','/projects/root/digital-2.png','/projects/root/digital-3.png','/projects/root/digital-4.png','/projects/root/digital-5.png'],
+}
+const IMAGES_ES = {
+  research: ['/projects/root/es/research-1.png','/projects/root/es/research-2.png','/projects/root/es/research-3.png','/projects/root/es/research-4.png','/projects/root/es/research-5.png','/projects/root/es/research-6.png'],
+  digital:  ['/projects/root/es/digital-1.png','/projects/root/es/digital-2.png','/projects/root/es/digital-3.png','/projects/root/es/digital-4.png','/projects/root/es/digital-5.png'],
 }
 
 export default function RootPage() {
@@ -41,9 +45,11 @@ export default function RootPage() {
   const tr = t[lang]
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  const imgs = lang === 'es' ? IMAGES_ES : IMAGES_EN
+
   const SECTIONS = [
-    { label: 'Research & Strategy', heading: 'Research & Strategy', body: tr.root.research, images: IMAGES.research },
-    { label: 'Digital Strategy',    heading: 'Digital Strategy',    body: tr.root.digital,  images: IMAGES.digital  },
+    { label: 'Research & Strategy', heading: 'Research & Strategy', body: tr.root.research, images: imgs.research },
+    { label: 'Digital Strategy',    heading: 'Digital Strategy',    body: tr.root.digital,  images: imgs.digital  },
   ]
 
   const PAD = 'clamp(1.5rem,5vw,5rem)'
@@ -85,9 +91,9 @@ export default function RootPage() {
         </div>
       </div>
 
-      <FullBleed src="/projects/root/cover-hero.png" />
+      <FullBleed src={`/projects/root/${lang === 'es' ? 'es/' : ''}cover-hero.png`} />
       <ScrollSection {...SECTIONS[0]} />
-      <FullBleed src="/projects/root/cover-after-research.png" />
+      <FullBleed src={`/projects/root/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
 
     </div>
