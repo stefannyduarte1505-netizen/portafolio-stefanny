@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useIsMobile } from '../../hooks/useIsMobile'
-
-const links = [
-  { label: 'Home',     href: '#top' },
-  { label: 'Projects', href: '#gallery' },
-  { label: 'About me', href: '#about' },
-  { label: 'Contact',  href: '#contact' },
-]
+import { useLanguage } from '../../contexts/LanguageContext'
+import { t } from '../../translations'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,6 +10,14 @@ export default function Navbar() {
   const navigate  = useNavigate()
   const location  = useLocation()
   const isMobile  = useIsMobile()
+  const { lang }  = useLanguage()
+  const nav       = t[lang].nav
+  const links = [
+    { label: nav.home,     href: '#top' },
+    { label: nav.projects, href: '#gallery' },
+    { label: nav.about,    href: '#about' },
+    { label: nav.contact,  href: '#contact' },
+  ]
 
   // Hide navbar on project pages
   if (location.pathname.startsWith('/project/')) return null

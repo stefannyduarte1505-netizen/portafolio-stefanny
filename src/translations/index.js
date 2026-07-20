@@ -4,6 +4,12 @@ export const t = {
     close: 'Close',
     explore: 'Explore',
     projects: 'Projects',
+    nav: {
+      home: 'Home',
+      projects: 'Projects',
+      about: 'About me',
+      contact: 'Contact',
+    },
 
     /* ── Hero ── */
     hero: {
@@ -90,6 +96,12 @@ export const t = {
     close: 'Cerrar',
     explore: 'Explorar',
     projects: 'Proyectos',
+    nav: {
+      home: 'Inicio',
+      projects: 'Proyectos',
+      about: 'Sobre mí',
+      contact: 'Contacto',
+    },
 
     /* ── Hero ── */
     hero: {
