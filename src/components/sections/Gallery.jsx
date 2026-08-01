@@ -80,6 +80,13 @@ export default function Gallery() {
         .gal-card { position:relative; overflow:hidden; width:100%; border-radius:3px; }
         .gal-card img { display:block; width:100%; height:auto; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
         .gal-card:hover img { transform: scale(1.03); }
+        .gal-card::after {
+          content:''; position:absolute; inset:0;
+          background:rgba(0,0,0,0.10);
+          opacity:0; transition:opacity 0.3s ease;
+          pointer-events:none; border-radius:3px;
+        }
+        .gal-card:hover::after { opacity:1; }
         .gal-card-overlay {
           position:absolute; inset:0;
           display:flex; align-items:flex-end; justify-content:flex-end;
@@ -87,6 +94,7 @@ export default function Gallery() {
           opacity:0;
           transition: opacity 0.3s ease;
           pointer-events:none;
+          z-index:1;
         }
         .gal-card:hover .gal-card-overlay { opacity:1; }
         .gal-card-arrow {
