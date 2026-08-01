@@ -243,47 +243,6 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* ── Video strip ── */}
-      <Strip videos={ALL_VIDEOS} height="clamp(280px, 38vw, 520px)" />
-
-      {/* ── Text block after videos ── */}
-      <div
-        style={{
-          paddingLeft:  PAD_H,
-          paddingRight: PAD_H,
-          paddingTop:   'clamp(3rem, 5vw, 5rem)',
-          display:      'flex',
-          flexDirection: 'column',
-          gap:          'clamp(1rem, 1.5vw, 1.5rem)',
-          maxWidth:     '560px',
-        }}
-      >
-        <h2
-          style={{
-            fontFamily:    "'Gilda Display', serif",
-            fontWeight:    400,
-            fontSize:      'clamp(2rem, 3.5vw, 3.4rem)',
-            lineHeight:    1.25,
-            color:         '#B9111C',
-            margin:        0,
-            letterSpacing: '-0.01em',
-          }}
-        >
-          {tr.creativeHeading}
-        </h2>
-        <p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 300,
-            fontSize:   'clamp(1.16rem, 1.4vw, 1.4rem)',
-            lineHeight: 1.8,
-            color:      'rgba(26,24,21,0.65)',
-            margin:     0,
-          }}
-        >
-          {tr.creativeBio}
-        </p>
-      </div>
     </section>
   )
 }

@@ -3,6 +3,7 @@ import Footer from '../components/layout/Footer'
 import Hero   from '../components/sections/Hero'
 import Gallery from '../components/sections/Gallery'
 import AboutUs from '../components/sections/AboutUs'
+import CreativeDirection from '../components/sections/CreativeDirection'
 import { useHeroGallerySnap } from '../hooks/useHeroGallerySnap'
 
 function Sticky({ children, zIndex }) {
@@ -130,6 +131,7 @@ export default function Home() {
         <Gallery />
 
         <div style={{ position: 'relative', zIndex: 3, backgroundColor: '#ffffff' }}>
+          <CreativeDirection />
           <div ref={contactWrapRef}>
             <Footer />
           </div>
