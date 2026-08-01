@@ -54,7 +54,7 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
       cl.style.opacity = String(contactO)
 
       /* ── Gallery: entre hero y about (sin solapamiento) ── */
-      const fadeIn  = Math.max(0, Math.min(1, (heroP - 0.9) / 0.1))
+      const fadeIn  = Math.max(0, Math.min(1, (heroP - 0.5) / 0.2))
       const fadeOut = Math.max(0, Math.min(1, aboutEnter * 3)) // sale rápido cuando About entra
       gl.style.opacity = String(0.1 * fadeIn * (1 - fadeOut))
     }
