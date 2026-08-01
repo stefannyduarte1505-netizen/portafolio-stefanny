@@ -41,7 +41,7 @@ export default function Gallery() {
       <section id="gallery" style={{ position: 'relative', zIndex: 2, backgroundColor: '#ffffff', padding: '3rem 1.25rem 4rem' }}>
         <style>{`
           .mob-label { font-family:'Poppins',sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B9111C; margin:0 0 2rem; }
-          .mob-card-v { position:relative; overflow:hidden; width:100%; border-radius:20px; margin-bottom:1.25rem; }
+          .mob-card-v { position:relative; overflow:hidden; width:100%; border-radius:10px; margin-bottom:1.25rem; }
           .mob-card-v img { width:100%; height:auto; display:block; }
           .mob-gradient { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 60%); pointer-events:none; }
           .mob-info-v { position:absolute; bottom:0; left:0; right:0; padding:1.25rem 1rem; display:flex; align-items:flex-end; justify-content:space-between; gap:0.75rem; }
@@ -77,7 +77,7 @@ export default function Gallery() {
         }
         .gal-text { animation: gal-in 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
 
-        .gal-card { position:relative; overflow:hidden; width:100%; border-radius:20px; }
+        .gal-card { position:relative; overflow:hidden; width:100%; border-radius:10px; }
         .gal-card img { display:block; width:100%; height:auto; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
         .gal-card:hover img { transform: scale(1.03); }
         .gal-card::after {
