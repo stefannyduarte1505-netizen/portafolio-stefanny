@@ -31,32 +31,34 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
       const cl  = contactLayerRef.current
       if (!hl || !gl || !al || !cl) return
 
-      /* ── Hero: desaparece en el primer 35% del scroll ── */
-      const heroP = Math.min(1, sy / (vh * 0.35))
-      hl.style.opacity = String(Math.max(0, 1 - heroP))
-
-      /* ── Posiciones de About y Contact ── */
-      let aboutEnter = 0, contactO = 0
-      if (aboutRef.current) {
-        const aRect = aboutRef.current.getBoundingClientRect()
-        // Solo aparece cuando About ocupa más del 40% de pantalla desde arriba
-        aboutEnter = Math.max(0, Math.min(1, (vh * 0.4 - aRect.top) / (vh * 0.2)))
-        const exit = Math.max(0, Math.min(1, -aRect.bottom / (vh * 0.15)))
-        aboutEnter = aboutEnter * (1 - exit)
+      const visible = (el) => {
+        if (!el) return 0
+        const r = el.getBoundingClientRect()
+        const overlap = Math.min(r.bottom, vh) - Math.max(r.top, 0)
+        return Math.max(0, overlap / vh)
       }
+
+      const galleryEl = document.getElementById('gallery')
+
+      /* ── Hero: fades out over first viewport of scroll ── */
+      const heroP = Math.min(1, sy / vh)
+      hl.style.opacity = String(Math.max(0, 1 - heroP * 2.5))
+
+      /* ── About: visible when about section is on screen ── */
+      const aboutV = visible(aboutRef.current)
+      al.style.opacity = String(0.1 * Math.min(1, aboutV * 3))
+
+      /* ── Gallery: visible when gallery section is on screen ── */
+      const galleryV = visible(galleryEl)
+      gl.style.opacity = String(0.1 * Math.min(1, galleryV * 3))
+
+      /* ── Contact: fades in as footer enters ── */
+      let contactO = 0
       if (contactWrapRef.current) {
         const cRect = contactWrapRef.current.getBoundingClientRect()
         contactO = Math.max(0, Math.min(0.45, (vh * 0.55 - cRect.top) / (vh * 0.25) * 0.45))
       }
-
-      // Mutually exclusive — contact wins over about
-      al.style.opacity = String(0.1 * aboutEnter * (1 - contactO / 0.45))
       cl.style.opacity = String(contactO)
-
-      /* ── Gallery: entre hero y about (sin solapamiento) ── */
-      const fadeIn  = Math.max(0, Math.min(1, (heroP - 0.5) / 0.2))
-      const fadeOut = Math.max(0, Math.min(1, aboutEnter * 3)) // sale rápido cuando About entra
-      gl.style.opacity = String(0.1 * fadeIn * (1 - fadeOut))
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
