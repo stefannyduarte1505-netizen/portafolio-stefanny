@@ -120,12 +120,16 @@ export default function Home() {
 
       <main>
         <Sticky zIndex={1}><Hero /></Sticky>
-        <Gallery />
 
         <div style={{ position: 'relative', zIndex: 3, backgroundColor: '#ffffff' }}>
           <div ref={aboutRef}>
             <AboutUs />
           </div>
+        </div>
+
+        <Gallery />
+
+        <div style={{ position: 'relative', zIndex: 3, backgroundColor: '#ffffff' }}>
           <div ref={contactWrapRef}>
             <Footer />
           </div>
