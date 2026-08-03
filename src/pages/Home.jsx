@@ -78,9 +78,11 @@ export default function Home() {
   useEffect(() => {
     if (sessionStorage.getItem('scrollToGallery')) {
       sessionStorage.removeItem('scrollToGallery')
-      // Gallery starts exactly at 1 viewport height in the sticky layout
       requestAnimationFrame(() => {
-        window.scrollTo({ top: window.innerHeight, behavior: 'instant' })
+        const gallery = document.getElementById('gallery')
+        if (gallery) {
+          gallery.scrollIntoView({ behavior: 'instant' })
+        }
       })
     }
   }, [])
