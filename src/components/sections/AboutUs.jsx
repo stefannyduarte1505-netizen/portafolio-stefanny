@@ -147,7 +147,7 @@ export default function AboutUs() {
             style={{
               fontFamily:    "'Gilda Display', serif",
               fontWeight:    400,
-              fontSize:      'clamp(1.7rem, 2.8vw, 2.8rem)',
+              fontSize:      'clamp(1.1rem, 1.6vw, 1.6rem)',
               lineHeight:    1.25,
               color:         '#B9111C',
               margin:        0,
