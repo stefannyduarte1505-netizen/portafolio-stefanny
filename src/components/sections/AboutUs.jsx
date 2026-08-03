@@ -225,7 +225,7 @@ export default function AboutUs() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
             {[
-              { years: '2026 / actual', role: 'Internship Customer Marketing',           company: 'AkzoNobel, Barcelona' },
+              { years: '2026 / actual', role: 'Intership Brand & Trade Marketing Designer', company: 'AkzoNobel, Barcelona' },
               { years: '2023 / 2026',   role: 'Project Manager & Design Experience Lead', company: 'GrupoModulor, Lima'   },
               { years: '2021 / 2023',   role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB, Lima'  },
             ].map(({ years, role, company }) => (
