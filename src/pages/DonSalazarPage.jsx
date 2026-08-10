@@ -32,8 +32,8 @@ function MetaRow({ label, value }) {
 
 const IMAGES_EN = {
   research: ['/projects/don-salazar/research-1.png','/projects/don-salazar/research-2.png','/projects/don-salazar/research-3.png','/projects/don-salazar/research-4.png'],
-  digital:  ['/projects/don-salazar/digital-1.png','/projects/don-salazar/digital-2.png'],
-  spatial:  ['/projects/don-salazar/spatial-1.png','/projects/don-salazar/spatial-2.png','/projects/don-salazar/spatial-3.png'],
+  digital:  ['/projects/don-salazar/digital-1.png','/projects/don-salazar/digital-2.png','/projects/don-salazar/digital-3.png','/projects/don-salazar/digital-4.png'],
+  spatial:  [],
 }
 const IMAGES_ES = {
   research: ['/projects/don-salazar/es/research-1.png','/projects/don-salazar/es/research-2.png','/projects/don-salazar/es/research-3.png','/projects/don-salazar/es/research-4.png'],
@@ -97,8 +97,10 @@ export default function DonSalazarPage() {
       <ScrollSection {...SECTIONS[0]} />
       <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
-      <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-after-digital.png`} />
-      <ScrollSection {...SECTIONS[2]} />
+      {imgs.spatial.length > 0 && <>
+        <FullBleed src={`/projects/don-salazar/${lang === 'es' ? 'es/' : ''}cover-after-digital.png`} />
+        <ScrollSection {...SECTIONS[2]} />
+      </>}
 
     </div>
   )

@@ -31,12 +31,12 @@ function MetaRow({ label, value }) {
 }
 
 const IMAGES_EN = {
-  research: ['/projects/modulor/research-1.png','/projects/modulor/research-2.png','/projects/modulor/research-3.png','/projects/modulor/research-4.png'],
-  digital:  ['/projects/modulor/digital-1.png','/projects/modulor/digital-2.png','/projects/modulor/digital-3.png','/projects/modulor/digital-4.png','/projects/modulor/digital-5.png'],
+  research: ['/projects/modulor/research-1.png','/projects/modulor/research-2.png','/projects/modulor/research-3.png','/projects/modulor/research-4.png','/projects/modulor/research-5.png','/projects/modulor/research-6.png'],
+  digital:  ['/projects/modulor/digital-1.png','/projects/modulor/digital-2.png','/projects/modulor/digital-3.png','/projects/modulor/digital-4.png'],
 }
 const IMAGES_ES = {
-  research: ['/projects/modulor/es/research-1.png','/projects/modulor/es/research-2.png','/projects/modulor/es/research-3.png','/projects/modulor/es/research-4.png','/projects/modulor/es/research-5.png'],
-  digital:  ['/projects/modulor/es/digital-1.png','/projects/modulor/es/digital-2.png','/projects/modulor/es/digital-3.png','/projects/modulor/es/digital-4.png'],
+  research: ['/projects/modulor/es/research-1.png','/projects/modulor/es/research-2.png','/projects/modulor/es/research-3.png'],
+  digital:  ['/projects/modulor/es/digital-1.png','/projects/modulor/es/digital-2.png','/projects/modulor/es/digital-3.png','/projects/modulor/es/digital-4.png','/projects/modulor/es/digital-5.png','/projects/modulor/es/digital-6.png'],
 }
 
 export default function ModulorPage() {
