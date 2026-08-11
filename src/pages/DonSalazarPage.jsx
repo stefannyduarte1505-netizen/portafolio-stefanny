@@ -33,12 +33,12 @@ function MetaRow({ label, value }) {
 const IMAGES_EN = {
   research: ['/projects/don-salazar/research-1.png','/projects/don-salazar/research-2.png','/projects/don-salazar/research-3.png','/projects/don-salazar/research-4.png'],
   digital:  ['/projects/don-salazar/digital-1.png','/projects/don-salazar/digital-2.png','/projects/don-salazar/digital-3.png','/projects/don-salazar/digital-4.png'],
-  spatial:  [],
+  spatial:  ['/projects/don-salazar/spatial-1.png','/projects/don-salazar/spatial-2.png'],
 }
 const IMAGES_ES = {
   research: ['/projects/don-salazar/es/research-1.png','/projects/don-salazar/es/research-2.png','/projects/don-salazar/es/research-3.png','/projects/don-salazar/es/research-4.png'],
   digital:  ['/projects/don-salazar/es/digital-1.png','/projects/don-salazar/es/digital-2.png'],
-  spatial:  ['/projects/don-salazar/es/spatial-1.png','/projects/don-salazar/es/spatial-2.png'],
+  spatial:  [],
 }
 
 export default function DonSalazarPage() {
