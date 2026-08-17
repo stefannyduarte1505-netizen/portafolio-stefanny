@@ -34,7 +34,6 @@ const IMAGES_EN = {
   research: [
     '/projects/s-collection/research-1.png',
     '/projects/s-collection/research-2.png',
-    '/projects/s-collection/research-3.png',
   ],
   digital: [
     '/projects/s-collection/digital-1.png',
