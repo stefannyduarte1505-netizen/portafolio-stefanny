@@ -6,6 +6,7 @@ import RootPage from './pages/RootPage'
 import KunaPage from './pages/KunaPage'
 import ModulorPage from './pages/ModulorPage'
 import DonSalazarPage from './pages/DonSalazarPage'
+import SCollectionPage from './pages/SCollectionPage'
 import Navbar from './components/layout/Navbar'
 import Cursor from './components/ui/Cursor'
 import { LangButton, CloseButton } from './components/ui/LangToggle'
@@ -46,6 +47,7 @@ function AppInner() {
         <Route path="/project/kuna" element={<KunaPage />} />
         <Route path="/project/modulor" element={<ModulorPage />} />
         <Route path="/project/cafe-don-salazar" element={<DonSalazarPage />} />
+        <Route path="/project/s-collection" element={<SCollectionPage />} />
         <Route path="/project/:slug" element={<ProjectPage />} />
       </Routes>
     </>

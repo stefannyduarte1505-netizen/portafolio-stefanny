@@ -82,6 +82,13 @@ export const t = {
       digital: 'The digital strategy operates through two conversion layers: the Insights channel builds a qualified audience of decision-makers through content and newsletter capture, while the contact flow routes each audience toward the right service (Arquitectura de Oficinas, Phygital, or Business) before a single call is made.\n\nThe rebranding uses a bold purple that sets Modulor apart from the corporate-grey aesthetic of regional consultancies. Paired with a clean geometric wordmark, the system positions Modulor as something different from the firms it competes against.',
     },
 
+    /* ── S. Collection ── */
+    sCollection: {
+      hero: 'S•Collection needed to extend a luxury identity into a fully operational spatial branding and omnichannel signage system — one where every touchpoint, from typography to digital assets, communicates heritage and craftsmanship with consistency.',
+      research: 'Placeholder research text EN.',
+      digital: 'Placeholder digital text EN.',
+    },
+
     /* ── Don Salazar ── */
     donSalazar: {
       hero: 'Don Salazar was launching a pop-up in a mall anchored to a university campus. The business problem was concrete: students ordered the same thing every day, not because they preferred it, but because specialty coffee felt inaccessible and the risk of choosing wrong felt too high.',
@@ -172,6 +179,13 @@ export const t = {
       hero: 'Una transformación completa de marca y digital para una firma de diseño estratégico de 16 años. El trabajo abarcó identidad, narrativa y producto digital, con un solo objetivo: hacer legibles 16 años de experiencia para tres audiencias muy distintas a la vez.',
       research: 'Modulor necesitaba evolucionar de una consultora local consolidada a una firma de diseño estratégico con posicionamiento global. El reto: traducir 16 años de expertise en una presencia digital capaz de hablar con tres audiencias muy distintas al mismo tiempo, sin perder coherencia.\n\nLa brecha de posicionamiento de Modulor era narrativa. La firma tenía el expertise; lo que le faltaba era un ecosistema digital capaz de llevar ese expertise a tres audiencias distintas sin perder lo que la hacía singular.',
       digital: 'La estrategia digital opera a través de dos capas de conversión: el canal de Insights construye una audiencia calificada de tomadores de decisión mediante contenido y captura de newsletter, mientras que el flujo de contacto dirige a cada audiencia hacia el servicio correcto (Arquitectura de Oficinas, Phygital o Business) antes de que se realice una sola llamada.\n\nEl rebranding usa un morado intenso que distingue a Modulor del estético gris corporativo de las consultoras regionales. Junto a un logotipo geométrico limpio, el sistema posiciona a Modulor como algo distinto a las firmas con las que compite.',
+    },
+
+    /* ── S. Collection ── */
+    sCollection: {
+      hero: 'S•Collection necesitaba extender una identidad de lujo hacia un sistema operativo de spatial branding y señalética omnicanal — donde cada punto de contacto, desde la tipografía hasta los activos digitales, comunique herencia y artesanía con consistencia.',
+      research: 'Placeholder texto research ES.',
+      digital: 'Placeholder texto digital ES.',
     },
 
     /* ── Don Salazar ── */
