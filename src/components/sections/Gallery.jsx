@@ -5,11 +5,12 @@ import { useLanguage } from '../../contexts/LanguageContext'
 import { t } from '../../translations'
 
 const PROJECTS = [
-  { id: 'sole',             title: 'Sole',              tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'        },
-  { id: 'root',             title: 'Root',             tags: ['UX Research', 'Service Design'],       cover: '/covers/root.png'        },
-  { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'        },
-  { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'     },
-  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/don-salazar.png' },
+  { id: 'sole',             title: 'Sole',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'         },
+  { id: 'root',             title: 'Root',             tags: ['UX Research', 'Service Design'],       cover: '/covers/root.png'         },
+  { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'         },
+  { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'      },
+  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/don-salazar.png'  },
+  { id: 's-collection',    title: 'S. Collection',    tags: ['Art Direction', 'Fashion'],             cover: '/covers/s-collection.png' },
 ]
 const N = PROJECTS.length
 
