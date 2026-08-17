@@ -84,9 +84,9 @@ export const t = {
 
     /* ── S. Collection ── */
     sCollection: {
-      hero: 'S•Collection needed to extend a luxury identity into a fully operational spatial branding and omnichannel signage system — one where every touchpoint, from typography to digital assets, communicates heritage and craftsmanship with consistency.',
-      research: 'Placeholder research text EN.',
-      digital: 'Placeholder digital text EN.',
+      hero: 'S•Collection is Grupo Sole\'s premium line, seeking to position itself in the market as a luxury brand. Through a brand audit, we gave it a look refresh that communicates innovation and premiumness with intention: high-level design, technology-grounded, without losing warmth.',
+      research: 'The strategy was built around three axes: Visual Identity, Audience, and Product, evaluated from the perspectives of Brand Experience, Design, and Innovation. The visual system communicates elegance through restraint. The audience connection required an omnichannel ecosystem anchored in emotional resonance. And the product layer demanded that technology and craftsmanship be expressed through iconography, immersive content, and sensory photography that sells the experience, not just the appliance.',
+      digital: 'The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first — button states in four variants, typographic hierarchy in Gilroy, and component logic — so that visual consistency wouldn\'t depend on case-by-case decisions. The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specs, photography sells, and the interface steps aside.',
     },
 
     /* ── Don Salazar ── */
@@ -183,9 +183,9 @@ export const t = {
 
     /* ── S. Collection ── */
     sCollection: {
-      hero: 'S•Collection necesitaba extender una identidad de lujo hacia un sistema operativo de spatial branding y señalética omnicanal — donde cada punto de contacto, desde la tipografía hasta los activos digitales, comunique herencia y artesanía con consistencia.',
-      research: 'Placeholder texto research ES.',
-      digital: 'Placeholder texto digital ES.',
+      hero: 'S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness con criterio: diseño de alto nivel, con base tecnológica, sin perder la calidez.',
+      research: 'La estrategia se construyó alrededor de tres ejes: Identidad Visual, Audiencia y Producto, evaluados desde las perspectivas de Experiencia de Marca, Diseño e Innovación. El sistema visual comunica elegancia a través de la contención. La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.',
+      digital: 'El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso. La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.',
     },
 
     /* ── Don Salazar ── */
