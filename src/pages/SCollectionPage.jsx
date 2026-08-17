@@ -34,6 +34,9 @@ const IMAGES_EN = {
   research: [
     '/projects/s-collection/research-1.png',
     '/projects/s-collection/research-2.png',
+    '/projects/s-collection/research-3.png',
+    '/projects/s-collection/research-4.png',
+    '/projects/s-collection/research-5.png',
   ],
   digital: [
     '/projects/s-collection/digital-1.png',
@@ -48,6 +51,9 @@ const IMAGES_ES = {
   research: [
     '/projects/s-collection/es/research-1.png',
     '/projects/s-collection/es/research-2.png',
+    '/projects/s-collection/es/research-3.png',
+    '/projects/s-collection/es/research-4.png',
+    '/projects/s-collection/es/research-5.png',
   ],
   digital: [
     '/projects/s-collection/es/digital-1.png',
