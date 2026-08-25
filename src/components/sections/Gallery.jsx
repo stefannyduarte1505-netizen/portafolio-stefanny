@@ -10,7 +10,7 @@ const PROJECTS = [
   { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'         },
   { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'      },
   { id: 'cafe-don-salazar', title: 'Café Don Salazar', tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/don-salazar.png'  },
-  { id: 's-collection',    title: 'S. Collection',    tags: ['Art Direction', 'Fashion'],             cover: '/covers/s-collection.png' },
+  { id: 's-collection',    title: 'S. Collection',    tags: ['Art Direction', 'Branding'],            cover: '/covers/s-collection.png' },
 ]
 const N = PROJECTS.length
 

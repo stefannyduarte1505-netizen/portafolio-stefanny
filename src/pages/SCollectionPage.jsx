@@ -103,7 +103,7 @@ export default function SCollectionPage() {
           <MetaRow label="Proyecto" value="S•Collection: Brand Guidelines & Spatial Branding System" />
           <MetaRow label="Rol"      value="Art Direction Lead · brand guidelines, spatial branding, and omnichannel signage system at GrupoModulor." />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', paddingTop: '0.5rem' }}>
-            {['Art Direction', 'Spatial Branding', 'Fashion'].map(tag => (
+            {['Art Direction', 'Branding'].map(tag => (
               <span key={tag} style={{
                 fontFamily: POPPINS, fontWeight: 300,
                 fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase',
