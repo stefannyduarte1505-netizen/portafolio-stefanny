@@ -5,6 +5,8 @@ import Gallery from '../components/sections/Gallery'
 import AboutUs from '../components/sections/AboutUs'
 import CreativeDirection from '../components/sections/CreativeDirection'
 import { useHeroGallerySnap } from '../hooks/useHeroGallerySnap'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t } from '../translations'
 
 function Sticky({ children, zIndex }) {
   return (
@@ -15,7 +17,7 @@ function Sticky({ children, zIndex }) {
 }
 
 /* ── Global fixed label — opacidad controlada directo en DOM (sin state) ── */
-function SectionLabel({ contactWrapRef, aboutRef }) {
+function SectionLabel({ contactWrapRef, aboutRef, galleryLabel, aboutLabel }) {
   const heroLayerRef    = useRef(null)
   const galleryLayerRef = useRef(null)
   const aboutLayerRef   = useRef(null)
@@ -85,12 +87,12 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
 
       {/* Gallery */}
       <div ref={galleryLayerRef} aria-hidden="true" style={{ ...base }}>
-        <span style={{ ...fontShared, fontSize: 'clamp(2.5rem,11vw,12rem)', color: '#1A1815', paddingLeft: '1rem' }}>Projects</span>
+        <span style={{ ...fontShared, fontSize: 'clamp(2.5rem,11vw,12rem)', color: '#1A1815', paddingLeft: '1rem' }}>{galleryLabel}</span>
       </div>
 
       {/* About */}
       <div ref={aboutLayerRef} aria-hidden="true" style={{ ...base }}>
-        <span style={{ ...fontShared, fontSize: 'clamp(2.5rem,11vw,12rem)', color: '#1A1815', paddingLeft: '1rem' }}>About me</span>
+        <span style={{ ...fontShared, fontSize: 'clamp(2.5rem,11vw,12rem)', color: '#1A1815', paddingLeft: '1rem' }}>{aboutLabel}</span>
       </div>
 
       {/* Contact */}
@@ -104,6 +106,8 @@ function SectionLabel({ contactWrapRef, aboutRef }) {
 export default function Home() {
   const contactWrapRef = useRef(null)
   const aboutRef       = useRef(null)
+  const { lang }       = useLanguage()
+  const tr             = t[lang]
   useHeroGallerySnap()
 
   // If returning from a project page, jump straight to gallery section
@@ -121,7 +125,7 @@ export default function Home() {
 
   return (
     <div id="top" style={{ backgroundColor: '#ffffff' }}>
-      <SectionLabel contactWrapRef={contactWrapRef} aboutRef={aboutRef} />
+      <SectionLabel contactWrapRef={contactWrapRef} aboutRef={aboutRef} galleryLabel={tr.gallery.label} aboutLabel={tr.about.label} />
 
       <main>
         <Sticky zIndex={1}><Hero /></Sticky>
