@@ -99,6 +99,28 @@ export default function CreativeDirection() {
         }}>
           {tr.creativeBio}
         </p>
+
+        <a
+          href="https://www.behance.net/gallery/167572395/REEL-2023"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display:        'inline-block',
+            fontFamily:     "'Poppins', sans-serif",
+            fontWeight:     400,
+            fontSize:       '0.62rem',
+            letterSpacing:  '0.18em',
+            textTransform:  'uppercase',
+            color:          '#B9111C',
+            border:         '0.5px solid #B9111C',
+            padding:        '0.6rem 1.4rem',
+            borderRadius:   '100px',
+            textDecoration: 'none',
+            alignSelf:      'flex-start',
+          }}
+        >
+          Show Reel
+        </a>
       </div>
     </section>
   )
