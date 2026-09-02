@@ -1,21 +1,12 @@
 import { useEffect } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import ScrollSection from '../components/sections/ScrollSection'
+import FullBleed from '../components/ui/FullBleed'
 import { useLanguage } from '../contexts/LanguageContext'
 import { t } from '../translations'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
-
-function FullBleed({ src }) {
-  return (
-    <div style={{ width: '100%', backgroundColor: '#fff' }}>
-      <img src={src} alt="" draggable={false}
-        style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none', userSelect: 'none' }}
-      />
-    </div>
-  )
-}
 
 function MetaRow({ label, value }) {
   return (

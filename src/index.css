@@ -25,6 +25,14 @@
 
 @import "tailwindcss";
 
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @theme {
   /* ── Colors ── */
   --color-bg: #ffffff;

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import ProtectedImg from '../ui/ProtectedImg'
 
 const GILDA   = "'Gilda Display', serif"
 const POPPINS = "'Poppins', sans-serif"
@@ -48,12 +49,11 @@ export default function ScrollSection({ label, heading, body, images, reverse = 
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {images.map((src, i) => (
-            <img
+            <ProtectedImg
               key={src}
               src={src}
-              alt=""
               loading={i === 0 ? 'eager' : 'lazy'}
-              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }}
+              style={{ borderRadius: '4px' }}
             />
           ))}
         </div>
@@ -115,12 +115,7 @@ export default function ScrollSection({ label, heading, body, images, reverse = 
           ref={el => { imageRefs.current[i] = el }}
           style={{ padding: 'clamp(0.75rem,1.5vw,1.5rem)' }}
         >
-          <img
-            src={src}
-            alt=""
-            loading={i === 0 ? 'eager' : 'lazy'}
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
+          <ProtectedImg src={src} loading={i === 0 ? 'eager' : 'lazy'} />
         </div>
       ))}
     </div>
