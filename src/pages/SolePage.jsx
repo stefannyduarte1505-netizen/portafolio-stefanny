@@ -22,14 +22,14 @@ function MetaRow({ label, value }) {
 }
 
 const IMAGES_EN = {
-  research: ['/projects/sole/research-1.png','/projects/sole/research-2.png','/projects/sole/research-3.png','/projects/sole/research-4.png','/projects/sole/research-5.png'],
+  research: ['/projects/sole/research-1.png','/projects/sole/research-2.png','/projects/sole/research-3.png','/projects/sole/research-4.png'],
   digital:  ['/projects/sole/digital-1.png','/projects/sole/digital-2.png','/projects/sole/digital-3.png','/projects/sole/digital-4.png','/projects/sole/digital-5.png'],
-  spatial:  ['/projects/sole/spatial-1.png','/projects/sole/spatial-2.png','/projects/sole/spatial-3.png','/projects/sole/spatial-4.png','/projects/sole/spatial-5.png','/projects/sole/spatial-6.png'],
+  spatial:  ['/projects/sole/spatial-1.png','/projects/sole/spatial-4.png','/projects/sole/spatial-6.png'],
 }
 const IMAGES_ES = {
-  research: ['/projects/sole/es/research-1.png','/projects/sole/es/research-2.png','/projects/sole/es/research-3.png','/projects/sole/es/research-4.png','/projects/sole/es/research-5.png'],
+  research: ['/projects/sole/es/research-1.png','/projects/sole/es/research-2.png','/projects/sole/es/research-3.png','/projects/sole/es/research-4.png'],
   digital:  ['/projects/sole/es/digital-1.png','/projects/sole/es/digital-2.png','/projects/sole/es/digital-3.png','/projects/sole/es/digital-4.png','/projects/sole/es/digital-5.png'],
-  spatial:  ['/projects/sole/es/spatial-1.png','/projects/sole/es/spatial-2.png','/projects/sole/es/spatial-3.png','/projects/sole/es/spatial-4.png','/projects/sole/es/spatial-5.png','/projects/sole/es/spatial-6.png'],
+  spatial:  ['/projects/sole/es/spatial-1.png','/projects/sole/es/spatial-4.png','/projects/sole/es/spatial-6.png'],
 }
 
 export default function SolePage() {
