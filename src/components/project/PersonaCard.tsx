@@ -1,6 +1,6 @@
-import type { PersonaItem } from '../../data/projectsData'
+import type { Person } from '../../data/projectsData'
 
-type Props = { item: PersonaItem }
+type Props = { item: Person }
 
 export default function PersonaCard({ item }: Props) {
   return (
@@ -30,24 +30,26 @@ export default function PersonaCard({ item }: Props) {
         >
           <img
             src={item.avatar}
-            alt={item.title}
+            alt={item.title ?? item.tag}
             draggable={false}
             className="w-full h-full object-cover"
             style={{ pointerEvents: 'none', userSelect: 'none' }}
           />
         </div>
 
-        <p
-          style={{
-            fontFamily: "'Gilda Display', serif",
-            fontWeight: 400,
-            fontSize: 'clamp(1rem, 1.2vw, 1.2rem)',
-            lineHeight: 1.2,
-            color: '#1A1815',
-          }}
-        >
-          {item.title}
-        </p>
+        {item.title && (
+          <p
+            style={{
+              fontFamily: "'Gilda Display', serif",
+              fontWeight: 400,
+              fontSize: 'clamp(1rem, 1.2vw, 1.2rem)',
+              lineHeight: 1.2,
+              color: '#1A1815',
+            }}
+          >
+            {item.title}
+          </p>
+        )}
       </div>
 
       {/* Description */}

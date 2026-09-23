@@ -1,6 +1,6 @@
-import type { InsightItem } from '../../data/projectsData'
+import type { Insight } from '../../data/projectsData'
 
-type Props = { item: InsightItem; index?: number }
+type Props = { item: Insight; index?: number }
 
 export default function InsightCard({ item, index = 0 }: Props) {
   return (

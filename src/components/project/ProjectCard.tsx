@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
 
         {/* Description */}
         <p className="font-poppins font-light text-[clamp(0.82rem,0.9vw,0.9rem)] leading-[1.75] text-[rgba(26,24,21,0.55)] m-0">
-          {project.sections.research.description}
+          {project.description}
         </p>
 
         {/* Tags */}

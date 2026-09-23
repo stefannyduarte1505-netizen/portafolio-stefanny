@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
-import type { InsightItem, DigitalProduct, GalleryItem, PersonaItem } from '../data/projectsData'
+import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
 
 /* ══════════════════════════════════════════
    SUB-COMPONENTS
 ══════════════════════════════════════════ */
 
-function PersonaCard({ item }: { item: PersonaItem }) {
+function PersonaCard({ item }: { item: Person }) {
   return (
     <article className="
       max-w-[730px] w-full min-h-[984px]
@@ -24,26 +24,37 @@ function PersonaCard({ item }: { item: PersonaItem }) {
       <div className="w-20 h-20 rounded-full overflow-hidden border border-[#9A0809]/20 mb-6 shrink-0">
         <img
           src={item.avatar}
-          alt={item.title}
+          alt={item.title ?? item.tag}
           draggable={false}
           className="w-full h-full object-cover select-none pointer-events-none"
         />
       </div>
 
-      {/* Name */}
-      <p className="font-gilda text-3xl leading-tight text-neutral-900 mb-4">
-        {item.title}
-      </p>
+      {/* Name (optional) */}
+      {item.title && (
+        <p className="font-gilda text-3xl leading-tight text-neutral-900 mb-4">
+          {item.title}
+        </p>
+      )}
 
       {/* Description */}
       <p className="font-poppins font-light text-base leading-[1.85] text-neutral-500">
         {item.description}
       </p>
+
+      {/* Quote (optional) */}
+      {item.quote && (
+        <blockquote className="mt-auto pt-8 border-t border-[#9A0809]/20 w-full">
+          <p className="font-gilda text-lg leading-relaxed text-[#9A0809] italic">
+            "{item.quote}"
+          </p>
+        </blockquote>
+      )}
     </article>
   )
 }
 
-function InsightCard({ item, index = 0 }: { item: InsightItem; index?: number }) {
+function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   return (
     <article className="
       max-w-[532px] w-full min-h-[608px]
@@ -73,7 +84,6 @@ function InsightCard({ item, index = 0 }: { item: InsightItem; index?: number })
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   return (
     <div className="flex flex-col items-start gap-4 w-full">
-      {/* Phone frame: rounded-[63px] bg-[#D9D9D9] */}
       <div className="
         max-w-[730px] w-full min-h-[984px]
         rounded-[63px] bg-[#D9D9D9]
@@ -86,14 +96,15 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
           className="w-full h-full object-cover select-none pointer-events-none"
         />
       </div>
-      {/* Label below frame */}
       <div className="px-2">
         <p className="font-poppins font-medium text-[0.65rem] tracking-widest uppercase text-neutral-800 mb-1">
           {product.title}
         </p>
-        <p className="font-poppins font-light text-xs text-neutral-400 leading-relaxed">
-          {product.description}
-        </p>
+        {product.description && (
+          <p className="font-poppins font-light text-xs text-neutral-400 leading-relaxed">
+            {product.description}
+          </p>
+        )}
       </div>
     </div>
   )
@@ -122,7 +133,8 @@ function LaptopFrame({ src, title }: { src: string; title: string }) {
 }
 
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
-  const isDesktop = products.length === 1
+  /* detect laptop by filename: desktop-*.webp → laptop frame */
+  const isDesktop = products.length === 1 && products[0].image.includes('desktop')
 
   if (isDesktop) {
     return <LaptopFrame src={products[0].image} title={products[0].title} />
@@ -141,23 +153,23 @@ function SpatialGallery({ gallery }: { gallery: GalleryItem[] }) {
   const [first, ...rest] = gallery
   return (
     <div className="flex flex-col gap-4">
-      {/* Panoramic top image */}
       {first && (
         <figure className="m-0">
           <div className="w-full aspect-[16/7] bg-neutral-100 rounded-lg overflow-hidden">
             <img
               src={first.image}
-              alt={first.caption}
+              alt={first.caption ?? ''}
               draggable={false}
               className="w-full h-full object-cover select-none pointer-events-none"
             />
           </div>
-          <figcaption className="font-poppins font-light text-[0.6rem] tracking-widest uppercase text-neutral-400 mt-2">
-            {first.caption}
-          </figcaption>
+          {first.caption && (
+            <figcaption className="font-poppins font-light text-[0.6rem] tracking-widest uppercase text-neutral-400 mt-2">
+              {first.caption}
+            </figcaption>
+          )}
         </figure>
       )}
-      {/* 2-column row */}
       {rest.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {rest.map((item, i) => (
@@ -165,14 +177,16 @@ function SpatialGallery({ gallery }: { gallery: GalleryItem[] }) {
               <div className="w-full aspect-[4/3] bg-neutral-100 rounded-lg overflow-hidden">
                 <img
                   src={item.image}
-                  alt={item.caption}
+                  alt={item.caption ?? ''}
                   draggable={false}
                   className="w-full h-full object-cover select-none pointer-events-none"
                 />
               </div>
-              <figcaption className="font-poppins font-light text-[0.6rem] tracking-widest uppercase text-neutral-400 mt-2">
-                {item.caption}
-              </figcaption>
+              {item.caption && (
+                <figcaption className="font-poppins font-light text-[0.6rem] tracking-widest uppercase text-neutral-400 mt-2">
+                  {item.caption}
+                </figcaption>
+              )}
             </figure>
           ))}
         </div>
@@ -260,7 +274,7 @@ export default function ProjectCasePage() {
               {project.title}
             </h1>
             <p className="font-poppins font-light text-lg text-neutral-500 leading-relaxed max-w-2xl">
-              {research.description}
+              {project.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map(tag => (
@@ -281,7 +295,10 @@ export default function ProjectCasePage() {
                 { label: 'ROL',      value: project.meta.role      },
                 { label: 'TIMELINE', value: project.meta.timeline  },
                 { label: 'EQUIPO',   value: project.meta.team      },
-              ] as const
+                ...(project.meta.advisors
+                  ? [{ label: 'ADVISORS', value: project.meta.advisors }]
+                  : []),
+              ]
             ).map(({ label, value }) => (
               <div key={label} className="flex flex-col gap-1 py-4">
                 <span className="font-poppins font-semibold text-xs uppercase tracking-widest text-neutral-400">
@@ -301,63 +318,95 @@ export default function ProjectCasePage() {
       <div className="max-w-[1598px] mx-auto px-4 md:px-8 flex flex-col gap-24 pb-32">
 
         {/* 01 Research & Strategy */}
-        <Section number={research.sectionNumber} title={research.title}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {research.personas.map((persona, i) => (
-              <PersonaCard key={i} item={persona} />
-            ))}
-          </div>
-        </Section>
+        {research && (
+          <Section
+            number={research.sectionNumber}
+            title={research.title}
+            description={research.description}
+          >
+            {/* Personas grid */}
+            {research.personas && research.personas.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {research.personas.map((persona, i) => (
+                  <PersonaCard key={i} item={persona} />
+                ))}
+              </div>
+            )}
+
+            {/* Insights grid (research can have both) */}
+            {research.insights && research.insights.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {research.insights.map((ins, i) => (
+                  <InsightCard key={i} item={ins} index={i} />
+                ))}
+              </div>
+            )}
+          </Section>
+        )}
 
         {/* 02 Customer Journey Map */}
-        <Section
-          number={customerJourney.sectionNumber}
-          title={customerJourney.title}
-          description={customerJourney.subtitle}
-        >
-          {/* Panoramic journey image */}
-          <div className="w-full rounded-lg overflow-hidden bg-neutral-100">
-            <img
-              src={customerJourney.image}
-              alt={customerJourney.title}
-              draggable={false}
-              className="w-full h-auto select-none pointer-events-none"
-            />
-          </div>
+        {customerJourney && (
+          <Section
+            number={customerJourney.sectionNumber}
+            title={customerJourney.title}
+            description={customerJourney.subtitle}
+          >
+            {/* Panoramic journey image */}
+            <div className="w-full rounded-lg overflow-hidden bg-neutral-100">
+              <img
+                src={customerJourney.image}
+                alt={customerJourney.title}
+                draggable={false}
+                className="w-full h-auto select-none pointer-events-none"
+              />
+            </div>
 
-          {/* 3-col insights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {customerJourney.insights.map((ins, i) => (
-              <InsightCard key={i} item={ins} index={i} />
-            ))}
-          </div>
-        </Section>
+            {/* Insights (optional) */}
+            {customerJourney.insights && customerJourney.insights.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {customerJourney.insights.map((ins, i) => (
+                  <InsightCard key={i} item={ins} index={i} />
+                ))}
+              </div>
+            )}
+          </Section>
+        )}
 
         {/* 03 Digital Strategy */}
-        <Section
-          number={digitalStrategy.sectionNumber}
-          title={digitalStrategy.title}
-          description={digitalStrategy.description}
-        >
-          {/* Digital product mockups */}
-          <DigitalGrid products={digitalStrategy.products} />
+        {digitalStrategy && (
+          <Section
+            number={digitalStrategy.sectionNumber}
+            title={digitalStrategy.title}
+            description={digitalStrategy.description}
+          >
+            {/* Digital product mockups */}
+            {digitalStrategy.products && digitalStrategy.products.length > 0 && (
+              <DigitalGrid products={digitalStrategy.products} />
+            )}
 
-          {/* 3-col insights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {digitalStrategy.insights.map((ins, i) => (
-              <InsightCard key={i} item={ins} index={i} />
-            ))}
-          </div>
-        </Section>
+            {/* Insights (optional) */}
+            {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {digitalStrategy.insights.map((ins, i) => (
+                  <InsightCard key={i} item={ins} index={i} />
+                ))}
+              </div>
+            )}
+          </Section>
+        )}
 
         {/* 04 Spatial Branding & Signage */}
-        <Section
-          number={spatialBranding.sectionNumber}
-          title={spatialBranding.title}
-          description={spatialBranding.description}
-        >
-          <SpatialGallery gallery={spatialBranding.gallery} />
-        </Section>
+        {spatialBranding && (
+          <Section
+            number={spatialBranding.sectionNumber}
+            title={spatialBranding.title}
+            description={spatialBranding.description}
+          >
+            {spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
+              <SpatialGallery gallery={spatialBranding.gallery} />
+            )}
+          </Section>
+        )}
 
       </div>
 

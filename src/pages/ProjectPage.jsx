@@ -152,9 +152,9 @@ export default function ProjectPage() {
 
             {/* Right — description */}
             <div style={{ display: 'flex', alignItems: 'center', padding: isMobile ? '0 1.5rem 1.5rem' : '2.5rem 3rem 2.5rem 1.5rem', overflowY: 'auto' }}>
-              {project.sections?.research?.description && (
+              {project.description && (
                 <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)', lineHeight: 1.8, color: '#1A1815', margin: 0 }}>
-                  {project.sections.research.description}
+                  {project.description}
                 </p>
               )}
             </div>
