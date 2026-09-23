@@ -22,6 +22,8 @@ img {
   --font-display: 'Gilda Display', Georgia, serif;
   --font-body: 'Poppins', system-ui, sans-serif;
   --font-ui: 'Poppins', system-ui, sans-serif;
+  --font-gilda: 'Gilda Display', Georgia, serif;
+  --font-poppins: 'Poppins', system-ui, sans-serif;
 
   /* ── Type scale ── */
   --text-display-xl: 4.375rem;   /* 70px */
