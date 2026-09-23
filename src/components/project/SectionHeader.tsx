@@ -1,6 +1,4 @@
-import type { SectionHeaderBlock } from '../../data/projectsData'
-
-type Props = Pick<SectionHeaderBlock, 'title' | 'paragraphs'>
+type Props = { title: string; paragraphs: string[] }
 
 export default function SectionHeader({ title, paragraphs }: Props) {
   return (

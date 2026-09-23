@@ -9,7 +9,7 @@ const PROJECTS = projectsData.map(p => ({
   id:    p.slug,
   title: p.title,
   tags:  p.tags,
-  cover: p.coverImage,
+  cover: p.heroImage,
 }))
 const N = PROJECTS.length
 

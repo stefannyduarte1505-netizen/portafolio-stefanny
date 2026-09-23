@@ -4,7 +4,8 @@ type Props = { item: InsightItem; index?: number }
 
 export default function InsightCard({ item, index = 0 }: Props) {
   return (
-    <article className="flex flex-col gap-3 py-7"
+    <article
+      className="flex flex-col gap-3 py-7"
       style={{ borderTop: '0.5px solid rgba(26,24,21,0.1)' }}
     >
       {/* Counter */}
@@ -21,7 +22,7 @@ export default function InsightCard({ item, index = 0 }: Props) {
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      {/* Label */}
+      {/* Title */}
       <p
         style={{
           fontFamily: "'Poppins', sans-serif",
@@ -32,7 +33,7 @@ export default function InsightCard({ item, index = 0 }: Props) {
           color: '#B9111C',
         }}
       >
-        {item.label}
+        {item.title}
       </p>
 
       {/* Body */}

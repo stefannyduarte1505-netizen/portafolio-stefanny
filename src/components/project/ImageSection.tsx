@@ -1,6 +1,4 @@
-import type { ImageSectionBlock } from '../../data/projectsData'
-
-type Props = Pick<ImageSectionBlock, 'images' | 'title' | 'caption'>
+type Props = { images: string[]; title?: string; caption?: string }
 
 export default function ImageSection({ images, title, caption }: Props) {
   const isSingle = images.length === 1

@@ -8,9 +8,24 @@ export default function PersonaCard({ item }: Props) {
       className="flex flex-col gap-5 p-8 rounded-2xl"
       style={{ border: '0.5px solid rgba(26,24,21,0.1)', backgroundColor: '#fafafa' }}
     >
+      {/* Tag chip */}
+      <span
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontWeight: 400,
+          fontSize: '0.55rem',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: '#B9111C',
+        }}
+      >
+        {item.tag}
+      </span>
+
       {/* Avatar + title */}
       <div className="flex items-center gap-4">
-        <div className="shrink-0 w-16 h-16 rounded-full overflow-hidden"
+        <div
+          className="shrink-0 w-16 h-16 rounded-full overflow-hidden"
           style={{ border: '1px solid rgba(26,24,21,0.08)' }}
         >
           <img
@@ -24,12 +39,11 @@ export default function PersonaCard({ item }: Props) {
 
         <p
           style={{
-            fontFamily: "'Poppins', sans-serif",
+            fontFamily: "'Gilda Display', serif",
             fontWeight: 400,
-            fontSize: '0.6rem',
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: '#B9111C',
+            fontSize: 'clamp(1rem, 1.2vw, 1.2rem)',
+            lineHeight: 1.2,
+            color: '#1A1815',
           }}
         >
           {item.title}
@@ -48,22 +62,6 @@ export default function PersonaCard({ item }: Props) {
       >
         {item.description}
       </p>
-
-      {/* Quote */}
-      <blockquote
-        style={{
-          fontFamily: "'Gilda Display', serif",
-          fontStyle: 'italic',
-          fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)',
-          lineHeight: 1.6,
-          color: 'rgba(26,24,21,0.45)',
-          borderLeft: '1.5px solid #B9111C',
-          paddingLeft: '1rem',
-          margin: 0,
-        }}
-      >
-        &#8220;{item.quote}&#8221;
-      </blockquote>
     </article>
   )
 }

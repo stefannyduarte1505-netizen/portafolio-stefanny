@@ -1,12 +1,18 @@
-import type { Project } from '../../data/projectsData'
+import type { ProjectMeta } from '../../data/projectsData'
 import ProtectedImg from '../ui/ProtectedImg'
 
 const POPPINS = "'Poppins', sans-serif"
 const GILDA   = "'Gilda Display', serif"
 
-type Props = Pick<Project, 'title' | 'description' | 'tags' | 'meta' | 'coverImage'>
+type Props = {
+  title: string
+  description: string
+  tags: string[]
+  meta: ProjectMeta
+  heroImage: string
+}
 
-export default function ProjectHeroHeader({ title, description, tags, meta, coverImage }: Props) {
+export default function ProjectHeroHeader({ title, description, tags, meta, heroImage }: Props) {
   const PAD = 'clamp(1.5rem,5vw,5rem)'
 
   return (
@@ -82,7 +88,13 @@ export default function ProjectHeroHeader({ title, description, tags, meta, cove
             paddingTop: 'clamp(0rem,1vw,0.5rem)',
           }}
         >
-          {meta.map(({ label, value }) => (
+          {(
+            [
+              { label: 'Rol',      value: meta.role     },
+              { label: 'Timeline', value: meta.timeline },
+              { label: 'Equipo',   value: meta.team     },
+            ] as const
+          ).map(({ label, value }) => (
             <div
               key={label}
               style={{
@@ -123,7 +135,7 @@ export default function ProjectHeroHeader({ title, description, tags, meta, cove
       </div>
 
       {/* ── Cover image full-bleed ── */}
-      <ProtectedImg src={coverImage} loading="eager" />
+      <ProtectedImg src={heroImage} loading="eager" />
     </header>
   )
 }

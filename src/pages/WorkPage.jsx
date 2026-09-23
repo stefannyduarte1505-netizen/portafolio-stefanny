@@ -52,7 +52,7 @@ export default function WorkPage() {
   const filtered = useMemo(() => {
     if (!active) return projectsData
     return projectsData.filter(p =>
-      p.tags.some(t => t.toLowerCase() === active.toLowerCase())
+      p.category.some(c => c.toLowerCase() === active.toLowerCase())
     )
   }, [active])
 

@@ -23,31 +23,31 @@ export default function ProjectCard({ project, index = 0 }: Props) {
         transition:      'box-shadow 0.3s ease, transform 0.3s ease',
       }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.10)'
+        ;(e.currentTarget as HTMLElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.10)'
         ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.boxShadow = 'none'
+        ;(e.currentTarget as HTMLElement).style.boxShadow = 'none'
         ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
       }}
     >
       {/* Cover image */}
       <div style={{ width: '100%', overflow: 'hidden', lineHeight: 0, aspectRatio: '16/10', backgroundColor: '#f5f4f2' }}>
         <img
-          src={project.coverImage}
+          src={project.heroImage}
           alt={project.title}
           loading={index < 2 ? 'eager' : 'lazy'}
           onError={(e) => console.error('[ProjectCard] 404 →', (e.currentTarget as HTMLImageElement).src)}
           draggable={false}
           style={{
-            display:        'block',
-            width:          '100%',
-            height:         'auto',
-            aspectRatio:    '16/10',
-            objectFit:      'cover',
-            pointerEvents:  'none',
-            userSelect:     'none',
-            transition:     'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)',
+            display:       'block',
+            width:         '100%',
+            height:        'auto',
+            aspectRatio:   '16/10',
+            objectFit:     'cover',
+            pointerEvents: 'none',
+            userSelect:    'none',
+            transition:    'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)',
           }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.03)' }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
@@ -79,7 +79,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
           {project.title}
         </h2>
 
-        {/* Description */}
+        {/* Research description as subtitle */}
         <p
           style={{
             fontFamily: POPPINS,
@@ -90,7 +90,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
             margin:     0,
           }}
         >
-          {project.description}
+          {project.sections.research.description}
         </p>
 
         {/* Tags */}

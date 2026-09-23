@@ -1,6 +1,9 @@
-import type { DigitalCardBlock } from '../../data/projectsData'
-
-type Props = Pick<DigitalCardBlock, 'title' | 'description' | 'variant' | 'images'>
+type Props = {
+  title: string
+  description: string
+  variant: 'single' | 'double' | 'desktop'
+  images: string[]
+}
 
 /* ── Phone frame ── */
 function PhoneFrame({ src }: { src: string }) {
