@@ -37,6 +37,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
           src={project.coverImage}
           alt={project.title}
           loading={index < 2 ? 'eager' : 'lazy'}
+          onError={(e) => console.error('[ProjectCard] 404 →', (e.currentTarget as HTMLImageElement).src)}
           draggable={false}
           style={{
             display:        'block',
