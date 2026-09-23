@@ -73,7 +73,7 @@ export const projectsData: Project[] = [
     title: "Sole",
     description:
       "Sole, marca peruana de electrodomésticos, necesitaba reposicionarse en el espacio físico. Lideré la transformación de un showroom saturado en una experiencia omnicanal.",
-    coverImage: "/covers/sole.png",
+    coverImage: "/projects/sole/cover.webp",
     tags: ["Service Design", "Digital Strategy", "Spatial Branding", "Phygital"],
     meta: [
       { label: "Cliente:", value: "Sole & S•Collection, appliance retail · GrupoModulor · 2024" },
@@ -95,7 +95,7 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/sole/research-1.png",
+            avatar: "/projects/sole/persona-1.webp",
             description:
               "Un padre de familia práctico y detallista que comparte su hogar con su esposa, sus hijos y un familiar mayor. Un usuario omnicanal que investiga meticulosamente cada precio y especificación técnica en internet antes de visitar la tienda, asegurando una compra inteligente y duradera que simplifique el día a día de los suyos.",
             quote:
@@ -103,7 +103,7 @@ export const projectsData: Project[] = [
           },
           {
             title: "User persona 2",
-            avatar: "/projects/sole/research-2.png",
+            avatar: "/projects/sole/persona-2.webp",
             description:
               "Una profesional con un estilo de vida sofisticado y altas expectativas estéticas, apasionada por las tendencias globales de interiorismo y gastronomía. Quiere que su cocina deje de ser un espacio meramente funcional para convertirse en un ritual social e inmersivo.",
             quote:
@@ -140,7 +140,7 @@ export const projectsData: Project[] = [
         title: "Digital Product Experience",
         description: "Catálogo virtual interactivo con journeys diferenciados para Sole y S•Collection.",
         variant: "double",
-        images: ["/projects/sole/digital-1.png", "/projects/sole/digital-2.png"],
+        images: ["/projects/sole/digital-1-a.webp", "/projects/sole/digital-1-b.webp"],
       },
       {
         type: "section-header",
@@ -158,7 +158,7 @@ export const projectsData: Project[] = [
     title: "ROOT",
     description:
       "El problema nunca fue la falta de contenido. Fue la ansiedad de no saber si estás aprendiendo lo correcto, en el orden correcto, lo suficientemente rápido.",
-    coverImage: "/covers/root.png",
+    coverImage: "/projects/root/cover.webp",
     tags: ["Digital Product Design", "EdTech", "UX Research", "Self-Management"],
     meta: [
       { label: "Cliente:", value: "Digital Product Design · Master's Project, BAU Barcelona · 2026" },
@@ -181,13 +181,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/root/research-1.png",
+            avatar: "/projects/root/persona-1.webp",
             description: "Ex traductora buscando reconversión profesional rápida frente al avance de la IA.",
             quote: "Necesito aprender habilidades relevantes sin perder meses en contenido irrelevante.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/root/research-2.png",
+            avatar: "/projects/root/persona-2.webp",
             description: "Diseñadora UX en activo que necesita mantenerse al día con estándares globales.",
             quote: "Quiero una ruta estructurada que se adapte a mi agenda real, no cursos extensos que termino abandonando.",
           },
@@ -206,7 +206,7 @@ export const projectsData: Project[] = [
         title: "Jardín de Conocimiento",
         description: "Plataforma interactiva para autogestión del aprendizaje adaptativo.",
         variant: "desktop",
-        images: ["/projects/root/digital-1.png"],
+        images: ["/projects/root/desktop-1.webp"],
       },
     ],
   },
@@ -216,7 +216,7 @@ export const projectsData: Project[] = [
     title: "KUNA",
     description:
       "Retail Strategy y experiencia de marca espacial para KUNA, elevando el patrimonio textil andino hacia el mercado de lujo global.",
-    coverImage: "/covers/kuna.png",
+    coverImage: "/projects/kuna/cover.webp",
     tags: ["Luxury Retail", "Service Design", "Spatial Branding", "Omnichannel"],
     meta: [
       { label: "Cliente:", value: "KUNA, luxury Andean textile brand · GrupoModulor · 2024" },
@@ -238,13 +238,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/kuna/research-1.png",
+            avatar: "/projects/kuna/persona-1.webp",
             description: "Comprador local de alta gama que busca piezas exclusivas con significado cultural y durabilidad.",
             quote: "Valoro el origen del producto y la maestría artesanal detrás de cada fibra.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/kuna/research-2.png",
+            avatar: "/projects/kuna/persona-2.webp",
             description: "Turista o viajero internacional sofisticado que desea llevarse una experiencia textil auténtica e inolvidable.",
             quote: "Busco una conexión directa con la tradición andina explicada desde una sofisticación contemporánea.",
           },
@@ -263,7 +263,7 @@ export const projectsData: Project[] = [
         title: "Digital In-Store Touchpoints",
         description: "Servicios digitales integrados en tienda para fidelización y cuidado de prendas.",
         variant: "single",
-        images: ["/projects/kuna/digital-1.png"],
+        images: ["/projects/kuna/digital-1-a.webp"],
       },
       {
         type: "section-header",
@@ -281,7 +281,7 @@ export const projectsData: Project[] = [
     title: "GrupoModulor",
     description:
       "Una transformación completa de marca y digital para una firma de diseño estratégico de 16 años. El trabajo abarcó identidad, narrativa y producto digital.",
-    coverImage: "/covers/modulor.png",
+    coverImage: "/projects/modulor/cover.webp",
     tags: ["Rebranding", "Digital Platform", "Strategic Design", "B2B Positioning"],
     meta: [
       { label: "Cliente:", value: "GrupoModulor® · Strategic Design & Innovation Consultancy, Lima · 2023" },
@@ -305,13 +305,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "Executive Buyer",
-            avatar: "/projects/modulor/research-1.png",
+            avatar: "/projects/modulor/persona-1.webp",
             description: "Directores corporativos buscando innovación espacial y estrategia omnicanal para su empresa.",
             quote: "Necesito un socio estratégico capaz de ejecutar proyectos complejos con rigor.",
           },
           {
             title: "Talento Creativo",
-            avatar: "/projects/modulor/research-2.png",
+            avatar: "/projects/modulor/persona-2.webp",
             description: "Diseñadores y consultores de alto nivel buscando sumarse a una firma vanguardista.",
             quote: "Busco trabajar en proyectos con verdadero impacto y pensamiento de diseño global.",
           },
@@ -330,7 +330,7 @@ export const projectsData: Project[] = [
         title: "Plataforma Web Modulor",
         description: "Rediseño completo de la experiencia web y sistema de conversión.",
         variant: "desktop",
-        images: ["/projects/modulor/digital-1.png"],
+        images: ["/projects/modulor/desktop-1.webp"],
       },
     ],
   },
@@ -340,7 +340,7 @@ export const projectsData: Project[] = [
     title: "S•Collection",
     description:
       "S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness.",
-    coverImage: "/covers/s-collection.png",
+    coverImage: "/projects/s-collection/cover.webp",
     tags: ["Luxury Retail", "Brand Guidelines", "Art Direction", "Design Systems"],
     meta: [
       { label: "Cliente:", value: "S•Collection, luxury retail · GrupoModulor · 2024" },
@@ -364,13 +364,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/s-collection/research-1.png",
+            avatar: "/projects/s-collection/persona-1.webp",
             description: "Consumidor exigente enfocado en electrodomésticos de alta gama con estética arquitectónica.",
             quote: "Busco piezas donde la tecnología sea invisible y el diseño sea el verdadero protagonista.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/s-collection/research-2.png",
+            avatar: "/projects/s-collection/persona-2.webp",
             description: "Arquitectos e interioristas buscando especificar productos premium en sus proyectos residenciales.",
             quote: "Necesito marcas que eleven el valor visual de los espacios que creo para mis clientes.",
           },
@@ -389,7 +389,7 @@ export const projectsData: Project[] = [
         title: "SCo° App & Brand System",
         description: "Formatos inmersivos y componentes del sistema visual de lujo.",
         variant: "double",
-        images: ["/projects/s-collection/digital-1.png", "/projects/s-collection/digital-2.png"],
+        images: ["/projects/s-collection/digital-1-a.webp", "/projects/s-collection/digital-1-b.webp"],
       },
     ],
   },
