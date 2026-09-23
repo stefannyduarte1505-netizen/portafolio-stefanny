@@ -8,7 +8,7 @@ function PhoneFrame({ src }: { src: string }) {
     <div
       className="relative mx-auto"
       style={{
-        width: 'clamp(140px, 18vw, 220px)',
+        width: 'clamp(130px, 38vw, 220px)',
         borderRadius: '2.5rem',
         border: '6px solid #1A1815',
         boxShadow: '0 24px 60px rgba(0,0,0,0.18)',
@@ -150,14 +150,20 @@ export default function DigitalProductCard({ title, description, variant, images
       )}
 
       {variant === 'double' && (
-        <div className="flex justify-center items-end gap-[clamp(1rem,3vw,2.5rem)]">
-          <div style={{ transform: 'translateY(clamp(12px,2vw,24px)) rotate(-3deg)' }}>
-            <PhoneFrame src={images[0]} />
+        <>
+          <style>{`
+            .phone-pair { display:flex; justify-content:center; align-items:flex-end; gap:clamp(1rem,3vw,2.5rem); flex-wrap:wrap; }
+            .phone-pair .phone-a { transform: translateY(clamp(12px,2vw,24px)) rotate(-3deg); }
+            .phone-pair .phone-b { transform: rotate(2deg); }
+            @media (max-width: 540px) {
+              .phone-pair .phone-a, .phone-pair .phone-b { transform: none !important; }
+            }
+          `}</style>
+          <div className="phone-pair">
+            <div className="phone-a"><PhoneFrame src={images[0]} /></div>
+            <div className="phone-b"><PhoneFrame src={images[1] ?? images[0]} /></div>
           </div>
-          <div style={{ transform: 'rotate(2deg)' }}>
-            <PhoneFrame src={images[1] ?? images[0]} />
-          </div>
-        </div>
+        </>
       )}
 
       {variant === 'desktop' && (

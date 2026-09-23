@@ -73,7 +73,7 @@ export const projectsData: Project[] = [
     title: "Sole",
     description:
       "Sole, marca peruana de electrodomésticos, necesitaba reposicionarse en el espacio físico. Lideré la transformación de un showroom saturado en una experiencia omnicanal.",
-    coverImage: "/projects/sole/cover.webp",
+    coverImage: "/covers/sole.png",
     tags: ["Service Design", "Digital Strategy", "Spatial Branding", "Phygital"],
     meta: [
       { label: "Cliente:", value: "Sole & S•Collection, appliance retail · GrupoModulor · 2024" },
@@ -158,7 +158,7 @@ export const projectsData: Project[] = [
     title: "ROOT",
     description:
       "El problema nunca fue la falta de contenido. Fue la ansiedad de no saber si estás aprendiendo lo correcto, en el orden correcto, lo suficientemente rápido.",
-    coverImage: "/projects/root/cover.webp",
+    coverImage: "/covers/root.png",
     tags: ["Digital Product Design", "EdTech", "UX Research", "Self-Management"],
     meta: [
       { label: "Cliente:", value: "Digital Product Design · Master's Project, BAU Barcelona · 2026" },
@@ -216,7 +216,7 @@ export const projectsData: Project[] = [
     title: "KUNA",
     description:
       "Retail Strategy y experiencia de marca espacial para KUNA, elevando el patrimonio textil andino hacia el mercado de lujo global.",
-    coverImage: "/projects/kuna/cover.webp",
+    coverImage: "/covers/kuna.png",
     tags: ["Luxury Retail", "Service Design", "Spatial Branding", "Omnichannel"],
     meta: [
       { label: "Cliente:", value: "KUNA, luxury Andean textile brand · GrupoModulor · 2024" },
@@ -281,7 +281,7 @@ export const projectsData: Project[] = [
     title: "GrupoModulor",
     description:
       "Una transformación completa de marca y digital para una firma de diseño estratégico de 16 años. El trabajo abarcó identidad, narrativa y producto digital.",
-    coverImage: "/projects/modulor/cover.webp",
+    coverImage: "/covers/modulor.png",
     tags: ["Rebranding", "Digital Platform", "Strategic Design", "B2B Positioning"],
     meta: [
       { label: "Cliente:", value: "GrupoModulor® · Strategic Design & Innovation Consultancy, Lima · 2023" },
@@ -340,7 +340,7 @@ export const projectsData: Project[] = [
     title: "S•Collection",
     description:
       "S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness.",
-    coverImage: "/projects/scollection/cover.webp",
+    coverImage: "/covers/s-collection.png",
     tags: ["Luxury Retail", "Brand Guidelines", "Art Direction", "Design Systems"],
     meta: [
       { label: "Cliente:", value: "S•Collection, luxury retail · GrupoModulor · 2024" },

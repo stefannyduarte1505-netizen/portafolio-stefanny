@@ -3,15 +3,14 @@ import { useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '../../hooks/useIsMobile'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { t } from '../../translations'
+import { projectsData } from '../../data/projectsData'
 
-const PROJECTS = [
-  { id: 'sole',             title: 'Sole',             tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/sole.png'         },
-  { id: 'root',             title: 'Root',             tags: ['UX Research', 'Service Design'],       cover: '/covers/root.png'         },
-  { id: 'kuna',             title: 'Kuna',             tags: ['Spatial Branding', 'Product Design'],  cover: '/covers/kuna.png'         },
-  { id: 'modulor',          title: 'Modulor',          tags: ['Product Designer', 'Branding'],        cover: '/covers/modulor.png'      },
-  { id: 'cafe-don-salazar', title: 'Café Don Salazar', tags: ['Service Design', 'Spatial Branding'],  cover: '/covers/don-salazar.png'  },
-  { id: 's-collection',    title: 'S. Collection',    tags: ['Art Direction', 'Branding'],            cover: '/covers/s-collection.png' },
-]
+const PROJECTS = projectsData.map(p => ({
+  id:    p.slug,
+  title: p.title,
+  tags:  p.tags,
+  cover: p.coverImage,
+}))
 const N = PROJECTS.length
 
 export default function Gallery() {
@@ -51,7 +50,7 @@ export default function Gallery() {
         `}</style>
         <p className="mob-label">{tr.gallery.mobileLabel}</p>
         {PROJECTS.map((p, i) => (
-          <a key={p.id} href={`/project/${p.id}`} style={{ display: 'block', textDecoration: 'none' }}>
+          <a key={p.id} href={`/case/${p.id}`} style={{ display: 'block', textDecoration: 'none' }}>
             <div className="mob-card-v">
               <img src={p.cover} alt={p.title} loading={i === 0 ? 'eager' : 'lazy'} />
               <div className="mob-gradient" />
@@ -132,7 +131,7 @@ export default function Gallery() {
         </p>
 
         <div key={`title-${active}`} className="gal-text">
-          <a href={`/project/${p.id}`} style={{ textDecoration: 'none' }}>
+          <a href={`/case/${p.id}`} style={{ textDecoration: 'none' }}>
             <h2 style={{
               fontFamily: "'Gilda Display', serif", fontWeight: 400,
               fontSize: 'clamp(2.8rem,5.5vw,6.5rem)',
@@ -172,7 +171,7 @@ export default function Gallery() {
         {PROJECTS.map((proj, i) => (
           <a
             key={proj.id}
-            href={`/project/${proj.id}`}
+            href={`/case/${proj.id}`}
             ref={el => { cardRefs.current[i] = el }}
             data-cursor="default"
             style={{ display: 'block', padding: 'clamp(0.75rem,1.5vw,1.5rem)', textDecoration: 'none' }}
