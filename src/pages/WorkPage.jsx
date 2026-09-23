@@ -104,7 +104,7 @@ export default function WorkPage() {
           flexWrap:       'wrap',
           borderBottom:   '0.5px solid rgba(26,24,21,0.07)',
           position:       'sticky',
-          top:            0,
+          top:            '68px',
           backgroundColor: 'rgba(255,255,255,0.92)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',

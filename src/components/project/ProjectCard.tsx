@@ -32,7 +32,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
       }}
     >
       {/* Cover image */}
-      <div style={{ width: '100%', overflow: 'hidden', lineHeight: 0 }}>
+      <div style={{ width: '100%', overflow: 'hidden', lineHeight: 0, aspectRatio: '16/10', backgroundColor: '#f5f4f2' }}>
         <img
           src={project.coverImage}
           alt={project.title}
