@@ -9,24 +9,34 @@ import type { InsightItem, DigitalProduct, GalleryItem, PersonaItem } from '../d
 
 function PersonaCard({ item }: { item: PersonaItem }) {
   return (
-    <article className="flex flex-col gap-5 p-8 rounded-2xl border border-black/10 bg-neutral-50">
-      <span className="font-poppins text-[0.55rem] tracking-[0.18em] uppercase text-red-700">
+    <article className="
+      max-w-[730px] w-full min-h-[984px]
+      pt-[90px] pr-[64px] pb-[83px] pl-[64px]
+      rounded-[16px] border border-[#9A0809] bg-[#F4F5F4]
+      flex flex-col items-start gap-[10px]
+    ">
+      {/* Tag */}
+      <span className="font-poppins text-[0.6rem] tracking-[0.18em] uppercase text-[#9A0809] mb-4">
         {item.tag}
       </span>
-      <div className="flex items-center gap-4">
-        <div className="shrink-0 w-16 h-16 rounded-full overflow-hidden border border-black/10">
-          <img
-            src={item.avatar}
-            alt={item.title}
-            draggable={false}
-            className="w-full h-full object-cover select-none pointer-events-none"
-          />
-        </div>
-        <p className="font-gilda text-[1.1rem] leading-tight text-neutral-900">
-          {item.title}
-        </p>
+
+      {/* Avatar */}
+      <div className="w-20 h-20 rounded-full overflow-hidden border border-[#9A0809]/20 mb-6 shrink-0">
+        <img
+          src={item.avatar}
+          alt={item.title}
+          draggable={false}
+          className="w-full h-full object-cover select-none pointer-events-none"
+        />
       </div>
-      <p className="font-poppins font-light text-sm leading-relaxed text-neutral-500">
+
+      {/* Name */}
+      <p className="font-gilda text-3xl leading-tight text-neutral-900 mb-4">
+        {item.title}
+      </p>
+
+      {/* Description */}
+      <p className="font-poppins font-light text-base leading-[1.85] text-neutral-500">
         {item.description}
       </p>
     </article>
@@ -35,30 +45,56 @@ function PersonaCard({ item }: { item: PersonaItem }) {
 
 function InsightCard({ item, index = 0 }: { item: InsightItem; index?: number }) {
   return (
-    <article className="flex flex-col gap-3 py-6 border-t border-black/10">
-      <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
+    <article className="
+      max-w-[532px] w-full min-h-[608px]
+      pt-[90px] pr-[64px] pb-[83px] pl-[64px]
+      rounded-[16px] bg-[#F4F5F4]
+      flex flex-col items-start gap-[10px]
+    ">
+      {/* Counter */}
+      <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300 mb-6">
         {String(index + 1).padStart(2, '0')}
       </span>
-      <p className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-red-700">
+
+      {/* Title */}
+      <p className="font-poppins font-semibold text-[0.65rem] tracking-[0.18em] uppercase text-[#9A0809] mb-4">
         {item.title}
       </p>
-      <p className="font-poppins font-light text-sm leading-7 text-neutral-500 max-w-xs">
+
+      {/* Body */}
+      <p className="font-poppins font-light text-base leading-[1.85] text-neutral-500">
         {item.text}
       </p>
     </article>
   )
 }
 
-function PhoneFrame({ src, title }: { src: string; title: string }) {
+/* DigitalProductCard — phone frame per Figma spec */
+function DigitalProductCard({ product }: { product: DigitalProduct }) {
   return (
-    <div className="rounded-[2.5rem] border-[6px] border-neutral-900 shadow-2xl bg-neutral-900 overflow-hidden w-full max-w-[200px] mx-auto">
-      <div className="mx-auto w-[28%] h-4 bg-neutral-900 rounded-b-xl" />
-      <img
-        src={src}
-        alt={title}
-        draggable={false}
-        className="block w-full h-auto select-none pointer-events-none"
-      />
+    <div className="flex flex-col items-start gap-4 w-full">
+      {/* Phone frame: rounded-[63px] bg-[#D9D9D9] */}
+      <div className="
+        max-w-[730px] w-full min-h-[984px]
+        rounded-[63px] bg-[#D9D9D9]
+        overflow-hidden flex items-center justify-center
+      ">
+        <img
+          src={product.image}
+          alt={product.title}
+          draggable={false}
+          className="w-full h-full object-cover select-none pointer-events-none"
+        />
+      </div>
+      {/* Label below frame */}
+      <div className="px-2">
+        <p className="font-poppins font-medium text-[0.65rem] tracking-widest uppercase text-neutral-800 mb-1">
+          {product.title}
+        </p>
+        <p className="font-poppins font-light text-xs text-neutral-400 leading-relaxed">
+          {product.description}
+        </p>
+      </div>
     </div>
   )
 }
@@ -88,35 +124,15 @@ function LaptopFrame({ src, title }: { src: string; title: string }) {
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
   const isDesktop = products.length === 1
 
+  if (isDesktop) {
+    return <LaptopFrame src={products[0].image} title={products[0].title} />
+  }
+
   return (
-    <div className="w-full bg-neutral-100 rounded-xl overflow-hidden p-8 md:p-12">
-      {isDesktop ? (
-        <>
-          <div className="mb-8 max-w-lg">
-            <h4 className="font-gilda text-2xl text-neutral-900 mb-2">{products[0].title}</h4>
-            <p className="font-poppins font-light text-sm text-neutral-500 leading-relaxed">
-              {products[0].description}
-            </p>
-          </div>
-          <LaptopFrame src={products[0].image} title={products[0].title} />
-        </>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-          {products.map((p, i) => (
-            <div key={i} className="flex flex-col items-center gap-3 w-full">
-              <PhoneFrame src={p.image} title={p.title} />
-              <div className="text-center">
-                <p className="font-poppins font-medium text-[0.6rem] tracking-widest uppercase text-neutral-800 mb-1">
-                  {p.title}
-                </p>
-                <p className="font-poppins font-light text-xs text-neutral-400 leading-relaxed">
-                  {p.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {products.map((p, i) => (
+        <DigitalProductCard key={i} product={p} />
+      ))}
     </div>
   )
 }

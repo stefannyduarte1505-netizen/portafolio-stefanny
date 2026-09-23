@@ -1,9 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import type { Project } from '../../data/projectsData'
 
-const POPPINS = "'Poppins', sans-serif"
-const GILDA   = "'Gilda Display', serif"
-
 type Props = { project: Project; index?: number }
 
 export default function ProjectCard({ project, index = 0 }: Props) {
@@ -12,102 +9,54 @@ export default function ProjectCard({ project, index = 0 }: Props) {
   return (
     <article
       onClick={() => navigate(`/case/${project.slug}`)}
-      style={{
-        cursor:          'pointer',
-        backgroundColor: '#fff',
-        border:          '0.5px solid rgba(26,24,21,0.08)',
-        borderRadius:    '10px',
-        overflow:        'hidden',
-        display:         'flex',
-        flexDirection:   'column',
-        transition:      'box-shadow 0.3s ease, transform 0.3s ease',
-      }}
-      onMouseEnter={e => {
-        ;(e.currentTarget as HTMLElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.10)'
-        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
-      }}
-      onMouseLeave={e => {
-        ;(e.currentTarget as HTMLElement).style.boxShadow = 'none'
-        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
-      }}
+      className="
+        max-w-[816px] w-full min-h-[806px]
+        pt-[25px] pr-[24px] pb-[46px] pl-[18px]
+        rounded-[8px] bg-[#F4F5F4]
+        flex flex-col items-start gap-[10px]
+        cursor-pointer
+        transition-[box-shadow,transform] duration-300
+        hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)]
+      "
     >
       {/* Cover image */}
-      <div style={{ width: '100%', overflow: 'hidden', lineHeight: 0, aspectRatio: '16/10', backgroundColor: '#f5f4f2' }}>
+      <div className="w-full overflow-hidden rounded-[6px] bg-neutral-200" style={{ aspectRatio: '16/10' }}>
         <img
           src={project.heroImage}
           alt={project.title}
           loading={index < 2 ? 'eager' : 'lazy'}
           onError={(e) => console.error('[ProjectCard] 404 →', (e.currentTarget as HTMLImageElement).src)}
           draggable={false}
-          style={{
-            display:       'block',
-            width:         '100%',
-            height:        'auto',
-            aspectRatio:   '16/10',
-            objectFit:     'cover',
-            pointerEvents: 'none',
-            userSelect:    'none',
-            transition:    'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)',
-          }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.03)' }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
+          className="
+            w-full h-full object-cover select-none pointer-events-none
+            transition-transform duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
+            hover:scale-[1.03]
+          "
         />
       </div>
 
       {/* Content */}
-      <div
-        style={{
-          padding:       'clamp(1.2rem,2.5vw,2rem)',
-          display:       'flex',
-          flexDirection: 'column',
-          gap:           '0.75rem',
-          flex:          1,
-        }}
-      >
+      <div className="flex flex-col gap-3 w-full flex-1 pt-2">
         {/* Title */}
-        <h2
-          style={{
-            fontFamily:    GILDA,
-            fontWeight:    400,
-            fontSize:      'clamp(1.3rem,2.2vw,2rem)',
-            letterSpacing: '-0.01em',
-            lineHeight:    1.1,
-            color:         '#1A1815',
-            margin:        0,
-          }}
-        >
+        <h2 className="font-gilda font-normal text-[clamp(1.3rem,2.2vw,2rem)] tracking-[-0.01em] leading-[1.1] text-[#1A1815] m-0">
           {project.title}
         </h2>
 
-        {/* Research description as subtitle */}
-        <p
-          style={{
-            fontFamily: POPPINS,
-            fontWeight: 300,
-            fontSize:   'clamp(0.82rem,0.9vw,0.9rem)',
-            lineHeight: 1.75,
-            color:      'rgba(26,24,21,0.55)',
-            margin:     0,
-          }}
-        >
+        {/* Description */}
+        <p className="font-poppins font-light text-[clamp(0.82rem,0.9vw,0.9rem)] leading-[1.75] text-[rgba(26,24,21,0.55)] m-0">
           {project.sections.research.description}
         </p>
 
         {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.25rem' }}>
+        <div className="flex flex-wrap gap-1.5 mt-1">
           {project.tags.map(tag => (
             <span
               key={tag}
-              style={{
-                fontFamily:    POPPINS,
-                fontWeight:    300,
-                fontSize:      '0.6rem',
-                letterSpacing: '0.08em',
-                color:         'rgba(26,24,21,0.5)',
-                border:        '0.5px solid rgba(26,24,21,0.2)',
-                padding:       '0.22rem 0.65rem',
-                borderRadius:  '100px',
-              }}
+              className="
+                font-poppins font-light text-[0.6rem] tracking-[0.08em]
+                text-[rgba(26,24,21,0.5)] border border-[rgba(26,24,21,0.2)]
+                px-[0.65rem] py-[0.22rem] rounded-full
+              "
             >
               {tag}
             </span>
