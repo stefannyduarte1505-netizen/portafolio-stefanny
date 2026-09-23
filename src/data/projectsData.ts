@@ -95,7 +95,7 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/sole/persona-1.webp",
+            avatar: "/projects/sole/research-1.png",
             description:
               "Un padre de familia práctico y detallista que comparte su hogar con su esposa, sus hijos y un familiar mayor. Un usuario omnicanal que investiga meticulosamente cada precio y especificación técnica en internet antes de visitar la tienda, asegurando una compra inteligente y duradera que simplifique el día a día de los suyos.",
             quote:
@@ -103,7 +103,7 @@ export const projectsData: Project[] = [
           },
           {
             title: "User persona 2",
-            avatar: "/projects/sole/persona-2.webp",
+            avatar: "/projects/sole/research-2.png",
             description:
               "Una profesional con un estilo de vida sofisticado y altas expectativas estéticas, apasionada por las tendencias globales de interiorismo y gastronomía. Quiere que su cocina deje de ser un espacio meramente funcional para convertirse en un ritual social e inmersivo.",
             quote:
@@ -140,7 +140,7 @@ export const projectsData: Project[] = [
         title: "Digital Product Experience",
         description: "Catálogo virtual interactivo con journeys diferenciados para Sole y S•Collection.",
         variant: "double",
-        images: ["/projects/sole/digital-1-a.webp", "/projects/sole/digital-1-b.webp"],
+        images: ["/projects/sole/digital-1.png", "/projects/sole/digital-2.png"],
       },
       {
         type: "section-header",
@@ -181,13 +181,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/root/persona-1.webp",
+            avatar: "/projects/root/research-1.png",
             description: "Ex traductora buscando reconversión profesional rápida frente al avance de la IA.",
             quote: "Necesito aprender habilidades relevantes sin perder meses en contenido irrelevante.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/root/persona-2.webp",
+            avatar: "/projects/root/research-2.png",
             description: "Diseñadora UX en activo que necesita mantenerse al día con estándares globales.",
             quote: "Quiero una ruta estructurada que se adapte a mi agenda real, no cursos extensos que termino abandonando.",
           },
@@ -206,7 +206,7 @@ export const projectsData: Project[] = [
         title: "Jardín de Conocimiento",
         description: "Plataforma interactiva para autogestión del aprendizaje adaptativo.",
         variant: "desktop",
-        images: ["/projects/root/desktop-1.webp"],
+        images: ["/projects/root/digital-1.png"],
       },
     ],
   },
@@ -238,13 +238,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/kuna/persona-1.webp",
+            avatar: "/projects/kuna/research-1.png",
             description: "Comprador local de alta gama que busca piezas exclusivas con significado cultural y durabilidad.",
             quote: "Valoro el origen del producto y la maestría artesanal detrás de cada fibra.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/kuna/persona-2.webp",
+            avatar: "/projects/kuna/research-2.png",
             description: "Turista o viajero internacional sofisticado que desea llevarse una experiencia textil auténtica e inolvidable.",
             quote: "Busco una conexión directa con la tradición andina explicada desde una sofisticación contemporánea.",
           },
@@ -263,7 +263,7 @@ export const projectsData: Project[] = [
         title: "Digital In-Store Touchpoints",
         description: "Servicios digitales integrados en tienda para fidelización y cuidado de prendas.",
         variant: "single",
-        images: ["/projects/kuna/digital-1-a.webp"],
+        images: ["/projects/kuna/digital-1.png"],
       },
       {
         type: "section-header",
@@ -305,13 +305,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "Executive Buyer",
-            avatar: "/projects/modulor/persona-1.webp",
+            avatar: "/projects/modulor/research-1.png",
             description: "Directores corporativos buscando innovación espacial y estrategia omnicanal para su empresa.",
             quote: "Necesito un socio estratégico capaz de ejecutar proyectos complejos con rigor.",
           },
           {
             title: "Talento Creativo",
-            avatar: "/projects/modulor/persona-2.webp",
+            avatar: "/projects/modulor/research-2.png",
             description: "Diseñadores y consultores de alto nivel buscando sumarse a una firma vanguardista.",
             quote: "Busco trabajar en proyectos con verdadero impacto y pensamiento de diseño global.",
           },
@@ -330,7 +330,7 @@ export const projectsData: Project[] = [
         title: "Plataforma Web Modulor",
         description: "Rediseño completo de la experiencia web y sistema de conversión.",
         variant: "desktop",
-        images: ["/projects/modulor/desktop-1.webp"],
+        images: ["/projects/modulor/digital-1.png"],
       },
     ],
   },
@@ -364,13 +364,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/scollection/persona-1.webp",
+            avatar: "/projects/s-collection/research-1.png",
             description: "Consumidor exigente enfocado en electrodomésticos de alta gama con estética arquitectónica.",
             quote: "Busco piezas donde la tecnología sea invisible y el diseño sea el verdadero protagonista.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/scollection/persona-2.webp",
+            avatar: "/projects/s-collection/research-2.png",
             description: "Arquitectos e interioristas buscando especificar productos premium en sus proyectos residenciales.",
             quote: "Necesito marcas que eleven el valor visual de los espacios que creo para mis clientes.",
           },
@@ -389,7 +389,7 @@ export const projectsData: Project[] = [
         title: "SCo° App & Brand System",
         description: "Formatos inmersivos y componentes del sistema visual de lujo.",
         variant: "double",
-        images: ["/projects/scollection/digital-1-a.webp", "/projects/scollection/digital-1-b.webp"],
+        images: ["/projects/s-collection/digital-1.png", "/projects/s-collection/digital-2.png"],
       },
     ],
   },
