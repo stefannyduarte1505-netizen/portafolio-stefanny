@@ -340,7 +340,7 @@ export const projectsData: Project[] = [
     title: "S•Collection",
     description:
       "S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness.",
-    coverImage: "/projects/s-collection/cover.webp",
+    coverImage: "/projects/scollection/cover.webp",
     tags: ["Luxury Retail", "Brand Guidelines", "Art Direction", "Design Systems"],
     meta: [
       { label: "Cliente:", value: "S•Collection, luxury retail · GrupoModulor · 2024" },
@@ -364,13 +364,13 @@ export const projectsData: Project[] = [
         items: [
           {
             title: "User persona 1",
-            avatar: "/projects/s-collection/persona-1.webp",
+            avatar: "/projects/scollection/persona-1.webp",
             description: "Consumidor exigente enfocado en electrodomésticos de alta gama con estética arquitectónica.",
             quote: "Busco piezas donde la tecnología sea invisible y el diseño sea el verdadero protagonista.",
           },
           {
             title: "User persona 2",
-            avatar: "/projects/s-collection/persona-2.webp",
+            avatar: "/projects/scollection/persona-2.webp",
             description: "Arquitectos e interioristas buscando especificar productos premium en sus proyectos residenciales.",
             quote: "Necesito marcas que eleven el valor visual de los espacios que creo para mis clientes.",
           },
@@ -389,7 +389,7 @@ export const projectsData: Project[] = [
         title: "SCo° App & Brand System",
         description: "Formatos inmersivos y componentes del sistema visual de lujo.",
         variant: "double",
-        images: ["/projects/s-collection/digital-1-a.webp", "/projects/s-collection/digital-1-b.webp"],
+        images: ["/projects/scollection/digital-1-a.webp", "/projects/scollection/digital-1-b.webp"],
       },
     ],
   },
