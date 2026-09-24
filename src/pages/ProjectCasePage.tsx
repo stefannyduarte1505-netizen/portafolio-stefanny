@@ -80,8 +80,10 @@ function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   )
 }
 
-/* DigitalProductCard — texto arriba, mockup exportado abajo */
+/* DigitalProductCard — texto arriba, mockup(s) exportados abajo */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
+  const hasDouble = Array.isArray(product.images) && product.images.length === 2
+
   return (
     <div className="
       relative w-full overflow-hidden
@@ -100,15 +102,35 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
         )}
       </div>
 
-      {/* Bottom — mockup image (frame already baked into the exported PNG) */}
-      <div className="mt-6 relative flex justify-center items-end overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.title}
-          draggable={false}
-          className="w-full max-w-[340px] h-auto object-contain translate-y-2 select-none pointer-events-none"
-        />
-      </div>
+      {/* Bottom — mockup(s) */}
+      {hasDouble ? (
+        /* Two overlapping phones */
+        <div className="mt-6 relative h-[220px] overflow-hidden">
+          <img
+            src={product.images![0]}
+            alt={`${product.title} A`}
+            draggable={false}
+            className="absolute bottom-0 left-[5%] w-[52%] max-w-[190px] h-auto object-contain translate-y-2 select-none pointer-events-none"
+          />
+          <img
+            src={product.images![1]}
+            alt={`${product.title} B`}
+            draggable={false}
+            className="absolute bottom-0 right-[5%] w-[52%] max-w-[190px] h-auto object-contain translate-y-2 select-none pointer-events-none"
+            style={{ zIndex: 10 }}
+          />
+        </div>
+      ) : (
+        /* Single centered image */
+        <div className="mt-6 relative flex justify-center items-end overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.title}
+            draggable={false}
+            className="w-full max-w-[340px] h-auto object-contain translate-y-2 select-none pointer-events-none"
+          />
+        </div>
+      )}
     </div>
   )
 }

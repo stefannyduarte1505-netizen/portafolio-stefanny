@@ -17,7 +17,7 @@ export interface DigitalProduct {
   title: string;
   description?: string;
   image: string;
-  frame?: 'laptop' | 'phone'; // default: 'phone'
+  images?: [string, string]; // 2-screen layout: overlapping phones
 }
 
 export interface GalleryItem {
@@ -139,10 +139,10 @@ export const projectsData: Project[] = [
         description:
           "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados: el de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
         products: [
-          { title: "Catálogo Técnico Sole", description: "Especificaciones, ahorro y beneficios técnicos para el comprador práctico.", image: "/projects/sole/digital-1.png" },
-          { title: "Explorador S•Collection", description: "Visualización aumentada: combina materiales, colores y texturas antes de decidir.", image: "/projects/sole/digital-2.png" },
-          { title: "Comparador de Modelos", description: "Comparación técnica lado a lado para decisiones confiadas en tienda.", image: "/projects/sole/digital-3.png" },
-          { title: "Activación QR", description: "Código QR por producto activa flujos específicos y habilita datos de conversión.", image: "/projects/sole/digital-4.png" },
+          { title: "Catálogo Técnico Sole", description: "Especificaciones, ahorro y beneficios técnicos para el comprador práctico.", image: "/projects/sole/digital-1.webp" },
+          { title: "Explorador S•Collection", description: "Visualización aumentada: combina materiales, colores y texturas antes de decidir.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
+          { title: "Comparador de Modelos", description: "Comparación técnica lado a lado para decisiones confiadas en tienda.", image: "/projects/sole/digital-3-a.webp", images: ["/projects/sole/digital-3-a.webp", "/projects/sole/digital-3-b.webp"] },
+          { title: "Activación QR", description: "Código QR por producto activa flujos específicos y habilita datos de conversión.", image: "/projects/sole/digital-4.webp" },
         ],
       },
       spatialBranding: {
@@ -206,10 +206,10 @@ export const projectsData: Project[] = [
         description:
           "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona. El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
         products: [
-          { title: "Dashboard de Aprendizaje", description: "Vista general del progreso, cursos activos y racha de estudio diario.", image: "/projects/root/digital-1.png" },
-          { title: "Mapa de Conocimiento", description: "Jardín visual donde cada lección crece a tu propio ritmo.", image: "/projects/root/digital-2.png" },
-          { title: "Generador de Rutas", description: "IA genera un camino de aprendizaje personalizado en segundos.", image: "/projects/root/digital-3.png" },
-          { title: "Progreso & Logros", description: "Hitos desbloqueados, rachas y feedback sin presión ni juicio.", image: "/projects/root/digital-4.png" },
+          { title: "Dashboard de Aprendizaje", description: "Vista general del progreso, cursos activos y racha de estudio diario.", image: "/projects/root/digital-1.webp" },
+          { title: "Mapa de Conocimiento", description: "Jardín visual donde cada lección crece a tu propio ritmo.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
+          { title: "Generador de Rutas", description: "IA genera un camino de aprendizaje personalizado en segundos.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
+          { title: "Progreso & Logros", description: "Hitos desbloqueados, rachas y feedback sin presión ni juicio.", image: "/projects/root/digital-4.webp" },
         ],
       },
     },
@@ -266,10 +266,10 @@ export const projectsData: Project[] = [
         description:
           "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física. El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
         products: [
-          { title: "Lifestyle Club", description: "Membresía exclusiva: la lealtad se convierte en acceso a espacios y beneficios privados.", image: "/projects/kuna/digital-1.png" },
-          { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2.png" },
-          { title: "Express KUNA Service", description: "Visibilidad para técnicas ancestrales y artistas peruanos contemporáneos.", image: "/projects/kuna/digital-3.png" },
-          { title: "Garment Care", description: "La compra es el comienzo de una relación, no el final de una.", image: "/projects/kuna/digital-4.png" },
+          { title: "Lifestyle Club", description: "Membresía exclusiva: la lealtad se convierte en acceso a espacios y beneficios privados.", image: "/projects/kuna/digital-1.webp" },
+          { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
+          { title: "Express KUNA Service", description: "Visibilidad para técnicas ancestrales y artistas peruanos contemporáneos.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
+          { title: "Garment Care", description: "La compra es el comienzo de una relación, no el final de una.", image: "/projects/kuna/digital-4.webp" },
         ],
       },
       spatialBranding: {
@@ -327,10 +327,10 @@ export const projectsData: Project[] = [
         description:
           "La estrategia digital opera a través de dos capas de conversión: el canal de Insights construye una audiencia calificada de tomadores de decisión mediante contenido y captura de newsletter, mientras que el flujo de contacto dirige a cada audiencia hacia el servicio correcto (Arquitectura de Oficinas, Phygital o Business) antes de que se realice una sola llamada. El rebranding usa un morado intenso que distingue a Modulor del estético gris corporativo de las consultoras regionales. Junto a un logotipo geométrico limpio, el sistema posiciona a Modulor como algo distinto a las firmas con las que compite.",
         products: [
-          { title: "Web Principal", description: "Posicionamiento de marca: quiénes somos, qué hacemos y para quién.", image: "/projects/modulor/digital-1.png" },
-          { title: "Portal de Insights", description: "Canal de contenido que construye audiencia calificada de tomadores de decisión.", image: "/projects/modulor/digital-2.png" },
-          { title: "Contacto por Servicio", description: "Flujo de contacto que dirige a cada audiencia hacia el servicio correcto antes de una llamada.", image: "/projects/modulor/digital-3.png" },
-          { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.png" },
+          { title: "Web Principal", description: "Posicionamiento de marca: quiénes somos, qué hacemos y para quién.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
+          { title: "Portal de Insights", description: "Canal de contenido que construye audiencia calificada de tomadores de decisión.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
+          { title: "Contacto por Servicio", description: "Flujo de contacto que dirige a cada audiencia hacia el servicio correcto antes de una llamada.", image: "/projects/modulor/digital-3.webp" },
+          { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.webp" },
         ],
       },
     },
