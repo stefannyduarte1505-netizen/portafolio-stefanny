@@ -11,7 +11,6 @@ function PersonaCard({ item }: { item: Person }) {
   return (
     <article className="
       w-full rounded-[32px] p-8 md:p-10 bg-[#F4F5F4]
-      shadow-[0px_4px_27.7px_rgba(0,0,0,0.21)]
       min-h-[600px] flex flex-col gap-6
     ">
       {/* Header: avatar + name / role */}
@@ -52,23 +51,16 @@ function PersonaCard({ item }: { item: Person }) {
 function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   return (
     <article className="
-      w-full
-      pt-8 pr-8 pb-8 pl-8
-      rounded-[16px] bg-[#F4F5F4]
-      flex flex-col items-start gap-3
+      w-full rounded-[32px] p-8 md:p-10 bg-[#F4F5F4]
+      min-h-[480px] flex flex-col justify-between
     ">
-      {/* Counter */}
-      <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
-        {String(index + 1).padStart(2, '0')}
-      </span>
-
-      {/* Title */}
-      <p className="font-poppins font-semibold text-[0.65rem] tracking-[0.18em] uppercase text-[#9A0809]">
-        {item.title}
+      {/* "Insight N" — Gilda red large */}
+      <p className="font-gilda text-5xl text-[#9E1B22] leading-none">
+        Insight {index + 1}
       </p>
 
-      {/* Body */}
-      <p className="font-poppins font-light text-sm leading-[1.85] text-neutral-500">
+      {/* Body — semibold dark, pushed to bottom */}
+      <p className="font-poppins font-semibold text-xl text-neutral-900 leading-snug">
         {item.text}
       </p>
     </article>
@@ -97,33 +89,32 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-/* DigitalProductCard — estructura vertical Figma: texto arriba, mockup(s) desde abajo */
+/* DigitalProductCard — card fija para el carrusel horizontal */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
 
   return (
     <div className="
-      relative w-full overflow-hidden
+      relative overflow-hidden flex-shrink-0 snap-center
+      w-[85vw] max-w-[600px] h-[520px]
       rounded-[48px] bg-[#F4F5F4]
       flex flex-col justify-between
-      min-h-[750px]
     ">
-      {/* ── Bloque de texto — arriba, full width ── */}
-      <div className="p-12 md:p-16 pb-0">
-        <p className="font-gilda text-3xl font-normal text-neutral-900 leading-tight mb-3">
+      {/* Texto arriba */}
+      <div className="p-10 pb-0">
+        <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight mb-2">
           {product.title}
         </p>
         {product.description && (
-          <p className="font-poppins font-light text-base text-neutral-600 leading-relaxed">
+          <p className="font-poppins font-light text-sm text-neutral-600 leading-relaxed mt-1">
             {product.description}
           </p>
         )}
       </div>
 
-      {/* ── Área de mockup — abajo, nace desde el borde inferior ── */}
+      {/* Mockup(s) desde el borde inferior */}
       {product.desktop ? (
-        /* Desktop: imagen ancha con padding, sin frame de teléfono */
-        <div className="px-12 md:px-16 pb-12 md:pb-16 mt-8">
+        <div className="px-10 pb-10 mt-6">
           <div className="w-full rounded-2xl overflow-hidden border border-black/10 shadow-sm">
             <img
               src={product.image}
@@ -134,19 +125,17 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
           </div>
         </div>
       ) : hasDouble ? (
-        /* Dos iPhones lado a lado, base recortada por el overflow-hidden de la card */
-        <div className="w-full mt-8 flex justify-center items-end gap-3 md:gap-5">
-          <div className="w-[43%] max-w-[200px] translate-y-[20%]">
+        <div className="w-full flex justify-center items-end gap-3">
+          <div className="w-[40%] max-w-[180px] translate-y-[20%]">
             <PhoneMockup src={product.images![0]} alt={`${product.title} A`} />
           </div>
-          <div className="w-[43%] max-w-[200px] translate-y-[12%]">
+          <div className="w-[40%] max-w-[180px] translate-y-[12%]">
             <PhoneMockup src={product.images![1]} alt={`${product.title} B`} />
           </div>
         </div>
       ) : (
-        /* Un iPhone centrado, base recortada por el overflow-hidden de la card */
-        <div className="w-full mt-8 flex justify-center items-end">
-          <div className="w-[58%] max-w-[240px] translate-y-[15%]">
+        <div className="w-full flex justify-center items-end">
+          <div className="w-[52%] max-w-[220px] translate-y-[15%]">
             <PhoneMockup src={product.image} alt={product.title} />
           </div>
         </div>
@@ -157,7 +146,7 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
 
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
       {products.map((p, i) => (
         <DigitalProductCard key={i} product={p} />
       ))}
