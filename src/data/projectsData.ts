@@ -18,6 +18,7 @@ export interface DigitalProduct {
   description?: string;
   image: string;
   images?: [string, string]; // 2-screen layout: overlapping phones
+  desktop?: boolean;         // wide desktop screenshot — skips phone frame
 }
 
 export interface GalleryItem {
@@ -329,8 +330,8 @@ export const projectsData: Project[] = [
         products: [
           { title: "Web Principal", description: "Posicionamiento de marca: quiénes somos, qué hacemos y para quién.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
           { title: "Portal de Insights", description: "Canal de contenido que construye audiencia calificada de tomadores de decisión.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
-          { title: "Contacto por Servicio", description: "Flujo de contacto que dirige a cada audiencia hacia el servicio correcto antes de una llamada.", image: "/projects/modulor/digital-3.webp" },
-          { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.webp" },
+          { title: "Contacto por Servicio", description: "Flujo de contacto que dirige a cada audiencia hacia el servicio correcto antes de una llamada.", image: "/projects/modulor/digital-3.webp", desktop: true },
+          { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.webp", desktop: true },
         ],
       },
     },

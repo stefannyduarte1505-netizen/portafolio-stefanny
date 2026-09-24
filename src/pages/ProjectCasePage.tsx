@@ -80,18 +80,37 @@ function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   )
 }
 
-/* DigitalProductCard — texto arriba, mockup(s) exportados abajo */
+/* iPhone frame wrapper */
+function PhoneMockup({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div
+      className="relative w-full overflow-hidden rounded-[28px] border-[6px] border-black shadow-xl bg-black"
+      style={{ aspectRatio: '9 / 19.5' }}
+    >
+      {/* Notch pill */}
+      <span
+        aria-hidden
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[13px] bg-black rounded-b-2xl z-10"
+      />
+      <img
+        src={src}
+        alt={alt}
+        draggable={false}
+        className="w-full h-full object-cover select-none pointer-events-none"
+      />
+    </div>
+  )
+}
+
+/* DigitalProductCard — texto arriba, mockup(s) con frame de iPhone abajo */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
 
   return (
-    <div className="
-      relative w-full overflow-hidden
-      rounded-[32px] bg-[#F4F5F4]
-      flex flex-col justify-between
-    ">
+    <div className="relative w-full overflow-hidden rounded-[32px] bg-[#F4F5F4] flex flex-col justify-between">
+
       {/* Top — text */}
-      <div className="p-8 pb-0 flex flex-col gap-2">
+      <div className="p-8 pb-4 flex flex-col gap-2">
         <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight">
           {product.title}
         </p>
@@ -102,33 +121,44 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
         )}
       </div>
 
-      {/* Bottom — mockup(s) */}
-      {hasDouble ? (
-        /* Two overlapping phones */
-        <div className="mt-6 relative h-[220px] overflow-hidden">
-          <img
-            src={product.images![0]}
-            alt={`${product.title} A`}
-            draggable={false}
-            className="absolute bottom-0 left-[5%] w-[52%] max-w-[190px] h-auto object-contain translate-y-2 select-none pointer-events-none"
-          />
-          <img
-            src={product.images![1]}
-            alt={`${product.title} B`}
-            draggable={false}
-            className="absolute bottom-0 right-[5%] w-[52%] max-w-[190px] h-auto object-contain translate-y-2 select-none pointer-events-none"
-            style={{ zIndex: 10 }}
-          />
+      {/* Bottom — phone frame(s) or desktop image */}
+      {product.desktop ? (
+        /* Desktop screenshot — rounded card, no phone frame */
+        <div className="px-6 pb-6 mt-2">
+          <div className="w-full rounded-xl overflow-hidden border border-black/10 shadow-sm">
+            <img
+              src={product.image}
+              alt={product.title}
+              draggable={false}
+              className="w-full h-auto object-contain select-none pointer-events-none"
+            />
+          </div>
+        </div>
+      ) : hasDouble ? (
+        /* Two iPhones, peek from the bottom */
+        <div className="relative h-[240px]">
+          <div
+            className="absolute bottom-0 left-[6%] w-[46%] max-w-[165px]"
+            style={{ transform: 'translateY(24%)' }}
+          >
+            <PhoneMockup src={product.images![0]} alt={`${product.title} A`} />
+          </div>
+          <div
+            className="absolute bottom-0 right-[6%] w-[46%] max-w-[165px]"
+            style={{ transform: 'translateY(14%)', zIndex: 10 }}
+          >
+            <PhoneMockup src={product.images![1]} alt={`${product.title} B`} />
+          </div>
         </div>
       ) : (
-        /* Single centered image */
-        <div className="mt-6 relative flex justify-center items-end overflow-hidden">
-          <img
-            src={product.image}
-            alt={product.title}
-            draggable={false}
-            className="w-full max-w-[340px] h-auto object-contain translate-y-2 select-none pointer-events-none"
-          />
+        /* Single iPhone, centered, peeks from the bottom */
+        <div className="relative h-[240px]">
+          <div
+            className="absolute bottom-0 left-1/2 w-[52%] max-w-[190px]"
+            style={{ transform: 'translateX(-50%) translateY(16%)' }}
+          >
+            <PhoneMockup src={product.image} alt={product.title} />
+          </div>
         </div>
       )}
     </div>
