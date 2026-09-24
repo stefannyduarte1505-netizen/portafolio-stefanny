@@ -158,13 +158,7 @@ export default function WorkPage() {
             No projects found for this category.
           </p>
         ) : (
-          <div
-            style={{
-              display:             'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 420px), 1fr))',
-              gap:                 'clamp(1.5rem,3vw,2.5rem)',
-            }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {filtered.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
