@@ -80,31 +80,53 @@ function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   )
 }
 
-/* DigitalProductCard — phone frame per Figma spec */
+/* DigitalProductCard — card con texto arriba + mockup phone al fondo */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   return (
-    <div className="flex flex-col items-start gap-4 w-full">
-      <div className="
-        w-full aspect-[3/5]
-        rounded-[32px] bg-[#D9D9D9]
-        overflow-hidden flex items-center justify-center
-      ">
-        <img
-          src={product.image}
-          alt={product.title}
-          draggable={false}
-          className="w-full h-full object-cover select-none pointer-events-none"
-        />
-      </div>
-      <div className="px-2">
-        <p className="font-poppins font-medium text-[0.65rem] tracking-widest uppercase text-neutral-800 mb-1">
+    <div
+      className="relative w-full overflow-hidden rounded-[32px] bg-[#F4F5F4] flex flex-col"
+      style={{ minHeight: '540px' }}
+    >
+      {/* Text — top */}
+      <div className="relative z-10 p-8 pb-0 flex flex-col gap-1">
+        <p className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-neutral-400">
           {product.title}
         </p>
         {product.description && (
-          <p className="font-poppins font-light text-xs text-neutral-400 leading-relaxed">
+          <p className="font-poppins font-light text-sm text-neutral-500 leading-relaxed max-w-[240px]">
             {product.description}
           </p>
         )}
+      </div>
+
+      {/* Phone shell — positioned at bottom-center, bleeds below card */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2"
+        style={{ width: '240px' }}
+      >
+        {/* Bezel ring */}
+        <div
+          className="relative w-full overflow-hidden bg-[#1A1815]"
+          style={{ aspectRatio: '9/19.5', borderRadius: '36px', padding: '10px' }}
+        >
+          {/* Notch bar */}
+          <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-1"
+            style={{ width: '90px', height: '26px', background: '#1A1815', borderRadius: '0 0 18px 18px' }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-neutral-700" />
+            <div className="w-3 h-3 rounded-full bg-neutral-800" />
+          </div>
+
+          {/* Screen */}
+          <div className="w-full h-full overflow-hidden" style={{ borderRadius: '28px' }}>
+            <img
+              src={product.image}
+              alt={product.title}
+              draggable={false}
+              className="w-full h-full object-cover object-top select-none pointer-events-none"
+            />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -133,11 +155,20 @@ function LaptopFrame({ src, title }: { src: string; title: string }) {
 }
 
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
-  /* detect laptop by filename: desktop-*.webp → laptop frame */
-  const isDesktop = products.length === 1 && products[0].image.includes('desktop')
-
-  if (isDesktop) {
+  /* single laptop → full-width laptop frame */
+  if (products.length === 1 && products[0].frame === 'laptop') {
     return <LaptopFrame src={products[0].image} title={products[0].title} />
+  }
+
+  /* single phone → centered, max half-width */
+  if (products.length === 1) {
+    return (
+      <div className="flex justify-center">
+        <div className="w-full max-w-[480px]">
+          <DigitalProductCard product={products[0]} />
+        </div>
+      </div>
+    )
   }
 
   return (

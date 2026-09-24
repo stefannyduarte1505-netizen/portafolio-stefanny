@@ -17,6 +17,7 @@ export interface DigitalProduct {
   title: string;
   description?: string;
   image: string;
+  frame?: 'laptop' | 'phone'; // default: 'phone'
 }
 
 export interface GalleryItem {
@@ -138,8 +139,8 @@ export const projectsData: Project[] = [
         description:
           "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados: el de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
         products: [
-          { title: "Catálogo Técnico Sole", image: "/projects/sole/digital-1-a.webp" },
-          { title: "Explorador S•Collection", image: "/projects/sole/digital-1-b.webp" },
+          { title: "Catálogo Técnico Sole", image: "/projects/sole/digital-1.png", frame: "phone" },
+          { title: "Explorador S•Collection", image: "/projects/sole/digital-2.png", frame: "phone" },
         ],
       },
       spatialBranding: {
@@ -147,7 +148,11 @@ export const projectsData: Project[] = [
         title: "Spatial Branding & Signage",
         description:
           "Durante la auditoría, identifiqué que el azul corporativo de Sole no tenía presencia estratégica en el espacio físico. Lo reposicioné como una decisión de diseño deliberada: visible, elegante y consistente en todos los puntos de contacto. S•Collection sostiene su propio territorio visual a través de grises y negros. El sistema de storytelling se complementó con códigos QR que activan flujos específicos por producto, habilitando trazabilidad de conversión y datos propios para decisiones de colocación más inteligentes. El sistema iconográfico fue diseñado para ser visualmente distinto entre ambas marcas, comunicando elegancia a través del minimalismo y la jerarquía de información.",
-        gallery: [{ image: "/projects/sole/desktop-1.webp" }],
+        gallery: [
+          { image: "/projects/sole/spatial-1.png" },
+          { image: "/projects/sole/spatial-2.png" },
+          { image: "/projects/sole/spatial-3.png" },
+        ],
       },
     },
   },
@@ -198,7 +203,7 @@ export const projectsData: Project[] = [
         title: "Digital Strategy",
         description:
           "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona. El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
-        products: [{ title: "Dashboard de Aprendizaje", image: "/projects/root/desktop-1.webp" }],
+        products: [{ title: "Dashboard de Aprendizaje", image: "/projects/root/digital-1.png", frame: "laptop" }],
       },
     },
   },
@@ -253,7 +258,7 @@ export const projectsData: Project[] = [
         title: "Digital Strategy",
         description:
           "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física. El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
-        products: [{ title: "Lifestyle Club & Care App", image: "/projects/kuna/digital-1-a.webp" }],
+        products: [{ title: "Lifestyle Club & Care App", image: "/projects/kuna/digital-1.png", frame: "phone" }],
       },
       spatialBranding: {
         sectionNumber: "04",
@@ -309,7 +314,7 @@ export const projectsData: Project[] = [
         title: "Digital Strategy & Brand",
         description:
           "La estrategia digital opera a través de dos capas de conversión: el canal de Insights construye una audiencia calificada de tomadores de decisión mediante contenido y captura de newsletter, mientras que el flujo de contacto dirige a cada audiencia hacia el servicio correcto (Arquitectura de Oficinas, Phygital o Business) antes de que se realice una sola llamada. El rebranding usa un morado intenso que distingue a Modulor del estético gris corporativo de las consultoras regionales. Junto a un logotipo geométrico limpio, el sistema posiciona a Modulor como algo distinto a las firmas con las que compite.",
-        products: [{ title: "Ecosistema Digital Modulor", image: "/projects/modulor/desktop-1.webp" }],
+        products: [{ title: "Ecosistema Digital Modulor", image: "/projects/modulor/digital-1.png", frame: "laptop" }],
       },
     },
   },
@@ -360,8 +365,8 @@ export const projectsData: Project[] = [
         description:
           "El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso. La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.",
         products: [
-          { title: "Visual System & App SCo°", image: "/projects/scollection/digital-1-a.webp" },
-          { title: "Mobile Storytelling", image: "/projects/scollection/digital-1-b.webp" },
+          { title: "Visual System & App SCo°", image: "/projects/scollection/digital-1.png", frame: "phone" },
+          { title: "Mobile Storytelling", image: "/projects/scollection/digital-2.png", frame: "phone" },
         ],
       },
     },
