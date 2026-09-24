@@ -10,45 +10,40 @@ import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/proje
 function PersonaCard({ item }: { item: Person }) {
   return (
     <article className="
-      w-full rounded-[32px] p-8 md:p-12 bg-[#F4F5F4]
+      w-full rounded-[32px] p-8 md:p-10 bg-[#F4F5F4]
       shadow-[0px_4px_27.7px_rgba(0,0,0,0.21)]
-      min-h-[600px] flex flex-col justify-between
+      min-h-[600px] flex flex-col gap-6
     ">
-      {/* Top block: header + description */}
-      <div>
-        {/* Header: avatar left, name + role right */}
-        <div className="flex items-center gap-4 mb-6">
-          <img
-            src={item.avatar}
-            alt={item.title ?? item.tag}
-            draggable={false}
-            className="w-20 h-20 rounded-[16px] object-cover shrink-0 select-none pointer-events-none"
-          />
-          <div>
-            {item.title && (
-              <p className="font-poppins font-semibold text-lg leading-tight text-neutral-900">
-                {item.title}
-              </p>
-            )}
-            <p className="font-poppins text-sm text-neutral-500 mt-0.5">
-              {item.tag}
+      {/* Header: avatar + name / role */}
+      <div className="flex items-start gap-5">
+        <img
+          src={item.avatar}
+          alt={item.title ?? item.tag}
+          draggable={false}
+          className="w-28 h-28 rounded-[16px] object-cover shrink-0 select-none pointer-events-none"
+        />
+        <div className="flex flex-col justify-center gap-1 pt-1">
+          {item.title && (
+            <p className="font-poppins font-bold text-xl leading-tight text-neutral-900">
+              {item.title}
             </p>
-          </div>
+          )}
+          <p className="font-poppins font-bold text-xl leading-tight text-neutral-900">
+            {item.tag}
+          </p>
         </div>
-
-        {/* Description */}
-        <p className="font-poppins text-base text-neutral-700 leading-relaxed">
-          {item.description}
-        </p>
       </div>
 
-      {/* Bottom: quote in gilda red */}
+      {/* Description */}
+      <p className="font-poppins text-base text-neutral-700 leading-relaxed">
+        {item.description}
+      </p>
+
+      {/* Quote — large gilda red, no separator */}
       {item.quote && (
-        <blockquote className="mt-8 pt-6 border-t border-black/[0.07]">
-          <p className="font-gilda text-2xl text-[#9E1B22] leading-snug">
-            "{item.quote}"
-          </p>
-        </blockquote>
+        <p className="font-gilda text-[1.75rem] leading-snug text-[#9E1B22] mt-auto">
+          "{item.quote}"
+        </p>
       )}
     </article>
   )
