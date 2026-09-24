@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
       {/* Content */}
       <div className="flex flex-col gap-3 w-full flex-1 pt-2">
         {/* Title */}
-        <h2 className="font-gilda font-normal text-[clamp(1.3rem,2.2vw,2rem)] tracking-[-0.01em] leading-[1.1] text-[#1A1815] m-0">
+        <h2 className="font-poppins font-light text-[clamp(1.3rem,2.2vw,2rem)] leading-[1.1] text-[#1A1815] m-0">
           {project.title}
         </h2>
 

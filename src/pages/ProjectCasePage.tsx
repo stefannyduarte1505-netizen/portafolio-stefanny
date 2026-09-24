@@ -10,18 +10,18 @@ import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/proje
 function PersonaCard({ item }: { item: Person }) {
   return (
     <article className="
-      max-w-[730px] w-full min-h-[984px]
-      pt-[90px] pr-[64px] pb-[83px] pl-[64px]
+      w-full
+      pt-10 pr-10 pb-10 pl-10
       rounded-[16px] border border-[#9A0809] bg-[#F4F5F4]
-      flex flex-col items-start gap-[10px]
+      flex flex-col items-start gap-3
     ">
       {/* Tag */}
-      <span className="font-poppins text-[0.6rem] tracking-[0.18em] uppercase text-[#9A0809] mb-4">
+      <span className="font-poppins text-[0.6rem] tracking-[0.18em] uppercase text-[#9A0809]">
         {item.tag}
       </span>
 
       {/* Avatar */}
-      <div className="w-20 h-20 rounded-full overflow-hidden border border-[#9A0809]/20 mb-6 shrink-0">
+      <div className="w-14 h-14 rounded-full overflow-hidden border border-[#9A0809]/20 shrink-0">
         <img
           src={item.avatar}
           alt={item.title ?? item.tag}
@@ -32,20 +32,20 @@ function PersonaCard({ item }: { item: Person }) {
 
       {/* Name (optional) */}
       {item.title && (
-        <p className="font-gilda text-3xl leading-tight text-neutral-900 mb-4">
+        <p className="font-poppins font-light text-xl leading-tight text-neutral-900">
           {item.title}
         </p>
       )}
 
       {/* Description */}
-      <p className="font-poppins font-light text-base leading-[1.85] text-neutral-500">
+      <p className="font-poppins font-light text-sm leading-[1.85] text-neutral-500">
         {item.description}
       </p>
 
       {/* Quote (optional) */}
       {item.quote && (
-        <blockquote className="mt-auto pt-8 border-t border-[#9A0809]/20 w-full">
-          <p className="font-gilda text-lg leading-relaxed text-[#9A0809] italic">
+        <blockquote className="mt-4 pt-6 border-t border-[#9A0809]/20 w-full">
+          <p className="font-gilda text-base leading-relaxed text-[#9A0809]/60 italic">
             "{item.quote}"
           </p>
         </blockquote>
@@ -57,23 +57,23 @@ function PersonaCard({ item }: { item: Person }) {
 function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   return (
     <article className="
-      max-w-[532px] w-full min-h-[608px]
-      pt-[90px] pr-[64px] pb-[83px] pl-[64px]
+      w-full
+      pt-8 pr-8 pb-8 pl-8
       rounded-[16px] bg-[#F4F5F4]
-      flex flex-col items-start gap-[10px]
+      flex flex-col items-start gap-3
     ">
       {/* Counter */}
-      <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300 mb-6">
+      <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
         {String(index + 1).padStart(2, '0')}
       </span>
 
       {/* Title */}
-      <p className="font-poppins font-semibold text-[0.65rem] tracking-[0.18em] uppercase text-[#9A0809] mb-4">
+      <p className="font-poppins font-semibold text-[0.65rem] tracking-[0.18em] uppercase text-[#9A0809]">
         {item.title}
       </p>
 
       {/* Body */}
-      <p className="font-poppins font-light text-base leading-[1.85] text-neutral-500">
+      <p className="font-poppins font-light text-sm leading-[1.85] text-neutral-500">
         {item.text}
       </p>
     </article>
@@ -85,8 +85,8 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
   return (
     <div className="flex flex-col items-start gap-4 w-full">
       <div className="
-        max-w-[730px] w-full min-h-[984px]
-        rounded-[63px] bg-[#D9D9D9]
+        w-full aspect-[3/5]
+        rounded-[32px] bg-[#D9D9D9]
         overflow-hidden flex items-center justify-center
       ">
         <img
@@ -213,7 +213,7 @@ function Section({
         <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
           {number}
         </span>
-        <h2 className="font-gilda text-4xl md:text-5xl text-neutral-900 leading-tight">
+        <h2 className="font-poppins font-light text-[30px] md:text-[48px] leading-[1] text-neutral-900">
           {title}
         </h2>
         {description && (
@@ -270,7 +270,7 @@ export default function ProjectCasePage() {
 
           {/* Left — title + description + tags */}
           <div className="md:col-span-8 flex flex-col gap-6">
-            <h1 className="font-gilda text-5xl md:text-6xl leading-none text-neutral-900">
+            <h1 className="font-poppins font-light text-[48px] leading-[1] text-neutral-900">
               {project.title}
             </h1>
             <p className="font-poppins font-light text-lg text-neutral-500 leading-relaxed max-w-2xl">
