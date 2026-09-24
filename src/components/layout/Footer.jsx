@@ -103,8 +103,10 @@ export default function Footer() {
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
           minHeight: isMobile ? 'auto' : '80vh',
-          padding: isMobile ? '3rem 1.5rem 0' : '5rem 5vw 0',
+          padding: isMobile ? '3rem 1.5rem 0' : `5rem clamp(1.5rem,5vw,8rem) 0`,
           gap: isMobile ? '2.5rem' : '4rem',
+          maxWidth: '1600px',
+          margin: '0 auto',
         }}
       >
         {/* LEFT — info */}
@@ -210,12 +212,14 @@ export default function Footer() {
       <div
         style={{
           borderTop: '0.5px solid rgba(255,255,255,0.12)',
-          padding: isMobile ? '1.5rem' : '1.2rem 5vw',
+          padding: isMobile ? '1.5rem' : `1.2rem clamp(1.5rem,5vw,8rem)`,
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
           gap: isMobile ? '0.4rem' : 0,
           justifyContent: 'space-between',
           alignItems: isMobile ? 'flex-start' : 'center',
+          maxWidth: '1600px',
+          margin: '0 auto',
         }}
       >
         <p style={{ ...LABEL, margin: 0 }}>© 2025 Stefanny Duarte all rights reserved</p>

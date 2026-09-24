@@ -308,11 +308,11 @@ export default function ProjectCasePage() {
   const { research, customerJourney, digitalStrategy, spatialBranding } = project.sections
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen pt-[4.5rem]">
 
       {/* ── 1. Hero image ── */}
-      <div className="w-full px-4 md:px-8 pt-28 pb-12">
-        <div className="max-w-[1598px] mx-auto">
+      <div className="w-full px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 pt-10 pb-12">
+        <div className="max-w-[1600px] mx-auto">
           <div className="w-full aspect-[1598/691] rounded-lg overflow-hidden bg-neutral-100">
             <img
               src={project.heroImage}
@@ -326,7 +326,7 @@ export default function ProjectCasePage() {
       </div>
 
       {/* ── 2. Header & Metadata ── */}
-      <div className="max-w-[1598px] mx-auto px-4 md:px-8 py-12">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
           {/* Left — title + description + tags */}
@@ -376,7 +376,7 @@ export default function ProjectCasePage() {
       </div>
 
       {/* ── 3. Case study sections ── */}
-      <div className="max-w-[1598px] mx-auto px-4 md:px-8 flex flex-col gap-24 pb-32">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 flex flex-col gap-24 pb-32">
 
         {/* 01 Research & Strategy (incluye Customer Journey Map si existe) */}
         {research && (
@@ -468,7 +468,7 @@ export default function ProjectCasePage() {
       </div>
 
       {/* ── Footer strip ── */}
-      <footer className="max-w-[1598px] mx-auto px-4 md:px-8 py-16 border-t border-black/[0.07] flex justify-between items-center flex-wrap gap-4">
+      <footer className="max-w-[1600px] mx-auto px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 py-16 border-t border-black/[0.07] flex justify-between items-center flex-wrap gap-4">
         <p className="font-poppins font-light text-[0.6rem] tracking-[0.18em] uppercase text-neutral-300">
           sduart.com — {project.title}
         </p>

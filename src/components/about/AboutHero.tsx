@@ -1,6 +1,6 @@
 const POPPINS = "'Poppins', sans-serif"
 const GILDA   = "'Gilda Display', serif"
-const PAD     = 'clamp(1.5rem,5vw,5rem)'
+const PAD     = 'clamp(1.5rem,5vw,8rem)'
 
 export default function AboutHero() {
   return (
@@ -9,9 +9,11 @@ export default function AboutHero() {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
         gap: 'clamp(3rem,5vw,5rem)',
-        padding: `clamp(6rem,10vw,8rem) ${PAD} clamp(3rem,5vw,5rem)`,
+        padding: `clamp(3rem,5vw,5rem) ${PAD} clamp(3rem,5vw,5rem)`,
         backgroundColor: '#fff',
         alignItems: 'start',
+        maxWidth: '1600px',
+        margin: '0 auto',
       }}
     >
       {/* LEFT — portrait */}

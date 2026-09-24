@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 
 const POPPINS = "'Poppins', sans-serif"
 const GILDA   = "'Gilda Display', serif"
-const PAD     = 'clamp(1.5rem,5vw,5rem)'
+const PAD     = 'clamp(1.5rem,5vw,8rem)'
 
 interface ExperienceEntry {
   year:    string
@@ -80,6 +80,8 @@ export default function TimelineSection() {
         display: 'flex',
         flexDirection: 'column',
         gap: 'clamp(4rem,6vw,6rem)',
+        maxWidth: '1600px',
+        margin: '0 auto',
       }}
     >
       {/* ── Experience ── */}
