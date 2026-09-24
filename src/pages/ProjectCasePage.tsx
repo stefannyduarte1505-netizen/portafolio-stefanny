@@ -102,30 +102,34 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-/* DigitalProductCard — texto arriba, mockup(s) con frame de iPhone abajo */
+/* DigitalProductCard — estructura vertical Figma: texto arriba, mockup(s) desde abajo */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
 
   return (
-    <div className="relative w-full overflow-hidden rounded-[32px] bg-[#F4F5F4] flex flex-col justify-between">
-
-      {/* Top — text */}
-      <div className="p-8 pb-4 flex flex-col gap-2">
-        <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight">
+    <div className="
+      relative w-full overflow-hidden
+      rounded-[48px] bg-[#F4F5F4]
+      flex flex-col justify-between
+      min-h-[750px]
+    ">
+      {/* ── Bloque de texto — arriba, full width ── */}
+      <div className="p-12 md:p-16 pb-0">
+        <p className="font-gilda text-3xl font-normal text-neutral-900 leading-tight mb-3">
           {product.title}
         </p>
         {product.description && (
-          <p className="font-poppins font-light text-sm text-neutral-600 leading-relaxed">
+          <p className="font-poppins font-light text-base text-neutral-600 leading-relaxed">
             {product.description}
           </p>
         )}
       </div>
 
-      {/* Bottom — phone frame(s) or desktop image */}
+      {/* ── Área de mockup — abajo, nace desde el borde inferior ── */}
       {product.desktop ? (
-        /* Desktop screenshot — rounded card, no phone frame */
-        <div className="px-6 pb-6 mt-2">
-          <div className="w-full rounded-xl overflow-hidden border border-black/10 shadow-sm">
+        /* Desktop: imagen ancha con padding, sin frame de teléfono */
+        <div className="px-12 md:px-16 pb-12 md:pb-16 mt-8">
+          <div className="w-full rounded-2xl overflow-hidden border border-black/10 shadow-sm">
             <img
               src={product.image}
               alt={product.title}
@@ -135,28 +139,19 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
           </div>
         </div>
       ) : hasDouble ? (
-        /* Two iPhones, peek from the bottom */
-        <div className="relative h-[240px]">
-          <div
-            className="absolute bottom-0 left-[6%] w-[46%] max-w-[165px]"
-            style={{ transform: 'translateY(24%)' }}
-          >
+        /* Dos iPhones lado a lado, base recortada por el overflow-hidden de la card */
+        <div className="w-full mt-8 flex justify-center items-end gap-3 md:gap-5">
+          <div className="w-[43%] max-w-[200px] translate-y-[20%]">
             <PhoneMockup src={product.images![0]} alt={`${product.title} A`} />
           </div>
-          <div
-            className="absolute bottom-0 right-[6%] w-[46%] max-w-[165px]"
-            style={{ transform: 'translateY(14%)', zIndex: 10 }}
-          >
+          <div className="w-[43%] max-w-[200px] translate-y-[12%]">
             <PhoneMockup src={product.images![1]} alt={`${product.title} B`} />
           </div>
         </div>
       ) : (
-        /* Single iPhone, centered, peeks from the bottom */
-        <div className="relative h-[240px]">
-          <div
-            className="absolute bottom-0 left-1/2 w-[52%] max-w-[190px]"
-            style={{ transform: 'translateX(-50%) translateY(16%)' }}
-          >
+        /* Un iPhone centrado, base recortada por el overflow-hidden de la card */
+        <div className="w-full mt-8 flex justify-center items-end">
+          <div className="w-[58%] max-w-[240px] translate-y-[15%]">
             <PhoneMockup src={product.image} alt={product.title} />
           </div>
         </div>
