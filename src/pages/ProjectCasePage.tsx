@@ -357,7 +357,7 @@ export default function ProjectCasePage() {
       {/* ── 3. Case study sections ── */}
       <div className="max-w-[1598px] mx-auto px-4 md:px-8 flex flex-col gap-24 pb-32">
 
-        {/* 01 Research & Strategy */}
+        {/* 01 Research & Strategy (incluye Customer Journey Map si existe) */}
         {research && (
           <Section
             number={research.sectionNumber}
@@ -373,7 +373,7 @@ export default function ProjectCasePage() {
               </div>
             )}
 
-            {/* Insights grid (research can have both) */}
+            {/* Insights grid */}
             {research.insights && research.insights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {research.insights.map((ins, i) => (
@@ -381,32 +381,28 @@ export default function ProjectCasePage() {
                 ))}
               </div>
             )}
-          </Section>
-        )}
 
-        {/* 02 Customer Journey Map */}
-        {customerJourney && (
-          <Section
-            number={customerJourney.sectionNumber}
-            title={customerJourney.title}
-            description={customerJourney.subtitle}
-          >
-            {/* Panoramic journey image */}
-            <div className="w-full rounded-lg overflow-hidden bg-neutral-100">
-              <img
-                src={customerJourney.image}
-                alt={customerJourney.title}
-                draggable={false}
-                className="w-full h-auto select-none pointer-events-none"
-              />
-            </div>
-
-            {/* Insights (optional) */}
-            {customerJourney.insights && customerJourney.insights.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {customerJourney.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} />
-                ))}
+            {/* Customer Journey Map — imagen limpia dentro de Research */}
+            {customerJourney && (
+              <div className="flex flex-col gap-4 w-full">
+                {customerJourney.subtitle && (
+                  <p className="font-poppins font-light text-base text-neutral-500 leading-relaxed">
+                    {customerJourney.subtitle}
+                  </p>
+                )}
+                <img
+                  src={customerJourney.image}
+                  alt={customerJourney.title}
+                  draggable={false}
+                  className="w-full h-auto object-contain bg-transparent select-none pointer-events-none"
+                />
+                {customerJourney.insights && customerJourney.insights.length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    {customerJourney.insights.map((ins, i) => (
+                      <InsightCard key={i} item={ins} index={i} />
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </Section>
