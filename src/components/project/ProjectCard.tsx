@@ -10,7 +10,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
     <article
       onClick={() => navigate(`/case/${project.slug}`)}
       className="
-        max-w-[816px] w-full min-h-[806px]
+        max-w-[816px] w-full
         pt-[25px] pr-[24px] pb-[46px] pl-[18px]
         rounded-[8px] bg-[#F4F5F4]
         flex flex-col items-start gap-[10px]
@@ -19,8 +19,8 @@ export default function ProjectCard({ project, index = 0 }: Props) {
         hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)]
       "
     >
-      {/* Cover image */}
-      <div className="w-full overflow-hidden rounded-[6px] bg-neutral-200" style={{ aspectRatio: '16/10' }}>
+      {/* Cover image — crece para llenar el espacio proporcional */}
+      <div className="w-full flex-1 overflow-hidden rounded-[6px] bg-neutral-200 min-h-[240px]">
         <img
           src={project.heroImage}
           alt={project.title}
@@ -36,7 +36,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-3 w-full flex-1 pt-2">
+      <div className="flex flex-col gap-3 w-full pt-2 shrink-0">
         {/* Title */}
         <h2 className="font-poppins font-light text-[clamp(1.3rem,2.2vw,2rem)] leading-[1.1] text-[#1A1815] m-0">
           {project.title}
