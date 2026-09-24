@@ -80,99 +80,42 @@ function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   )
 }
 
-/* DigitalProductCard — card con texto arriba + mockup phone al fondo */
+/* DigitalProductCard — texto arriba, mockup exportado abajo */
 function DigitalProductCard({ product }: { product: DigitalProduct }) {
   return (
-    <div
-      className="relative w-full overflow-hidden rounded-[32px] bg-[#F4F5F4] flex flex-col"
-      style={{ minHeight: '540px' }}
-    >
-      {/* Text — top */}
-      <div className="relative z-10 p-8 pb-0 flex flex-col gap-1">
-        <p className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-neutral-400">
+    <div className="
+      relative w-full overflow-hidden
+      rounded-[32px] bg-[#F4F5F4]
+      flex flex-col justify-between
+    ">
+      {/* Top — text */}
+      <div className="p-8 pb-0 flex flex-col gap-2">
+        <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight">
           {product.title}
         </p>
         {product.description && (
-          <p className="font-poppins font-light text-sm text-neutral-500 leading-relaxed max-w-[240px]">
+          <p className="font-poppins font-light text-sm text-neutral-600 leading-relaxed">
             {product.description}
           </p>
         )}
       </div>
 
-      {/* Phone shell — positioned at bottom-center, bleeds below card */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2"
-        style={{ width: '240px' }}
-      >
-        {/* Bezel ring */}
-        <div
-          className="relative w-full overflow-hidden bg-[#1A1815]"
-          style={{ aspectRatio: '9/19.5', borderRadius: '36px', padding: '10px' }}
-        >
-          {/* Notch bar */}
-          <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-1"
-            style={{ width: '90px', height: '26px', background: '#1A1815', borderRadius: '0 0 18px 18px' }}
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-neutral-700" />
-            <div className="w-3 h-3 rounded-full bg-neutral-800" />
-          </div>
-
-          {/* Screen */}
-          <div className="w-full h-full overflow-hidden" style={{ borderRadius: '28px' }}>
-            <img
-              src={product.image}
-              alt={product.title}
-              draggable={false}
-              className="w-full h-full object-cover object-top select-none pointer-events-none"
-            />
-          </div>
-        </div>
+      {/* Bottom — mockup image (frame already baked into the exported PNG) */}
+      <div className="mt-6 relative flex justify-center items-end overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.title}
+          draggable={false}
+          className="w-full max-w-[340px] h-auto object-contain translate-y-2 select-none pointer-events-none"
+        />
       </div>
-    </div>
-  )
-}
-
-function LaptopFrame({ src, title }: { src: string; title: string }) {
-  return (
-    <div className="relative w-full max-w-[720px] mx-auto">
-      <div className="rounded-t-xl border-[8px] border-b-0 border-neutral-900 bg-neutral-900 overflow-hidden">
-        <div className="flex justify-center py-2 bg-neutral-900">
-          <div className="w-2 h-2 rounded-full bg-neutral-600" />
-        </div>
-        <div className="bg-white">
-          <img
-            src={src}
-            alt={title}
-            draggable={false}
-            className="block w-full h-auto select-none pointer-events-none"
-          />
-        </div>
-      </div>
-      <div className="h-3.5 bg-neutral-800 rounded-b" />
-      <div className="w-[40%] h-2 bg-neutral-900 rounded-b-lg mx-auto" />
     </div>
   )
 }
 
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
-  /* single laptop → full-width laptop frame */
-  if (products.length === 1 && products[0].frame === 'laptop') {
-    return <LaptopFrame src={products[0].image} title={products[0].title} />
-  }
-
-  /* single phone → centered, max half-width */
-  if (products.length === 1) {
-    return (
-      <div className="flex justify-center">
-        <div className="w-full max-w-[480px]">
-          <DigitalProductCard product={products[0]} />
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {products.map((p, i) => (
         <DigitalProductCard key={i} product={p} />
       ))}
