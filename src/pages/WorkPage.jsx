@@ -56,54 +56,17 @@ export default function WorkPage() {
   return (
     <div style={{ backgroundColor: '#fff', minHeight: '100vh', paddingTop: '4.5rem' }}>
 
-      {/* ── Page header ── */}
-      <section
-        style={{
-          padding:      `clamp(3rem,5vw,5rem) ${PAD} clamp(1.5rem,2.5vw,2rem)`,
-          borderBottom: '0.5px solid rgba(26,24,21,0.07)',
-          maxWidth:     '1600px',
-          margin:       '0 auto',
-        }}
-      >
-        <p
-          style={{
-            fontFamily:    POPPINS,
-            fontWeight:    300,
-            fontSize:      '0.6rem',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color:         'rgba(26,24,21,0.35)',
-            margin:        '0 0 0.75rem',
-          }}
-        >
-          Selected work
-        </p>
-        <h1
-          style={{
-            fontFamily:    "'Gilda Display', serif",
-            fontWeight:    400,
-            fontSize:      'clamp(2.2rem,5vw,5rem)',
-            letterSpacing: '-0.02em',
-            lineHeight:    1.0,
-            color:         '#1A1815',
-            margin:        0,
-          }}
-        >
-          Projects
-        </h1>
-      </section>
-
       {/* ── Category filter bar ── */}
       <div
         style={{
-          padding:              `clamp(1rem,1.5vw,1.4rem) ${PAD}`,
-          display:              'flex',
-          alignItems:           'center',
-          gap:                  'clamp(0.5rem,1vw,0.75rem)',
-          flexWrap:             'wrap',
-          borderBottom:         '0.5px solid rgba(26,24,21,0.07)',
-          maxWidth:             '1600px',
-          margin:               '0 auto',
+          padding:      `clamp(1.5rem,2.5vw,2rem) ${PAD}`,
+          display:      'flex',
+          alignItems:   'center',
+          gap:          'clamp(0.5rem,1vw,0.75rem)',
+          flexWrap:     'wrap',
+          borderBottom: '0.5px solid rgba(26,24,21,0.07)',
+          maxWidth:     '1600px',
+          margin:       '0 auto',
         }}
       >
         <span
