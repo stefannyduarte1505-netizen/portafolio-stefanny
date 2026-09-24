@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
@@ -195,34 +195,74 @@ function SpatialGallery({ gallery }: { gallery: GalleryItem[] }) {
   )
 }
 
-/* Section wrapper with ordinal heading */
+/* Accordion section — full-width, toggle on header click */
 function Section({
   number,
   title,
   description,
   children,
+  defaultOpen = true,
 }: {
   number: string
   title: string
   description?: string
   children?: React.ReactNode
+  defaultOpen?: boolean
 }) {
+  const [open, setOpen] = useState(defaultOpen)
+
   return (
-    <section className="flex flex-col gap-8">
-      <div className="flex flex-col gap-3 pb-6 border-b border-black/[0.07]">
-        <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
-          {number}
+    <section className="w-full flex flex-col">
+      {/* ── Header row ── */}
+      <button
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        className="
+          w-full flex items-center justify-between
+          py-6 border-b border-black/[0.07]
+          text-left cursor-pointer bg-transparent
+        "
+      >
+        <div className="flex flex-col gap-1">
+          <span className="font-poppins font-light text-[0.55rem] tracking-[0.2em] uppercase text-neutral-300">
+            {number}
+          </span>
+          <h2 className="font-poppins font-light text-[30px] md:text-[48px] leading-[1] text-neutral-900">
+            {title}
+          </h2>
+        </div>
+
+        {/* Circular toggle button */}
+        <span
+          aria-hidden
+          className="
+            shrink-0 w-10 h-10 rounded-full bg-neutral-200
+            flex items-center justify-center
+            transition-transform duration-300
+          "
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        >
+          {/* Chevron down */}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6L8 11L13 6" stroke="#1A1815" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </span>
-        <h2 className="font-poppins font-light text-[30px] md:text-[48px] leading-[1] text-neutral-900">
-          {title}
-        </h2>
-        {description && (
-          <p className="font-poppins font-light text-base md:text-lg text-neutral-500 leading-relaxed max-w-2xl">
-            {description}
-          </p>
-        )}
+      </button>
+
+      {/* ── Collapsible body ── */}
+      <div
+        className="overflow-hidden transition-all duration-400 ease-in-out"
+        style={{ maxHeight: open ? '9999px' : '0px', opacity: open ? 1 : 0 }}
+      >
+        <div className="flex flex-col gap-8 pt-10 pb-4">
+          {description && (
+            <p className="font-poppins font-light text-base md:text-lg text-neutral-500 leading-relaxed w-full">
+              {description}
+            </p>
+          )}
+          {children}
+        </div>
       </div>
-      {children}
     </section>
   )
 }
