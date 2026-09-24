@@ -10,42 +10,42 @@ import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/proje
 function PersonaCard({ item }: { item: Person }) {
   return (
     <article className="
-      w-full
-      pt-10 pr-10 pb-10 pl-10
-      rounded-[16px] border border-[#9A0809] bg-[#F4F5F4]
-      flex flex-col items-start gap-3
+      w-full rounded-[32px] p-8 md:p-12 bg-[#F4F5F4]
+      shadow-[0px_4px_27.7px_rgba(0,0,0,0.21)]
+      min-h-[600px] flex flex-col justify-between
     ">
-      {/* Tag */}
-      <span className="font-poppins text-[0.6rem] tracking-[0.18em] uppercase text-[#9A0809]">
-        {item.tag}
-      </span>
+      {/* Top block: header + description */}
+      <div>
+        {/* Header: avatar left, name + role right */}
+        <div className="flex items-center gap-4 mb-6">
+          <img
+            src={item.avatar}
+            alt={item.title ?? item.tag}
+            draggable={false}
+            className="w-20 h-20 rounded-[16px] object-cover shrink-0 select-none pointer-events-none"
+          />
+          <div>
+            {item.title && (
+              <p className="font-poppins font-semibold text-lg leading-tight text-neutral-900">
+                {item.title}
+              </p>
+            )}
+            <p className="font-poppins text-sm text-neutral-500 mt-0.5">
+              {item.tag}
+            </p>
+          </div>
+        </div>
 
-      {/* Avatar */}
-      <div className="w-14 h-14 rounded-full overflow-hidden border border-[#9A0809]/20 shrink-0">
-        <img
-          src={item.avatar}
-          alt={item.title ?? item.tag}
-          draggable={false}
-          className="w-full h-full object-cover select-none pointer-events-none"
-        />
+        {/* Description */}
+        <p className="font-poppins text-base text-neutral-700 leading-relaxed">
+          {item.description}
+        </p>
       </div>
 
-      {/* Name (optional) */}
-      {item.title && (
-        <p className="font-poppins font-light text-xl leading-tight text-neutral-900">
-          {item.title}
-        </p>
-      )}
-
-      {/* Description */}
-      <p className="font-poppins font-light text-sm leading-[1.85] text-neutral-500">
-        {item.description}
-      </p>
-
-      {/* Quote (optional) */}
+      {/* Bottom: quote in gilda red */}
       {item.quote && (
-        <blockquote className="mt-4 pt-6 border-t border-[#9A0809]/20 w-full">
-          <p className="font-gilda text-base leading-relaxed text-[#9A0809]/60 italic">
+        <blockquote className="mt-8 pt-6 border-t border-black/[0.07]">
+          <p className="font-gilda text-2xl text-[#9E1B22] leading-snug">
             "{item.quote}"
           </p>
         </blockquote>
