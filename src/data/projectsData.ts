@@ -358,6 +358,70 @@ export const projectsData: Project[] = [
   },
 
   // ─────────────────────────────────────────
+  // DON SALAZAR
+  // ─────────────────────────────────────────
+  {
+    id: "don-salazar",
+    slug: "don-salazar",
+    title: "Café Don Salazar — Phygital Pop-Up Experience",
+    client: "Café Don Salazar, specialty coffee · GrupoModulor · 2024",
+    subtitle: "Phygital Pop-Up Experience",
+    category: ["Service Design", "Spatial Branding"],
+    tags: ["SERVICE DESIGN", "SPATIAL BRANDING", "PRODUCT DESIGN"],
+    meta: {
+      role: "Service Design Lead · pop-up concept, spatial branding, and digital touchpoint design at GrupoModulor.",
+      timeline: "2024",
+      team: "GrupoModulor Design Team.",
+    },
+    description:
+      "Pop-up sensorial y digital para convertir el descubrimiento de café de especialidad en un ritual interactivo para universitarios.",
+    heroImage: "/projects/don-salazar/cover.webp",
+    sections: {
+      research: {
+        sectionNumber: "01",
+        title: "Research & Strategy",
+        description: [
+          "El reto era acercar el café de especialidad a un público universitario que percibe las tostaderías como espacios exclusivos o intimidantes. Realizamos sesiones de observación y entrevistas en campus para entender los rituales de consumo, los momentos de pausa y las barreras de entrada a la categoría.",
+          "El insight central: los universitarios no rechazan el café de especialidad — desconocen su lenguaje. La oportunidad estaba en hacer el descubrimiento accesible, sensorial y con componente digital que extienda la experiencia más allá del espacio físico.",
+        ],
+        personas: [
+          {
+            tag: "USER PERSONA 1",
+            avatar: "/projects/don-salazar/persona-1.webp",
+            description:
+              "Estudiante universitaria de 20 años que consume café diariamente pero nunca ha entrado a una tostadora de especialidad. Busca experiencias auténticas y comparte todo en redes.",
+          },
+          {
+            tag: "USER PERSONA 2",
+            avatar: "/projects/don-salazar/persona-2.webp",
+            description:
+              "Estudiante de posgrado interesado en sostenibilidad y origen de los productos. Valora la trazabilidad y el story detrás de lo que consume.",
+          },
+        ],
+      },
+      customerJourney: {
+        sectionNumber: "02",
+        title: "Customer Journey Map",
+        image: "/projects/don-salazar/customer-journey-current.webp",
+      },
+      digitalStrategy: {
+        sectionNumber: "03",
+        title: "Digital Strategy",
+        description: [
+          "Diseñé cuatro touchpoints digitales que acompañan al visitante desde el descubrimiento hasta la fidelización, transformando la visita al pop-up en el inicio de una relación con la marca.",
+          "Cada pantalla responde a un momento específico del journey: exploración del origen, personalización del pedido, educación sobre el proceso de tueste, y conexión con la comunidad de cafeteros.",
+        ],
+        products: [
+          { title: "Explorador de Origen", description: "Mapa interactivo que conecta cada taza con su región y productor.", image: "/projects/don-salazar/digital-1.webp" },
+          { title: "Personalizador de Pedido", description: "El visitante construye su experiencia eligiendo método, intensidad y notas de cata.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
+          { title: "Guía de Tueste", description: "Contenido educativo que desmitifica el proceso y genera confianza en el producto.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
+          { title: "Comunidad & Fidelización", description: "Registro y rewards que convierten la primera visita en el inicio de una relación.", image: "/projects/don-salazar/digital-4.webp" },
+        ],
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────
   // S•COLLECTION
   // ─────────────────────────────────────────
   {
