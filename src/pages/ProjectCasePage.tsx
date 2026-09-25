@@ -51,16 +51,13 @@ function PersonaCard({ item }: { item: Person }) {
 function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
   return (
     <article className="
-      w-full rounded-[32px] p-8 md:p-10 bg-[#F4F5F4]
-      min-h-[480px] flex flex-col justify-between
+      w-full rounded-[20px] p-6 md:p-8 bg-[#F4F5F4]
+      flex flex-col gap-4 justify-start
     ">
-      {/* "Insight N" — Gilda red large */}
-      <p className="font-gilda text-5xl text-[#9E1B22] leading-none">
+      <p className="font-poppins font-medium text-xl text-[#9E1B22] leading-none">
         Insight {index + 1}
       </p>
-
-      {/* Body — semibold dark, pushed to bottom */}
-      <p className="font-poppins font-semibold text-xl text-neutral-900 leading-snug">
+      <p className="font-poppins font-normal text-base text-neutral-800 leading-relaxed">
         {item.text}
       </p>
     </article>
