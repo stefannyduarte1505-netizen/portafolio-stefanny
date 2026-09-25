@@ -261,9 +261,13 @@ function Section({
       >
         <div className="flex flex-col gap-8 pt-10 pb-4">
           {description && (
-            <p className="font-poppins font-light text-base md:text-lg text-neutral-500 leading-relaxed w-full">
-              {description}
-            </p>
+            <div className="flex flex-col gap-5">
+              {(Array.isArray(description) ? description : description.split('\n\n')).map((p, i) => (
+                <p key={i} className="font-poppins font-light text-base md:text-lg text-neutral-500 leading-relaxed w-full">
+                  {p}
+                </p>
+              ))}
+            </div>
           )}
           {children}
         </div>

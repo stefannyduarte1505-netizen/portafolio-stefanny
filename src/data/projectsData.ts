@@ -30,7 +30,7 @@ export interface ProjectSections {
   research?: {
     sectionNumber: string;
     title: string;
-    description: string;
+    description: string | string[];
     personas?: Person[];
     insights?: Insight[];
   };
@@ -44,14 +44,14 @@ export interface ProjectSections {
   digitalStrategy?: {
     sectionNumber: string;
     title: string;
-    description: string;
+    description: string | string[];
     products?: DigitalProduct[];
     insights?: Insight[];
   };
   spatialBranding?: {
     sectionNumber: string;
     title: string;
-    description: string;
+    description: string | string[];
     gallery?: GalleryItem[];
   };
 }
@@ -99,8 +99,10 @@ export const projectsData: Project[] = [
       research: {
         sectionNumber: "01",
         title: "Research & Strategy",
-        description:
-          "El proyecto comenzó con una sesión de co-creación con stakeholders clave del negocio desde distintas perspectivas. Profundizamos en la investigación del público objetivo para mapear sus principales necesidades y puntos de fricción, usando una metodología de storytelling por escenario-persona para definir los insights conceptualmente. El reto central era claro: dos marcas, Sole y S•Collection, necesitaban coexistir en el mismo espacio físico, cada una con un usuario distinto y necesidades distintas, pero las dos compartiendo la misma ilusión: la cocina de sus sueños.",
+        description: [
+          "El proyecto comenzó con una sesión de co-creación con stakeholders clave del negocio desde distintas perspectivas. Profundizamos en la investigación del público objetivo para mapear sus principales necesidades y puntos de fricción, usando una metodología de storytelling por escenario-persona para definir los insights conceptualmente.",
+          "El reto central era claro: dos marcas, Sole y S•Collection, necesitaban coexistir en el mismo espacio físico, cada una con un usuario distinto y necesidades distintas, pero las dos compartiendo la misma ilusión: la cocina de sus sueños.",
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -137,8 +139,10 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy",
-        description:
-          "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados: el de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
+        description: [
+          "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados.",
+          "El journey de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
+        ],
         products: [
           { title: "Catálogo Técnico Sole", description: "Especificaciones, ahorro y beneficios técnicos para el comprador práctico.", image: "/projects/sole/digital-1.webp" },
           { title: "Explorador S•Collection", description: "Visualización aumentada: combina materiales, colores y texturas antes de decidir.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
@@ -149,8 +153,10 @@ export const projectsData: Project[] = [
       spatialBranding: {
         sectionNumber: "03",
         title: "Spatial Branding & Signage",
-        description:
-          "Durante la auditoría, identifiqué que el azul corporativo de Sole no tenía presencia estratégica en el espacio físico. Lo reposicioné como una decisión de diseño deliberada: visible, elegante y consistente en todos los puntos de contacto. S•Collection sostiene su propio territorio visual a través de grises y negros. El sistema de storytelling se complementó con códigos QR que activan flujos específicos por producto, habilitando trazabilidad de conversión y datos propios para decisiones de colocación más inteligentes. El sistema iconográfico fue diseñado para ser visualmente distinto entre ambas marcas, comunicando elegancia a través del minimalismo y la jerarquía de información.",
+        description: [
+          "Durante la auditoría, identifiqué que el azul corporativo de Sole no tenía presencia estratégica en el espacio físico. Lo reposicioné como una decisión de diseño deliberada: visible, elegante y consistente en todos los puntos de contacto. S•Collection sostiene su propio territorio visual a través de grises y negros.",
+          "El sistema de storytelling se complementó con códigos QR que activan flujos específicos por producto, habilitando trazabilidad de conversión y datos propios para decisiones de colocación más inteligentes. El sistema iconográfico fue diseñado para ser visualmente distinto entre ambas marcas, comunicando elegancia a través del minimalismo y la jerarquía de información.",
+        ],
         gallery: [
           { image: "/projects/sole/spatial-1.png" },
           { image: "/projects/sole/spatial-2.png" },
@@ -184,8 +190,10 @@ export const projectsData: Project[] = [
       research: {
         sectionNumber: "01",
         title: "Research & Strategy",
-        description:
-          "Empezamos mirando quiénes tenían más motivación para aprender y más obstáculos para hacerlo. Los adultos entre 25 y 44 años aparecían siempre: alta disposición, altas barreras. Una ex traductora con miedo de que la IA la hubiera dejado obsoleta. Una diseñadora UX que necesitaba mantenerse actualizada pero no encontraba un curso que encajara con su agenda real. Las dos motivadas. Las dos bloqueadas. El pivote llegó cuando dejamos de preguntar por qué la gente no aprende más y empezamos a preguntar por qué la gente no puede gestionar su propio aprendizaje. Ese solo cambio de enfoque lo transformó todo.",
+        description: [
+          "Empezamos mirando quiénes tenían más motivación para aprender y más obstáculos para hacerlo. Los adultos entre 25 y 44 años aparecían siempre: alta disposición, altas barreras. Una ex traductora con miedo de que la IA la hubiera dejado obsoleta. Una diseñadora UX que necesitaba mantenerse actualizada pero no encontraba un curso que encajara con su agenda real. Las dos motivadas. Las dos bloqueadas.",
+          "El pivote llegó cuando dejamos de preguntar por qué la gente no aprende más y empezamos a preguntar por qué la gente no puede gestionar su propio aprendizaje. Ese solo cambio de enfoque lo transformó todo.",
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -204,8 +212,10 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy",
-        description:
-          "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona. El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
+        description: [
+          "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona.",
+          "El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
+        ],
         products: [
           { title: "Dashboard de Aprendizaje", description: "Vista general del progreso, cursos activos y racha de estudio diario.", image: "/projects/root/digital-1.webp" },
           { title: "Mapa de Conocimiento", description: "Jardín visual donde cada lección crece a tu propio ritmo.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
@@ -239,8 +249,10 @@ export const projectsData: Project[] = [
       research: {
         sectionNumber: "01",
         title: "Research & Strategy",
-        description:
-          "Lideré un proceso de investigación para profundizar en los user personas de KUNA y realicé un análisis de categoría para identificar oportunidades de negocio y posicionamiento estratégico dentro del espacio físico. Workshops de co-creación bajo metodología Design Thinking, combinados con los hallazgos de investigación, dieron forma a la dirección. La experiencia se articuló alrededor de tres pilares estratégicos: exploración, permanencia y fidelización. Un insight clave emergió con claridad: en una experiencia de lujo, la etapa de fidelización es la más crítica. La tecnología y la innovación necesitaban operar como una capa invisible, sin competir nunca con el producto ni con la artesanía.",
+        description: [
+          "Lideré un proceso de investigación para profundizar en los user personas de KUNA y realicé un análisis de categoría para identificar oportunidades de negocio y posicionamiento estratégico dentro del espacio físico. Workshops de co-creación bajo metodología Design Thinking, combinados con los hallazgos de investigación, dieron forma a la dirección.",
+          "La experiencia se articuló alrededor de tres pilares estratégicos: exploración, permanencia y fidelización. Un insight clave emergió con claridad: en una experiencia de lujo, la etapa de fidelización es la más crítica. La tecnología y la innovación necesitaban operar como una capa invisible, sin competir nunca con el producto ni con la artesanía.",
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -264,8 +276,10 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "03",
         title: "Digital Strategy",
-        description:
-          "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física. El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
+        description: [
+          "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física.",
+          "El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
+        ],
         products: [
           { title: "Lifestyle Club", description: "Membresía exclusiva: la lealtad se convierte en acceso a espacios y beneficios privados.", image: "/projects/kuna/digital-1.webp" },
           { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
@@ -276,8 +290,10 @@ export const projectsData: Project[] = [
       spatialBranding: {
         sectionNumber: "04",
         title: "Spatial Branding & Signage",
-        description:
-          "Introduje un sistema de branding espacial construido alrededor del detalle: versiones simplificadas del logo integradas en mobiliario y espejos, un sistema de señalética de estilo editorial, y un uso estratégico del rojo para señalizar momentos de precio especial. Los códigos QR fueron integrados en puntos clave, activando flujos de campaña específicos. La composición en todo el espacio se mantiene deliberadamente limpia: jerarquía sobre decoración, intención sobre saturación.",
+        description: [
+          "Introduje un sistema de branding espacial construido alrededor del detalle: versiones simplificadas del logo integradas en mobiliario y espejos, un sistema de señalética de estilo editorial, y un uso estratégico del rojo para señalizar momentos de precio especial.",
+          "Los códigos QR fueron integrados en puntos clave, activando flujos de campaña específicos. La composición en todo el espacio se mantiene deliberadamente limpia: jerarquía sobre decoración, intención sobre saturación.",
+        ],
       },
     },
   },
@@ -305,8 +321,10 @@ export const projectsData: Project[] = [
       research: {
         sectionNumber: "01",
         title: "Research & Strategy",
-        description:
-          "Modulor necesitaba evolucionar de una consultora local consolidada a una firma de diseño estratégico con posicionamiento global. El reto: traducir 16 años de expertise en una presencia digital capaz de hablar con tres audiencias muy distintas al mismo tiempo, sin perder coherencia. La brecha de posicionamiento de Modulor era narrativa. La firma tenía el expertise; lo que le faltaba era un ecosistema digital capaz de llevar ese expertise a tres audiencias distintas sin perder lo que la hacía singular.",
+        description: [
+          "Modulor necesitaba evolucionar de una consultora local consolidada a una firma de diseño estratégico con posicionamiento global. El reto: traducir 16 años de expertise en una presencia digital capaz de hablar con tres audiencias muy distintas al mismo tiempo, sin perder coherencia.",
+          "La brecha de posicionamiento de Modulor era narrativa. La firma tenía el expertise; lo que le faltaba era un ecosistema digital capaz de llevar ese expertise a tres audiencias distintas sin perder lo que la hacía singular.",
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -325,8 +343,10 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy & Brand",
-        description:
-          "La estrategia digital opera a través de dos capas de conversión: el canal de Insights construye una audiencia calificada de tomadores de decisión mediante contenido y captura de newsletter, mientras que el flujo de contacto dirige a cada audiencia hacia el servicio correcto (Arquitectura de Oficinas, Phygital o Business) antes de que se realice una sola llamada. El rebranding usa un morado intenso que distingue a Modulor del estético gris corporativo de las consultoras regionales. Junto a un logotipo geométrico limpio, el sistema posiciona a Modulor como algo distinto a las firmas con las que compite.",
+        description: [
+          "La estrategia digital opera a través de dos capas de conversión: el canal de Insights construye una audiencia calificada de tomadores de decisión mediante contenido y captura de newsletter, mientras que el flujo de contacto dirige a cada audiencia hacia el servicio correcto (Arquitectura de Oficinas, Phygital o Business) antes de que se realice una sola llamada.",
+          "El rebranding usa un morado intenso que distingue a Modulor del estético gris corporativo de las consultoras regionales. Junto a un logotipo geométrico limpio, el sistema posiciona a Modulor como algo distinto a las firmas con las que compite.",
+        ],
         products: [
           { title: "Web Principal", description: "Posicionamiento de marca: quiénes somos, qué hacemos y para quién.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
           { title: "Portal de Insights", description: "Canal de contenido que construye audiencia calificada de tomadores de decisión.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
@@ -360,8 +380,10 @@ export const projectsData: Project[] = [
       research: {
         sectionNumber: "01",
         title: "Research & Strategy",
-        description:
-          "La estrategia se construyó alrededor de tres ejes: Identidad Visual, Audiencia y Producto, evaluados desde las perspectivas de Experiencia de Marca, Diseño e Innovación. El sistema visual comunica elegancia a través de la contención. La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.",
+        description: [
+          "La estrategia se construyó alrededor de tres ejes: Identidad Visual, Audiencia y Producto, evaluados desde las perspectivas de Experiencia de Marca, Diseño e Innovación. El sistema visual comunica elegancia a través de la contención.",
+          "La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.",
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -380,8 +402,10 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "02",
         title: "Art Direction & Brand",
-        description:
-          "El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso. La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.",
+        description: [
+          "El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero — estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes — para que la consistencia visual no dependiera de decisiones caso por caso.",
+          "La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.",
+        ],
         products: [
           { title: "Sistema Visual SCo°", description: "Botones en cuatro variantes, tipografía Gilroy y componentes con consistencia editorial.", image: "/projects/scollection/digital-1.png" },
           { title: "App SCo° Mobile", description: "Storytelling vertical donde la fotografía vende y la interfaz se aparta.", image: "/projects/scollection/digital-2.png" },
