@@ -88,14 +88,14 @@ function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?
       onMouseLeave={() => setHovered(false)}
     >
       <div>
-        <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-[#9E1B22]">
-          INSIGHT {index + 1} — {item.title}
+        <span className="font-poppins font-light text-neutral-900 text-xs md:text-sm tracking-widest uppercase">
+          Insight {index + 1}
         </span>
-        <h3 className="mt-4 font-poppins font-bold text-2xl md:text-3xl text-neutral-900 leading-snug tracking-tight">
+        <h3 className="mt-2 font-poppins font-light text-2xl md:text-3xl text-neutral-900 leading-[1.15] tracking-tight">
           {item.title}
         </h3>
       </div>
-      <p className="mt-6 font-poppins font-light text-sm md:text-base text-neutral-700 leading-relaxed">
+      <p className="font-poppins font-light text-neutral-700 text-sm md:text-base leading-relaxed">
         {item.text}
       </p>
     </div>
