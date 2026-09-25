@@ -143,9 +143,9 @@ export const projectsData: Project[] = [
           { title: "Activación QR", description: "Código QR por producto activa flujos específicos y habilita datos de conversión.", image: "/projects/sole/digital-4.webp" },
         ],
         insights: [
-          { title: "Insight 1", text: "El comprador práctico de Sole busca certitud técnica inmediata; el cliente de S•Collection busca inspiración y personalización estética." },
-          { title: "Insight 2", text: "Un catálogo digital monolítico genera confusión; segmentar la experiencia según la mentalidad del comprador duplica el engagement." },
-          { title: "Insight 3", text: "La visualización en realidad aumentada reduce la indecisión al permitir probar acabados y texturas en tiempo real antes de la compra." },
+          { title: "Dos perfiles, una decisión", text: "El comprador práctico de Sole busca certitud técnica inmediata; el cliente de S•Collection busca inspiración y personalización estética." },
+          { title: "Segmentación que convierte", text: "Un catálogo digital monolítico genera confusión; segmentar la experiencia según la mentalidad del comprador duplica el engagement." },
+          { title: "Ver para decidir", text: "La visualización en realidad aumentada reduce la indecisión al permitir probar acabados y texturas en tiempo real antes de la compra." },
         ],
       },
       spatialBranding: {
@@ -232,9 +232,9 @@ export const projectsData: Project[] = [
           { title: "Progreso & Logros", description: "Hitos desbloqueados, rachas y feedback sin presión ni juicio.", image: "/projects/root/digital-4.webp" },
         ],
         insights: [
-          { title: "Insight 1", text: "Un sistema visual basado en el crecimiento orgánico (un jardín de conocimiento) transmite calma en lugar de la presión de un checklist." },
-          { title: "Insight 2", text: "El aprendizaje auto-gestionado requiere metas micro-medibles que celebren el avance diario sin generar culpa por pausas." },
-          { title: "Insight 3", text: "El momento 'Aha' ocurre cuando el usuario ve su ruta personalizada generada y siente que la plataforma entiende su contexto real." },
+          { title: "El jardín como metáfora", text: "Un sistema visual basado en el crecimiento orgánico (un jardín de conocimiento) transmite calma en lugar de la presión de un checklist." },
+          { title: "Micro-metas sin culpa", text: "El aprendizaje auto-gestionado requiere metas micro-medibles que celebren el avance diario sin generar culpa por pausas." },
+          { title: "El momento Aha", text: "El momento 'Aha' ocurre cuando el usuario ve su ruta personalizada generada y siente que la plataforma entiende su contexto real." },
         ],
       },
     },
@@ -306,9 +306,9 @@ export const projectsData: Project[] = [
           { title: "Garment Care", description: "Reencuadra la compra como el comienzo de una relación duradera. Permite al usuario recibir instrucciones personalizadas de cuidado y mantenimiento según la fibra textil seleccionada.", image: "/projects/kuna/digital-4.webp" },
         ],
         insights: [
-          { title: "Insight 1", text: "El Lifestyle Club convierte la lealtad en acceso exclusivo, haciendo que el cliente frecuente se sienta co-creador de la marca." },
-          { title: "Insight 2", text: "Artistic Experience KUNA conecta al viajero moderno con el origen de la fibra mediante narrativas digitales inmersivas en punto de venta." },
-          { title: "Insight 3", text: "El servicio Garment Care transforma la compra final en el inicio de un vínculo duradero de cuidado y mantenimiento de la prenda." },
+          { title: "Lealtad como co-creación", text: "El Lifestyle Club convierte la lealtad en acceso exclusivo, haciendo que el cliente frecuente se sienta co-creador de la marca." },
+          { title: "Origen como experiencia", text: "Artistic Experience KUNA conecta al viajero moderno con el origen de la fibra mediante narrativas digitales inmersivas en punto de venta." },
+          { title: "La compra como comienzo", text: "El servicio Garment Care transforma la compra final en el inicio de un vínculo duradero de cuidado y mantenimiento de la prenda." },
         ],
       },
       spatialBranding: {
@@ -385,9 +385,9 @@ export const projectsData: Project[] = [
           { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.webp", desktop: true },
         ],
         insights: [
-          { title: "Insight 1", text: "El canal de Insights califica a la audiencia ejecutiva antes del primer contacto, construyendo autoridad de marca." },
-          { title: "Insight 2", text: "Dirigir el flujo de conversión según el tipo de cliente optimiza las reuniones de negocio y acelera el cierre de propuestas." },
-          { title: "Insight 3", text: "Un sistema de componentes web sólido permite escalar casos de estudio manteniendo consistencia visual sin esfuerzo adicional." },
+          { title: "Contenido que califica", text: "El canal de Insights califica a la audiencia ejecutiva antes del primer contacto, construyendo autoridad de marca." },
+          { title: "Flujo inteligente por perfil", text: "Dirigir el flujo de conversión según el tipo de cliente optimiza las reuniones de negocio y acelera el cierre de propuestas." },
+          { title: "Escalar sin perder rigor", text: "Un sistema de componentes web sólido permite escalar casos de estudio manteniendo consistencia visual sin esfuerzo adicional." },
         ],
       },
     },
@@ -467,9 +467,9 @@ export const projectsData: Project[] = [
           { title: "Comunidad & Fidelización", description: "Registro y rewards que convierten la primera visita en el inicio de una relación.", image: "/projects/don-salazar/digital-4.webp" },
         ],
         insights: [
-          { title: "Insight 1", text: "Un flujo de pedido guiado por perfil de sabor (dulce, ácido, frutal) democratiza la especialidad sin tecnicismos." },
-          { title: "Insight 2", text: "La interacción digital en el pop-up fomenta el aprendizaje exprés y genera contenido compartible en redes sociales." },
-          { title: "Insight 3", text: "Los códigos de recomendación personalizados incentivan la recurrencia entre grupos de compañeros de estudio." },
+          { title: "Especialidad sin barreras", text: "Un flujo de pedido guiado por perfil de sabor (dulce, ácido, frutal) democratiza la especialidad sin tecnicismos." },
+          { title: "Digital que genera viralidad", text: "La interacción digital en el pop-up fomenta el aprendizaje exprés y genera contenido compartible en redes sociales." },
+          { title: "Recurrencia por recomendación", text: "Los códigos de recomendación personalizados incentivan la recurrencia entre grupos de compañeros de estudio." },
         ],
       },
     },
@@ -503,9 +503,9 @@ export const projectsData: Project[] = [
           "La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.",
         ],
         insights: [
-          { title: "Insight 1", text: "El lujo contemporáneo no se comunica sobrecargando el espacio, sino a través de la contención y el rigor en el detalle." },
-          { title: "Insight 2", text: "Conectar emocionalmente con el comprador premium exige tratar la tecnología del hogar como una pieza de arte integrada." },
-          { title: "Insight 3", text: "La fotografía sensorial y la iconografía limpia venden el estilo de vida antes que el electrodoméstico individual." },
+          { title: "Lujo desde la contención", text: "El lujo contemporáneo no se comunica sobrecargando el espacio, sino a través de la contención y el rigor en el detalle." },
+          { title: "Tecnología como arte", text: "Conectar emocionalmente con el comprador premium exige tratar la tecnología del hogar como una pieza de arte integrada." },
+          { title: "Vender el estilo de vida", text: "La fotografía sensorial y la iconografía limpia venden el estilo de vida antes que el electrodoméstico individual." },
         ],
         personas: [
           {
@@ -536,9 +536,9 @@ export const projectsData: Project[] = [
           { title: "Signage Digital", description: "Sistema omnicanal de señalética con QR y contenido activado por producto.", image: "/projects/scollection/digital-4.png" },
         ],
         insights: [
-          { title: "Insight 1", text: "Cada pieza gráfica y componente UI debe mantener estándares de diseño tan refinados como los productos de la marca." },
-          { title: "Insight 2", text: "El formato vertical en la app SCo° favorece la exploración inmersiva y táctil en dispositivos móviles." },
-          { title: "Insight 3", text: "Un sistema de diseño modular de 4 variantes asegura que las campañas de marketing conserven el look & feel de lujo en cualquier canal." },
+          { title: "El sistema refleja la marca", text: "Cada pieza gráfica y componente UI debe mantener estándares de diseño tan refinados como los productos de la marca." },
+          { title: "Vertical para inmersión", text: "El formato vertical en la app SCo° favorece la exploración inmersiva y táctil en dispositivos móviles." },
+          { title: "Modular sin perder lujo", text: "Un sistema de diseño modular de 4 variantes asegura que las campañas de marketing conserven el look & feel de lujo en cualquier canal." },
         ],
       },
     },
