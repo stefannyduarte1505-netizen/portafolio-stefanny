@@ -267,7 +267,7 @@ function Section({
         className="overflow-hidden transition-all duration-400 ease-in-out"
         style={{ maxHeight: open ? '9999px' : '0px', opacity: open ? 1 : 0 }}
       >
-        <div className="flex flex-col gap-8 pt-10 pb-4">
+        <div className="flex flex-col gap-12 md:gap-16 pt-10 pb-4">
           {description && (
             <div className="flex flex-col gap-5">
               {(Array.isArray(description) ? description : description.split('\n\n')).map((p, i) => (
