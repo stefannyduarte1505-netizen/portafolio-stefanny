@@ -295,7 +295,7 @@ export const projectsData: Project[] = [
           { title: "Lifestyle Club", description: "Membresía exclusiva: la lealtad se convierte en acceso a espacios y beneficios privados.", image: "/projects/kuna/digital-1.webp" },
           { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
           { title: "Express KUNA Service", description: "Visibilidad para técnicas ancestrales y artistas peruanos contemporáneos.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
-          { title: "Garment Care", description: "La compra es el comienzo de una relación, no el final de una.", image: "/projects/kuna/digital-4.webp" },
+          { title: "Garment Care", description: "Reencuadra la compra como el comienzo de una relación duradera. Permite al usuario recibir instrucciones personalizadas de cuidado y mantenimiento según la fibra textil seleccionada.", image: "/projects/kuna/digital-4.webp" },
         ],
         insights: [
           { title: "Insight 1", text: "El Lifestyle Club convierte la lealtad en acceso exclusivo, haciendo que el cliente frecuente se sienta co-creador de la marca." },

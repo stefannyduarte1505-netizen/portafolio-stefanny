@@ -100,11 +100,11 @@ function DigitalProductCard({ product, desktop2col = false }: { product: Digital
     `}>
       {/* Texto arriba */}
       <div className="p-10 pb-0">
-        <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight mb-2">
+        <p className="font-poppins font-medium text-xl md:text-2xl text-neutral-900 leading-tight mb-2">
           {product.title}
         </p>
         {product.description && (
-          <p className="font-poppins font-light text-sm text-neutral-600 leading-relaxed mt-1">
+          <p className="font-poppins font-normal text-sm md:text-base text-neutral-600 leading-relaxed mt-1">
             {product.description}
           </p>
         )}
