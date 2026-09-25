@@ -57,17 +57,17 @@ function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: numb
   const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
   const isNeutral = !isColored
   return (
-    <article
-      className={`w-full rounded-[20px] p-6 md:p-8 flex flex-col gap-4 justify-start${isNeutral ? ' border border-neutral-200/60' : ''}`}
+    <div
+      className={`w-full rounded-[24px] p-6 md:p-8 flex flex-col justify-start${isNeutral ? ' border border-neutral-200/60' : ''}`}
       style={{ backgroundColor: cardBg }}
     >
-      <p className="font-poppins font-medium text-xl text-[#9E1B22] leading-none">
+      <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-[#9E1B22]">
         {item.title}
-      </p>
-      <p className="font-poppins font-normal text-base text-neutral-800 leading-relaxed">
+      </span>
+      <p className="mt-3 font-poppins text-neutral-800 text-base md:text-lg leading-relaxed">
         {item.text}
       </p>
-    </article>
+    </div>
   )
 }
 
