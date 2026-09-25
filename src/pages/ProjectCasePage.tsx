@@ -8,61 +8,44 @@ import { getLenis } from '../hooks/useLenis'
    SUB-COMPONENTS — v2 CSS animations
 ══════════════════════════════════════════ */
 
-function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: number; bgColor?: string }) {
-  const isColored = index % 4 === 0 || index % 4 === 3
-  const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
-  const isNeutral = !isColored
-  const [hovered, setHovered] = useState(false)
+function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?: string }) {
+  const hoverBg = bgColor || '#F2F6FF'
   return (
     <article
-      className={`w-full rounded-[32px] p-8 md:p-10 min-h-[600px] flex flex-col gap-6${isNeutral ? ' border border-neutral-200/60' : ''}`}
-      style={{ backgroundColor: cardBg }}
+      className="w-full rounded-[28px] p-8 md:p-10 min-h-[420px] flex flex-col justify-between gap-4 bg-neutral-50 transition-colors duration-300 group/card"
+      style={{ ['--hover-bg' as string]: hoverBg }}
+      onMouseEnter={e => (e.currentTarget.style.backgroundColor = hoverBg)}
+      onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
-      {/* Header: avatar + name / role */}
-      <div
-        className="flex items-start gap-5"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
+      {/* Avatar row with reveal */}
+      <div className="flex items-center gap-4 group/avatar cursor-default">
         <img
           src={item.avatar}
           alt={item.title ?? item.tag}
           draggable={false}
-          className="w-28 h-28 rounded-[16px] object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 ease-out"
-          style={{
-            transform: hovered ? 'scale(1.08)' : 'scale(1)',
-            willChange: 'transform',
-          }}
+          className="w-20 h-20 rounded-full object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 group-hover/avatar:scale-105"
         />
-        <div
-          className="flex flex-col justify-center gap-1 pt-1 transition-transform duration-300 ease-out"
-          style={{
-            transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
-            willChange: 'transform',
-          }}
-        >
+        {/* Name + tag — revealed on avatar hover */}
+        <div className="flex flex-col gap-0.5 opacity-0 -translate-x-2 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0">
           {item.title && (
-            <p className="font-poppins font-bold text-xl leading-tight text-neutral-900">
+            <p className="font-poppins font-medium text-base text-neutral-900 leading-tight">
               {item.title}
             </p>
           )}
-          <p className="font-poppins font-bold text-xl leading-tight text-neutral-900">
+          <p className="font-poppins font-light text-xs text-neutral-600 uppercase tracking-widest">
             {item.tag}
           </p>
         </div>
       </div>
 
       {/* Description */}
-      <p className="font-poppins text-base text-neutral-700 leading-relaxed">
+      <p className="font-poppins font-light text-sm md:text-base text-neutral-700 leading-relaxed">
         {item.description}
       </p>
 
-      {/* Quote — subtle opacity reveal on header hover */}
+      {/* Quote */}
       {item.quote && (
-        <p
-          className="font-gilda text-[1.75rem] leading-snug text-[#9E1B22] mt-auto transition-opacity duration-300"
-          style={{ opacity: hovered ? 1 : 0.72 }}
-        >
+        <p className="font-poppins font-light text-lg md:text-xl text-neutral-500 leading-snug">
           "{item.quote}"
         </p>
       )}
