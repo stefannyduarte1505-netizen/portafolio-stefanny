@@ -1,31 +1,46 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
 import { getLenis } from '../hooks/useLenis'
 
 /* ══════════════════════════════════════════
-   SUB-COMPONENTS
+   SUB-COMPONENTS — v2 CSS animations
 ══════════════════════════════════════════ */
 
 function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: number; bgColor?: string }) {
   const isColored = index % 4 === 0 || index % 4 === 3
   const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
   const isNeutral = !isColored
+  const [hovered, setHovered] = useState(false)
   return (
     <article
       className={`w-full rounded-[32px] p-8 md:p-10 min-h-[600px] flex flex-col gap-6${isNeutral ? ' border border-neutral-200/60' : ''}`}
       style={{ backgroundColor: cardBg }}
     >
       {/* Header: avatar + name / role */}
-      <div className="flex items-start gap-5">
+      <div
+        className="flex items-start gap-5"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <img
           src={item.avatar}
           alt={item.title ?? item.tag}
           draggable={false}
-          className="w-28 h-28 rounded-[16px] object-cover shrink-0 select-none pointer-events-none"
+          className="w-28 h-28 rounded-[16px] object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 ease-out"
+          style={{
+            transform: hovered ? 'scale(1.08)' : 'scale(1)',
+            willChange: 'transform',
+          }}
         />
-        <div className="flex flex-col justify-center gap-1 pt-1">
+        <div
+          className="flex flex-col justify-center gap-1 pt-1 transition-transform duration-300 ease-out"
+          style={{
+            transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
+            willChange: 'transform',
+          }}
+        >
           {item.title && (
             <p className="font-poppins font-bold text-xl leading-tight text-neutral-900">
               {item.title}
@@ -42,9 +57,12 @@ function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: numbe
         {item.description}
       </p>
 
-      {/* Quote — large gilda red, no separator */}
+      {/* Quote — subtle opacity reveal on header hover */}
       {item.quote && (
-        <p className="font-gilda text-[1.75rem] leading-snug text-[#9E1B22] mt-auto">
+        <p
+          className="font-gilda text-[1.75rem] leading-snug text-[#9E1B22] mt-auto transition-opacity duration-300"
+          style={{ opacity: hovered ? 1 : 0.72 }}
+        >
           "{item.quote}"
         </p>
       )}
@@ -100,8 +118,38 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
   const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
   const isNeutral = !isColored
 
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [offset, setOffset] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = cardRef.current?.getBoundingClientRect()
+    if (!rect) return
+    const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2
+    const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2
+    setOffset({ x: nx * 10, y: ny * 7 })
+  }
+  function handleMouseLeave() {
+    setOffset({ x: 0, y: 0 })
+    setIsHovered(false)
+  }
+
+  const mockupStyle = {
+    transform: `translate(${offset.x}px, ${offset.y}px)`,
+    transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.5s ease-out',
+    willChange: 'transform' as const,
+  }
+  const mockupStyleInverse = {
+    transform: `translate(${-offset.x}px, ${offset.y}px)`,
+    transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.5s ease-out',
+    willChange: 'transform' as const,
+  }
+
   return (
     <div
+      ref={cardRef}
+      onMouseMove={(e) => { setIsHovered(true); handleMouseMove(e) }}
+      onMouseLeave={handleMouseLeave}
       className={`
         relative overflow-hidden
         ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[85vw] max-w-[600px]'}
@@ -124,9 +172,9 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
         )}
       </div>
 
-      {/* Mockup(s) desde el borde inferior */}
+      {/* Mockup(s) desde el borde inferior con parallax */}
       {product.desktop ? (
-        <div className="px-10 pb-10 mt-6">
+        <div className="px-10 pb-10 mt-6" style={mockupStyle}>
           <div className="w-full rounded-2xl overflow-hidden border border-black/10 shadow-sm">
             <img
               src={product.image}
@@ -138,16 +186,16 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
         </div>
       ) : hasDouble ? (
         <div className="w-full flex justify-center items-end gap-3">
-          <div className="w-[40%] max-w-[180px] translate-y-[20%]">
+          <div className="w-[40%] max-w-[180px] translate-y-[20%]" style={mockupStyle}>
             <PhoneMockup src={product.images![0]} alt={`${product.title} A`} />
           </div>
-          <div className="w-[40%] max-w-[180px] translate-y-[12%]">
+          <div className="w-[40%] max-w-[180px] translate-y-[12%]" style={mockupStyleInverse}>
             <PhoneMockup src={product.images![1]} alt={`${product.title} B`} />
           </div>
         </div>
       ) : (
         <div className="w-full flex justify-center items-end">
-          <div className="w-[52%] max-w-[220px] translate-y-[15%]">
+          <div className="w-[52%] max-w-[220px] translate-y-[15%]" style={mockupStyle}>
             <PhoneMockup src={product.image} alt={product.title} />
           </div>
         </div>
