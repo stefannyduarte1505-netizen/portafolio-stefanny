@@ -12,7 +12,7 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
   const hoverBg = bgColor || '#F2F6FF'
   return (
     <article
-      className="w-[320px] md:w-[360px] min-h-[500px] flex-shrink-0 rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F4F4F4] transition-colors duration-300 group/avatar"
+      className="w-[320px] md:w-[360px] min-h-[500px] flex-shrink-0 snap-start rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F4F4F4] transition-colors duration-300 group/avatar"
       onMouseEnter={e => (e.currentTarget.style.backgroundColor = hoverBg)}
       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
@@ -455,20 +455,30 @@ export default function ProjectCasePage() {
           >
             {/* Personas scroll */}
             {research.personas && research.personas.length > 0 && (
-              <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
-                {research.personas.map((persona, i) => (
-                  <PersonaCard key={i} item={persona} index={i} bgColor={project.bgColor} />
-                ))}
-              </div>
+              <>
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+                  01. User Personas
+                </h4>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                  {research.personas.map((persona, i) => (
+                    <PersonaCard key={i} item={persona} index={i} bgColor={project.bgColor} />
+                  ))}
+                </div>
+              </>
             )}
 
             {/* Insights scroll */}
             {research.insights && research.insights.length > 0 && (
-              <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
-                {research.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
-                ))}
-              </div>
+              <>
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
+                  02. Strategic Insights
+                </h4>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                  {research.insights.map((ins, i) => (
+                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                  ))}
+                </div>
+              </>
             )}
 
             {/* Customer Journey Map — imagen limpia dentro de Research */}
@@ -511,11 +521,16 @@ export default function ProjectCasePage() {
 
             {/* Insights (optional) */}
             {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
-              <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
-                {digitalStrategy.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
-                ))}
-              </div>
+              <>
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
+                  Strategic Insights
+                </h4>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                  {digitalStrategy.insights.map((ins, i) => (
+                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                  ))}
+                </div>
+              </>
             )}
           </Section>
         )}
