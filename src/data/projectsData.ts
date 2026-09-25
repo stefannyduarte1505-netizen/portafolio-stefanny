@@ -139,10 +139,8 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy",
-        description: [
-          "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados.",
-          "El journey de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
-        ],
+        description:
+          "Diseñé un catálogo virtual con dos experiencias distintas para dos públicos completamente diferentes. Sole y S•Collection coexisten digitalmente pero con journeys diferenciados: el de Sole se centra en especificaciones, ahorro y beneficios técnicos, guiando al comprador práctico hacia una decisión confiada. El de S•Collection se centra en exploración y visualización aumentada, permitiendo al usuario combinar materiales, colores y texturas para imaginar su cocina ideal antes de comprometerse.",
         products: [
           { title: "Catálogo Técnico Sole", description: "Especificaciones, ahorro y beneficios técnicos para el comprador práctico.", image: "/projects/sole/digital-1.webp" },
           { title: "Explorador S•Collection", description: "Visualización aumentada: combina materiales, colores y texturas antes de decidir.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
@@ -197,25 +195,29 @@ export const projectsData: Project[] = [
         personas: [
           {
             tag: "USER PERSONA 1",
+            title: "Carmela, 41",
             avatar: "/projects/root/persona-1.webp",
             description:
-              "Ex traductora adaptándose a la era digital, buscando reskilling acelerado sin perder la confianza.",
+              "Traductora desplazada por la IA. Abrumada por las opciones y paralizada por el miedo a elegir mal. El problema no es encontrar contenido, sino confiar en el camino.",
+            quote:
+              "Hay tantas opciones que no sé por dónde empezar, y me da miedo perder el tiempo en el camino equivocado.",
           },
           {
             tag: "USER PERSONA 2",
+            title: "Fiorella, 30",
             avatar: "/projects/root/persona-2.webp",
             description:
-              "Diseñadora UX en activo que necesita actualizarse constantemente pero lidia con agendas impredecibles.",
+              "Diseñadora UX que necesita eficiencia ante todo. La mayoría de plataformas son demasiado genéricas para adaptarse a sus necesidades específicas y su tiempo limitado.",
+            quote:
+              "Tengo muy poco tiempo y la mayoría de plataformas no están diseñadas para lo que realmente necesito.",
           },
         ],
       },
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy",
-        description: [
-          "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona.",
-          "El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
-        ],
+        description:
+          "ROOT está construido alrededor de una sola imagen: un jardín de conocimiento donde las lecciones crecen a tu propio ritmo y nada se fuerza. Cada decisión de diseño volvía a tres cosas: motivación (sin presión, solo progreso), organización (un camino claro, no un campo abierto), y entretenimiento, porque el aprendizaje que se siente como deberes se abandona. El momento que nos dijo que funcionaba: los usuarios veían su ruta generada por primera vez y decían 'esto tiene sentido para mí.' Ese era el momento Aha alrededor del cual diseñamos todo.",
         products: [
           { title: "Dashboard de Aprendizaje", description: "Vista general del progreso, cursos activos y racha de estudio diario.", image: "/projects/root/digital-1.webp" },
           { title: "Mapa de Conocimiento", description: "Jardín visual donde cada lección crece a tu propio ritmo.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
@@ -276,10 +278,8 @@ export const projectsData: Project[] = [
       digitalStrategy: {
         sectionNumber: "03",
         title: "Digital Strategy",
-        description: [
-          "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física.",
-          "El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
-        ],
+        description:
+          "Diseñé cuatro experiencias digitales para responder a objetivos de negocio específicos y generar engagement en cada touchpoint dentro de la tienda física. El Lifestyle Club convierte la lealtad en acceso, recompensando a los clientes que regresan con espacios y beneficios genuinamente exclusivos. Artistic Experience KUNA conecta la artesanía ancestral con la inmediatez del viajero moderno. Express KUNA Service da visibilidad nacional e internacional a técnicas ancestrales y artistas peruanos contemporáneos. Y Garment Care reencuadra la compra como el comienzo de una relación, no como el final de una.",
         products: [
           { title: "Lifestyle Club", description: "Membresía exclusiva: la lealtad se convierte en acceso a espacios y beneficios privados.", image: "/projects/kuna/digital-1.webp" },
           { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
@@ -327,16 +327,16 @@ export const projectsData: Project[] = [
         ],
         personas: [
           {
-            tag: "USER PERSONA 1",
+            tag: "Retailers",
             avatar: "/projects/modulor/persona-1.webp",
             description:
-              "Directores de Innovación y Real Estate buscando transformar espacios corporativos.",
+              "Busca estandarizar tiendas, escalar con rapidez y ver resultados visibles. Se mueve a través de LinkedIn, eventos del sector y medios especializados, motivado por el posicionamiento competitivo.",
           },
           {
-            tag: "USER PERSONA 2",
+            tag: "Corporativos",
             avatar: "/projects/modulor/persona-2.webp",
             description:
-              "Líderes de Retail y CX interesados en soluciones Phygital de escala.",
+              "Enfocado en calidad, innovación y modernización de imagen de marca. Valora el contenido humano y la transformación cultural, pero navega entre burocracia interna y una gestión de proveedores compleja.",
           },
         ],
       },
@@ -364,12 +364,12 @@ export const projectsData: Project[] = [
     id: "don-salazar",
     slug: "don-salazar",
     title: "Café Don Salazar — Phygital Pop-Up Experience",
-    client: "Café Don Salazar, specialty coffee · GrupoModulor · 2024",
+    client: "Café Don Salazar · GrupoModulor · 2024",
     subtitle: "Phygital Pop-Up Experience",
     category: ["Service Design", "Spatial Branding"],
     tags: ["SERVICE DESIGN", "SPATIAL BRANDING", "PRODUCT DESIGN"],
     meta: {
-      role: "Service Design Lead · pop-up concept, spatial branding, and digital touchpoint design at GrupoModulor.",
+      role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",
       team: "GrupoModulor Design Team.",
     },
@@ -381,21 +381,27 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Research & Strategy",
         description: [
-          "El reto era acercar el café de especialidad a un público universitario que percibe las tostaderías como espacios exclusivos o intimidantes. Realizamos sesiones de observación y entrevistas en campus para entender los rituales de consumo, los momentos de pausa y las barreras de entrada a la categoría.",
-          "El insight central: los universitarios no rechazan el café de especialidad — desconocen su lenguaje. La oportunidad estaba en hacer el descubrimiento accesible, sensorial y con componente digital que extienda la experiencia más allá del espacio físico.",
+          "El reto era transformar la compra habitual e irreflexiva de café en el centro comercial en un momento de aprendizaje activo e interactivo para jóvenes universitarios.",
+          "Identificamos que la intimidación por no conocer la jerga del café de especialidad bloqueaba la exploración. Diseñamos un flujo sin fricciones que guía al usuario según sus gustos y tiempo disponible.",
         ],
         personas: [
           {
             tag: "USER PERSONA 1",
+            title: "Mateo Reyes, 20",
             avatar: "/projects/don-salazar/persona-1.webp",
             description:
-              "Estudiante universitaria de 20 años que consume café diariamente pero nunca ha entrado a una tostadora de especialidad. Busca experiencias auténticas y comparte todo en redes.",
+              "Estudiante universitario que pasa por el mall a diario. Pide por hábito, no por elección. Curioso por el café de especialidad pero intimidado por no saber qué pedir.",
+            quote:
+              "No sé qué pedir más allá de lo de siempre y no quiero parecer que no sé lo que hago.",
           },
           {
             tag: "USER PERSONA 2",
+            title: "Camila Ortiz, 23",
             avatar: "/projects/don-salazar/persona-2.webp",
             description:
-              "Estudiante de posgrado interesado en sostenibilidad y origen de los productos. Valora la trazabilidad y el story detrás de lo que consume.",
+              "Apasionada del café que sigue cuentas de especialidad y busca activamente nuevas cafeterías. Tiene el conocimiento pero necesita una experiencia rápida de aprender y memorable de vivir.",
+            quote:
+              "Quiero un café que me enseñe algo, no solo que me lo sirvan.",
           },
         ],
       },
@@ -467,7 +473,7 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Art Direction & Brand",
         description: [
-          "El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero — estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes — para que la consistencia visual no dependiera de decisiones caso por caso.",
+          "El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso.",
           "La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.",
         ],
         products: [
