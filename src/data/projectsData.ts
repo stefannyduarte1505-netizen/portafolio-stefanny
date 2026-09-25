@@ -122,18 +122,9 @@ export const projectsData: Project[] = [
           },
         ],
         insights: [
-          {
-            title: "Insight 1",
-            text: "La promesa central de Sole no se traduce en el entorno. La tienda comunica volumen de producto, no significado de marca.",
-          },
-          {
-            title: "Insight 2",
-            text: "Sole y S•Collection coexisten sin diferenciación visual ni experiencial, diluyendo el valor percibido de ambas líneas.",
-          },
-          {
-            title: "Insight 3",
-            text: "En los momentos de mayor carga cognitiva, al comparar modelos e imaginar los acabados en su propio hogar, los usuarios se quedan sin apoyo, aumentando la fricción en el punto de conversión.",
-          },
+          { title: "Insight 1", text: "La promesa central de Sole no se traduce en el entorno. La tienda comunica volumen de producto, no significado de marca." },
+          { title: "Insight 2", text: "Sole y S•Collection coexisten sin diferenciación visual ni experiencial, diluyendo el valor percibido de ambas líneas." },
+          { title: "Insight 3", text: "En los momentos de mayor carga cognitiva, al comparar modelos e imaginar acabados, los usuarios se quedan sin apoyo, aumentando la fricción en el punto de conversión." },
         ],
       },
       digitalStrategy: {
@@ -146,6 +137,11 @@ export const projectsData: Project[] = [
           { title: "Explorador S•Collection", description: "Visualización aumentada: combina materiales, colores y texturas antes de decidir.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
           { title: "Comparador de Modelos", description: "Comparación técnica lado a lado para decisiones confiadas en tienda.", image: "/projects/sole/digital-3-a.webp", images: ["/projects/sole/digital-3-a.webp", "/projects/sole/digital-3-b.webp"] },
           { title: "Activación QR", description: "Código QR por producto activa flujos específicos y habilita datos de conversión.", image: "/projects/sole/digital-4.webp" },
+        ],
+        insights: [
+          { title: "Insight 1", text: "El comprador práctico de Sole busca certitud técnica inmediata; el cliente de S•Collection busca inspiración y personalización estética." },
+          { title: "Insight 2", text: "Un catálogo digital monolítico genera confusión; segmentar la experiencia según la mentalidad del comprador duplica el engagement." },
+          { title: "Insight 3", text: "La visualización en realidad aumentada reduce la indecisión al permitir probar acabados y texturas en tiempo real antes de la compra." },
         ],
       },
       spatialBranding: {
@@ -192,6 +188,11 @@ export const projectsData: Project[] = [
           "Empezamos mirando quiénes tenían más motivación para aprender y más obstáculos para hacerlo. Los adultos entre 25 y 44 años aparecían siempre: alta disposición, altas barreras. Una ex traductora con miedo de que la IA la hubiera dejado obsoleta. Una diseñadora UX que necesitaba mantenerse actualizada pero no encontraba un curso que encajara con su agenda real. Las dos motivadas. Las dos bloqueadas.",
           "El pivote llegó cuando dejamos de preguntar por qué la gente no aprende más y empezamos a preguntar por qué la gente no puede gestionar su propio aprendizaje. Ese solo cambio de enfoque lo transformó todo.",
         ],
+        insights: [
+          { title: "Insight 1", text: "El principal obstáculo para el aprendizaje en adultos no es la falta de tiempo o contenido, sino la parálisis por exceso de opciones." },
+          { title: "Insight 2", text: "La ansiedad por elegir el camino equivocado bloquea la acción antes de que comience el proceso de estudio." },
+          { title: "Insight 3", text: "Preguntar 'por qué no gestionamos el aprendizaje' en lugar de 'por qué no estudiamos más' revela que el control del progreso es el verdadero motor de la motivación." },
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -224,6 +225,11 @@ export const projectsData: Project[] = [
           { title: "Generador de Rutas", description: "IA genera un camino de aprendizaje personalizado en segundos.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
           { title: "Progreso & Logros", description: "Hitos desbloqueados, rachas y feedback sin presión ni juicio.", image: "/projects/root/digital-4.webp" },
         ],
+        insights: [
+          { title: "Insight 1", text: "Un sistema visual basado en el crecimiento orgánico (un jardín de conocimiento) transmite calma en lugar de la presión de un checklist." },
+          { title: "Insight 2", text: "El aprendizaje auto-gestionado requiere metas micro-medibles que celebren el avance diario sin generar culpa por pausas." },
+          { title: "Insight 3", text: "El momento 'Aha' ocurre cuando el usuario ve su ruta personalizada generada y siente que la plataforma entiende su contexto real." },
+        ],
       },
     },
   },
@@ -255,6 +261,11 @@ export const projectsData: Project[] = [
           "Lideré un proceso de investigación para profundizar en los user personas de KUNA y realicé un análisis de categoría para identificar oportunidades de negocio y posicionamiento estratégico dentro del espacio físico. Workshops de co-creación bajo metodología Design Thinking, combinados con los hallazgos de investigación, dieron forma a la dirección.",
           "La experiencia se articuló alrededor de tres pilares estratégicos: exploración, permanencia y fidelización. Un insight clave emergió con claridad: en una experiencia de lujo, la etapa de fidelización es la más crítica. La tecnología y la innovación necesitaban operar como una capa invisible, sin competir nunca con el producto ni con la artesanía.",
         ],
+        insights: [
+          { title: "Insight 1", text: "En el sector de lujo andino, la etapa de fidelización es más crítica que la de captación inicial." },
+          { title: "Insight 2", text: "Las estolas y prendas de alpaca son el activo sensorial más poderoso de la marca, pero necesitan activarse estratégicamente desde el primer touchpoint." },
+          { title: "Insight 3", text: "La tecnología en tienda física debe actuar como un hilo invisible, enriqueciendo el storytelling sin opacar la artesanía ancestral." },
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -285,6 +296,11 @@ export const projectsData: Project[] = [
           { title: "Artistic Experience KUNA", description: "Conecta la artesanía ancestral con la inmediatez del viajero moderno.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
           { title: "Express KUNA Service", description: "Visibilidad para técnicas ancestrales y artistas peruanos contemporáneos.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
           { title: "Garment Care", description: "La compra es el comienzo de una relación, no el final de una.", image: "/projects/kuna/digital-4.webp" },
+        ],
+        insights: [
+          { title: "Insight 1", text: "El Lifestyle Club convierte la lealtad en acceso exclusivo, haciendo que el cliente frecuente se sienta co-creador de la marca." },
+          { title: "Insight 2", text: "Artistic Experience KUNA conecta al viajero moderno con el origen de la fibra mediante narrativas digitales inmersivas en punto de venta." },
+          { title: "Insight 3", text: "El servicio Garment Care transforma la compra final en el inicio de un vínculo duradero de cuidado y mantenimiento de la prenda." },
         ],
       },
       spatialBranding: {
@@ -325,6 +341,11 @@ export const projectsData: Project[] = [
           "Modulor necesitaba evolucionar de una consultora local consolidada a una firma de diseño estratégico con posicionamiento global. El reto: traducir 16 años de expertise en una presencia digital capaz de hablar con tres audiencias muy distintas al mismo tiempo, sin perder coherencia.",
           "La brecha de posicionamiento de Modulor era narrativa. La firma tenía el expertise; lo que le faltaba era un ecosistema digital capaz de llevar ese expertise a tres audiencias distintas sin perder lo que la hacía singular.",
         ],
+        insights: [
+          { title: "Insight 1", text: "Tener 16 años de trayectoria no garantiza posicionamiento si la narrativa digital no refleja el calibre real de los proyectos." },
+          { title: "Insight 2", text: "Comunicar a tres audiencias distintas (Retailers, Corporativos y Negocios) requiere arquitecturas de contenido independientes pero unificadas en tono." },
+          { title: "Insight 3", text: "El sector de consultoría regional está saturado de grises corporativos; romper con un color identitario fuerte genera diferenciación inmediata." },
+        ],
         personas: [
           {
             tag: "Retailers",
@@ -352,6 +373,11 @@ export const projectsData: Project[] = [
           { title: "Portal de Insights", description: "Canal de contenido que construye audiencia calificada de tomadores de decisión.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
           { title: "Contacto por Servicio", description: "Flujo de contacto que dirige a cada audiencia hacia el servicio correcto antes de una llamada.", image: "/projects/modulor/digital-3.webp", desktop: true },
           { title: "Sistema de Identidad", description: "Morado intenso y logotipo geométrico que posicionan a Modulor como firma distinta.", image: "/projects/modulor/digital-4.webp", desktop: true },
+        ],
+        insights: [
+          { title: "Insight 1", text: "El canal de Insights califica a la audiencia ejecutiva antes del primer contacto, construyendo autoridad de marca." },
+          { title: "Insight 2", text: "Dirigir el flujo de conversión según el tipo de cliente optimiza las reuniones de negocio y acelera el cierre de propuestas." },
+          { title: "Insight 3", text: "Un sistema de componentes web sólido permite escalar casos de estudio manteniendo consistencia visual sin esfuerzo adicional." },
         ],
       },
     },
@@ -383,6 +409,11 @@ export const projectsData: Project[] = [
         description: [
           "El reto era transformar la compra habitual e irreflexiva de café en el centro comercial en un momento de aprendizaje activo e interactivo para jóvenes universitarios.",
           "Identificamos que la intimidación por no conocer la jerga del café de especialidad bloqueaba la exploración. Diseñamos un flujo sin fricciones que guía al usuario según sus gustos y tiempo disponible.",
+        ],
+        insights: [
+          { title: "Insight 1", text: "Los estudiantes universitarios quieren probar café de especialidad pero se sienten intimidados por la jerga técnica al pedir." },
+          { title: "Insight 2", text: "La compra por hábito en el centro comercial invisibiliza la calidad del producto si el entorno no propone una interacción diferente." },
+          { title: "Insight 3", text: "Convertir el proceso de selección en un juego sensorial elimina la fricción de 'no saber qué pedir'." },
         ],
         personas: [
           {
@@ -423,6 +454,11 @@ export const projectsData: Project[] = [
           { title: "Guía de Tueste", description: "Contenido educativo que desmitifica el proceso y genera confianza en el producto.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
           { title: "Comunidad & Fidelización", description: "Registro y rewards que convierten la primera visita en el inicio de una relación.", image: "/projects/don-salazar/digital-4.webp" },
         ],
+        insights: [
+          { title: "Insight 1", text: "Un flujo de pedido guiado por perfil de sabor (dulce, ácido, frutal) democratiza la especialidad sin tecnicismos." },
+          { title: "Insight 2", text: "La interacción digital en el pop-up fomenta el aprendizaje exprés y genera contenido compartible en redes sociales." },
+          { title: "Insight 3", text: "Los códigos de recomendación personalizados incentivan la recurrencia entre grupos de compañeros de estudio." },
+        ],
       },
     },
   },
@@ -454,6 +490,11 @@ export const projectsData: Project[] = [
           "La estrategia se construyó alrededor de tres ejes: Identidad Visual, Audiencia y Producto, evaluados desde las perspectivas de Experiencia de Marca, Diseño e Innovación. El sistema visual comunica elegancia a través de la contención.",
           "La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.",
         ],
+        insights: [
+          { title: "Insight 1", text: "El lujo contemporáneo no se comunica sobrecargando el espacio, sino a través de la contención y el rigor en el detalle." },
+          { title: "Insight 2", text: "Conectar emocionalmente con el comprador premium exige tratar la tecnología del hogar como una pieza de arte integrada." },
+          { title: "Insight 3", text: "La fotografía sensorial y la iconografía limpia venden el estilo de vida antes que el electrodoméstico individual." },
+        ],
         personas: [
           {
             tag: "USER PERSONA 1",
@@ -481,6 +522,11 @@ export const projectsData: Project[] = [
           { title: "App SCo° Mobile", description: "Storytelling vertical donde la fotografía vende y la interfaz se aparta.", image: "/projects/scollection/digital-2.png" },
           { title: "Catálogo Premium", description: "Exploración de colecciones con la elegancia de una revista de lujo.", image: "/projects/scollection/digital-3.png" },
           { title: "Signage Digital", description: "Sistema omnicanal de señalética con QR y contenido activado por producto.", image: "/projects/scollection/digital-4.png" },
+        ],
+        insights: [
+          { title: "Insight 1", text: "Cada pieza gráfica y componente UI debe mantener estándares de diseño tan refinados como los productos de la marca." },
+          { title: "Insight 2", text: "El formato vertical en la app SCo° favorece la exploración inmersiva y táctil en dispositivos móviles." },
+          { title: "Insight 3", text: "Un sistema de diseño modular de 4 variantes asegura que las campañas de marketing conserven el look & feel de lujo en cualquier canal." },
         ],
       },
     },
