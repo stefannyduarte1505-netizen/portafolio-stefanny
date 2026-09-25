@@ -64,6 +64,7 @@ export interface Project {
   subtitle: string;
   category: string[];
   tags: string[];
+  bgColor?: string;
   meta: {
     role: string;
     timeline: string;
@@ -87,6 +88,7 @@ export const projectsData: Project[] = [
     subtitle: "Phygital Experience",
     category: ["Service Design", "Phygital Retail", "CX Strategy"],
     tags: ["PHYGITAL RETAIL", "SERVICE DESIGN", "CX STRATEGY"],
+    bgColor: "#E5EEFF",
     meta: {
       role: "Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor.",
       timeline: "2024",
@@ -171,6 +173,7 @@ export const projectsData: Project[] = [
     subtitle: "Self-Management Platform",
     category: ["Digital Product Design", "UX/UI Strategy", "Product Design"],
     tags: ["PRODUCT DESIGN", "EDTECH", "UX RESEARCH"],
+    bgColor: "#F0F5DA",
     meta: {
       role: "UX/UI Designer & Researcher · co-leading research, product strategy, and interface design.",
       timeline: "2026",
@@ -245,6 +248,7 @@ export const projectsData: Project[] = [
     subtitle: "Heritage & Retail Strategy",
     category: ["Service Design", "Spatial Branding", "Phygital Retail"],
     tags: ["LUXURY RETAIL", "SERVICE DESIGN", "SPATIAL BRANDING"],
+    bgColor: "#CEAE8E",
     meta: {
       role: "Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor.",
       timeline: "2024",
@@ -325,6 +329,7 @@ export const projectsData: Project[] = [
     subtitle: "Rebranding & Web Strategy",
     category: ["Brand Strategy", "Digital Product", "Art Direction"],
     tags: ["BRAND STRATEGY", "REBRANDING", "DIGITAL PRODUCT"],
+    bgColor: "#E7E7F7",
     meta: {
       role: "Project Manager & Design Experience Lead · full brand transformation and digital product deployment, from identity system to web platform launch.",
       timeline: "2023",
@@ -394,6 +399,7 @@ export const projectsData: Project[] = [
     subtitle: "Phygital Pop-Up Experience",
     category: ["Service Design", "Spatial Branding"],
     tags: ["SERVICE DESIGN", "SPATIAL BRANDING", "PRODUCT DESIGN"],
+    bgColor: "#D7DFB6",
     meta: {
       role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",

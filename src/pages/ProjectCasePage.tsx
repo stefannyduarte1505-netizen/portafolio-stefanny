@@ -49,12 +49,12 @@ function PersonaCard({ item }: { item: Person }) {
   )
 }
 
-function InsightCard({ item, index = 0 }: { item: Insight; index?: number }) {
+function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: number; bgColor?: string }) {
   return (
-    <article className="
-      w-full rounded-[20px] p-6 md:p-8 bg-[#F4F5F4]
-      flex flex-col gap-4 justify-start
-    ">
+    <article
+      className="w-full rounded-[20px] p-6 md:p-8 flex flex-col gap-4 justify-start"
+      style={{ backgroundColor: bgColor || '#F4F5F4' }}
+    >
       <p className="font-poppins font-medium text-xl text-[#9E1B22] leading-none">
         Insight {index + 1}
       </p>
@@ -88,17 +88,20 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
 }
 
 /* DigitalProductCard — card para carrusel (mobile) o grid 2×2 (desktop) */
-function DigitalProductCard({ product, desktop2col = false }: { product: DigitalProduct; desktop2col?: boolean }) {
+function DigitalProductCard({ product, desktop2col = false, bgColor }: { product: DigitalProduct; desktop2col?: boolean; bgColor?: string }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
 
   return (
-    <div className={`
-      relative overflow-hidden
-      ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[85vw] max-w-[600px]'}
-      h-[520px]
-      rounded-[48px] bg-[#F4F5F4]
-      flex flex-col justify-between
-    `}>
+    <div
+      className={`
+        relative overflow-hidden
+        ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[85vw] max-w-[600px]'}
+        h-[520px]
+        rounded-[48px]
+        flex flex-col justify-between
+      `}
+      style={{ backgroundColor: bgColor || '#F4F5F4' }}
+    >
       {/* Texto arriba */}
       <div className="p-10 pb-0">
         <p className="font-poppins font-medium text-xl md:text-2xl text-neutral-900 leading-tight mb-2">
@@ -143,19 +146,19 @@ function DigitalProductCard({ product, desktop2col = false }: { product: Digital
   )
 }
 
-function DigitalGrid({ products }: { products: DigitalProduct[] }) {
+function DigitalGrid({ products, bgColor }: { products: DigitalProduct[]; bgColor?: string }) {
   return (
     <>
       {/* Mobile: horizontal carousel */}
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
         {products.map((p, i) => (
-          <DigitalProductCard key={i} product={p} />
+          <DigitalProductCard key={i} product={p} bgColor={bgColor} />
         ))}
       </div>
       {/* Desktop: 2×2 grid */}
       <div className="hidden md:grid md:grid-cols-2 gap-6">
         {products.map((p, i) => (
-          <DigitalProductCard key={i} product={p} desktop2col />
+          <DigitalProductCard key={i} product={p} desktop2col bgColor={bgColor} />
         ))}
       </div>
     </>
@@ -401,7 +404,7 @@ export default function ProjectCasePage() {
             {research.insights && research.insights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {research.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} />
+                  <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
                 ))}
               </div>
             )}
@@ -423,7 +426,7 @@ export default function ProjectCasePage() {
                 {customerJourney.insights && customerJourney.insights.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
                     {customerJourney.insights.map((ins, i) => (
-                      <InsightCard key={i} item={ins} index={i} />
+                      <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
                     ))}
                   </div>
                 )}
@@ -441,14 +444,14 @@ export default function ProjectCasePage() {
           >
             {/* Digital product mockups */}
             {digitalStrategy.products && digitalStrategy.products.length > 0 && (
-              <DigitalGrid products={digitalStrategy.products} />
+              <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
             )}
 
             {/* Insights (optional) */}
             {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {digitalStrategy.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} />
+                  <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
                 ))}
               </div>
             )}
