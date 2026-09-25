@@ -89,17 +89,18 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-/* DigitalProductCard — card fija para el carrusel horizontal */
-function DigitalProductCard({ product }: { product: DigitalProduct }) {
+/* DigitalProductCard — card para carrusel (mobile) o grid 2×2 (desktop) */
+function DigitalProductCard({ product, desktop2col = false }: { product: DigitalProduct; desktop2col?: boolean }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
 
   return (
-    <div className="
-      relative overflow-hidden flex-shrink-0 snap-center
-      w-[85vw] max-w-[600px] h-[520px]
+    <div className={`
+      relative overflow-hidden
+      ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[85vw] max-w-[600px]'}
+      h-[520px]
       rounded-[48px] bg-[#F4F5F4]
       flex flex-col justify-between
-    ">
+    `}>
       {/* Texto arriba */}
       <div className="p-10 pb-0">
         <p className="font-gilda text-2xl font-normal text-neutral-900 leading-tight mb-2">
@@ -146,11 +147,20 @@ function DigitalProductCard({ product }: { product: DigitalProduct }) {
 
 function DigitalGrid({ products }: { products: DigitalProduct[] }) {
   return (
-    <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
-      {products.map((p, i) => (
-        <DigitalProductCard key={i} product={p} />
-      ))}
-    </div>
+    <>
+      {/* Mobile: horizontal carousel */}
+      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
+        {products.map((p, i) => (
+          <DigitalProductCard key={i} product={p} />
+        ))}
+      </div>
+      {/* Desktop: 2×2 grid */}
+      <div className="hidden md:grid md:grid-cols-2 gap-6">
+        {products.map((p, i) => (
+          <DigitalProductCard key={i} product={p} desktop2col />
+        ))}
+      </div>
+    </>
   )
 }
 
