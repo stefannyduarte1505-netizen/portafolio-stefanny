@@ -62,7 +62,7 @@ function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: numb
       style={{ backgroundColor: cardBg }}
     >
       <p className="font-poppins font-medium text-xl text-[#9E1B22] leading-none">
-        Insight {index + 1}
+        {item.title}
       </p>
       <p className="font-poppins font-normal text-base text-neutral-800 leading-relaxed">
         {item.text}

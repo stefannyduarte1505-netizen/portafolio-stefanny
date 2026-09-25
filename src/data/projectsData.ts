@@ -124,9 +124,9 @@ export const projectsData: Project[] = [
           },
         ],
         insights: [
-          { title: "Insight 1", text: "La promesa central de Sole no se traduce en el entorno. La tienda comunica volumen de producto, no significado de marca." },
-          { title: "Insight 2", text: "Sole y S•Collection coexisten sin diferenciación visual ni experiencial, diluyendo el valor percibido de ambas líneas." },
-          { title: "Insight 3", text: "En los momentos de mayor carga cognitiva, al comparar modelos e imaginar acabados, los usuarios se quedan sin apoyo, aumentando la fricción en el punto de conversión." },
+          { title: "Fricción de Decisión", text: "En la categoría de electrodomésticos, el usuario no abandona la compra por falta de interés, sino por saturación cognitiva; la sobreexposición física de productos en tienda genera parálisis y dificulta la evaluación de atributos técnicos." },
+          { title: "Comportamiento Omnicanal", text: "El consumidor masivo no utiliza la tienda física como punto inicial de descubrimiento, sino como nodo de validación; investiga previamente en canales digitales y acude al espacio comercial a confirmar texturas, proporciones y niveles de confianza." },
+          { title: "Cierre de Venta", text: "La proyección del producto en el propio espacio del usuario es el principal catalizador de conversión; cuando el cliente no puede visualizar el acabado en su contexto real, el riesgo percibido aumenta y se posterga la decisión." },
         ],
       },
       digitalStrategy: {
@@ -192,9 +192,9 @@ export const projectsData: Project[] = [
           "El pivote llegó cuando dejamos de preguntar por qué la gente no aprende más y empezamos a preguntar por qué la gente no puede gestionar su propio aprendizaje. Ese solo cambio de enfoque lo transformó todo.",
         ],
         insights: [
-          { title: "Insight 1", text: "El principal obstáculo para el aprendizaje en adultos no es la falta de tiempo o contenido, sino la parálisis por exceso de opciones." },
-          { title: "Insight 2", text: "La ansiedad por elegir el camino equivocado bloquea la acción antes de que comience el proceso de estudio." },
-          { title: "Insight 3", text: "Preguntar 'por qué no gestionamos el aprendizaje' en lugar de 'por qué no estudiamos más' revela que el control del progreso es el verdadero motor de la motivación." },
+          { title: "Diferenciación Visual", text: "En mercados saturados por estéticas minimalistas genéricas, abrazar la identidad y la cultura local se convierte en el principal activo de diferenciación y relevancia cultural." },
+          { title: "Conexión Emocional", text: "Las audiencias contemporáneas no conectan con marcas estáticas; buscan propuestas vivas cuya personalidad sea capaz de manifestarse de forma coherente pero flexible en canales físicos, digitales y editoriales." },
+          { title: "Transición Espacial", text: "El punto de contacto con el exterior (la calle) exige una comunicación de alto impacto y tracción rápida, mientras que el espacio interior debe estar diseñado para la permanencia, el confort y la inmersión de marca." },
         ],
         personas: [
           {
@@ -266,9 +266,9 @@ export const projectsData: Project[] = [
           "La experiencia se articuló alrededor de tres pilares estratégicos: exploración, permanencia y fidelización. Un insight clave emergió con claridad: en una experiencia de lujo, la etapa de fidelización es la más crítica. La tecnología y la innovación necesitaban operar como una capa invisible, sin competir nunca con el producto ni con la artesanía.",
         ],
         insights: [
-          { title: "Insight 1", text: "En el sector de lujo andino, la etapa de fidelización es más crítica que la de captación inicial." },
-          { title: "Insight 2", text: "Las estolas y prendas de alpaca son el activo sensorial más poderoso de la marca, pero necesitan activarse estratégicamente desde el primer touchpoint." },
-          { title: "Insight 3", text: "La tecnología en tienda física debe actuar como un hilo invisible, enriqueciendo el storytelling sin opacar la artesanía ancestral." },
+          { title: "Percepción de Valor", text: "El consumidor de lujo moderno no busca únicamente adquirir una prenda de alta calidad, sino conectar con el origen y la herencia artesanal detrás de la materia prima." },
+          { title: "Ritmo de Navegación", text: "El viajero y comprador premium requiere itinerarios espaciales diferenciados: mientras el perfil transaccional valora la agilidad y claridad en el recorrido, el perfil heritage demanda pausas y capas de contenido editorial inmersivo." },
+          { title: "Coherencia de Marca", text: "La promesa de \"lujo consciente\" se fractura si existe desconexión entre la narrativa de comunicación visual y la materialidad del punto de venta; el espacio físico debe actuar como la extensión tangible del relato de marca." },
         ],
         personas: [
           {
@@ -347,9 +347,9 @@ export const projectsData: Project[] = [
           "La brecha de posicionamiento de Modulor era narrativa. La firma tenía el expertise; lo que le faltaba era un ecosistema digital capaz de llevar ese expertise a tres audiencias distintas sin perder lo que la hacía singular.",
         ],
         insights: [
-          { title: "Insight 1", text: "Tener 16 años de trayectoria no garantiza posicionamiento si la narrativa digital no refleja el calibre real de los proyectos." },
-          { title: "Insight 2", text: "Comunicar a tres audiencias distintas (Retailers, Corporativos y Negocios) requiere arquitecturas de contenido independientes pero unificadas en tono." },
-          { title: "Insight 3", text: "El sector de consultoría regional está saturado de grises corporativos; romper con un color identitario fuerte genera diferenciación inmediata." },
+          { title: "Alineación Estratégica", text: "Un rebranding visual carece de impacto en el negocio si no está respaldado por una reestructuración profunda en la arquitectura de información y en la usabilidad de sus plataformas digitales." },
+          { title: "Escalabilidad de Producto", text: "La dispersión de activos de marca en entornos digitales genera inconsistencia y dificulta la adopción por parte de los stakeholders; la unificación en un sistema de diseño dinámico es indispensable para competir globalmente." },
+          { title: "Fricción en la Conversión B2B/B2C", text: "La sofisticación visual debe equilibrarse con la intuición funcional; una interfaz sobrecargada de estética pero débil en jerarquía de información incrementa las tasas de abandono en las etapas clave del funnel." },
         ],
         personas: [
           {
@@ -417,9 +417,9 @@ export const projectsData: Project[] = [
           "Identificamos que la intimidación por no conocer la jerga del café de especialidad bloqueaba la exploración. Diseñamos un flujo sin fricciones que guía al usuario según sus gustos y tiempo disponible.",
         ],
         insights: [
-          { title: "Insight 1", text: "Los estudiantes universitarios quieren probar café de especialidad pero se sienten intimidados por la jerga técnica al pedir." },
-          { title: "Insight 2", text: "La compra por hábito en el centro comercial invisibiliza la calidad del producto si el entorno no propone una interacción diferente." },
-          { title: "Insight 3", text: "Convertir el proceso de selección en un juego sensorial elimina la fricción de 'no saber qué pedir'." },
+          { title: "Educación de Categoría", text: "El consumidor de café especial desea explorar nuevas variedades y métodos de preparación, pero se siente intimidado por el lenguaje técnico y elitista de la especialidad." },
+          { title: "Fidelización por Comunidad", text: "Las interacciones efímeras en un formato pop-up solo generan valor comercial a largo plazo si incluyen mecanismos de participación activa que conviertan la visita en un sentido de pertenencia." },
+          { title: "Diseño Basado en Datos", text: "Las herramientas digitales de autodescubrimiento en el espacio físico no solo mejoran la personalización de la experiencia del usuario, sino que funcionan como un canal de recolección de first-party data para la marca." },
         ],
         personas: [
           {
