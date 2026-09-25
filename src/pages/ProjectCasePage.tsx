@@ -8,12 +8,14 @@ import { getLenis } from '../hooks/useLenis'
    SUB-COMPONENTS
 ══════════════════════════════════════════ */
 
-function PersonaCard({ item }: { item: Person }) {
+function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: number; bgColor?: string }) {
+  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = index % 2 !== 0
   return (
-    <article className="
-      w-full rounded-[32px] p-8 md:p-10 bg-[#F4F5F4]
-      min-h-[600px] flex flex-col gap-6
-    ">
+    <article
+      className={`w-full rounded-[32px] p-8 md:p-10 min-h-[600px] flex flex-col gap-6${isNeutral ? ' border border-neutral-200/60' : ''}`}
+      style={{ backgroundColor: cardBg }}
+    >
       {/* Header: avatar + name / role */}
       <div className="flex items-start gap-5">
         <img
@@ -50,10 +52,12 @@ function PersonaCard({ item }: { item: Person }) {
 }
 
 function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: number; bgColor?: string }) {
+  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = index % 2 !== 0
   return (
     <article
-      className="w-full rounded-[20px] p-6 md:p-8 flex flex-col gap-4 justify-start"
-      style={{ backgroundColor: bgColor || '#F4F5F4' }}
+      className={`w-full rounded-[20px] p-6 md:p-8 flex flex-col gap-4 justify-start${isNeutral ? ' border border-neutral-200/60' : ''}`}
+      style={{ backgroundColor: cardBg }}
     >
       <p className="font-poppins font-medium text-xl text-[#9E1B22] leading-none">
         Insight {index + 1}
@@ -88,8 +92,10 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
 }
 
 /* DigitalProductCard — card para carrusel (mobile) o grid 2×2 (desktop) */
-function DigitalProductCard({ product, desktop2col = false, bgColor }: { product: DigitalProduct; desktop2col?: boolean; bgColor?: string }) {
+function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }: { product: DigitalProduct; desktop2col?: boolean; bgColor?: string; index?: number }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
+  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = index % 2 !== 0
 
   return (
     <div
@@ -99,8 +105,9 @@ function DigitalProductCard({ product, desktop2col = false, bgColor }: { product
         h-[520px]
         rounded-[48px]
         flex flex-col justify-between
+        ${isNeutral ? 'border border-neutral-200/60' : ''}
       `}
-      style={{ backgroundColor: bgColor || '#F4F5F4' }}
+      style={{ backgroundColor: cardBg }}
     >
       {/* Texto arriba */}
       <div className="p-10 pb-0">
@@ -152,13 +159,13 @@ function DigitalGrid({ products, bgColor }: { products: DigitalProduct[]; bgColo
       {/* Mobile: horizontal carousel */}
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
         {products.map((p, i) => (
-          <DigitalProductCard key={i} product={p} bgColor={bgColor} />
+          <DigitalProductCard key={i} product={p} bgColor={bgColor} index={i} />
         ))}
       </div>
       {/* Desktop: 2×2 grid */}
       <div className="hidden md:grid md:grid-cols-2 gap-6">
         {products.map((p, i) => (
-          <DigitalProductCard key={i} product={p} desktop2col bgColor={bgColor} />
+          <DigitalProductCard key={i} product={p} desktop2col bgColor={bgColor} index={i} />
         ))}
       </div>
     </>
@@ -395,7 +402,7 @@ export default function ProjectCasePage() {
             {research.personas && research.personas.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {research.personas.map((persona, i) => (
-                  <PersonaCard key={i} item={persona} />
+                  <PersonaCard key={i} item={persona} index={i} bgColor={project.bgColor} />
                 ))}
               </div>
             )}
