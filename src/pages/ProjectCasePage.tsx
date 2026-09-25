@@ -70,19 +70,17 @@ function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: numbe
   )
 }
 
-function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: number; bgColor?: string }) {
-  const isColored = index % 4 === 0 || index % 4 === 3
-  const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
-  const isNeutral = !isColored
+function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?: number; insightColors?: [string, string, string] }) {
+  const cardBg = insightColors?.[index % 3] ?? '#F4F5F4'
   return (
     <div
-      className={`w-full rounded-[24px] p-6 md:p-8 flex flex-col justify-start${isNeutral ? ' border border-neutral-200/60' : ''}`}
+      className="w-full rounded-[28px] p-8 md:p-10 flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
       style={{ backgroundColor: cardBg }}
     >
-      <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-[#9E1B22]">
+      <h3 className="font-poppins font-bold text-2xl md:text-3xl text-neutral-900 leading-snug tracking-tight">
         {item.title}
-      </span>
-      <p className="mt-3 font-poppins text-neutral-800 text-base md:text-lg leading-relaxed">
+      </h3>
+      <p className="mt-6 font-poppins text-sm md:text-base text-neutral-700 leading-relaxed">
         {item.text}
       </p>
     </div>
@@ -462,7 +460,7 @@ export default function ProjectCasePage() {
             {research.insights && research.insights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {research.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
+                  <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                 ))}
               </div>
             )}
@@ -484,7 +482,7 @@ export default function ProjectCasePage() {
                 {customerJourney.insights && customerJourney.insights.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
                     {customerJourney.insights.map((ins, i) => (
-                      <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
+                      <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                     ))}
                   </div>
                 )}
@@ -509,7 +507,7 @@ export default function ProjectCasePage() {
             {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {digitalStrategy.insights.map((ins, i) => (
-                  <InsightCard key={i} item={ins} index={i} bgColor={project.bgColor} />
+                  <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                 ))}
               </div>
             )}

@@ -65,6 +65,7 @@ export interface Project {
   category: string[];
   tags: string[];
   bgColor?: string;
+  insightColors?: [string, string, string];
   meta: {
     role: string;
     timeline: string;
@@ -89,6 +90,7 @@ export const projectsData: Project[] = [
     category: ["Service Design", "Phygital Retail", "CX Strategy"],
     tags: ["PHYGITAL RETAIL", "SERVICE DESIGN", "CX STRATEGY"],
     bgColor: "#F2F6FF",
+    insightColors: ["#F2F6FF", "#E5EEFF", "#D6E4FF"],
     meta: {
       role: "Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor.",
       timeline: "2024",
@@ -174,6 +176,7 @@ export const projectsData: Project[] = [
     category: ["Digital Product Design", "UX/UI Strategy", "Product Design"],
     tags: ["PRODUCT DESIGN", "EDTECH", "UX RESEARCH"],
     bgColor: "#F8FAF0",
+    insightColors: ["#FCFDF7", "#F8FAF0", "#EEF3D8"],
     meta: {
       role: "UX/UI Designer & Researcher · co-leading research, product strategy, and interface design.",
       timeline: "2026",
@@ -249,6 +252,7 @@ export const projectsData: Project[] = [
     category: ["Service Design", "Spatial Branding", "Phygital Retail"],
     tags: ["LUXURY RETAIL", "SERVICE DESIGN", "SPATIAL BRANDING"],
     bgColor: "#F5EFE9",
+    insightColors: ["#F8F4F0", "#F5EFE9", "#EADFCF"],
     meta: {
       role: "Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor.",
       timeline: "2024",
@@ -330,6 +334,7 @@ export const projectsData: Project[] = [
     category: ["Brand Strategy", "Digital Product", "Art Direction"],
     tags: ["BRAND STRATEGY", "REBRANDING", "DIGITAL PRODUCT"],
     bgColor: "#F3F3FA",
+    insightColors: ["#F8F8FC", "#F3F3FA", "#E7E7F7"],
     meta: {
       role: "Project Manager & Design Experience Lead · full brand transformation and digital product deployment, from identity system to web platform launch.",
       timeline: "2023",
@@ -400,6 +405,7 @@ export const projectsData: Project[] = [
     category: ["Service Design", "Spatial Branding"],
     tags: ["SERVICE DESIGN", "SPATIAL BRANDING", "PRODUCT DESIGN"],
     bgColor: "#F2F5E8",
+    insightColors: ["#F7F9F0", "#F2F5E8", "#E5EBCF"],
     meta: {
       role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",
