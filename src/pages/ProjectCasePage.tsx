@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
+import { getLenis } from '../hooks/useLenis'
 
 /* ══════════════════════════════════════════
    SUB-COMPONENTS
@@ -290,7 +291,14 @@ export default function ProjectCasePage() {
   const { slug } = useParams<{ slug: string }>()
   const project  = projectsData.find(p => p.slug === slug)
 
-  useEffect(() => { window.scrollTo(0, 0) }, [slug])
+  useEffect(() => {
+    const lenis = getLenis()
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [slug])
 
   if (!project) {
     return (
