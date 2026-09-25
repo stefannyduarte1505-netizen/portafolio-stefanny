@@ -9,8 +9,9 @@ import { getLenis } from '../hooks/useLenis'
 ══════════════════════════════════════════ */
 
 function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: number; bgColor?: string }) {
-  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
-  const isNeutral = index % 2 !== 0
+  const isColored = index % 4 === 0 || index % 4 === 3
+  const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = !isColored
   return (
     <article
       className={`w-full rounded-[32px] p-8 md:p-10 min-h-[600px] flex flex-col gap-6${isNeutral ? ' border border-neutral-200/60' : ''}`}
@@ -52,8 +53,9 @@ function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: numbe
 }
 
 function InsightCard({ item, index = 0, bgColor }: { item: Insight; index?: number; bgColor?: string }) {
-  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
-  const isNeutral = index % 2 !== 0
+  const isColored = index % 4 === 0 || index % 4 === 3
+  const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = !isColored
   return (
     <article
       className={`w-full rounded-[20px] p-6 md:p-8 flex flex-col gap-4 justify-start${isNeutral ? ' border border-neutral-200/60' : ''}`}
@@ -94,8 +96,9 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
 /* DigitalProductCard — card para carrusel (mobile) o grid 2×2 (desktop) */
 function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }: { product: DigitalProduct; desktop2col?: boolean; bgColor?: string; index?: number }) {
   const hasDouble = Array.isArray(product.images) && product.images.length === 2
-  const cardBg = index % 2 === 0 ? (bgColor || '#F4F5F4') : '#FAFAFA'
-  const isNeutral = index % 2 !== 0
+  const isColored = index % 4 === 0 || index % 4 === 3
+  const cardBg = isColored ? (bgColor || '#F4F5F4') : '#FAFAFA'
+  const isNeutral = !isColored
 
   return (
     <div
