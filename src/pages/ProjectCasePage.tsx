@@ -70,17 +70,32 @@ function PersonaCard({ item, index = 0, bgColor }: { item: Person; index?: numbe
   )
 }
 
+const INSIGHT_ROTATIONS = [-1.5, 1, 1.5]
+
 function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?: number; insightColors?: [string, string, string] }) {
   const cardBg = insightColors?.[index % 3] ?? '#F4F5F4'
+  const rotation = INSIGHT_ROTATIONS[index % 3]
+  const [hovered, setHovered] = useState(false)
   return (
     <div
-      className="w-full rounded-[28px] p-8 md:p-10 flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
-      style={{ backgroundColor: cardBg }}
+      className="w-[320px] md:w-[360px] min-h-[460px] flex-shrink-0 snap-start rounded-[28px] p-8 md:p-10 flex flex-col justify-between transition-all duration-300 ease-out"
+      style={{
+        backgroundColor: cardBg,
+        transform: hovered ? 'rotate(0deg) translateY(-8px)' : `rotate(${rotation}deg)`,
+        willChange: 'transform',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <h3 className="font-poppins font-bold text-2xl md:text-3xl text-neutral-900 leading-snug tracking-tight">
-        {item.title}
-      </h3>
-      <p className="mt-6 font-poppins text-sm md:text-base text-neutral-700 leading-relaxed">
+      <div>
+        <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-[#9E1B22]">
+          INSIGHT {index + 1} — {item.title}
+        </span>
+        <h3 className="mt-4 font-poppins font-bold text-2xl md:text-3xl text-neutral-900 leading-snug tracking-tight">
+          {item.title}
+        </h3>
+      </div>
+      <p className="mt-6 font-poppins font-light text-sm md:text-base text-neutral-700 leading-relaxed">
         {item.text}
       </p>
     </div>
@@ -456,9 +471,9 @@ export default function ProjectCasePage() {
               </div>
             )}
 
-            {/* Insights grid */}
+            {/* Insights scroll */}
             {research.insights && research.insights.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                 {research.insights.map((ins, i) => (
                   <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                 ))}
@@ -480,7 +495,7 @@ export default function ProjectCasePage() {
                   className="w-full h-auto object-contain bg-transparent select-none pointer-events-none"
                 />
                 {customerJourney.insights && customerJourney.insights.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                  <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 mt-4" style={{ scrollbarWidth: 'none' }}>
                     {customerJourney.insights.map((ins, i) => (
                       <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                     ))}
@@ -505,7 +520,7 @@ export default function ProjectCasePage() {
 
             {/* Insights (optional) */}
             {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                 {digitalStrategy.insights.map((ins, i) => (
                   <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                 ))}
