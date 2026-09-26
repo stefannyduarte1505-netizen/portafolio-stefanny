@@ -12,48 +12,38 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
   const hoverBg = bgColor || '#F2F6FF'
   return (
     <article
-      className="w-[320px] md:w-[360px] min-h-[500px] flex-shrink-0 snap-start rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F4F4F4] transition-colors duration-300 group/avatar"
+      className="w-full md:w-[480px] lg:w-[520px] min-h-[340px] flex-shrink-0 snap-start rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F5F5F5] transition-colors duration-300 group/avatar"
       onMouseEnter={e => (e.currentTarget.style.backgroundColor = hoverBg)}
       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
-      {/* Avatar + curved arrow + name block */}
-      <div className="flex items-start gap-4 relative">
+      {/* Avatar + name row */}
+      <div className="flex items-center gap-4 mb-6">
         <img
           src={item.avatar}
           alt={item.title ?? item.tag}
           draggable={false}
-          className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 group-hover/avatar:scale-105"
+          className="w-16 h-16 rounded-full object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 group-hover/avatar:scale-105"
         />
-        <div className="flex flex-col pt-2 relative">
-          {/* Curved arrow SVG */}
-          <svg
-            className="w-10 h-8 text-neutral-400 absolute -top-4 -left-5 opacity-0 transition-all duration-300 group-hover/avatar:opacity-100 -translate-x-1 group-hover/avatar:translate-x-0"
-            viewBox="0 0 50 40" fill="none" stroke="currentColor" strokeWidth="2"
-          >
-            <path d="M10 5 C 25 5, 35 15, 35 30 M 28 25 L 35 32 L 40 25" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          {/* Name + tag — revealed on hover */}
-          <div className="opacity-0 -translate-x-2 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0">
-            {item.title && (
-              <h4 className="font-poppins font-normal text-lg md:text-xl text-neutral-900 leading-tight">
-                {item.title}
-              </h4>
-            )}
-            <p className="font-poppins font-light text-sm md:text-base text-neutral-600 leading-tight mt-1">
-              {item.tag}
-            </p>
-          </div>
+        <div className="flex flex-col gap-0.5">
+          {item.title && (
+            <h4 className="font-poppins font-normal text-base md:text-lg text-neutral-900 leading-tight">
+              {item.title}
+            </h4>
+          )}
+          <p className="font-poppins font-light text-xs text-neutral-500 uppercase tracking-widest leading-tight">
+            {item.tag}
+          </p>
         </div>
       </div>
 
       {/* Description */}
-      <p className="font-poppins font-light text-sm md:text-base text-neutral-800 leading-relaxed mt-6">
+      <p className="font-poppins font-light text-neutral-800 text-sm md:text-base leading-relaxed">
         {item.description}
       </p>
 
       {/* Quote */}
       {item.quote && (
-        <p className="font-poppins font-light text-xl md:text-2xl text-neutral-500 leading-snug mt-8">
+        <p className="font-poppins font-light text-neutral-500 text-lg md:text-xl leading-snug mt-6">
           "{item.quote}"
         </p>
       )}
@@ -459,7 +449,7 @@ export default function ProjectCasePage() {
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
                   01. User Personas
                 </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {research.personas.map((persona, i) => (
                     <PersonaCard key={i} item={persona} index={i} bgColor={project.bgColor} />
                   ))}
