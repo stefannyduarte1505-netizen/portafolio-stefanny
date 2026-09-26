@@ -66,6 +66,7 @@ export interface Project {
   tags: string[];
   bgColor?: string;
   insightColors?: [string, string, string];
+  journeyDiagram?: string;
   meta: {
     role: string;
     timeline: string;
@@ -91,6 +92,7 @@ export const projectsData: Project[] = [
     tags: ["PHYGITAL RETAIL", "SERVICE DESIGN", "CX STRATEGY"],
     bgColor: "#F2F6FF",
     insightColors: ["#F2F6FF", "#E5EEFF", "#D6E4FF"],
+    journeyDiagram: "/projects/sole/customer-journey-current.webp",
     meta: {
       role: "Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor.",
       timeline: "2024",
@@ -177,6 +179,7 @@ export const projectsData: Project[] = [
     tags: ["PRODUCT DESIGN", "EDTECH", "UX RESEARCH"],
     bgColor: "#F8FAF0",
     insightColors: ["#FCFDF7", "#F8FAF0", "#EEF3D8"],
+    journeyDiagram: "/projects/root/customer-journey-current.webp",
     meta: {
       role: "UX/UI Designer & Researcher · co-leading research, product strategy, and interface design.",
       timeline: "2026",
@@ -253,6 +256,7 @@ export const projectsData: Project[] = [
     tags: ["LUXURY RETAIL", "SERVICE DESIGN", "SPATIAL BRANDING"],
     bgColor: "#F5EFE9",
     insightColors: ["#F8F4F0", "#F5EFE9", "#EADFCF"],
+    journeyDiagram: "/projects/kuna/customer-journey-current.webp",
     meta: {
       role: "Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor.",
       timeline: "2024",
@@ -406,6 +410,7 @@ export const projectsData: Project[] = [
     tags: ["SERVICE DESIGN", "SPATIAL BRANDING", "PRODUCT DESIGN"],
     bgColor: "#F2F5E8",
     insightColors: ["#F7F9F0", "#F2F5E8", "#E5EBCF"],
+    journeyDiagram: "/projects/don-salazar/customer-journey-current.webp",
     meta: {
       role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",
