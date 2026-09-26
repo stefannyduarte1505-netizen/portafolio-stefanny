@@ -17,14 +17,21 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
       {/* Avatar + name row */}
-      <div className="flex items-center gap-4 mb-6">
+      <div className="flex items-center gap-4 mb-6 relative">
         <img
           src={item.avatar}
           alt={item.title ?? item.tag}
           draggable={false}
           className="w-16 h-16 rounded-full object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 group-hover/avatar:scale-105"
         />
-        <div className="flex flex-col gap-0.5">
+        {/* Curved arrow — revealed on hover */}
+        <svg
+          className="w-8 h-7 text-neutral-400 absolute left-12 top-1 opacity-0 -translate-x-1 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0"
+          viewBox="0 0 50 40" fill="none" stroke="currentColor" strokeWidth="2"
+        >
+          <path d="M10 5 C 25 5, 35 15, 35 30 M 28 25 L 35 32 L 40 25" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <div className="flex flex-col gap-0.5 opacity-0 -translate-x-2 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0">
           {item.title && (
             <h4 className="font-poppins font-normal text-base md:text-lg text-neutral-900 leading-tight">
               {item.title}
