@@ -93,21 +93,24 @@ function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?
 /* iPhone frame wrapper */
 function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   return (
-    <div
-      className="relative w-full overflow-hidden rounded-[28px] border-[6px] border-black shadow-xl bg-black"
-      style={{ aspectRatio: '9 / 19.5' }}
-    >
+    <div className="relative w-full rounded-[28px] border-[6px] border-black shadow-xl bg-black overflow-hidden">
       {/* Notch pill */}
       <span
         aria-hidden
         className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[13px] bg-black rounded-b-2xl z-10"
       />
-      <img
-        src={src}
-        alt={alt}
-        draggable={false}
-        className="w-full h-full object-cover object-top select-none pointer-events-none"
-      />
+      {/* Screen — aspect ratio container */}
+      <div
+        className="relative w-full overflow-hidden bg-neutral-950 flex flex-col justify-start"
+        style={{ aspectRatio: '9 / 19.5' }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          draggable={false}
+          className="w-full h-auto object-contain object-top block select-none pointer-events-none"
+        />
+      </div>
     </div>
   )
 }
