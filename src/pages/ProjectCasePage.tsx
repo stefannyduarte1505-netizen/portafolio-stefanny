@@ -464,34 +464,33 @@ export default function ProjectCasePage() {
               </>
             )}
 
-            {/* Insights scroll */}
-            {research.insights && research.insights.length > 0 && (
+            {/* 02. User Journey & Process Flow — canvas con puntos */}
+            {customerJourney && (
               <>
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
-                  02. Strategic Insights
+                  02. User Journey &amp; Process Flow
                 </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
-                  {research.insights.map((ins, i) => (
-                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* Customer Journey Map — imagen limpia dentro de Research */}
-            {customerJourney && (
-              <div className="flex flex-col gap-4 w-full">
                 {customerJourney.subtitle && (
-                  <p className="font-poppins font-light text-base text-neutral-500 leading-relaxed">
+                  <p className="font-poppins font-light text-base text-neutral-500 leading-relaxed -mt-2 mb-6">
                     {customerJourney.subtitle}
                   </p>
                 )}
-                <img
-                  src={customerJourney.image}
-                  alt={customerJourney.title}
-                  draggable={false}
-                  className="w-full h-auto object-contain bg-transparent select-none pointer-events-none"
-                />
+                <div className="w-full p-8 md:p-12 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 shadow-sm relative overflow-hidden">
+                  {/* Dot pattern — Figma Jam canvas */}
+                  <div
+                    className="absolute inset-0 opacity-40 pointer-events-none"
+                    style={{ backgroundImage: 'radial-gradient(#A1A1AA 1px, transparent 1px)', backgroundSize: '16px 16px' }}
+                  />
+                  <div className="relative z-10">
+                    <img
+                      src={customerJourney.image}
+                      alt={customerJourney.title}
+                      draggable={false}
+                      className="w-full h-auto object-contain max-h-[600px] select-none pointer-events-none"
+                    />
+                  </div>
+                </div>
+                {/* Journey insights if any */}
                 {customerJourney.insights && customerJourney.insights.length > 0 && (
                   <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4 mt-4" style={{ scrollbarWidth: 'none' }}>
                     {customerJourney.insights.map((ins, i) => (
@@ -499,7 +498,21 @@ export default function ProjectCasePage() {
                     ))}
                   </div>
                 )}
-              </div>
+              </>
+            )}
+
+            {/* 03. Strategic Insights */}
+            {research.insights && research.insights.length > 0 && (
+              <>
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
+                  {customerJourney ? '03' : '02'}. Strategic Insights
+                </h4>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                  {research.insights.map((ins, i) => (
+                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                  ))}
+                </div>
+              </>
             )}
           </Section>
         )}
