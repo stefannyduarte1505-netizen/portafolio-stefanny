@@ -594,22 +594,24 @@ export default function ProjectCasePage() {
         )}
 
         {/* Spatial Branding & Physical Experience gallery */}
-        {project.spatialImages && project.spatialImages.length > 0 && (
+        {Array.isArray(project.spatialImages) && project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
           <div className="my-16 md:my-20">
             <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
               Spatial Branding &amp; Physical Experience
             </h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {project.spatialImages.map((img, idx) => (
-                <div key={idx} className="overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm">
-                  <img
-                    src={img}
-                    alt={`Spatial branding ${idx + 1}`}
-                    draggable={false}
-                    className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
-                  />
-                </div>
-              ))}
+              {project.spatialImages
+                .filter(img => img.toLowerCase().endsWith('.webp'))
+                .map((img, idx) => (
+                  <div key={idx} className="overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm">
+                    <img
+                      src={img}
+                      alt={`Spatial ${idx + 1}`}
+                      draggable={false}
+                      className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         )}
