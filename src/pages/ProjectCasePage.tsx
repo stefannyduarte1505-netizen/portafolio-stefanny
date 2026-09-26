@@ -104,12 +104,23 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
         className="relative w-full overflow-hidden bg-neutral-950 flex flex-col justify-start"
         style={{ aspectRatio: '9 / 19.5' }}
       >
+        {/* Ambient blur fill — same image blurred to fill empty space */}
+        <img
+          src={src}
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          className="absolute inset-0 w-full h-full object-cover blur-2xl scale-125 opacity-50 pointer-events-none select-none"
+        />
+        {/* Main crisp image — aligned to top, no cropping */}
         <img
           src={src}
           alt={alt}
           draggable={false}
-          className="w-full h-auto object-contain object-top block select-none pointer-events-none"
+          className="w-full h-auto object-contain object-top relative z-10 block select-none pointer-events-none"
         />
+        {/* Subtle bottom fade to blend blur edge */}
+        <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-neutral-950/80 to-transparent z-20 pointer-events-none" />
       </div>
     </div>
   )
