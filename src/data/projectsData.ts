@@ -96,6 +96,14 @@ export const projectsData: Project[] = [
     insightColors: ["#F2F6FF", "#E5EEFF", "#D6E4FF"],
     journeyDiagram: "/projects/sole/customer-journey-current.webp",
     userFlowDiagram: "/projects/sole/sole-flow.png",
+    spatialImages: [
+      "/projects/sole/sole-spatial-1.webp",
+      "/projects/sole/sole-spatial-2.webp",
+      "/projects/sole/sole-spatial-3.webp",
+      "/projects/sole/sole-spatial-4.webp",
+      "/projects/sole/sole-spatial-5.webp",
+      "/projects/sole/sole-spatial-6.webp",
+    ],
     meta: {
       role: "Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor.",
       timeline: "2024",
