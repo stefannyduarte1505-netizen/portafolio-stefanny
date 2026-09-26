@@ -475,7 +475,7 @@ export default function ProjectCasePage() {
                     {customerJourney.subtitle}
                   </p>
                 )}
-                <div className="w-full p-8 md:p-12 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 shadow-sm relative overflow-hidden">
+                <div className="w-full p-8 md:p-12 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
                   {/* Dot pattern — Figma Jam canvas */}
                   <div
                     className="absolute inset-0 opacity-40 pointer-events-none"
