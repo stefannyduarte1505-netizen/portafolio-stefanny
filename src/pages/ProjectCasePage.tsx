@@ -106,7 +106,7 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         draggable={false}
-        className="w-full h-full object-cover select-none pointer-events-none"
+        className="w-full h-full object-cover object-top select-none pointer-events-none"
       />
     </div>
   )
