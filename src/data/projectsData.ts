@@ -67,6 +67,7 @@ export interface Project {
   bgColor?: string;
   insightColors?: [string, string, string];
   journeyDiagram?: string;
+  userFlowDiagram?: string;
   meta: {
     role: string;
     timeline: string;
@@ -93,6 +94,7 @@ export const projectsData: Project[] = [
     bgColor: "#F2F6FF",
     insightColors: ["#F2F6FF", "#E5EEFF", "#D6E4FF"],
     journeyDiagram: "/projects/sole/customer-journey-current.webp",
+    userFlowDiagram: "/projects/sole/sole-flow.png",
     meta: {
       role: "Service Design Lead · UX/UI strategy, co-creation methodology, cross-functional alignment at GrupoModulor.",
       timeline: "2024",
@@ -180,6 +182,7 @@ export const projectsData: Project[] = [
     bgColor: "#F8FAF0",
     insightColors: ["#FCFDF7", "#F8FAF0", "#EEF3D8"],
     journeyDiagram: "/projects/root/customer-journey-current.webp",
+    userFlowDiagram: "/projects/root/root-flow.png",
     meta: {
       role: "UX/UI Designer & Researcher · co-leading research, product strategy, and interface design.",
       timeline: "2026",
@@ -257,6 +260,7 @@ export const projectsData: Project[] = [
     bgColor: "#F5EFE9",
     insightColors: ["#F8F4F0", "#F5EFE9", "#EADFCF"],
     journeyDiagram: "/projects/kuna/customer-journey-current.webp",
+    userFlowDiagram: "/projects/kuna/kuna-flow.png",
     meta: {
       role: "Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor.",
       timeline: "2024",
@@ -339,6 +343,7 @@ export const projectsData: Project[] = [
     tags: ["BRAND STRATEGY", "REBRANDING", "DIGITAL PRODUCT"],
     bgColor: "#F3F3FA",
     insightColors: ["#F8F8FC", "#F3F3FA", "#E7E7F7"],
+    userFlowDiagram: "/projects/modulor/modulor-flow.png",
     meta: {
       role: "Project Manager & Design Experience Lead · full brand transformation and digital product deployment, from identity system to web platform launch.",
       timeline: "2023",
@@ -411,6 +416,7 @@ export const projectsData: Project[] = [
     bgColor: "#F2F5E8",
     insightColors: ["#F7F9F0", "#F2F5E8", "#E5EBCF"],
     journeyDiagram: "/projects/don-salazar/customer-journey-current.webp",
+    userFlowDiagram: "/projects/don-salazar/don-salazar-flow.png",
     meta: {
       role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",

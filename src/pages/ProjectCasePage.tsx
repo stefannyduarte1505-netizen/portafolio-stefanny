@@ -522,9 +522,37 @@ export default function ProjectCasePage() {
             title={digitalStrategy.title}
             description={digitalStrategy.description}
           >
-            {/* Digital product mockups */}
+            {/* 01. Interaction & User Flows — canvas de puntos */}
+            {project.userFlowDiagram && (
+              <div className="mb-12 md:mb-16">
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+                  01. Interaction &amp; User Flows
+                </h4>
+                <div className="w-full p-6 md:p-10 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
+                  <div
+                    className="absolute inset-0 opacity-40 pointer-events-none"
+                    style={{ backgroundImage: 'radial-gradient(#A1A1AA 1px, transparent 1px)', backgroundSize: '16px 16px' }}
+                  />
+                  <div className="relative z-10 flex justify-center items-center">
+                    <img
+                      src={project.userFlowDiagram}
+                      alt={`User Flow - ${project.title}`}
+                      draggable={false}
+                      className="w-full h-auto object-contain max-h-[700px] rounded-2xl select-none pointer-events-none"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 02. Digital Ecosystem & Interfaces */}
             {digitalStrategy.products && digitalStrategy.products.length > 0 && (
-              <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
+              <>
+                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+                  {project.userFlowDiagram ? '02' : '01'}. Digital Ecosystem &amp; Interfaces
+                </h4>
+                <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
+              </>
             )}
 
             {/* Insights (optional) */}
