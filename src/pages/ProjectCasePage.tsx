@@ -470,7 +470,7 @@ export default function ProjectCasePage() {
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
                   02. Strategic Insights
                 </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                   {research.insights.map((ins, i) => (
                     <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                   ))}
@@ -493,7 +493,7 @@ export default function ProjectCasePage() {
                   className="w-full h-auto object-contain bg-transparent select-none pointer-events-none"
                 />
                 {customerJourney.insights && customerJourney.insights.length > 0 && (
-                  <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 mt-4" style={{ scrollbarWidth: 'none' }}>
+                  <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4 mt-4" style={{ scrollbarWidth: 'none' }}>
                     {customerJourney.insights.map((ins, i) => (
                       <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                     ))}
@@ -522,7 +522,7 @@ export default function ProjectCasePage() {
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
                   Strategic Insights
                 </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                   {digitalStrategy.insights.map((ins, i) => (
                     <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                   ))}
