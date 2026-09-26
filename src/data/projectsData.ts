@@ -68,6 +68,7 @@ export interface Project {
   insightColors?: [string, string, string];
   journeyDiagram?: string;
   userFlowDiagram?: string;
+  spatialImages?: string[];
   meta: {
     role: string;
     timeline: string;
