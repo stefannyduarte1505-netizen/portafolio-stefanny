@@ -61,7 +61,7 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
 
 const INSIGHT_ROTATIONS = [-1.5, 1, 1.5]
 
-function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?: number; insightColors?: [string, string, string] }) {
+function InsightCard({ item, index = 0, insightColors, cardLabel }: { item: Insight; index?: number; insightColors?: [string, string, string]; cardLabel?: string }) {
   const cardBg = insightColors?.[index % 3] ?? '#F4F5F4'
   const rotation = INSIGHT_ROTATIONS[index % 3]
   const [hovered, setHovered] = useState(false)
@@ -78,7 +78,7 @@ function InsightCard({ item, index = 0, insightColors }: { item: Insight; index?
     >
       <div>
         <span className="font-poppins font-light text-neutral-900 text-xs md:text-sm tracking-widest uppercase">
-          Insight {index + 1}
+          {cardLabel ?? 'Insight'} {String(index + 1).padStart(2, '0')}
         </span>
         <h3 className="mt-2 font-poppins font-light text-2xl md:text-3xl text-neutral-900 leading-[1.15] tracking-tight">
           {item.title}
@@ -565,15 +565,15 @@ export default function ProjectCasePage() {
               </>
             )}
 
-            {/* Insights (optional) */}
+            {/* Outcomes */}
             {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
               <>
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
-                  Strategic Insights
+                  Digital Strategy Outcomes
                 </h4>
                 <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                   {digitalStrategy.insights.map((ins, i) => (
-                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
                   ))}
                 </div>
               </>
