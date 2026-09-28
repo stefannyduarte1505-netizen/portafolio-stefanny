@@ -580,48 +580,54 @@ export default function ProjectCasePage() {
           </Section>
         )}
 
-        {/* 04 Spatial Branding & Signage */}
+        {/* 04 Spatial Branding & Signage — section with description (projects that have spatialBranding in sections) */}
         {spatialBranding && (
           <Section
             number={spatialBranding.sectionNumber}
             title={spatialBranding.title}
             description={spatialBranding.description}
           >
-            {/* Legacy structured gallery (projects without spatialImages) */}
+            {/* Legacy structured gallery only when no spatialImages defined */}
             {(!project.spatialImages || project.spatialImages.length === 0) &&
               spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
                 <SpatialGallery gallery={spatialBranding.gallery} />
             )}
-            {/* Primary webp gallery — rhythmic 2+1 pattern: 2 verticals + 1 full-width panoramic */}
-            {Array.isArray(project.spatialImages) &&
-              project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
-                {project.spatialImages
-                  .filter(img => img.toLowerCase().endsWith('.webp'))
-                  .sort((a, b) => {
-                    const numA = parseInt(a.match(/\d+/)?.[0] ?? '0', 10)
-                    const numB = parseInt(b.match(/\d+/)?.[0] ?? '0', 10)
-                    return numA - numB
-                  })
-                  .map((img, idx) => {
-                    const isFullWidth = (idx + 1) % 3 === 0
-                    return (
-                      <div
-                        key={idx}
-                        className={`overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
-                      >
-                        <img
-                          src={img}
-                          alt={`${project.title} spatial detail ${idx + 1}`}
-                          draggable={false}
-                          className="w-full h-auto block object-cover rounded-[20px] select-none"
-                        />
-                      </div>
-                    )
-                  })}
-              </div>
-            )}
           </Section>
+        )}
+
+        {/* Spatial webp gallery — renders for ALL projects that have spatialImages (independent of spatialBranding section) */}
+        {Array.isArray(project.spatialImages) &&
+          project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
+          <div className="mb-16 md:mb-20">
+            <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
+              Spatial Branding &amp; Physical Experience
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {project.spatialImages
+                .filter(img => img.toLowerCase().endsWith('.webp'))
+                .sort((a, b) => {
+                  const numA = parseInt(a.match(/\d+/)?.[0] ?? '0', 10)
+                  const numB = parseInt(b.match(/\d+/)?.[0] ?? '0', 10)
+                  return numA - numB
+                })
+                .map((img, idx) => {
+                  const isFullWidth = (idx + 1) % 3 === 0
+                  return (
+                    <div
+                      key={idx}
+                      className={`overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
+                    >
+                      <img
+                        src={img}
+                        alt={`${project.title} spatial detail ${idx + 1}`}
+                        draggable={false}
+                        className="w-full h-auto block object-cover rounded-[20px] select-none pointer-events-none"
+                      />
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
         )}
 
       </div>
