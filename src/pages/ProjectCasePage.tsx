@@ -592,22 +592,33 @@ export default function ProjectCasePage() {
               spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
                 <SpatialGallery gallery={spatialBranding.gallery} />
             )}
-            {/* Primary webp gallery — masonry columns preserve each image's original proportions */}
+            {/* Primary webp gallery — rhythmic 2+1 pattern: 2 verticals + 1 full-width panoramic */}
             {Array.isArray(project.spatialImages) &&
               project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
-              <div className="columns-1 md:columns-2 gap-6 space-y-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
                 {project.spatialImages
                   .filter(img => img.toLowerCase().endsWith('.webp'))
-                  .map((img, idx) => (
-                    <div key={idx} className="break-inside-avoid overflow-hidden rounded-[32px] bg-neutral-100 group shadow-sm">
-                      <img
-                        src={img}
-                        alt={`${project.title} spatial detail ${idx + 1}`}
-                        draggable={false}
-                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none rounded-[32px]"
-                      />
-                    </div>
-                  ))}
+                  .sort((a, b) => {
+                    const numA = parseInt(a.match(/\d+/)?.[0] ?? '0', 10)
+                    const numB = parseInt(b.match(/\d+/)?.[0] ?? '0', 10)
+                    return numA - numB
+                  })
+                  .map((img, idx) => {
+                    const isFullWidth = (idx + 1) % 3 === 0
+                    return (
+                      <div
+                        key={idx}
+                        className={`overflow-hidden rounded-[20px] bg-neutral-100 group shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
+                      >
+                        <img
+                          src={img}
+                          alt={`${project.title} spatial detail ${idx + 1}`}
+                          draggable={false}
+                          className="w-full h-auto block group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none rounded-[20px]"
+                        />
+                      </div>
+                    )
+                  })}
               </div>
             )}
           </Section>
