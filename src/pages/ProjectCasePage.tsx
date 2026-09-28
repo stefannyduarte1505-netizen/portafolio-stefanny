@@ -587,20 +587,24 @@ export default function ProjectCasePage() {
             title={spatialBranding.title}
             description={spatialBranding.description}
           >
-            {spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
-              <SpatialGallery gallery={spatialBranding.gallery} />
+            {/* Legacy structured gallery (projects without spatialImages) */}
+            {(!project.spatialImages || project.spatialImages.length === 0) &&
+              spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
+                <SpatialGallery gallery={spatialBranding.gallery} />
             )}
-            {Array.isArray(project.spatialImages) && project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
+            {/* Primary webp gallery — only images explicitly assigned to this project */}
+            {Array.isArray(project.spatialImages) &&
+              project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8">
                 {project.spatialImages
                   .filter(img => img.toLowerCase().endsWith('.webp'))
                   .map((img, idx) => (
-                    <div key={idx} className="overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm">
+                    <div key={idx} className="overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm aspect-[4/3]">
                       <img
                         src={img}
-                        alt={`Spatial detail ${idx + 1}`}
+                        alt={`${project.title} spatial ${idx + 1}`}
                         draggable={false}
-                        className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
                       />
                     </div>
                   ))}

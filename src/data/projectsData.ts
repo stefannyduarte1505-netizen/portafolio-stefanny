@@ -168,11 +168,6 @@ export const projectsData: Project[] = [
           "Durante la auditoría, identifiqué que el azul corporativo de Sole no tenía presencia estratégica en el espacio físico. Lo reposicioné como una decisión de diseño deliberada: visible, elegante y consistente en todos los puntos de contacto. S•Collection sostiene su propio territorio visual a través de grises y negros.",
           "El sistema de storytelling se complementó con códigos QR que activan flujos específicos por producto, habilitando trazabilidad de conversión y datos propios para decisiones de colocación más inteligentes. El sistema iconográfico fue diseñado para ser visualmente distinto entre ambas marcas, comunicando elegancia a través del minimalismo y la jerarquía de información.",
         ],
-        gallery: [
-          { image: "/projects/sole/spatial-1.png" },
-          { image: "/projects/sole/spatial-2.png" },
-          { image: "/projects/sole/spatial-3.png" },
-        ],
       },
     },
   },
