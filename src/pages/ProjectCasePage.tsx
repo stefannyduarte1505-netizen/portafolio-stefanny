@@ -16,22 +16,26 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
       onMouseEnter={e => (e.currentTarget.style.backgroundColor = hoverBg)}
       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
-      {/* Avatar + name row */}
-      <div className="flex items-center gap-4 mb-6 relative">
-        <img
-          src={item.avatar}
-          alt={item.title ?? item.tag}
-          draggable={false}
-          className="w-16 h-16 rounded-full object-cover shrink-0 select-none pointer-events-none transition-transform duration-300 group-hover/avatar:scale-105"
-        />
-        {/* Curved arrow — revealed on hover */}
+      {/* Avatar + arrow + name row */}
+      <div className="flex items-center gap-2 md:gap-3 mb-6">
+        {/* Avatar */}
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shrink-0 shadow-sm border border-neutral-200">
+          <img
+            src={item.avatar}
+            alt={item.title ?? item.tag}
+            draggable={false}
+            className="w-full h-full object-cover select-none pointer-events-none"
+          />
+        </div>
+        {/* Curved arrow — between avatar and text, revealed on hover */}
         <svg
-          className="w-12 h-12 md:w-16 md:h-16 text-neutral-800 absolute left-10 top-0 opacity-0 -translate-x-1 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0 pointer-events-none shrink-0"
-          viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+          className="w-10 h-10 md:w-12 md:h-12 text-neutral-800 shrink-0 self-center opacity-0 -translate-x-1 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0 pointer-events-none"
+          viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M5 15 C 25 5, 45 15, 48 40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-          <path d="M40 32 L 48 41 L 55 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          <path d="M 5 12 C 20 2, 35 8, 38 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <path d="M 32 22 L 38 29 L 44 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
         </svg>
+        {/* Name / tag */}
         <div className="flex flex-col gap-0.5 opacity-0 -translate-x-2 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0">
           {item.title && (
             <h4 className="font-poppins font-normal text-base md:text-lg text-neutral-900 leading-tight">
