@@ -592,19 +592,19 @@ export default function ProjectCasePage() {
               spatialBranding.gallery && spatialBranding.gallery.length > 0 && (
                 <SpatialGallery gallery={spatialBranding.gallery} />
             )}
-            {/* Primary webp gallery — only images explicitly assigned to this project */}
+            {/* Primary webp gallery — masonry columns preserve each image's original proportions */}
             {Array.isArray(project.spatialImages) &&
               project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8">
+              <div className="columns-2 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6 mt-8">
                 {project.spatialImages
                   .filter(img => img.toLowerCase().endsWith('.webp'))
                   .map((img, idx) => (
-                    <div key={idx} className="overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm aspect-[4/3]">
+                    <div key={idx} className="break-inside-avoid overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm">
                       <img
                         src={img}
                         alt={`${project.title} spatial ${idx + 1}`}
                         draggable={false}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
+                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
                       />
                     </div>
                   ))}
