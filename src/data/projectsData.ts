@@ -265,6 +265,14 @@ export const projectsData: Project[] = [
     insightColors: ["#F8F4F0", "#F5EFE9", "#EADFCF"],
     journeyDiagram: "/projects/kuna/customer-journey-current.webp",
     userFlowDiagram: "/projects/kuna/kuna-flow.png",
+    spatialImages: [
+      "/projects/kuna/kuna-spatial-1.webp",
+      "/projects/kuna/kuna-spatial-2.webp",
+      "/projects/kuna/kuna-spatial-3.webp",
+      "/projects/kuna/kuna-spatial-4.webp",
+      "/projects/kuna/kuna-spatial-5.webp",
+      "/projects/kuna/kuna-spatial-6.webp",
+    ],
     meta: {
       role: "Service Design Lead · spatial strategy, touchpoint design, and co-creation methodology at GrupoModulor.",
       timeline: "2024",
@@ -421,6 +429,13 @@ export const projectsData: Project[] = [
     insightColors: ["#F7F9F0", "#F2F5E8", "#E5EBCF"],
     journeyDiagram: "/projects/don-salazar/customer-journey-current.webp",
     userFlowDiagram: "/projects/don-salazar/don-salazar-flow.png",
+    spatialImages: [
+      "/projects/don-salazar/don-salazar-spatial-1.webp",
+      "/projects/don-salazar/don-salazar-spatial-2.webp",
+      "/projects/don-salazar/don-salazar-spatial-3.webp",
+      "/projects/don-salazar/don-salazar-spatial-4.webp",
+      "/projects/don-salazar/don-salazar-spatial-5.webp",
+    ],
     meta: {
       role: "Service Design Lead · pop-up experience, spatial strategy, and interactive ordering flow.",
       timeline: "2024",
