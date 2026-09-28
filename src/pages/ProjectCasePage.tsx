@@ -595,16 +595,16 @@ export default function ProjectCasePage() {
             {/* Primary webp gallery — masonry columns preserve each image's original proportions */}
             {Array.isArray(project.spatialImages) &&
               project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
-              <div className="columns-2 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6 mt-8">
+              <div className="columns-1 md:columns-2 gap-6 space-y-6 mt-8">
                 {project.spatialImages
                   .filter(img => img.toLowerCase().endsWith('.webp'))
                   .map((img, idx) => (
-                    <div key={idx} className="break-inside-avoid overflow-hidden rounded-[24px] bg-neutral-100 group shadow-sm">
+                    <div key={idx} className="break-inside-avoid overflow-hidden rounded-[32px] bg-neutral-100 group shadow-sm">
                       <img
                         src={img}
-                        alt={`${project.title} spatial ${idx + 1}`}
+                        alt={`${project.title} spatial detail ${idx + 1}`}
                         draggable={false}
-                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none"
+                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-500 ease-out select-none pointer-events-none rounded-[32px]"
                       />
                     </div>
                   ))}
