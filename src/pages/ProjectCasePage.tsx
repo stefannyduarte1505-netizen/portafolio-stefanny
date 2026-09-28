@@ -26,10 +26,11 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
         />
         {/* Curved arrow — revealed on hover */}
         <svg
-          className="w-8 h-7 text-neutral-400 absolute left-12 top-1 opacity-0 -translate-x-1 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0"
-          viewBox="0 0 50 40" fill="none" stroke="currentColor" strokeWidth="2"
+          className="w-12 h-12 md:w-16 md:h-16 text-neutral-800 absolute left-10 top-0 opacity-0 -translate-x-1 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0 pointer-events-none shrink-0"
+          viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M10 5 C 25 5, 35 15, 35 30 M 28 25 L 35 32 L 40 25" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M5 15 C 25 5, 45 15, 48 40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <path d="M40 32 L 48 41 L 55 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
         </svg>
         <div className="flex flex-col gap-0.5 opacity-0 -translate-x-2 transition-all duration-300 group-hover/avatar:opacity-100 group-hover/avatar:translate-x-0">
           {item.title && (
