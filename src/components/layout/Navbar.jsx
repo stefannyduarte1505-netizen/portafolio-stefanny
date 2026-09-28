@@ -22,7 +22,7 @@ export default function Navbar() {
   const { lang, setLang }   = useLanguage()
 
   const isActive = (href) => {
-    if (href === '/work') return location.pathname === '/' || location.pathname.startsWith('/work')
+    if (href === '/about') return location.pathname === '/' || location.pathname.startsWith('/about')
     return location.pathname.startsWith(href)
   }
 
@@ -72,7 +72,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link
-            to="/"
+            to="/about"
             style={{
               fontFamily:     POPPINS,
               fontWeight:     400,
@@ -144,7 +144,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link
-          to="/"
+          to="/about"
           style={{
             fontFamily:     POPPINS,
             fontWeight:     400,
