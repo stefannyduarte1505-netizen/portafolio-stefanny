@@ -21,8 +21,10 @@ export default function Navbar() {
   const isMobile            = useIsMobile()
   const { lang, setLang }   = useLanguage()
 
-  const isActive = (href) =>
-    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href)
+  const isActive = (href) => {
+    if (href === '/work') return location.pathname === '/' || location.pathname.startsWith('/work')
+    return location.pathname.startsWith(href)
+  }
 
   useEffect(() => {
     if (!open) return

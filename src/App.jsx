@@ -27,7 +27,7 @@ function AppInner() {
       <Cursor />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<WorkPage />} />
         <Route path="/project/sole" element={<SolePage />} />
         <Route path="/project/root" element={<RootPage />} />
         <Route path="/project/kuna" element={<KunaPage />} />
