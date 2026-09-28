@@ -608,13 +608,13 @@ export default function ProjectCasePage() {
                     return (
                       <div
                         key={idx}
-                        className={`group overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm cursor-pointer ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
+                        className={`overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
                       >
                         <img
                           src={img}
                           alt={`${project.title} spatial detail ${idx + 1}`}
                           draggable={false}
-                          className="w-full h-auto block object-cover rounded-[20px] transition-transform duration-700 ease-out group-hover:scale-105 select-none"
+                          className="w-full h-auto block object-cover rounded-[20px] select-none"
                         />
                       </div>
                     )
