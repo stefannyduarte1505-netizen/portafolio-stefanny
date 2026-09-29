@@ -6,12 +6,10 @@ const PAD     = 'clamp(1.5rem,5vw,8rem)'
 const POPPINS = "'Poppins', sans-serif"
 
 const CATEGORIES = [
-  { label: 'All',                tag: null                 },
-  { label: 'Service Design',     tag: 'Service Design'     },
-  { label: 'CX',                 tag: 'CX'                 },
-  { label: 'Strategic Branding', tag: 'Strategic Branding' },
-  { label: '360 Campaigns',      tag: '360 Campaigns'      },
-  { label: 'Art Direction',      tag: 'Art Direction'      },
+  { label: 'All',                             tag: null                              },
+  { label: 'Service Design / CX / Spatial',   tag: 'Service Design / CX / Spatial'  },
+  { label: 'Product Design',                  tag: 'Product Design'                 },
+  { label: 'Estrategia Branding',             tag: 'Estrategia Branding'            },
 ]
 
 function CategoryPill({ label, active, onClick }) {
