@@ -93,6 +93,7 @@ export default function Navbar() {
                 key={label}
                 to={href}
                 style={linkStyle(href)}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 onMouseEnter={e => { if (!isActive(href)) e.currentTarget.style.color = '#820606' }}
                 onMouseLeave={e => { if (!isActive(href)) e.currentTarget.style.color = DARK }}
               >
@@ -215,7 +216,7 @@ export default function Navbar() {
           <Link
             key={label}
             to={href}
-            onClick={() => setOpen(false)}
+            onClick={() => { setOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }) }}
             style={{
               fontFamily:     "'Gilda Display', serif",
               fontWeight:     400,
