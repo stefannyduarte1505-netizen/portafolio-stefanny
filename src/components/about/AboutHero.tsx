@@ -137,7 +137,7 @@ export default function AboutHero() {
           >
             Conectémonos por{' '}
             <a
-              href="https://www.instagram.com/stefanny.duarte"
+              href="https://www.instagram.com/stefanny_dl/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#1A1815', textDecoration: 'underline', textUnderlineOffset: '3px' }}
@@ -146,7 +146,7 @@ export default function AboutHero() {
             </a>
             {' '}o{' '}
             <a
-              href="https://www.linkedin.com/in/stefanny-duarte"
+              href="https://www.linkedin.com/in/stefannyduarte/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#1A1815', textDecoration: 'underline', textUnderlineOffset: '3px' }}
