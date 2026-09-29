@@ -27,7 +27,7 @@ const EXPERIENCE: ExperienceEntry[] = [
 const AWARDS: AwardEntry[] = [
   {
     year:     '2026',
-    city:     'Barcelona',
+    city:     'Düsseldorf',
     category: 'Categoría "Hospitality"\nCasa Garbo, Retail Design',
     award:    'EuroShop RetailDesign Award 2026',
   },
