@@ -376,6 +376,7 @@ export default function ProjectCasePage() {
   }
 
   const { research, customerJourney, digitalStrategy, spatialBranding } = project.sections
+  const isBranding = project.category.includes('Estrategia Branding')
 
   return (
     <div className="bg-white min-h-screen pt-[4.5rem]">
@@ -501,15 +502,17 @@ export default function ProjectCasePage() {
               </div>
             )}
 
-            {/* Strategic Insights */}
+            {/* Strategic Insights / Outcomes */}
             {research.insights && research.insights.length > 0 && (
               <>
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
-                  {project.journeyDiagram ? '03' : '02'}. Strategic Insights
+                  {isBranding
+                    ? '02. Outcomes'
+                    : `${project.journeyDiagram ? '03' : '02'}. Strategic Insights`}
                 </h4>
                 <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
                   {research.insights.map((ins, i) => (
-                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel={isBranding ? 'Outcome' : undefined} />
                   ))}
                 </div>
               </>
@@ -517,57 +520,86 @@ export default function ProjectCasePage() {
           </Section>
         )}
 
-        {/* 03 Digital Strategy */}
+        {/* 02/03 Art Direction (Branding) OR Digital Strategy (CX/Product) */}
         {digitalStrategy && (
           <Section
             number={digitalStrategy.sectionNumber}
             title={digitalStrategy.title}
             description={digitalStrategy.description}
           >
-            {/* 01. Interaction & User Flows — canvas de puntos */}
-            {project.userFlowDiagram && (
-              <div className="mb-12 md:mb-16">
-                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                  01. Interaction &amp; User Flows
-                </h4>
-                <div className="w-full p-6 md:p-10 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-40 pointer-events-none"
-                    style={{ backgroundImage: 'radial-gradient(#A1A1AA 1px, transparent 1px)', backgroundSize: '16px 16px' }}
-                  />
-                  <div className="relative z-10 flex justify-center items-center">
-                    <img
-                      src={project.userFlowDiagram}
-                      alt={`User Flow - ${project.title}`}
-                      draggable={false}
-                      className="w-full h-auto object-contain max-h-[700px] rounded-2xl select-none pointer-events-none"
-                    />
+            {isBranding ? (
+              /* ── BRANDING layout: photo gallery 2+1 ── */
+              <>
+                {digitalStrategy.products && digitalStrategy.products.length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    {digitalStrategy.products.map((p, idx) => {
+                      const isFullWidth = (idx + 1) % 3 === 0
+                      return (
+                        <div
+                          key={idx}
+                          className={`overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
+                        >
+                          <img
+                            src={p.image}
+                            alt={p.title}
+                            draggable={false}
+                            className="w-full h-auto block object-cover rounded-[20px] select-none pointer-events-none"
+                          />
+                        </div>
+                      )
+                    })}
                   </div>
-                </div>
-              </div>
-            )}
-
-            {/* 02. Digital Ecosystem & Interfaces */}
-            {digitalStrategy.products && digitalStrategy.products.length > 0 && (
-              <>
-                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                  {project.userFlowDiagram ? '02' : '01'}. Digital Ecosystem &amp; Interfaces
-                </h4>
-                <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
+                )}
               </>
-            )}
-
-            {/* Outcomes */}
-            {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
+            ) : (
+              /* ── CX / PRODUCT layout: user flow + phone mockups + outcomes ── */
               <>
-                <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
-                  Digital Strategy Outcomes
-                </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
-                  {digitalStrategy.insights.map((ins, i) => (
-                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
-                  ))}
-                </div>
+                {/* 01. Interaction & User Flows */}
+                {project.userFlowDiagram && (
+                  <div className="mb-12 md:mb-16">
+                    <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+                      01. Interaction &amp; User Flows
+                    </h4>
+                    <div className="w-full p-6 md:p-10 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
+                      <div
+                        className="absolute inset-0 opacity-40 pointer-events-none"
+                        style={{ backgroundImage: 'radial-gradient(#A1A1AA 1px, transparent 1px)', backgroundSize: '16px 16px' }}
+                      />
+                      <div className="relative z-10 flex justify-center items-center">
+                        <img
+                          src={project.userFlowDiagram}
+                          alt={`User Flow - ${project.title}`}
+                          draggable={false}
+                          className="w-full h-auto object-contain max-h-[700px] rounded-2xl select-none pointer-events-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* 02. Digital Ecosystem & Interfaces */}
+                {digitalStrategy.products && digitalStrategy.products.length > 0 && (
+                  <>
+                    <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+                      {project.userFlowDiagram ? '02' : '01'}. Digital Ecosystem &amp; Interfaces
+                    </h4>
+                    <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
+                  </>
+                )}
+
+                {/* Outcomes */}
+                {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
+                  <>
+                    <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
+                      Digital Strategy Outcomes
+                    </h4>
+                    <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                      {digitalStrategy.insights.map((ins, i) => (
+                        <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
+                      ))}
+                    </div>
+                  </>
+                )}
               </>
             )}
           </Section>
