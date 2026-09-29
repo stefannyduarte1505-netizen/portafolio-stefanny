@@ -19,7 +19,7 @@ interface AwardEntry {
 }
 
 const EXPERIENCE: ExperienceEntry[] = [
-  { year: '2026',        city: 'Barcelona', role: 'Strategic Creative Designer',              company: 'AkzoNobel'           },
+  { year: '2026',        city: 'Barcelona', role: 'Internship Brand & Trade Marketing Designer', company: 'AkzoNobel'           },
   { year: '2023 / 2026', city: 'Lima',      role: 'Project Manager & Design Experience Lead', company: 'Modulor Arquitectura' },
   { year: '2021 / 2023', city: 'Lima',      role: 'Strategic Creative Designer',              company: 'Fahrenheit DDB'      },
 ]
