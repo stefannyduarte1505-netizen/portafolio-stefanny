@@ -528,26 +528,23 @@ export default function ProjectCasePage() {
             description={digitalStrategy.description}
           >
             {isBranding ? (
-              /* ── BRANDING layout: photo gallery 2+1 ── */
+              /* ── BRANDING layout: vertical single-column gallery ── */
               <>
-                {digitalStrategy.products && digitalStrategy.products.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    {digitalStrategy.products.map((p, idx) => {
-                      const isFullWidth = (idx + 1) % 3 === 0
-                      return (
-                        <div
-                          key={idx}
-                          className={`overflow-hidden rounded-[20px] bg-neutral-100 shadow-sm ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
-                        >
-                          <img
-                            src={p.image}
-                            alt={p.title}
-                            draggable={false}
-                            className="w-full h-auto block object-cover rounded-[20px] select-none pointer-events-none"
-                          />
-                        </div>
-                      )
-                    })}
+                {Array.isArray(project.spatialImages) && project.spatialImages.length > 0 && (
+                  <div className="flex flex-col gap-6 md:gap-8 w-full">
+                    {project.spatialImages.map((imgUrl, i) => (
+                      <div
+                        key={i}
+                        className="w-full overflow-hidden rounded-[20px] bg-neutral-100 border border-neutral-200/50 shadow-sm"
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`${project.title} detail ${i + 1}`}
+                          draggable={false}
+                          className="w-full h-auto block object-cover select-none pointer-events-none"
+                        />
+                      </div>
+                    ))}
                   </div>
                 )}
               </>
@@ -620,8 +617,9 @@ export default function ProjectCasePage() {
           </Section>
         )}
 
-        {/* Spatial webp gallery — renders for ALL projects that have spatialImages (independent of spatialBranding section) */}
-        {Array.isArray(project.spatialImages) &&
+        {/* Spatial webp gallery — CX/Product projects only (branding renders inside Art Direction section) */}
+        {!isBranding &&
+          Array.isArray(project.spatialImages) &&
           project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
           <div className="mb-16 md:mb-20">
             <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
