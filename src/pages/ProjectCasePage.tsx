@@ -104,25 +104,13 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
         aria-hidden
         className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[13px] bg-black rounded-b-2xl z-10"
       />
-      {/* Screen — aspect ratio container */}
-      <div
-        className="relative w-full overflow-hidden bg-neutral-900 flex flex-col justify-start"
-        style={{ aspectRatio: '9 / 19.5' }}
-      >
-        {/* Blur fill — fills empty space below short captures */}
-        <img
-          src={src}
-          alt=""
-          aria-hidden="true"
-          draggable={false}
-          className="absolute inset-0 w-full h-full object-cover blur-2xl scale-125 opacity-50 pointer-events-none select-none"
-        />
-        {/* Main image — exact fit, no zoom */}
+      {/* Screen — height follows the image exactly */}
+      <div className="relative w-full overflow-hidden bg-white">
         <img
           src={src}
           alt={alt}
           draggable={false}
-          className="relative z-10 w-full h-auto object-top block select-none pointer-events-none"
+          className="w-full h-auto block object-top select-none pointer-events-none"
         />
       </div>
     </div>
