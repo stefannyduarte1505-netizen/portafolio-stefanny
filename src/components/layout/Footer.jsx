@@ -121,10 +121,10 @@ export default function Footer() {
             <div>
               <p style={LABEL}>Email</p>
               <a
-                href="mailto:stefanny.duarte@gmail.com"
+                href="mailto:stef.duarte1505@gmail.com"
                 style={{ ...VALUE, textDecoration: 'none', display: 'block' }}
               >
-                stefanny.duarte@gmail.com
+                stef.duarte1505@gmail.com
               </a>
             </div>
 
@@ -137,7 +137,7 @@ export default function Footer() {
               <p style={LABEL}>Socials</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                 <a href="https://www.linkedin.com/in/stefannyduarte/" target="_blank" rel="noopener noreferrer" style={{ ...VALUE, textDecoration: 'none' }}>LinkedIn</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" style={{ ...VALUE, textDecoration: 'none' }}>Behance</a>
+                <a href="https://www.instagram.com/stefanny_dl/" target="_blank" rel="noopener noreferrer" style={{ ...VALUE, textDecoration: 'none' }}>Instagram</a>
               </div>
             </div>
 
