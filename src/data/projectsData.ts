@@ -524,6 +524,18 @@ export const projectsData: Project[] = [
     description:
       "S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness.",
     heroImage: "/projects/scollection/cover.webp",
+    spatialImages: [
+      "/projects/scollection/spatial-1.webp",
+      "/projects/scollection/spatial-2.webp",
+      "/projects/scollection/spatial-3.webp",
+      "/projects/scollection/spatial-4.webp",
+      "/projects/scollection/spatial-5.webp",
+      "/projects/scollection/spatial-6.webp",
+      "/projects/scollection/spatial-7.webp",
+      "/projects/scollection/spatial-8.webp",
+      "/projects/scollection/spatial-9.webp",
+      "/projects/scollection/spatial-10.webp",
+    ],
     sections: {
       research: {
         sectionNumber: "01",
@@ -560,10 +572,10 @@ export const projectsData: Project[] = [
           "La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.",
         ],
         products: [
-          { title: "Sistema Visual SCo°", description: "Botones en cuatro variantes, tipografía Gilroy y componentes con consistencia editorial.", image: "/projects/scollection/digital-1.png" },
-          { title: "App SCo° Mobile", description: "Storytelling vertical donde la fotografía vende y la interfaz se aparta.", image: "/projects/scollection/digital-2.png" },
-          { title: "Catálogo Premium", description: "Exploración de colecciones con la elegancia de una revista de lujo.", image: "/projects/scollection/digital-3.png" },
-          { title: "Signage Digital", description: "Sistema omnicanal de señalética con QR y contenido activado por producto.", image: "/projects/scollection/digital-4.png" },
+          { title: "Sistema Visual SCo°", description: "Botones en cuatro variantes, tipografía Gilroy y componentes con consistencia editorial.", image: "/projects/scollection/spatial-1.webp" },
+          { title: "App SCo° Mobile", description: "Storytelling vertical donde la fotografía vende y la interfaz se aparta.", image: "/projects/scollection/spatial-2.webp" },
+          { title: "Catálogo Premium", description: "Exploración de colecciones con la elegancia de una revista de lujo.", image: "/projects/scollection/spatial-3.webp" },
+          { title: "Signage Digital", description: "Sistema omnicanal de señalética con QR y contenido activado por producto.", image: "/projects/scollection/spatial-4.webp" },
         ],
         insights: [
           { title: "El sistema refleja la marca", text: "Cada pieza gráfica y componente UI debe mantener estándares de diseño tan refinados como los productos de la marca." },
