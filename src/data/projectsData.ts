@@ -491,10 +491,10 @@ export const projectsData: Project[] = [
           "Cada pantalla responde a un momento específico del journey: exploración del origen, personalización del pedido, educación sobre el proceso de tueste, y conexión con la comunidad de cafeteros.",
         ],
         products: [
-          { title: "Explorador de Origen", description: "Mapa interactivo que conecta cada taza con su región y productor.", image: "/projects/don-salazar/digital-1.webp" },
-          { title: "Personalizador de Pedido", description: "El visitante construye su experiencia eligiendo método, intensidad y notas de cata.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
-          { title: "Guía de Tueste", description: "Contenido educativo que desmitifica el proceso y genera confianza en el producto.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
-          { title: "Comunidad & Fidelización", description: "Registro y rewards que convierten la primera visita en el inicio de una relación.", image: "/projects/don-salazar/digital-4.webp" },
+          { title: "Explorador de Origen", description: "Landing de bienvenida que conecta al usuario con el universo del café de especialidad 100% peruano, invitándolo a descubrir su perfil ideal desde el inicio de la experiencia.", image: "/projects/don-salazar/digital-1.webp" },
+          { title: "Test de Perfilado y Personalización", description: "Flujo interactivo que pregunta \"¿Qué tipo de cafetero eres?\" y permite seleccionar intensidad y notas de cata para adaptar la sugerencia al gusto específico de cada cliente.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
+          { title: "Guía de Métodos y Taza", description: "Módulo interactivo que permite elegir el método de extracción (Chemex, Aeropress, etc.) y la taza ideal, desmitificando el proceso de preparación con recomendaciones visuales y claras.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
+          { title: "Ticket Digital & Fidelización", description: "Confirmación de pedido inmediata con ticket de atención y acceso a la comunidad mediante código QR, cerrando el flujo de compra e impulsando productos complementarios del catálogo.", image: "/projects/don-salazar/digital-4.webp" },
         ],
         insights: [
           { title: "Especialidad sin barreras", text: "Un flujo de pedido guiado por perfil de sabor (dulce, ácido, frutal) democratiza la especialidad sin tecnicismos." },
