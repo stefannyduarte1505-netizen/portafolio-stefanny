@@ -192,16 +192,16 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
         </div>
       ) : hasDouble ? (
         <div className="w-full flex justify-center items-end gap-3">
-          <div className="w-[40%] max-w-[180px] translate-y-[20%]" style={mockupStyle}>
+          <div className="w-[40%] max-w-[180px] translate-y-[8%]" style={mockupStyle}>
             <PhoneMockup src={product.images![0]} alt={`${product.title} A`} />
           </div>
-          <div className="w-[40%] max-w-[180px] translate-y-[12%]" style={mockupStyleInverse}>
+          <div className="w-[40%] max-w-[180px] translate-y-[3%]" style={mockupStyleInverse}>
             <PhoneMockup src={product.images![1]} alt={`${product.title} B`} />
           </div>
         </div>
       ) : (
         <div className="w-full flex justify-center items-end">
-          <div className="w-[52%] max-w-[220px] translate-y-[15%]" style={mockupStyle}>
+          <div className="w-[52%] max-w-[220px] translate-y-[5%]" style={mockupStyle}>
             <PhoneMockup src={product.image} alt={product.title} />
           </div>
         </div>
