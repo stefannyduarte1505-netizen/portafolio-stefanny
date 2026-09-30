@@ -297,15 +297,17 @@ export const projectsData: Project[] = [
         personas: [
           {
             tag: "USER PERSONA 1",
+            title: "Lu Wei, 38",
             avatar: "/projects/kuna/persona-1.webp",
-            description:
-              "Turista internacional de alto poder adquisitivo buscando la historia de la vicuña y artesanía genuina.",
+            description: "Turista ejecutiva en busca de autenticidad cultural y fibras de vicuña. Compra impulsivamente por estar de viaje pero requiere validar la calidad al tacto antes de decidir.",
+            quote: "Quiero llevarme prendas únicas y sostenibles que reflejen el origen y la herencia del país que estoy visitando.",
           },
           {
             tag: "USER PERSONA 2",
+            title: "Claudia, 46",
             avatar: "/projects/kuna/persona-2.webp",
-            description:
-              "Cliente recurrente de lujo que exige atención personalizada y experiencias privadas.",
+            description: "Supervisora diplomática y consumidora de lujo silencioso. Busca elegancia atemporal para eventos de trabajo y exige una atención personalizada a la altura del alto ticket de compra.",
+            quote: "Si invierto en una pieza exclusiva de alpaca, espero que tanto la prenda como la experiencia en tienda sean impecables.",
           },
         ],
       },
