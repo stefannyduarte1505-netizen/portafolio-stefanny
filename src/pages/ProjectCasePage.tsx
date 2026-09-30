@@ -817,8 +817,8 @@ export default function ProjectCasePage() {
         </p>
         <button
           onClick={() => {
-            sessionStorage.setItem('scrollToGallery', '1')
-            window.location.href = '/'
+            window.scrollTo({ top: 0, behavior: 'instant' })
+            window.location.href = '/work'
           }}
           className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-red-700 border border-red-700 px-5 py-2.5 rounded-full bg-transparent hover:bg-red-700 hover:text-white transition-colors"
         >
