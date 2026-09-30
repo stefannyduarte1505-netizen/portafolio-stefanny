@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useEffect, useRef, useState, useMemo } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
 import { getLenis } from '../hooks/useLenis'
@@ -428,6 +428,17 @@ export default function ProjectCasePage() {
   const { research, customerJourney, digitalStrategy, spatialBranding } = project.sections
   const isBranding = project.category.includes('Estrategia Branding')
 
+  const relatedProjects = useMemo(() => {
+    const sameCategory = projectsData.filter(
+      p => p.id !== project.id && p.category.some(cat => project.category.includes(cat))
+    )
+    if (sameCategory.length >= 2) return sameCategory.slice(0, 2)
+    const others = projectsData.filter(
+      p => p.id !== project.id && !sameCategory.find(r => r.id === p.id)
+    )
+    return [...sameCategory, ...others].slice(0, 2)
+  }, [project])
+
   return (
     <div className="bg-white min-h-screen pt-[4.5rem]">
 
@@ -751,6 +762,53 @@ export default function ProjectCasePage() {
         )}
 
       </div>
+
+      {/* ── Related Projects ── */}
+      {relatedProjects.length > 0 && (
+        <section className="max-w-[1600px] mx-auto px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 mt-0 pb-24">
+          <div className="border-t border-neutral-200/80 pt-16">
+            <div className="flex items-center justify-between mb-10">
+              <h3 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase">
+                Related Projects
+              </h3>
+              <Link
+                to="/work"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="font-poppins text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
+              >
+                View All →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {relatedProjects.map(rel => (
+                <Link
+                  key={rel.id}
+                  to={`/case/${rel.slug}`}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="group block overflow-hidden rounded-[20px] bg-neutral-100 border border-neutral-200/60 shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="w-full aspect-[16/10] overflow-hidden bg-neutral-200">
+                    <img
+                      src={rel.heroImage}
+                      alt={rel.title}
+                      draggable={false}
+                      className="w-full h-full object-cover object-center group-hover:scale-[1.04] transition-transform duration-500 select-none pointer-events-none"
+                    />
+                  </div>
+                  <div className="p-6 bg-white">
+                    <span className="font-poppins text-[0.6rem] font-medium text-neutral-400 uppercase tracking-widest block mb-1">
+                      {rel.category.join(' · ')}
+                    </span>
+                    <h4 className="font-poppins font-light text-lg text-neutral-900 group-hover:text-red-700 transition-colors leading-snug">
+                      {rel.title}
+                    </h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Footer strip ── */}
       <footer className="max-w-[1600px] mx-auto px-6 sm:px-12 md:px-20 lg:px-28 xl:px-32 py-16 border-t border-black/[0.07] flex justify-between items-center flex-wrap gap-4">
