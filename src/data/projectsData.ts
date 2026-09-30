@@ -639,7 +639,7 @@ export const projectsData: Project[] = [
         title: "Art Direction & Brand Experience",
         description: [
           "El concepto espacial y gráfico de Yuyito se diseñó para diferenciarse radicalmente de la competencia mediante una personalidad cromática memorable (apuesta por tonos morados y naranjas) y un lenguaje de formas ovaladas que responden a la geometría del logotipo.",
-          "Construí un sistema de diseño omnicanal donde la materialidad y la iconografía trabajan juntas: un sistema integral de señalética e iconografía optimiza la navegación por categorías dentro de la tienda, mientras que áreas clave como los corners de campaña potencian la tracción comercial a lo largo del año. La arquitectura del layout no solo ordena la oferta masiva, sino que transforma el recorrido en una experiencia de hallazgo ágil, dinámica y visualmente coherente en cada punto de contacto.",
+          "Construí un sistema de diseño espacial donde la materialidad y la iconografía trabajan juntas: un sistema integral de señalética e iconografía optimiza la navegación por categorías dentro de la tienda, mientras que áreas clave como los corners de campaña potencian la tracción comercial a lo largo del año. La arquitectura del layout no solo ordena la oferta masiva, sino que transforma el recorrido en una experiencia de hallazgo ágil, dinámica y visualmente coherente en cada punto de contacto.",
         ],
         products: [],
       },
