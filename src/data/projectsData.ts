@@ -695,4 +695,65 @@ export const projectsData: Project[] = [
       },
     },
   },
+
+  // ─────────────────────────────────────────
+  // SALTA
+  // ─────────────────────────────────────────
+  {
+    id: "salta",
+    slug: "salta",
+    title: "SALTA",
+    client: "SALTA, alta cocina urbana de fusión · 2024",
+    subtitle: "Brand Strategy & Identity",
+    category: ["Estrategia Branding"],
+    tags: ["BRANDING", "IDENTITY", "GASTRONOMÍA"],
+    meta: {
+      role: "Brand Strategist & Creative Director · estrategia de marca, identidad visual y dirección fotográfica para propuesta gastronómica de fusión chino-peruana.",
+      timeline: "2024",
+      team: "GrupoModulor Design Team.",
+    },
+    description:
+      "La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. El fuego es hilo conductor — el catalizador donde la herencia oriental y los insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.",
+    heroImage: "/projects/salta/cover.webp",
+    spatialImages: [
+      "/projects/salta/spatial-1.webp",
+      "/projects/salta/spatial-2.webp",
+      "/projects/salta/spatial-3.webp",
+      "/projects/salta/spatial-4.webp",
+      "/projects/salta/spatial-5.webp",
+    ],
+    sections: {
+      research: {
+        sectionNumber: "01",
+        title: "Brand Strategy",
+        description: [
+          "La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. Entendemos la fusión como el destello vivo del flambeado, donde la destreza del wok y la maestría del salteador elevan los ingredientes al centro del escenario.",
+          "Más que un método de cocción, el fuego es nuestro hilo conductor y el símbolo que nos une; el catalizador donde la herencia oriental y nuestros insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.",
+        ],
+        personas: [],
+        insights: [
+          {
+            title: "Maestría del Oficio",
+            text: "Técnica ancestral ejecutada con precisión para consolidar la presencia y autoridad de marca en cada preparación.",
+          },
+          {
+            title: "Excelencia en el Detalle",
+            text: "Rigor en toda la cadena de valor: desde el mise en place y la calidad del insumo hasta la atención y el ritual de servicio.",
+          },
+          {
+            title: "Comunión del Fuego Fusionado",
+            text: "Encuentro donde la destreza técnica del wok chino se abraza con la sazón peruana para vivirse en grupo y comunidad.",
+          },
+        ],
+      },
+      digitalStrategy: {
+        sectionNumber: "02",
+        title: "Art Direction & Brand Experience",
+        description: [
+          "La identidad visual de SALTA traduce la energía del fuego y la gestualidad del wok en un lenguaje gráfico dinámico y contemporáneo. Mediante una paleta cromática intensa, tipografía con carácter y una dirección fotográfica que captura el ritual del salteado en vivo, la marca construye un universo sensorial sofisticado que celebra la alta cocina urbana de fusión.",
+        ],
+        products: [],
+      },
+    },
+  },
 ];
