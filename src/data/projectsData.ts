@@ -556,15 +556,17 @@ export const projectsData: Project[] = [
         personas: [
           {
             tag: "USER PERSONA 1",
+            title: "Valeria, 35",
             avatar: "/projects/scollection/persona-1.webp",
-            description:
-              "Cliente de alta gama enfocado en tendencias de arquitectura e interiorismo de lujo.",
+            description: "Líder de equipo con estilo de vida sofisticado y cosmopolita. Busca integrar tecnología de alta gama y diseño abierto en su hogar para proyectar estatus como anfitriona.",
+            quote: "Para mí la cocina es el centro social de la casa; busco productos donde la tecnología premium y el diseño hablen por sí solos.",
           },
           {
             tag: "USER PERSONA 2",
+            title: "Chabela, 42",
             avatar: "/projects/scollection/persona-2.webp",
-            description:
-              "Arquitectos e interioristas buscando socios clave para proyectos residenciales premium.",
+            description: "Ama de casa y tomadora de decisión en compras del hogar que confía en la seguridad de Sole. Busca renovar su espacio con electrodomésticos eficientes y de diseño moderno como recompensa a su esfuerzo.",
+            quote: "Confío en la calidad de la marca y quiero una cocina moderna que simplifique el día a día de mi familia y luzca increíble.",
           },
         ],
       },
