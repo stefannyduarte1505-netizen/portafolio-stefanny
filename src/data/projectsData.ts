@@ -381,16 +381,18 @@ export const projectsData: Project[] = [
         ],
         personas: [
           {
-            tag: "Retailers",
+            tag: "USER PERSONA 1",
+            title: "Sofía, 39",
             avatar: "/projects/modulor/persona-1.webp",
-            description:
-              "Busca estandarizar tiendas, escalar con rapidez y ver resultados visibles. Se mueve a través de LinkedIn, eventos del sector y medios especializados, motivado por el posicionamiento competitivo.",
+            description: "Busca estandarizar tiendas, escalar con rapidez y ver resultados visibles. Se mueve a través de LinkedIn, eventos del sector y medios especializados, motivado por el posicionamiento competitivo.",
+            quote: "Necesito un aliado estratégico que me permita estandarizar y escalar nuestros puntos de venta sin perder velocidad ni calidad en la ejecución.",
           },
           {
-            tag: "Corporativos",
+            tag: "USER PERSONA 2",
+            title: "Mateo, 35",
             avatar: "/projects/modulor/persona-2.webp",
-            description:
-              "Enfocado en calidad, innovación y modernización de imagen de marca. Valora el contenido humano y la transformación cultural, pero navega entre burocracia interna y una gestión de proveedores compleja.",
+            description: "Enfocado en calidad, innovación y modernización de imagen de marca. Valora el contenido humano y la transformación cultural, pero navega entre burocracia interna y una gestión de proveedores compleja.",
+            quote: "Buscamos transformar nuestra presencia visual e innovar en la experiencia del cliente, superando las trabas operativas e internas.",
           },
         ],
       },
