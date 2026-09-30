@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 
 const POPPINS = "'Poppins', sans-serif"
@@ -49,8 +50,10 @@ const yearCell: CSSProperties = {
 
 const divider: CSSProperties = { borderTop: '1px solid rgba(26,24,21,0.1)' }
 
-const COLS_EXP   = '120px 1fr 200px'
-const COLS_AWARD = '120px 1fr 240px'
+const COLS_EXP        = '120px 1fr 200px'
+const COLS_AWARD      = '120px 1fr 240px'
+const COLS_EXP_MOBILE = '1fr'
+const COLS_AWARD_MOBILE = '1fr'
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -72,6 +75,18 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 }
 
 export default function TimelineSection() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    setIsMobile(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  const colsExp   = isMobile ? COLS_EXP_MOBILE   : COLS_EXP
+  const colsAward = isMobile ? COLS_AWARD_MOBILE : COLS_AWARD
+
   return (
     <section
       style={{
@@ -95,7 +110,7 @@ export default function TimelineSection() {
             key={e.role + e.year}
             style={{
               display: 'grid',
-              gridTemplateColumns: COLS_EXP,
+              gridTemplateColumns: colsExp,
               gap: '0 2rem',
               padding: 'clamp(1.1rem,1.8vw,1.5rem) 0',
               ...divider,
@@ -127,8 +142,8 @@ export default function TimelineSection() {
             key={a.award}
             style={{
               display: 'grid',
-              gridTemplateColumns: COLS_AWARD,
-              gap: '0 2rem',
+              gridTemplateColumns: colsAward,
+              gap: isMobile ? '0.25rem 2rem' : '0 2rem',
               padding: 'clamp(1.1rem,1.8vw,1.5rem) 0',
               ...divider,
             }}
@@ -143,7 +158,7 @@ export default function TimelineSection() {
             <span style={{ ...cell(true), whiteSpace: 'pre-line' }}>{a.category}</span>
 
             {/* Col 3 — award name */}
-            <span style={cell()}>{a.award}</span>
+            <span style={{ ...cell(), wordBreak: 'break-word', minWidth: 0 }}>{a.award}</span>
           </div>
         ))}
       </div>

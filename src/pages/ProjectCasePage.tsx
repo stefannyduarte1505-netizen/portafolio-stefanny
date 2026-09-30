@@ -63,6 +63,56 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
   )
 }
 
+/* ── ScrollableCards: carrusel con flechas de navegación en móvil ── */
+function ScrollableCards({ children, label }: { children: React.ReactNode; label?: string }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [canLeft, setCanLeft]   = useState(false)
+  const [canRight, setCanRight] = useState(true)
+
+  const updateArrows = () => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanLeft(el.scrollLeft > 4)
+    setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
+  }
+
+  const scroll = (dir: 'left' | 'right') => {
+    scrollRef.current?.scrollBy({ left: dir === 'left' ? -340 : 340, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="relative">
+      {/* Flechas — sólo visibles en móvil */}
+      <div className="md:hidden flex items-center gap-2 absolute right-0 -top-10">
+        <button
+          onClick={() => scroll('left')}
+          disabled={!canLeft}
+          aria-label="Anterior"
+          className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-200 bg-white text-neutral-600 disabled:opacity-25 transition-opacity"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+        <button
+          onClick={() => scroll('right')}
+          disabled={!canRight}
+          aria-label="Siguiente"
+          className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-200 bg-white text-neutral-600 disabled:opacity-25 transition-opacity"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+      </div>
+      <div
+        ref={scrollRef}
+        onScroll={updateArrows}
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4"
+        style={{ scrollbarWidth: 'none' }}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
+
 const INSIGHT_ROTATIONS = [-1.5, 1, 1.5]
 
 function InsightCard({ item, index = 0, insightColors, cardLabel }: { item: Insight; index?: number; insightColors?: [string, string, string]; cardLabel?: string }) {
@@ -493,11 +543,11 @@ export default function ProjectCasePage() {
                 </div>
                 {/* customerJourney insights if any */}
                 {customerJourney?.insights && customerJourney.insights.length > 0 && (
-                  <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4 mt-4" style={{ scrollbarWidth: 'none' }}>
+                  <ScrollableCards>
                     {customerJourney.insights.map((ins, i) => (
                       <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
                     ))}
-                  </div>
+                  </ScrollableCards>
                 )}
               </div>
             )}
@@ -510,11 +560,11 @@ export default function ProjectCasePage() {
                     ? '02. Outcomes'
                     : `${project.journeyDiagram ? '03' : '02'}. Strategic Insights`}
                 </h4>
-                <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                <ScrollableCards>
                   {research.insights.map((ins, i) => (
                     <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel={isBranding ? 'Outcome' : undefined} />
                   ))}
-                </div>
+                </ScrollableCards>
               </>
             )}
           </Section>
@@ -590,11 +640,11 @@ export default function ProjectCasePage() {
                     <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
                       Digital Strategy Outcomes
                     </h4>
-                    <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
+                    <ScrollableCards>
                       {digitalStrategy.insights.map((ins, i) => (
                         <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
                       ))}
-                    </div>
+                    </ScrollableCards>
                   </>
                 )}
               </>
