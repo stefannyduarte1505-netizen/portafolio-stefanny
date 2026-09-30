@@ -19,21 +19,36 @@ export default function ProjectCard({ project, index = 0 }: Props) {
         hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)]
       "
     >
-      {/* Cover image — crece para llenar el espacio proporcional */}
-      <div className="w-full flex-1 overflow-hidden rounded-[6px] bg-neutral-200 min-h-[240px]">
-        <img
-          src={project.heroImage}
-          alt={project.title}
-          loading={index < 2 ? 'eager' : 'lazy'}
-          onError={(e) => console.error('[ProjectCard] 404 →', (e.currentTarget as HTMLImageElement).src)}
-          draggable={false}
-          className="
-            w-full h-full object-cover select-none pointer-events-none
-            transition-transform duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
-            hover:scale-[1.03]
-          "
-        />
-      </div>
+      {/* Cover image */}
+      {project.cardLogoMode ? (
+        <div
+          className="w-full flex-1 overflow-hidden rounded-[6px] min-h-[240px] flex items-center justify-center p-10"
+          style={{ backgroundColor: project.cardBg ?? '#F4F5F4' }}
+        >
+          <img
+            src={project.heroImage}
+            alt={project.title}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            draggable={false}
+            className="max-h-28 w-auto object-contain select-none pointer-events-none"
+          />
+        </div>
+      ) : (
+        <div className="w-full flex-1 overflow-hidden rounded-[6px] bg-neutral-200 min-h-[240px]">
+          <img
+            src={project.heroImage}
+            alt={project.title}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            onError={(e) => console.error('[ProjectCard] 404 →', (e.currentTarget as HTMLImageElement).src)}
+            draggable={false}
+            className="
+              w-full h-full object-cover select-none pointer-events-none
+              transition-transform duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
+              hover:scale-[1.03]
+            "
+          />
+        </div>
+      )}
 
       {/* Content */}
       <div className="flex flex-col gap-3 w-full pt-2 shrink-0">
