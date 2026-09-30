@@ -69,6 +69,7 @@ export interface Project {
   journeyDiagram?: string;
   userFlowDiagram?: string;
   spatialImages?: string[];
+  videos?: { title: string; src: string; aspect: '16/9' | '9/16' }[];
   meta: {
     role: string;
     timeline: string;
@@ -641,6 +642,51 @@ export const projectsData: Project[] = [
           "El concepto espacial y gráfico de Yuyito se diseñó para diferenciarse radicalmente de la competencia mediante una personalidad cromática memorable (apuesta por tonos morados y naranjas) y un lenguaje de formas ovaladas que responden a la geometría del logotipo.",
           "Construí un sistema de diseño espacial donde la materialidad y la iconografía trabajan juntas: un sistema integral de señalética e iconografía optimiza la navegación por categorías dentro de la tienda, mientras que áreas clave como los corners de campaña potencian la tracción comercial a lo largo del año. La arquitectura del layout no solo ordena la oferta masiva, sino que transforma el recorrido en una experiencia de hallazgo ágil, dinámica y visualmente coherente en cada punto de contacto.",
         ],
+        products: [],
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────
+  // OECHSLE CAMPAIGNS
+  // ─────────────────────────────────────────
+  {
+    id: "oechsle-campaigns",
+    slug: "oechsle-campaigns",
+    title: "Oechsle Campaigns",
+    client: "Oechsle · 2023",
+    subtitle: "Content Strategy & Creative Direction",
+    category: ["Estrategia Branding"],
+    tags: ["CONTENT STRATEGY", "CREATIVE DIRECTION", "SOCIAL REELS"],
+    meta: {
+      role: "Content Strategist & Creative Director · dirección creativa de campañas estacionales, producción de videos POV y Reels para plataformas digitales.",
+      timeline: "2023",
+      team: "Fahrenheit DDB.",
+    },
+    description:
+      "Desarrollo de estrategia de contenido multimedia y dirección creativa para campañas estacionales de Oechsle. El enfoque combinó narrativa visual dinámica en formato POV para amplificar el valor del producto en plataformas digitales y la producción de Reels optimizados para captura de atención e interacción social.",
+    heroImage: "/projects/oechsle/hero.webp",
+    videos: [
+      { title: "POV Campaign 01",     src: "/projects/oechsle/video-pov-1.mp4", aspect: "16/9" },
+      { title: "POV Campaign 02",     src: "/projects/oechsle/video-pov-2.mp4", aspect: "16/9" },
+      { title: "Reel Commercial 01",  src: "/projects/oechsle/reel-1.mp4",      aspect: "9/16" },
+      { title: "Reel Commercial 02",  src: "/projects/oechsle/reel-2.mp4",      aspect: "9/16" },
+    ],
+    sections: {
+      research: {
+        sectionNumber: "01",
+        title: "Strategy & Creative Direction",
+        description: [
+          "Desarrollo de estrategia de contenido multimedia y dirección creativa para campañas estacionales de Oechsle. El enfoque combinó narrativa visual dinámica en formato POV para amplificar el valor del producto en plataformas digitales.",
+          "La producción de Reels se optimizó para captura de atención e interacción social, con formatos verticales diseñados para móvil y narrativa de producto en menos de 15 segundos.",
+        ],
+        personas: [],
+        insights: [],
+      },
+      digitalStrategy: {
+        sectionNumber: "02",
+        title: "Campaign Content & Social Reels",
+        description: [],
         products: [],
       },
     },

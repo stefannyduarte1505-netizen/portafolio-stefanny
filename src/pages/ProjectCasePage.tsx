@@ -703,6 +703,53 @@ export default function ProjectCasePage() {
           </div>
         )}
 
+        {/* ── Video Gallery (projects with videos array) ── */}
+        {project.videos && project.videos.length > 0 && (
+          <div className="mb-16 md:mb-20">
+            <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
+              Campaign Content &amp; Social Reels
+            </h4>
+
+            {/* POV / horizontal videos — 2-col grid */}
+            {project.videos.filter(v => v.aspect === '16/9').length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {project.videos.filter(v => v.aspect === '16/9').map((video, idx) => (
+                  <div key={idx} className="overflow-hidden rounded-[20px] bg-black border border-neutral-200/50 shadow-sm">
+                    <video
+                      src={video.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                      aria-label={video.title}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Reels verticales (9/16) — 2-col centrada */}
+            {project.videos.filter(v => v.aspect === '9/16').length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                {project.videos.filter(v => v.aspect === '9/16').map((video, idx) => (
+                  <div key={idx} className="aspect-[9/16] overflow-hidden rounded-[20px] bg-black border border-neutral-200/50 shadow-sm">
+                    <video
+                      src={video.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                      aria-label={video.title}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
       </div>
 
       {/* ── Footer strip ── */}
