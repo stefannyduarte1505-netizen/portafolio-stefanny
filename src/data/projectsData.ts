@@ -665,12 +665,12 @@ export const projectsData: Project[] = [
     },
     description:
       "Desarrollo de estrategia de contenido multimedia y dirección creativa para campañas estacionales de Oechsle. El enfoque combinó narrativa visual dinámica en formato POV para amplificar el valor del producto en plataformas digitales y la producción de Reels optimizados para captura de atención e interacción social.",
-    heroImage: "/projects/oechsle/hero.webp",
+    heroImage: "/projects/oechsle-campaigns/cover.webp",
     videos: [
-      { title: "POV Campaign 01",     src: "/projects/oechsle/video-pov-1.mp4", aspect: "16/9" },
-      { title: "POV Campaign 02",     src: "/projects/oechsle/video-pov-2.mp4", aspect: "16/9" },
-      { title: "Reel Commercial 01",  src: "/projects/oechsle/reel-1.mp4",      aspect: "9/16" },
-      { title: "Reel Commercial 02",  src: "/projects/oechsle/reel-2.mp4",      aspect: "9/16" },
+      { title: "POV Campaign 01",     src: "/projects/oechsle-campaigns/video-pov-1.mp4", aspect: "16/9" },
+      { title: "POV Campaign 02",     src: "/projects/oechsle-campaigns/video-pov-2.mp4", aspect: "16/9" },
+      { title: "Reel Commercial 01",  src: "/projects/oechsle-campaigns/reel-1.mp4",      aspect: "9/16" },
+      { title: "Reel Commercial 02",  src: "/projects/oechsle-campaigns/reel-2.mp4",      aspect: "9/16" },
     ],
     sections: {
       research: {
