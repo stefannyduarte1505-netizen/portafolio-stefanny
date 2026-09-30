@@ -104,8 +104,8 @@ function ScrollableCards({ children, label }: { children: React.ReactNode; label
       <div
         ref={scrollRef}
         onScroll={updateArrows}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory py-8 -mx-4 px-4"
-        style={{ scrollbarWidth: 'none' }}
+        className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory py-8 pb-6 -mx-4 px-4 md:-mx-0 md:px-0"
+        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
       >
         {children}
       </div>
@@ -121,7 +121,7 @@ function InsightCard({ item, index = 0, insightColors, cardLabel }: { item: Insi
   const [hovered, setHovered] = useState(false)
   return (
     <div
-      className="w-[320px] md:w-[360px] min-h-[460px] flex-shrink-0 snap-start rounded-[28px] p-8 md:p-10 flex flex-col justify-between transition-all duration-300 ease-out"
+      className="w-[82vw] sm:w-[320px] md:w-[360px] min-h-[420px] md:min-h-[460px] flex-shrink-0 snap-start rounded-[28px] p-7 md:p-10 flex flex-col justify-between transition-all duration-300 ease-out"
       style={{
         backgroundColor: cardBg,
         transform: hovered ? 'rotate(0deg) translateY(-8px)' : `rotate(${rotation}deg)`,
