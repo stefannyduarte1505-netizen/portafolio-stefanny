@@ -591,4 +591,58 @@ export const projectsData: Project[] = [
       },
     },
   },
+
+  // ─────────────────────────────────────────
+  // YUYITO
+  // ─────────────────────────────────────────
+  {
+    id: "yuyito",
+    slug: "yuyito",
+    title: "Yuyito",
+    client: "Yuyito, retail masivo · 2024",
+    subtitle: "Retail & Spatial Branding",
+    category: ["Estrategia Branding", "Spatial Branding"],
+    tags: ["RETAIL", "SPATIAL BRANDING", "ESTRATEGIA"],
+    meta: {
+      role: "Brand & Spatial Design Consultant · benchmark competitivo, layout estratégico y sistema de señalética omnicanal.",
+      timeline: "2024",
+      team: "GrupoModulor Design Team.",
+    },
+    description:
+      "Consultoría de retail y branding espacial para posicionar a Yuyito como el destino preferido para todas las necesidades del hogar, a través de un sistema omnicanal donde señalética, iconografía y layout trabajan juntos.",
+    heroImage: "/projects/yuyito/cover.webp",
+    spatialImages: [
+      "/projects/yuyito/spatial-1.webp",
+      "/projects/yuyito/spatial-2.webp",
+      "/projects/yuyito/spatial-3.webp",
+      "/projects/yuyito/spatial-4.webp",
+      "/projects/yuyito/spatial-5.webp",
+      "/projects/yuyito/spatial-6.webp",
+    ],
+    sections: {
+      research: {
+        sectionNumber: "01",
+        title: "Research & Strategy",
+        description: [
+          "La estrategia de consultoría se construyó a través de un benchmark competitivo (estudiando modelos de retail de alta rotación como Dollarcity, Asia Sur y Miniso) y una matriz de layout articulada en tres ejes estratégicos: Experiencia de tienda, Categorización y Diseño interior, evaluados según la Identidad de Marca, la Audiencia y el Valor Agregado.",
+          "El objetivo principal fue posicionar a Yuyito como "el destino preferido para todas las necesidades del hogar". La conexión con la audiencia exigía alejarse de discursos aspiracionales para comunicar de forma directa desde la funcionalidad, la relación precio-calidad y las ofertas diarias. Para garantizar la fluidez en el espacio físico, la estrategia contempló una disposición que facilite el descubrimiento continuo, respaldada por un circuito de más de dos cajas registradoras estratégicamente ubicadas para eliminar embotellamientos.",
+        ],
+        personas: [],
+        insights: [
+          { title: "Navegación Intuitiva sobre Sobrecarga Visual", text: "En el retail masivo de alta rotación, el usuario no busca perderse en pasillos abarrotados; demanda un sistema claro de categorización y señalética icónica que le permita ubicar lo que necesita y descubrir nuevos productos sin esfuerzo ni parálisis visual." },
+          { title: "Valor Percibido desde la Funcionalidad", text: "La audiencia de conveniencia no conecta con narrativas aspiracionales o lejanas; evalúa el espacio desde la relación precio-calidad, la claridad de las ofertas y una experiencia directa que valida su decisión de compra de forma pragmática." },
+          { title: "Fluidez Espacial como Detonador de Fricción o Lealtad", text: "La satisfacción del cliente en tienda no se define únicamente al elegir el producto, sino en el punto de salida; implementar circuitos ágiles con múltiples puntos de cobro transforma una compra rápida en un hábito recurrente." },
+        ],
+      },
+      digitalStrategy: {
+        sectionNumber: "02",
+        title: "Art Direction & Brand Experience",
+        description: [
+          "El concepto espacial y gráfico de Yuyito se diseñó para diferenciarse radicalmente de la competencia mediante una personalidad cromática memorable (apuesta por tonos morados y naranjas) y un lenguaje de formas ovaladas que responden a la geometría del logotipo.",
+          "Construí un sistema de diseño omnicanal donde la materialidad y la iconografía trabajan juntas: un sistema integral de señalética e iconografía optimiza la navegación por categorías dentro de la tienda, mientras que áreas clave como los corners de campaña potencian la tracción comercial a lo largo del año. La arquitectura del layout no solo ordena la oferta masiva, sino que transforma el recorrido en una experiencia de hallazgo ágil, dinámica y visualmente coherente en cada punto de contacto.",
+        ],
+        products: [],
+      },
+    },
+  },
 ];
