@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useLayoutEffect } from 'react'
 import { projectsData } from '../data/projectsData'
 import ProjectCard from '../components/project/ProjectCard'
 
@@ -46,8 +46,8 @@ function CategoryPill({ label, active, onClick }) {
 export default function WorkPage() {
   const [active, setActive] = useState(null)
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
   }, [])
 
   const filtered = useMemo(() => {

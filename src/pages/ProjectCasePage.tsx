@@ -815,15 +815,13 @@ export default function ProjectCasePage() {
         <p className="font-poppins font-light text-[0.6rem] tracking-[0.18em] uppercase text-neutral-300">
           sduart.com — {project.title}
         </p>
-        <button
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'instant' })
-            window.location.href = '/work'
-          }}
+        <Link
+          to="/work"
+          onClick={() => window.scrollTo(0, 0)}
           className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-red-700 border border-red-700 px-5 py-2.5 rounded-full bg-transparent hover:bg-red-700 hover:text-white transition-colors"
         >
           ← Back to projects
-        </button>
+        </Link>
       </footer>
 
     </div>
