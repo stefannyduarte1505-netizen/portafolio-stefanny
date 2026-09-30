@@ -625,7 +625,7 @@ export const projectsData: Project[] = [
         title: "Research & Strategy",
         description: [
           "La estrategia de consultoría se construyó a través de un benchmark competitivo (estudiando modelos de retail de alta rotación como Dollarcity, Asia Sur y Miniso) y una matriz de layout articulada en tres ejes estratégicos: Experiencia de tienda, Categorización y Diseño interior, evaluados según la Identidad de Marca, la Audiencia y el Valor Agregado.",
-          "El objetivo principal fue posicionar a Yuyito como "el destino preferido para todas las necesidades del hogar". La conexión con la audiencia exigía alejarse de discursos aspiracionales para comunicar de forma directa desde la funcionalidad, la relación precio-calidad y las ofertas diarias. Para garantizar la fluidez en el espacio físico, la estrategia contempló una disposición que facilite el descubrimiento continuo, respaldada por un circuito de más de dos cajas registradoras estratégicamente ubicadas para eliminar embotellamientos.",
+          "El objetivo principal fue posicionar a Yuyito como “el destino preferido para todas las necesidades del hogar”. La conexión con la audiencia exigía alejarse de discursos aspiracionales para comunicar de forma directa desde la funcionalidad, la relación precio-calidad y las ofertas diarias. Para garantizar la fluidez en el espacio físico, la estrategia contempló una disposición que facilite el descubrimiento continuo, respaldada por un circuito de más de dos cajas registradoras estratégicamente ubicadas para eliminar embotellamientos.",
         ],
         personas: [],
         insights: [
