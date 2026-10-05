@@ -154,6 +154,26 @@ export default function AboutHero() {
               LinkedIn
             </a>
           </p>
+          <p
+            style={{
+              fontFamily: POPPINS,
+              fontWeight: 300,
+              fontSize:   'clamp(0.9rem,1.05vw,1.05rem)',
+              color:      'rgba(26,24,21,0.65)',
+              margin:     0,
+            }}
+          >
+            Mira mi{' '}
+            <a
+              href="https://www.behance.net/gallery/167572395/REEL-2023"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#1A1815', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            >
+              Reel 2023
+            </a>
+            {' '}en Behance
+          </p>
         </div>
       </div>
     </section>
