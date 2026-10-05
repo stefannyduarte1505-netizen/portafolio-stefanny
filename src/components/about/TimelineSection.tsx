@@ -29,7 +29,7 @@ const AWARDS: AwardEntry[] = [
   {
     year:     '2026',
     city:     'Düsseldorf',
-    category: 'Categoría "Hospitality"\nCasa Garbo, Retail Design',
+    category: 'Category "Hospitality"\nCasa Garbo, Retail Design',
     award:    'EuroShop RetailDesign Award 2026',
   },
 ]

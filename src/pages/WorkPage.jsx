@@ -11,7 +11,7 @@ const CATEGORIES = [
   { label: 'CX',                 tag: 'CX'                 },
   { label: 'Spatial Branding',   tag: 'Spatial Branding'   },
   { label: 'Product Design',     tag: 'Product Design'     },
-  { label: 'Estrategia Branding',tag: 'Estrategia Branding'},
+  { label: 'Branding Strategy', tag: 'Estrategia Branding'},
 ]
 
 function CategoryPill({ label, active, onClick }) {
@@ -85,7 +85,7 @@ export default function WorkPage() {
             marginRight:   '0.25rem',
           }}
         >
-          Categorías
+          Categories
         </span>
         {CATEGORIES.map(({ label, tag }) => (
           <CategoryPill

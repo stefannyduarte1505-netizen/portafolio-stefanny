@@ -59,7 +59,7 @@ export default function AboutHero() {
             margin:        0,
           }}
         >
-          Hola, soy Stefanny Duarte
+          Hi, I'm Stefanny Duarte
         </h1>
 
         <div
@@ -79,9 +79,9 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Diseñadora de Brand &amp; Digital Experience con más de 6 años de
-            experiencia en proyectos de retail y corporativos, diseñando identidades
-            de marca y los productos digitales que las sostienen.
+            Brand &amp; Digital Experience Designer with over 6 years of experience
+            in retail and corporate projects, crafting brand identities and the
+            digital products that sustain them.
           </p>
           <p
             style={{
@@ -93,10 +93,10 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Mi trabajo se sitúa en la intersección de Branding, Product Design y
-            CX &amp; Service Design, traduciendo investigación en sistemas coherentes
-            y funcionales alineados con los objetivos del negocio — desde espacios
-            físicos de retail hasta experiencias completamente digitales.
+            My work sits at the intersection of Branding, Product Design, and
+            CX &amp; Service Design — translating research into coherent, functional
+            systems aligned with business goals, from physical retail spaces to
+            fully digital experiences.
           </p>
         </div>
 
@@ -135,7 +135,7 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Conectémonos por{' '}
+            Let's connect on{' '}
             <a
               href="https://www.instagram.com/stefanny_dl/"
               target="_blank"
@@ -144,7 +144,7 @@ export default function AboutHero() {
             >
               Instagram
             </a>
-            {' '}o{' '}
+            {' '}or{' '}
             <a
               href="https://www.linkedin.com/in/stefannyduarte/"
               target="_blank"
@@ -163,16 +163,16 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Mira mi{' '}
+            Watch my{' '}
             <a
               href="https://www.behance.net/gallery/167572395/REEL-2023"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#1A1815', textDecoration: 'underline', textUnderlineOffset: '3px' }}
             >
-              Reel 2023
+              2023 Reel
             </a>
-            {' '}en Behance
+            {' '}on Behance
           </p>
         </div>
       </div>
