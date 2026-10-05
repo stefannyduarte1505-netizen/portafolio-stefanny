@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useIsMobile } from '../../hooks/useIsMobile'
-import { useLanguage } from '../../contexts/LanguageContext'
 
 const POPPINS = "'Poppins', sans-serif"
 const RED     = '#B9111C'
@@ -19,7 +18,6 @@ export default function Navbar() {
   const [open, setOpen]     = useState(false)
   const location            = useLocation()
   const isMobile            = useIsMobile()
-  const { lang, setLang }   = useLanguage()
 
   const isActive = (href) => {
     if (href === '/about') return location.pathname === '/' || location.pathname.startsWith('/about')
@@ -102,23 +100,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Lang toggle */}
-          <button
-            onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
-            style={{
-              fontFamily:    POPPINS,
-              fontWeight:    300,
-              fontSize:      '0.7rem',
-              letterSpacing: '0.1em',
-              color:         'rgba(26,24,21,0.45)',
-              background:    'none',
-              border:        'none',
-              cursor:        'pointer',
-              padding:       0,
-            }}
-          >
-            {lang === 'en' ? 'Español' : 'English'}
-          </button>
         </div>
       </nav>
     )
@@ -235,22 +216,6 @@ export default function Navbar() {
           </Link>
         ))}
 
-        <button
-          onClick={() => { setLang(lang === 'en' ? 'es' : 'en'); setOpen(false) }}
-          style={{
-            fontFamily:    POPPINS,
-            fontWeight:    300,
-            fontSize:      '0.7rem',
-            letterSpacing: '0.12em',
-            color:         'rgba(26,24,21,0.45)',
-            background:    'none',
-            border:        'none',
-            cursor:        'pointer',
-            padding:       '2rem 0 0',
-          }}
-        >
-          {lang === 'en' ? 'Español' : 'English'}
-        </button>
 
         <p style={{
           position:      'absolute',
