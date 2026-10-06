@@ -142,16 +142,16 @@ export const projectsData: Project[] = [
           },
         ],
         insights: [
-          { title: "Decision Friction", text: "In the appliance category, users don’t abandon the purchase out of lack of interest, but due to cognitive overload; the physical overexposure of products in-store creates paralysis and makes it difficult to evaluate technical attributes." },
+          { title: "Decision Friction", text: "In the appliance category, users don't abandon the purchase out of lack of interest, but due to cognitive overload; the physical overexposure of products in-store creates paralysis and makes it difficult to evaluate technical attributes." },
           { title: "Omnichannel Behavior", text: "The mass consumer does not use the physical store as an initial discovery point, but rather as a validation node; they research digitally beforehand and visit the retail space to confirm textures, proportions, and confidence levels." },
-          { title: "Purchase Closure", text: "Projecting the product in the user’s own space is the main conversion catalyst; when the customer cannot visualize the finish in their real context, perceived risk increases and the decision is postponed." },
+          { title: "Purchase Closure", text: "Projecting the product in the user's own space is the main conversion catalyst; when the customer cannot visualize the finish in their real context, perceived risk increases and the decision is postponed." },
         ],
       },
       digitalStrategy: {
         sectionNumber: "02",
         title: "Digital Strategy",
         description:
-          "I designed a virtual catalog with two distinct experiences for two completely different audiences. Sole and S•Collection coexist digitally but with differentiated journeys: Sole’s centers on specifications, savings, and technical benefits, guiding the practical buyer toward a confident decision. S•Collection’s centers on exploration and augmented visualization, allowing users to combine materials, colors, and textures to imagine their ideal kitchen before committing.",
+          "I designed a virtual catalog with two distinct experiences for two completely different audiences. Sole and S•Collection coexist digitally but with differentiated journeys: Sole's centers on specifications, savings, and technical benefits, guiding the practical buyer toward a confident decision. S•Collection's centers on exploration and augmented visualization, allowing users to combine materials, colors, and textures to imagine their ideal kitchen before committing.",
         products: [
           { title: "Sole Technical Catalog", description: "Clear information architecture that prioritizes specifications, savings, and technical benefits for the practical buyer.", image: "/projects/sole/digital-1.webp" },
           { title: "Product Detail & QR", description: "Interactive cards with dynamic QR codes per SKU connecting the physical display with extended information and purchase channels.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
@@ -159,7 +159,7 @@ export const projectsData: Project[] = [
           { title: "S•Collection Explorer", description: "Dark Mode interface that highlights the advanced technologies of the luxury line and integrates shortcuts to exclusive advisory services.", image: "/projects/sole/digital-4.webp" },
         ],
         insights: [
-          { title: "Two profiles, one decision", text: "Sole’s practical buyer seeks immediate technical certainty; S•Collection’s customer seeks aesthetic inspiration and personalization." },
+          { title: "Two profiles, one decision", text: "Sole's practical buyer seeks immediate technical certainty; S•Collection's customer seeks aesthetic inspiration and personalization." },
           { title: "Segmentation that converts", text: "A monolithic digital catalog generates confusion; segmenting the experience by buyer mindset doubles engagement." },
           { title: "See to decide", text: "Augmented reality visualization reduces indecision by allowing users to try finishes and textures in real time before purchase." },
         ],
@@ -168,7 +168,7 @@ export const projectsData: Project[] = [
         sectionNumber: "03",
         title: "Spatial Branding & Signage",
         description: [
-          "During the audit, I identified that Sole’s corporate blue had no strategic presence in the physical space. I repositioned it as a deliberate design decision: visible, elegant, and consistent across all touchpoints. S•Collection sustains its own visual territory through grays and blacks.",
+          "During the audit, I identified that Sole's corporate blue had no strategic presence in the physical space. I repositioned it as a deliberate design decision: visible, elegant, and consistent across all touchpoints. S•Collection sustains its own visual territory through grays and blacks.",
           "The storytelling system was complemented by QR codes that activate product-specific flows, enabling conversion tracking and first-party data for smarter placement decisions. The iconographic system was designed to be visually distinct between both brands, communicating elegance through minimalism and information hierarchy.",
         ],
       },
@@ -204,8 +204,8 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Research & Strategy",
         description: [
-          "We started by looking at who had the most motivation to learn and the most obstacles to doing so. Adults between 25 and 44 always came up: high willingness, high barriers. A former translator afraid that AI had made her obsolete. A UX designer who needed to stay current but couldn’t find a course that fit her real schedule. Both motivated. Both stuck.",
-          "The pivot came when we stopped asking why people don’t learn more and started asking why people can’t manage their own learning. That single shift in focus changed everything.",
+          "We started by looking at who had the most motivation to learn and the most obstacles to doing so. Adults between 25 and 44 always came up: high willingness, high barriers. A former translator afraid that AI had made her obsolete. A UX designer who needed to stay current but couldn't find a course that fit her real schedule. Both motivated. Both stuck.",
+          "The pivot came when we stopped asking why people don't learn more and started asking why people can't manage their own learning. That single shift in focus changed everything.",
         ],
         insights: [
           { title: "Visual Differentiation", text: "In markets saturated by generic minimalist aesthetics, embracing local identity and culture becomes the main asset for differentiation and cultural relevance." },
@@ -218,9 +218,9 @@ export const projectsData: Project[] = [
             title: "Carmela, 41",
             avatar: "/projects/root/persona-1.webp",
             description:
-              "Translator displaced by AI. Overwhelmed by options and paralyzed by the fear of making the wrong choice. The problem is not finding content — it’s trusting the path.",
+              "Translator displaced by AI. Overwhelmed by options and paralyzed by the fear of making the wrong choice. The problem is not finding content — it's trusting the path.",
             quote:
-              "There are so many options I don’t know where to start, and I’m afraid of wasting time on the wrong path.",
+              "There are so many options I don't know where to start, and I'm afraid of wasting time on the wrong path.",
           },
           {
             tag: "USER PERSONA 2",
@@ -229,7 +229,7 @@ export const projectsData: Project[] = [
             description:
               "UX designer who needs efficiency above all. Most platforms are too generic to adapt to her specific needs and limited time.",
             quote:
-              "I have very little time and most platforms aren’t designed for what I actually need.",
+              "I have very little time and most platforms aren't designed for what I actually need.",
           },
         ],
       },
@@ -237,17 +237,17 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Digital Strategy",
         description:
-          "ROOT is built around a single image: a knowledge garden where lessons grow at your own pace and nothing is forced. Every design decision returned to three things: motivation (no pressure, just progress), organization (a clear path, not an open field), and entertainment — because learning that feels like homework gets abandoned. The moment that told us it was working: users saw their generated route for the first time and said ‘this makes sense for me.’ That was the Aha moment around which we designed everything.",
+          "ROOT is built around a single image: a knowledge garden where lessons grow at your own pace and nothing is forced. Every design decision returned to three things: motivation (no pressure, just progress), organization (a clear path, not an open field), and entertainment — because learning that feels like homework gets abandoned. The moment that told us it was working: users saw their generated route for the first time and said 'this makes sense for me.' That was the Aha moment around which we designed everything.",
         products: [
           { title: "Learning Dashboard", description: "Entry experience based on the metaphor of a visual garden, where users cultivate their knowledge at their own pace without the pressure of traditional learning.", image: "/projects/root/digital-1.webp" },
-          { title: "Conversational Onboarding", description: "A warm, personalized flow that asks the user ‘What do you want to learn?’, suggesting topics or allowing them to write any interest with AI assistance to build their unique path.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
-          { title: "Route & Units Generator", description: "The AI engine structures personalized modules and lessons based on the user’s interests, allowing them to select or adjust the units of their study plan in seconds.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
-          { title: "Gamification & Rewards", description: "An organic incentive system where completing lessons makes ‘flowers and orchids’ grow in the user’s garden, celebrating milestones and learning streaks without pressure or judgment.", image: "/projects/root/digital-4.webp" },
+          { title: "Conversational Onboarding", description: "A warm, personalized flow that asks the user 'What do you want to learn?', suggesting topics or allowing them to write any interest with AI assistance to build their unique path.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
+          { title: "Route & Units Generator", description: "The AI engine structures personalized modules and lessons based on the user's interests, allowing them to select or adjust the units of their study plan in seconds.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
+          { title: "Gamification & Rewards", description: "An organic incentive system where completing lessons makes 'flowers and orchids' grow in the user's garden, celebrating milestones and learning streaks without pressure or judgment.", image: "/projects/root/digital-4.webp" },
         ],
         insights: [
           { title: "The garden as metaphor", text: "A visual system based on organic growth (a knowledge garden) conveys calm rather than the pressure of a checklist." },
           { title: "Micro-goals without guilt", text: "Self-managed learning requires micro-measurable goals that celebrate daily progress without generating guilt for pauses." },
-          { title: "The Aha moment", text: "The ‘Aha’ moment occurs when the user sees their personalized route generated and feels the platform understands their real context." },
+          { title: "The Aha moment", text: "The 'Aha' moment occurs when the user sees their personalized route generated and feels the platform understands their real context." },
         ],
       },
     },
@@ -289,13 +289,13 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Research & Strategy",
         description: [
-          "I led a research process to deepen understanding of KUNA’s user personas and conducted a category analysis to identify business opportunities and strategic positioning within the physical space. Design Thinking co-creation workshops, combined with research findings, shaped the direction.",
+          "I led a research process to deepen understanding of KUNA's user personas and conducted a category analysis to identify business opportunities and strategic positioning within the physical space. Design Thinking co-creation workshops, combined with research findings, shaped the direction.",
           "The experience was articulated around three strategic pillars: exploration, permanence, and loyalty. A key insight emerged clearly: in a luxury experience, the loyalty stage is the most critical. Technology and innovation needed to operate as an invisible layer, never competing with the product or the craftsmanship.",
         ],
         insights: [
           { title: "Value Perception", text: "The modern luxury consumer does not seek merely to acquire a high-quality garment, but to connect with the origin and artisanal heritage behind the raw material." },
           { title: "Navigation Pace", text: "The premium traveler and shopper requires differentiated spatial itineraries: while the transactional profile values agility and clarity in the journey, the heritage profile demands pauses and layers of immersive editorial content." },
-          { title: "Brand Coherence", text: "The promise of ‘conscious luxury’ fractures if there is a disconnect between the visual communication narrative and the materiality of the point of sale; the physical space must act as the tangible extension of the brand story." },
+          { title: "Brand Coherence", text: "The promise of 'conscious luxury' fractures if there is a disconnect between the visual communication narrative and the materiality of the point of sale; the physical space must act as the tangible extension of the brand story." },
         ],
         personas: [
           {
@@ -303,7 +303,7 @@ export const projectsData: Project[] = [
             title: "Lu Wei, 38",
             avatar: "/projects/kuna/persona-1.webp",
             description: "Executive tourist seeking cultural authenticity and vicuña fibers. Buys impulsively while traveling but requires validating quality by touch before deciding.",
-            quote: "I want to take home unique and sustainable pieces that reflect the origin and heritage of the country I’m visiting.",
+            quote: "I want to take home unique and sustainable pieces that reflect the origin and heritage of the country I'm visiting.",
           },
           {
             tag: "USER PERSONA 2",
@@ -327,7 +327,7 @@ export const projectsData: Project[] = [
         products: [
           { title: "Garment Care", description: "Personalized post-sale care and maintenance guide based on the type of garment and selected textile fiber (Alpaca, Vicuña, Pima).", image: "/projects/kuna/digital-1.webp" },
           { title: "Lifestyle Club", description: "A profiling questionnaire that turns loyalty into a personalized experience, recommending collections based on user preferences.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
-          { title: "Express KUNA Service", description: "Agile service designed for the modern traveler seeking curated gifts and quick purchase advice without losing the brand’s exclusivity.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
+          { title: "Express KUNA Service", description: "Agile service designed for the modern traveler seeking curated gifts and quick purchase advice without losing the brand's exclusivity.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
           { title: "Artistic Experience KUNA", description: "Space dedicated to decorative art pieces and ancestral techniques that showcase the work of Peruvian craftspeople and contemporary artists.", image: "/projects/kuna/digital-4.webp" },
         ],
         insights: [
@@ -375,7 +375,7 @@ export const projectsData: Project[] = [
         title: "Research & Strategy",
         description: [
           "Modulor needed to evolve from an established local consultancy to a strategic design firm with global positioning. The challenge: translating 16 years of expertise into a digital presence capable of speaking to three very different audiences simultaneously, without losing coherence.",
-          "Modulor’s positioning gap was narrative. The firm had the expertise; what it lacked was a digital ecosystem capable of carrying that expertise to three distinct audiences without losing what made it singular.",
+          "Modulor's positioning gap was narrative. The firm had the expertise; what it lacked was a digital ecosystem capable of carrying that expertise to three distinct audiences without losing what made it singular.",
         ],
         insights: [
           { title: "Strategic Alignment", text: "A visual rebrand has no business impact if it is not backed by a deep restructuring of information architecture and the usability of its digital platforms." },
@@ -410,7 +410,7 @@ export const projectsData: Project[] = [
           { title: "Main Website & Lead Capture", description: "Powerful visual identity based on manifesto phrases and corporate purple tone. Integrates strategic subscription forms (lead capture) to connect with key clients in the design and retail industry.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
           { title: "Project Portfolio & UI System", description: "Display of success cases (Joma, Converse, Vision Center) organized through a clear component system, with optimized visual hierarchy and an interactive button color system.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
           { title: "Services & Featured Projects", description: "Visual structure based on a geometric iconography system and service cards (Consulting, Retail Strategy, Training), leading into a gallery of visual covers of high-impact projects.", image: "/projects/modulor/digital-3.webp", desktop: true },
-          { title: "Impact Covers & Innovative Photography", description: "Desktop editorial design using two large covers per page, backed by bold conceptual art-direction photography to convey the firm’s culture and innovation.", image: "/projects/modulor/digital-4.webp", desktop: true },
+          { title: "Impact Covers & Innovative Photography", description: "Desktop editorial design using two large covers per page, backed by bold conceptual art-direction photography to convey the firm's culture and innovation.", image: "/projects/modulor/digital-4.webp", desktop: true },
         ],
         insights: [
           { title: "Content that qualifies", text: "The Insights channel qualifies the executive audience before first contact, building brand authority." },
@@ -472,7 +472,7 @@ export const projectsData: Project[] = [
             description:
               "University student who passes through the mall daily. Orders by habit, not by choice. Curious about specialty coffee but intimidated by not knowing what to order.",
             quote:
-              "I don’t know what to order beyond my usual and I don’t want to look like I don’t know what I’m doing.",
+              "I don't know what to order beyond my usual and I don't want to look like I don't know what I'm doing.",
           },
           {
             tag: "USER PERSONA 2",
@@ -499,7 +499,7 @@ export const projectsData: Project[] = [
         ],
         products: [
           { title: "Origin Explorer", description: "Welcome landing that connects the user with the world of 100% Peruvian specialty coffee, inviting them to discover their ideal profile from the start of the experience.", image: "/projects/don-salazar/digital-1.webp" },
-          { title: "Profiling Test & Personalization", description: "Interactive flow that asks ‘What kind of coffee lover are you?’ and allows selecting intensity and tasting notes to tailor the suggestion to each customer’s specific taste.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
+          { title: "Profiling Test & Personalization", description: "Interactive flow that asks 'What kind of coffee lover are you?' and allows selecting intensity and tasting notes to tailor the suggestion to each customer's specific taste.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
           { title: "Methods & Cup Guide", description: "Interactive module that allows choosing the extraction method (Chemex, Aeropress, etc.) and the ideal cup, demystifying the brewing process with clear visual recommendations.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
           { title: "Digital Ticket & Loyalty", description: "Immediate order confirmation with a service ticket and access to the community via QR code, closing the purchase flow and promoting complementary products from the catalog.", image: "/projects/don-salazar/digital-4.webp" },
         ],
@@ -568,8 +568,8 @@ export const projectsData: Project[] = [
             tag: "USER PERSONA 2",
             title: "Chabela, 42",
             avatar: "/projects/scollection/persona-2.webp",
-            description: "Homemaker and decision-maker in household purchases who trusts Sole’s quality. Seeks to renovate her space with efficient, modern-design appliances as a reward for her hard work.",
-            quote: "I trust the brand’s quality and want a modern kitchen that simplifies my family’s daily life and looks incredible.",
+            description: "Homemaker and decision-maker in household purchases who trusts Sole's quality. Seeks to renovate her space with efficient, modern-design appliances as a reward for her hard work.",
+            quote: "I trust the brand's quality and want a modern kitchen that simplifies my family's daily life and looks incredible.",
           },
         ],
       },
@@ -577,7 +577,7 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Art Direction & Brand",
         description: [
-          "The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first — button states in four variants, typographic hierarchy in Gilroy and component logic — so that visual consistency didn’t depend on case-by-case decisions.",
+          "The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first — button states in four variants, typographic hierarchy in Gilroy and component logic — so that visual consistency didn't depend on case-by-case decisions.",
           "The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specifications, photography sells, and the interface steps aside.",
         ],
         products: [
@@ -587,7 +587,7 @@ export const projectsData: Project[] = [
           { title: "Digital Signage", description: "Omnichannel signage system with QR codes and product-activated content.", image: "/projects/scollection/spatial-4.webp" },
         ],
         insights: [
-          { title: "The system reflects the brand", text: "Every graphic piece and UI component must maintain design standards as refined as the brand’s products." },
+          { title: "The system reflects the brand", text: "Every graphic piece and UI component must maintain design standards as refined as the brand's products." },
           { title: "Vertical for immersion", text: "The vertical format in the SCo° app favors immersive and tactile exploration on mobile devices." },
           { title: "Modular without losing luxury", text: "A modular design system with 4 variants ensures that marketing campaigns retain the luxury look & feel across any channel." },
         ],
@@ -627,21 +627,21 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Research & Strategy",
         description: [
-          “The consulting strategy was built through a competitive benchmark (studying high-turnover retail models such as Dollarcity, Asia Sur, and Miniso) and a layout matrix articulated around three strategic axes: Store Experience, Categorization, and Interior Design, evaluated against Brand Identity, Audience, and Added Value.”,
-          “The main objective was to position Yuyito as ‘the preferred destination for all home needs.’ Connecting with the audience required moving away from aspirational messaging to communicate directly through functionality, price-quality ratio, and daily deals. To ensure fluidity in the physical space, the strategy considered a layout that facilitates continuous discovery, supported by a circuit of more than two strategically located checkout points to eliminate bottlenecks.”,
+          "The consulting strategy was built through a competitive benchmark (studying high-turnover retail models such as Dollarcity, Asia Sur, and Miniso) and a layout matrix articulated around three strategic axes: Store Experience, Categorization, and Interior Design, evaluated against Brand Identity, Audience, and Added Value.",
+          "The main objective was to position Yuyito as 'the preferred destination for all home needs.' Connecting with the audience required moving away from aspirational messaging to communicate directly through functionality, price-quality ratio, and daily deals. To ensure fluidity in the physical space, the strategy considered a layout that facilitates continuous discovery, supported by a circuit of more than two strategically located checkout points to eliminate bottlenecks.",
         ],
         personas: [],
         insights: [
-          { title: “Intuitive Navigation over Visual Overload”, text: “In high-turnover mass retail, users don’t want to get lost in crowded aisles; they demand a clear categorization and iconic signage system that allows them to find what they need and discover new products without effort or visual paralysis.” },
-          { title: “Perceived Value through Functionality”, text: “The convenience audience does not connect with aspirational or distant narratives; they evaluate the space through price-quality ratio, clarity of deals, and a direct experience that pragmatically validates their purchase decision.” },
-          { title: “Spatial Fluidity as a Friction or Loyalty Trigger”, text: “Customer satisfaction in-store is not defined solely by choosing a product, but at the exit point; implementing agile circuits with multiple checkout points transforms a quick purchase into a recurring habit.” },
+          { title: "Intuitive Navigation over Visual Overload", text: "In high-turnover mass retail, users don't want to get lost in crowded aisles; they demand a clear categorization and iconic signage system that allows them to find what they need and discover new products without effort or visual paralysis." },
+          { title: "Perceived Value through Functionality", text: "The convenience audience does not connect with aspirational or distant narratives; they evaluate the space through price-quality ratio, clarity of deals, and a direct experience that pragmatically validates their purchase decision." },
+          { title: "Spatial Fluidity as a Friction or Loyalty Trigger", text: "Customer satisfaction in-store is not defined solely by choosing a product, but at the exit point; implementing agile circuits with multiple checkout points transforms a quick purchase into a recurring habit." },
         ],
       },
       digitalStrategy: {
         sectionNumber: "02",
         title: "Art Direction & Brand Experience",
         description: [
-          "The spatial and graphic concept of Yuyito was designed to radically differentiate from the competition through a memorable chromatic personality (a bet on purple and orange tones) and a language of oval shapes that responds to the logo’s geometry.",
+          "The spatial and graphic concept of Yuyito was designed to radically differentiate from the competition through a memorable chromatic personality (a bet on purple and orange tones) and a language of oval shapes that responds to the logo's geometry.",
           "I built a spatial design system where materiality and iconography work together: a comprehensive signage and iconography system optimizes category navigation within the store, while key areas such as campaign corners boost commercial traction throughout the year. The layout architecture not only organizes the mass offering, but transforms the journey into a quick, dynamic, and visually coherent discovery experience at every touchpoint.",
         ],
         products: [],
@@ -666,7 +666,7 @@ export const projectsData: Project[] = [
       team: "Fahrenheit DDB.",
     },
     description:
-      "Development of multimedia content strategy and creative direction for Oechsle’s seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms and the production of Reels optimized for attention capture and social interaction.",
+      "Development of multimedia content strategy and creative direction for Oechsle's seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms and the production of Reels optimized for attention capture and social interaction.",
     heroImage: "/projects/oechsle-campaigns/cover.webp",
     videos: [
       { title: "POV Campaign 01",     src: "/projects/oechsle-campaigns/video-pov-1.mp4", aspect: "16/9" },
@@ -679,7 +679,7 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Strategy & Creative Direction",
         description: [
-          "Development of multimedia content strategy and creative direction for Oechsle’s seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms.",
+          "Development of multimedia content strategy and creative direction for Oechsle's seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms.",
           "Reel production was optimized for attention capture and social interaction, with vertical formats designed for mobile and product narrative in under 15 seconds.",
         ],
         personas: [],
@@ -711,7 +711,7 @@ export const projectsData: Project[] = [
       team: "GrupoModulor Design Team.",
     },
     description:
-      "SALTA’s proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. Fire is the throughline — the catalyst where Eastern heritage and native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
+      "SALTA's proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. Fire is the throughline — the catalyst where Eastern heritage and native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
     heroImage: "/projects/salta/cover.webp",
     spatialImages: [
       "/projects/salta/spatial-1.webp",
@@ -725,7 +725,7 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Brand Strategy",
         description: [
-          "SALTA’s proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. We understand fusion as the living flash of the flambé, where the mastery of the wok and the skill of the sauté elevate ingredients to center stage.",
+          "SALTA's proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. We understand fusion as the living flash of the flambé, where the mastery of the wok and the skill of the sauté elevate ingredients to center stage.",
           "More than a cooking method, fire is our throughline and the symbol that unites us; the catalyst where Eastern heritage and our native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
         ],
         personas: [],
@@ -748,7 +748,7 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Art Direction & Brand Experience",
         description: [
-          "SALTA’s visual identity translates the energy of fire and the gestures of the wok into a dynamic and contemporary graphic language. Through an intense color palette, character-driven typography, and a photographic direction that captures the live sauté ritual, the brand builds a sophisticated sensory universe that celebrates urban fusion fine dining.",
+          "SALTA's visual identity translates the energy of fire and the gestures of the wok into a dynamic and contemporary graphic language. Through an intense color palette, character-driven typography, and a photographic direction that captures the live sauté ritual, the brand builds a sophisticated sensory universe that celebrates urban fusion fine dining.",
         ],
         products: [],
       },
