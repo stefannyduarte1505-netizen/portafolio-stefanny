@@ -1,18 +1,29 @@
 import { useState, useMemo, useLayoutEffect } from 'react'
 import { projectsData } from '../data/projectsData'
 import ProjectCard from '../components/project/ProjectCard'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const PAD     = 'clamp(1.5rem,5vw,8rem)'
 const POPPINS = "'Poppins', sans-serif"
 
-const CATEGORIES = [
-  { label: 'All',                tag: null                 },
-  { label: 'Service Design',     tag: 'Service Design'     },
-  { label: 'CX',                 tag: 'CX'                 },
-  { label: 'Spatial Branding',   tag: 'Spatial Branding'   },
-  { label: 'Product Design',     tag: 'Product Design'     },
-  { label: 'Branding Strategy', tag: 'Estrategia Branding'},
-]
+const CATEGORIES = {
+  en: [
+    { label: 'All',               tag: null                  },
+    { label: 'Service Design',    tag: 'Service Design'      },
+    { label: 'CX',                tag: 'CX'                  },
+    { label: 'Spatial Branding',  tag: 'Spatial Branding'    },
+    { label: 'Product Design',    tag: 'Product Design'      },
+    { label: 'Branding Strategy', tag: 'Estrategia Branding' },
+  ],
+  es: [
+    { label: 'Todo',               tag: null                  },
+    { label: 'Service Design',     tag: 'Service Design'      },
+    { label: 'CX',                 tag: 'CX'                  },
+    { label: 'Spatial Branding',   tag: 'Spatial Branding'    },
+    { label: 'Product Design',     tag: 'Product Design'      },
+    { label: 'Estrategia Branding',tag: 'Estrategia Branding' },
+  ],
+}
 
 function CategoryPill({ label, active, onClick }) {
   return (
@@ -45,6 +56,8 @@ function CategoryPill({ label, active, onClick }) {
 
 export default function WorkPage() {
   const [active, setActive] = useState(null)
+  const { lang } = useLanguage()
+  const categories = CATEGORIES[lang] ?? CATEGORIES.en
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
@@ -85,9 +98,9 @@ export default function WorkPage() {
             marginRight:   '0.25rem',
           }}
         >
-          Categories
+          {lang === 'es' ? 'Categorías' : 'Categories'}
         </span>
-        {CATEGORIES.map(({ label, tag }) => (
+        {categories.map(({ label, tag }) => (
           <CategoryPill
             key={label}
             label={label}

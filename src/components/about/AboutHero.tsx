@@ -1,8 +1,37 @@
+import { useLanguage } from '../../contexts/LanguageContext'
+
 const POPPINS = "'Poppins', sans-serif"
 const GILDA   = "'Gilda Display', serif"
 const PAD     = 'clamp(1.5rem,5vw,8rem)'
 
+const copy = {
+  en: {
+    heading:  "Hi, I'm Stefanny Duarte",
+    p1: 'Brand & Digital Experience Designer with over 6 years of experience in retail and corporate projects, crafting brand identities and the digital products that sustain them.',
+    p2: 'My work sits at the intersection of Branding, Product Design, and CX & Service Design — translating research into coherent, functional systems aligned with business goals, from physical retail spaces to fully digital experiences.',
+    connect: "Let's connect on",
+    or: 'or',
+    watch: 'Watch my',
+    reel: '2023 Reel',
+    on: 'on Behance',
+    getInTouch: 'Get in touch :)',
+  },
+  es: {
+    heading:  'Hola, soy Stefanny Duarte',
+    p1: 'Diseñadora de Brand & Digital Experience con más de 6 años de experiencia en proyectos de retail y corporativos, diseñando identidades de marca y los productos digitales que las sostienen.',
+    p2: 'Mi trabajo se sitúa en la intersección de Branding, Product Design y CX & Service Design, traduciendo investigación en sistemas coherentes y funcionales alineados con los objetivos del negocio — desde espacios físicos de retail hasta experiencias completamente digitales.',
+    connect: 'Conectémonos por',
+    or: 'o',
+    watch: 'Mira mi',
+    reel: 'Reel 2023',
+    on: 'en Behance',
+    getInTouch: 'Contáctame :)',
+  },
+}
+
 export default function AboutHero() {
+  const { lang } = useLanguage() as { lang: 'en' | 'es' }
+  const tr = copy[lang] ?? copy.en
   return (
     <section
       style={{
@@ -59,7 +88,7 @@ export default function AboutHero() {
             margin:        0,
           }}
         >
-          Hi, I'm Stefanny Duarte
+          {tr.heading}
         </h1>
 
         <div
@@ -79,9 +108,7 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Brand &amp; Digital Experience Designer with over 6 years of experience
-            in retail and corporate projects, crafting brand identities and the
-            digital products that sustain them.
+            {tr.p1}
           </p>
           <p
             style={{
@@ -93,10 +120,7 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            My work sits at the intersection of Branding, Product Design, and
-            CX &amp; Service Design — translating research into coherent, functional
-            systems aligned with business goals, from physical retail spaces to
-            fully digital experiences.
+            {tr.p2}
           </p>
         </div>
 
@@ -111,7 +135,7 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Get in touch :)
+            {tr.getInTouch}
           </p>
           <a
             href="mailto:stef.duarte1505@gmail.com"
@@ -135,7 +159,7 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Let's connect on{' '}
+            {tr.connect}{' '}
             <a
               href="https://www.instagram.com/stefanny_dl/"
               target="_blank"
@@ -144,7 +168,7 @@ export default function AboutHero() {
             >
               Instagram
             </a>
-            {' '}or{' '}
+            {' '}{tr.or}{' '}
             <a
               href="https://www.linkedin.com/in/stefannyduarte/"
               target="_blank"
@@ -163,16 +187,16 @@ export default function AboutHero() {
               margin:     0,
             }}
           >
-            Watch my{' '}
+            {tr.watch}{' '}
             <a
               href="https://www.behance.net/gallery/167572395/REEL-2023"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#1A1815', textDecoration: 'underline', textUnderlineOffset: '3px' }}
             >
-              2023 Reel
+              {tr.reel}
             </a>
-            {' '}on Behance
+            {' '}{tr.on}
           </p>
         </div>
       </div>
