@@ -3,6 +3,18 @@ import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import type { Insight, DigitalProduct, GalleryItem, Person } from '../data/projectsData'
 import { getLenis } from '../hooks/useLenis'
+import { useLanguage } from '../contexts/LanguageContext'
+import { t as tr } from '../translations'
+
+// Map project slug → translation key for Spanish section text
+const slugToTrKey: Record<string, string> = {
+  sole: 'sole',
+  root: 'root',
+  kuna: 'kuna',
+  modulor: 'modulor',
+  'don-salazar': 'donSalazar',
+  scollection: 'sCollection',
+}
 
 /* ══════════════════════════════════════════
    SUB-COMPONENTS — v2 CSS animations
@@ -407,6 +419,7 @@ function Section({
 export default function ProjectCasePage() {
   const { slug } = useParams<{ slug: string }>()
   const project  = projectsData.find(p => p.slug === slug)
+  const { lang } = useLanguage() as { lang: string }
 
   useEffect(() => {
     const lenis = getLenis()
@@ -427,6 +440,11 @@ export default function ProjectCasePage() {
 
   const { research, customerJourney, digitalStrategy, spatialBranding } = project.sections
   const isBranding = project.category.includes('Estrategia Branding')
+
+  // Spanish text overrides from translations file
+  const trKey = slug ? slugToTrKey[slug] : undefined
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const esTr: any = (lang === 'es' && trKey) ? (tr as any).es[trKey] : null
 
   const relatedProjects = useMemo(() => {
     const sameCategory = projectsData.filter(
@@ -467,7 +485,7 @@ export default function ProjectCasePage() {
               {project.title}
             </h1>
             <p className="font-poppins font-light text-lg text-neutral-500 leading-relaxed max-w-2xl">
-              {project.description}
+              {(lang === 'es' && project.descriptionEs) ? project.descriptionEs : project.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map(tag => (
@@ -515,7 +533,7 @@ export default function ProjectCasePage() {
           <Section
             number={research.sectionNumber}
             title={research.title}
-            description={research.description}
+            description={esTr?.research ?? research.description}
           >
             {/* Personas scroll */}
             {research.personas && research.personas.length > 0 && (
@@ -586,7 +604,7 @@ export default function ProjectCasePage() {
           <Section
             number={digitalStrategy.sectionNumber}
             title={digitalStrategy.title}
-            description={digitalStrategy.description}
+            description={esTr?.digital ?? digitalStrategy.description}
           >
             {isBranding ? (
               /* ── BRANDING layout: vertical single-column gallery ── */
@@ -668,7 +686,7 @@ export default function ProjectCasePage() {
           <Section
             number={spatialBranding.sectionNumber}
             title={spatialBranding.title}
-            description={spatialBranding.description}
+            description={esTr?.spatial ?? spatialBranding.description}
           >
             {/* Legacy structured gallery only when no spatialImages defined */}
             {(!project.spatialImages || project.spatialImages.length === 0) &&
