@@ -79,6 +79,7 @@ export interface Project {
     advisors?: string;
   };
   description: string;
+  descriptionEs?: string;
   heroImage: string;
   sections: ProjectSections;
 }
@@ -114,6 +115,8 @@ export const projectsData: Project[] = [
     },
     description:
       "Sole, a Peruvian appliance brand, needed to reposition itself in the physical retail space. I led the transformation of a saturated showroom into an omnichannel experience.",
+    descriptionEs:
+      "Sole, marca peruana de electrodomésticos, necesitaba reposicionarse en el espacio físico. Lideré la transformación de un showroom saturado en una experiencia omnicanal.",
     heroImage: "/projects/sole/cover.webp",
     sections: {
       research: {
@@ -198,6 +201,8 @@ export const projectsData: Project[] = [
     },
     description:
       "The problem was never a lack of content. It was the anxiety of not knowing whether you're learning the right thing, in the right order, fast enough.",
+    descriptionEs:
+      "El problema nunca fue la falta de contenido. Fue la ansiedad de no saber si estás aprendiendo lo correcto, en el orden correcto, lo suficientemente rápido.",
     heroImage: "/projects/root/cover.webp",
     sections: {
       research: {
@@ -283,6 +288,8 @@ export const projectsData: Project[] = [
     },
     description:
       "Luxury Andean retail experience that articulates textile heritage, technological innovation, and spatial design to connect with the global consumer.",
+    descriptionEs:
+      "Experiencia de retail de lujo andino que articula patrimonio textil, innovación tecnológica y diseño espacial para conectar con el consumidor global.",
     heroImage: "/projects/kuna/cover.webp",
     sections: {
       research: {
@@ -368,6 +375,8 @@ export const projectsData: Project[] = [
     },
     description:
       "A complete brand and digital transformation for a 16-year strategic design firm. The work spanned identity, narrative, and digital product.",
+    descriptionEs:
+      "Una transformación completa de marca y digital para una firma de diseño estratégico de 16 años. El trabajo abarcó identidad, narrativa y producto digital.",
     heroImage: "/projects/modulor/cover.webp",
     sections: {
       research: {
@@ -450,6 +459,8 @@ export const projectsData: Project[] = [
     },
     description:
       "A sensory and digital pop-up to transform specialty coffee discovery into an interactive ritual for university students.",
+    descriptionEs:
+      "Pop-up sensorial y digital para convertir el descubrimiento de café de especialidad en un ritual interactivo para universitarios.",
     heroImage: "/projects/don-salazar/cover.webp",
     sections: {
       research: {
@@ -530,6 +541,8 @@ export const projectsData: Project[] = [
     },
     description:
       "S•Collection is the premium line of Grupo Sole, seeking to position itself in the market as a luxury brand. Through a brand audit, we gave it a look refresh communicating innovation and premiumness.",
+    descriptionEs:
+      "S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness.",
     heroImage: "/projects/scollection/cover.webp",
     spatialImages: [
       "/projects/scollection/spatial-1.webp",
@@ -613,6 +626,8 @@ export const projectsData: Project[] = [
     },
     description:
       "Retail and spatial branding consultancy to position Yuyito as the preferred destination for all home needs, through an omnichannel system where signage, iconography, and layout work together.",
+    descriptionEs:
+      "Consultoría de retail y branding espacial para posicionar a Yuyito como el destino preferido para todas las necesidades del hogar, a través de un sistema omnicanal donde señalética, iconografía y layout trabajan juntos.",
     heroImage: "/projects/yuyito/cover.webp",
     spatialImages: [
       "/projects/yuyito/spatial-1.webp",
@@ -667,6 +682,8 @@ export const projectsData: Project[] = [
     },
     description:
       "Development of multimedia content strategy and creative direction for Oechsle's seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms and the production of Reels optimized for attention capture and social interaction.",
+    descriptionEs:
+      "Desarrollo de estrategia de contenido multimedia y dirección creativa para campañas estacionales de Oechsle. El enfoque combinó narrativa visual dinámica en formato POV para amplificar el valor del producto en plataformas digitales y la producción de Reels optimizados para captura de atención e interacción social.",
     heroImage: "/projects/oechsle-campaigns/cover.webp",
     videos: [
       { title: "POV Campaign 01",     src: "/projects/oechsle-campaigns/video-pov-1.mp4", aspect: "16/9" },
@@ -712,6 +729,8 @@ export const projectsData: Project[] = [
     },
     description:
       "SALTA's proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. Fire is the throughline — the catalyst where Eastern heritage and native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
+    descriptionEs:
+      "La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. El fuego es hilo conductor — el catalizador donde la herencia oriental y los insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.",
     heroImage: "/projects/salta/cover.webp",
     spatialImages: [
       "/projects/salta/spatial-1.webp",

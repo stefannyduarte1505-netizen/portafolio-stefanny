@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import type { Project } from '../../data/projectsData'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 type Props = { project: Project; index?: number }
 
 export default function ProjectCard({ project, index = 0 }: Props) {
   const navigate = useNavigate()
+  const { lang } = useLanguage() as { lang: string }
 
   return (
     <article
@@ -59,7 +61,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
 
         {/* Description */}
         <p className="font-poppins font-light text-[clamp(0.82rem,0.9vw,0.9rem)] leading-[1.75] text-[rgba(26,24,21,0.55)] m-0">
-          {project.description}
+          {(lang === 'es' && project.descriptionEs) ? project.descriptionEs : project.description}
         </p>
 
         {/* Tags */}
