@@ -165,6 +165,29 @@ export default function Navbar() {
           stef<br />du<br />art
         </Link>
 
+        {/* EN / ES toggle — always visible */}
+        <button
+          onClick={toggle}
+          style={{
+            display:       'flex',
+            alignItems:    'center',
+            gap:           '0.3rem',
+            background:    'none',
+            border:        'none',
+            cursor:        'pointer',
+            padding:       0,
+            fontFamily:    POPPINS,
+            fontWeight:    400,
+            fontSize:      '0.7rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <span style={{ color: lang === 'en' ? RED : 'rgba(26,24,21,0.28)', transition: 'color 0.2s' }}>EN</span>
+          <span style={{ color: 'rgba(26,24,21,0.2)', fontSize: '0.55rem' }}>|</span>
+          <span style={{ color: lang === 'es' ? RED : 'rgba(26,24,21,0.28)', transition: 'color 0.2s' }}>ES</span>
+        </button>
+
         {/* Burger */}
         <button
           onClick={() => setOpen(o => !o)}
@@ -241,31 +264,6 @@ export default function Navbar() {
           </Link>
         ))}
 
-
-        {/* Mobile lang toggle */}
-        <button
-          onClick={() => { toggle(); setOpen(false) }}
-          style={{
-            display:        'flex',
-            alignItems:     'center',
-            gap:            '0.4rem',
-            background:     'none',
-            border:         'none',
-            cursor:         'pointer',
-            padding:        '2rem 0 0',
-            fontFamily:     POPPINS,
-            fontWeight:     400,
-            fontSize:       '0.7rem',
-            letterSpacing:  '0.14em',
-            textTransform:  'uppercase',
-            opacity:        open ? 1 : 0,
-            transition:     `opacity 0.4s ease 0.16s`,
-          }}
-        >
-          <span style={{ color: lang === 'en' ? RED : 'rgba(26,24,21,0.28)' }}>EN</span>
-          <span style={{ color: 'rgba(26,24,21,0.2)', fontSize: '0.55rem' }}>|</span>
-          <span style={{ color: lang === 'es' ? RED : 'rgba(26,24,21,0.28)' }}>ES</span>
-        </button>
 
         <p style={{
           position:      'absolute',
