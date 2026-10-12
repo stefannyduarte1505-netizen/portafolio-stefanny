@@ -414,12 +414,47 @@ function Section({
 }
 
 /* ══════════════════════════════════════════
+   i18n LABELS
+══════════════════════════════════════════ */
+const LABELS = {
+  es: {
+    backToProjects:   '← Volver a proyectos',
+    userPersonas:     'Personas de usuario',
+    userJourney:      'User Journey y Flujo de proceso',
+    strategicInsights:'Hallazgos estratégicos',
+    outcomes:         'Resultados',
+    interactionFlows: 'Interacción y flujos de usuario',
+    digitalEcosystem: 'Ecosistema digital e interfaces',
+    digitalOutcomes:  'Resultados de estrategia digital',
+    spatialBranding:  'Branding espacial y experiencia física',
+    campaignContent:  'Contenido de campaña y reels',
+    relatedProjects:  'Proyectos relacionados',
+    viewAll:          'Ver todos →',
+  },
+  en: {
+    backToProjects:   '← Back to projects',
+    userPersonas:     'User Personas',
+    userJourney:      'User Journey & Process Flow',
+    strategicInsights:'Strategic Insights',
+    outcomes:         'Outcomes',
+    interactionFlows: 'Interaction & User Flows',
+    digitalEcosystem: 'Digital Ecosystem & Interfaces',
+    digitalOutcomes:  'Digital Strategy Outcomes',
+    spatialBranding:  'Spatial Branding & Physical Experience',
+    campaignContent:  'Campaign Content & Social Reels',
+    relatedProjects:  'Related Projects',
+    viewAll:          'View All →',
+  },
+}
+
+/* ══════════════════════════════════════════
    PAGE
 ══════════════════════════════════════════ */
 export default function ProjectCasePage() {
   const { slug } = useParams<{ slug: string }>()
   const project  = projectsData.find(p => p.slug === slug)
   const { lang } = useLanguage() as { lang: string }
+  const t = LABELS[lang === 'es' ? 'es' : 'en']
 
   useEffect(() => {
     const lenis = getLenis()
@@ -440,6 +475,19 @@ export default function ProjectCasePage() {
 
   const { research, customerJourney, digitalStrategy, spatialBranding } = project.sections
   const isBranding = project.category.includes('Estrategia Branding')
+
+  // Section title translations (data comes from projectsData in English)
+  const sectionTitleEs: Record<string, string> = {
+    'Research & Strategy':                  'Investigación y Estrategia',
+    'Art Direction & Brand':                'Dirección de Arte y Marca',
+    'Digital Strategy':                     'Estrategia Digital',
+    'Spatial Branding':                     'Branding Espacial',
+    'Spatial Branding & Physical Experience':'Branding Espacial y Experiencia Física',
+    'Campaign Content':                     'Contenido de Campaña',
+    'Brand & Digital Strategy':             'Estrategia de Marca y Digital',
+    'Spatial Brand Experience':             'Experiencia de Marca Espacial',
+  }
+  const sTitle = (en: string) => lang === 'es' ? (sectionTitleEs[en] ?? en) : en
 
   // Spanish text overrides from translations file
   const trKey = slug ? slugToTrKey[slug] : undefined
@@ -532,14 +580,14 @@ export default function ProjectCasePage() {
         {research && (
           <Section
             number={research.sectionNumber}
-            title={research.title}
+            title={sTitle(research.title)}
             description={esTr?.research ?? research.description}
           >
             {/* Personas scroll */}
             {research.personas && research.personas.length > 0 && (
               <>
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                  01. User Personas
+                  01. {t.userPersonas}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {research.personas.map((persona, i) => (
@@ -553,7 +601,7 @@ export default function ProjectCasePage() {
             {project.journeyDiagram && (
               <div className="mt-16 md:mt-20">
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                  02. User Journey &amp; Process Flow
+                  02. {t.userJourney}
                 </h4>
                 <div className="w-full p-8 md:p-12 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
                   {/* Dot pattern — Figma Jam canvas */}
@@ -586,8 +634,8 @@ export default function ProjectCasePage() {
               <>
                 <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
                   {isBranding
-                    ? '02. Outcomes'
-                    : `${project.journeyDiagram ? '03' : '02'}. Strategic Insights`}
+                    ? `02. ${t.outcomes}`
+                    : `${project.journeyDiagram ? '03' : '02'}. ${t.strategicInsights}`}
                 </h4>
                 <ScrollableCards>
                   {research.insights.map((ins, i) => (
@@ -603,7 +651,7 @@ export default function ProjectCasePage() {
         {digitalStrategy && (
           <Section
             number={digitalStrategy.sectionNumber}
-            title={digitalStrategy.title}
+            title={sTitle(digitalStrategy.title)}
             description={esTr?.digital ?? digitalStrategy.description}
           >
             {isBranding ? (
@@ -634,7 +682,7 @@ export default function ProjectCasePage() {
                 {project.userFlowDiagram && (
                   <div className="mb-12 md:mb-16">
                     <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                      01. Interaction &amp; User Flows
+                      01. {t.interactionFlows}
                     </h4>
                     <div className="w-full p-6 md:p-10 rounded-[32px] bg-[#F9F9FB] border border-neutral-200/80 relative overflow-hidden">
                       <div
@@ -657,7 +705,7 @@ export default function ProjectCasePage() {
                 {digitalStrategy.products && digitalStrategy.products.length > 0 && (
                   <>
                     <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-                      {project.userFlowDiagram ? '02' : '01'}. Digital Ecosystem &amp; Interfaces
+                      {project.userFlowDiagram ? '02' : '01'}. {t.digitalEcosystem}
                     </h4>
                     <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
                   </>
@@ -667,7 +715,7 @@ export default function ProjectCasePage() {
                 {digitalStrategy.insights && digitalStrategy.insights.length > 0 && (
                   <>
                     <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6 mt-16 md:mt-20">
-                      Digital Strategy Outcomes
+                      {t.digitalOutcomes}
                     </h4>
                     <ScrollableCards>
                       {digitalStrategy.insights.map((ins, i) => (
@@ -685,7 +733,7 @@ export default function ProjectCasePage() {
         {spatialBranding && (
           <Section
             number={spatialBranding.sectionNumber}
-            title={spatialBranding.title}
+            title={sTitle(spatialBranding.title)}
             description={esTr?.spatial ?? spatialBranding.description}
           >
             {/* Legacy structured gallery only when no spatialImages defined */}
@@ -702,7 +750,7 @@ export default function ProjectCasePage() {
           project.spatialImages.filter(img => img.toLowerCase().endsWith('.webp')).length > 0 && (
           <div className="mb-16 md:mb-20">
             <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
-              Spatial Branding &amp; Physical Experience
+              {t.spatialBranding}
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {project.spatialImages
@@ -736,7 +784,7 @@ export default function ProjectCasePage() {
         {project.videos && project.videos.length > 0 && (
           <div className="mb-16 md:mb-20">
             <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
-              Campaign Content &amp; Social Reels
+              {t.campaignContent}
             </h4>
 
             {/* POV / horizontal videos — 2-col grid */}
@@ -787,14 +835,14 @@ export default function ProjectCasePage() {
           <div className="border-t border-neutral-200/80 pt-16">
             <div className="flex items-center justify-between mb-10">
               <h3 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase">
-                Related Projects
+                {t.relatedProjects}
               </h3>
               <Link
                 to="/work"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="font-poppins text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
               >
-                View All →
+                {t.viewAll}
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -838,7 +886,7 @@ export default function ProjectCasePage() {
           onClick={() => window.scrollTo(0, 0)}
           className="font-poppins font-medium text-[0.6rem] tracking-[0.18em] uppercase text-red-700 border border-red-700 px-5 py-2.5 rounded-full bg-transparent hover:bg-red-700 hover:text-white transition-colors"
         >
-          ← Back to projects
+          {t.backToProjects}
         </Link>
       </footer>
 
