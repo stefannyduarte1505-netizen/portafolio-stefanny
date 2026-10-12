@@ -489,6 +489,8 @@ export default function ProjectCasePage() {
   }
   const sTitle = (en: string) => lang === 'es' ? (sectionTitleEs[en] ?? en) : en
 
+  const isEs = lang === 'es'
+
   // Spanish text overrides from translations file
   const trKey = slug ? slugToTrKey[slug] : undefined
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -591,7 +593,11 @@ export default function ProjectCasePage() {
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {research.personas.map((persona, i) => (
-                    <PersonaCard key={i} item={persona} index={i} bgColor={project.bgColor} />
+                    <PersonaCard key={i} item={{
+                      ...persona,
+                      description: isEs ? (persona.description_es || persona.description) : persona.description,
+                      quote: persona.quote ? (isEs ? (persona.quote_es || persona.quote) : persona.quote) : undefined,
+                    }} index={i} bgColor={project.bgColor} />
                   ))}
                 </div>
               </>
@@ -622,7 +628,11 @@ export default function ProjectCasePage() {
                 {customerJourney?.insights && customerJourney.insights.length > 0 && (
                   <ScrollableCards>
                     {customerJourney.insights.map((ins, i) => (
-                      <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} />
+                      <InsightCard key={i} item={{
+                        ...ins,
+                        title: isEs ? (ins.title_es || ins.title) : ins.title,
+                        text: isEs ? (ins.text_es || ins.text) : ins.text,
+                      }} index={i} insightColors={project.insightColors} />
                     ))}
                   </ScrollableCards>
                 )}
@@ -639,7 +649,11 @@ export default function ProjectCasePage() {
                 </h4>
                 <ScrollableCards>
                   {research.insights.map((ins, i) => (
-                    <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel={isBranding ? 'Outcome' : undefined} />
+                    <InsightCard key={i} item={{
+                      ...ins,
+                      title: isEs ? (ins.title_es || ins.title) : ins.title,
+                      text: isEs ? (ins.text_es || ins.text) : ins.text,
+                    }} index={i} insightColors={project.insightColors} cardLabel={isBranding ? 'Outcome' : undefined} />
                   ))}
                 </ScrollableCards>
               </>
@@ -707,7 +721,10 @@ export default function ProjectCasePage() {
                     <h4 className="font-poppins text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
                       {project.userFlowDiagram ? '02' : '01'}. {t.digitalEcosystem}
                     </h4>
-                    <DigitalGrid products={digitalStrategy.products} bgColor={project.bgColor} />
+                    <DigitalGrid products={digitalStrategy.products.map(p => ({
+                      ...p,
+                      description: isEs ? (p.description_es || p.description) : p.description,
+                    }))} bgColor={project.bgColor} />
                   </>
                 )}
 
@@ -719,7 +736,11 @@ export default function ProjectCasePage() {
                     </h4>
                     <ScrollableCards>
                       {digitalStrategy.insights.map((ins, i) => (
-                        <InsightCard key={i} item={ins} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
+                        <InsightCard key={i} item={{
+                          ...ins,
+                          title: isEs ? (ins.title_es || ins.title) : ins.title,
+                          text: isEs ? (ins.text_es || ins.text) : ins.text,
+                        }} index={i} insightColors={project.insightColors} cardLabel="Outcome" />
                       ))}
                     </ScrollableCards>
                   </>

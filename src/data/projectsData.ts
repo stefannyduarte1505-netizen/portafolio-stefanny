@@ -5,17 +5,23 @@ export interface Person {
   title?: string;
   avatar: string;
   description: string;
+  description_es?: string;
   quote?: string;
+  quote_es?: string;
 }
 
 export interface Insight {
   title: string;
+  title_es?: string;
   text: string;
+  text_es?: string;
 }
 
 export interface DigitalProduct {
   title: string;
+  title_es?: string;
   description?: string;
+  description_es?: string;
   image: string;
   images?: [string, string]; // 2-screen layout: overlapping phones
   desktop?: boolean;         // wide desktop screenshot — skips phone frame
@@ -132,22 +138,30 @@ export const projectsData: Project[] = [
             avatar: "/projects/sole/persona-1.webp",
             description:
               "A practical and detail-oriented family man who shares his home with his wife, children, and an older relative. An omnichannel user who meticulously researches every price and technical specification online before visiting the store, ensuring a smart and lasting purchase that simplifies daily life for his family.",
+            description_es:
+              "Jefe de familia práctico y orientado al detalle que convive con su esposa, hijos y un familiar mayor. Usuario omnicanal que investiga meticulosamente precios y especificaciones técnicas online antes de visitar la tienda, garantizando una compra inteligente y duradera que simplifique la vida cotidiana de su familia.",
             quote:
               "I want efficient solutions for my home. I research extensively online because my family's trust and safety are non-negotiable.",
+            quote_es:
+              "Quiero soluciones eficientes para mi hogar. Me informo ampliamente online porque la confianza y seguridad de mi familia no son negociables.",
           },
           {
             tag: "USER PERSONA 2",
             avatar: "/projects/sole/persona-2.webp",
             description:
               "A professional with a sophisticated lifestyle and high aesthetic expectations, passionate about global interior design and gastronomy trends. She wants her kitchen to stop being a merely functional space and become a social and immersive ritual.",
+            description_es:
+              "Profesional con un estilo de vida sofisticado y altas expectativas estéticas, apasionada por las tendencias globales de diseño interior y gastronomía. Quiere que su cocina deje de ser un espacio meramente funcional y se convierta en un ritual social e inmersivo.",
             quote:
               "To me, the kitchen is the social heart of the home. I'm looking for an environment where premium technology is invisible and design takes center stage.",
+            quote_es:
+              "Para mí, la cocina es el corazón social del hogar. Busco un entorno donde la tecnología premium sea invisible y el diseño sea el protagonista.",
           },
         ],
         insights: [
-          { title: "Decision Friction", text: "In the appliance category, users don't abandon the purchase out of lack of interest, but due to cognitive overload; the physical overexposure of products in-store creates paralysis and makes it difficult to evaluate technical attributes." },
-          { title: "Omnichannel Behavior", text: "The mass consumer does not use the physical store as an initial discovery point, but rather as a validation node; they research digitally beforehand and visit the retail space to confirm textures, proportions, and confidence levels." },
-          { title: "Purchase Closure", text: "Projecting the product in the user's own space is the main conversion catalyst; when the customer cannot visualize the finish in their real context, perceived risk increases and the decision is postponed." },
+          { title: "Decision Friction", title_es: "Fricción en la decisión", text: "In the appliance category, users don't abandon the purchase out of lack of interest, but due to cognitive overload; the physical overexposure of products in-store creates paralysis and makes it difficult to evaluate technical attributes.", text_es: "En la categoría de electrodomésticos, los usuarios no abandonan la compra por falta de interés, sino por sobrecarga cognitiva; la sobreexposición física de productos genera parálisis y dificulta evaluar los atributos técnicos." },
+          { title: "Omnichannel Behavior", title_es: "Comportamiento omnicanal", text: "The mass consumer does not use the physical store as an initial discovery point, but rather as a validation node; they research digitally beforehand and visit the retail space to confirm textures, proportions, and confidence levels.", text_es: "El consumidor masivo no usa la tienda física como punto inicial de descubrimiento, sino como nodo de validación; investiga digitalmente y visita el retail para confirmar texturas, proporciones y niveles de confianza." },
+          { title: "Purchase Closure", title_es: "Cierre de compra", text: "Projecting the product in the user's own space is the main conversion catalyst; when the customer cannot visualize the finish in their real context, perceived risk increases and the decision is postponed.", text_es: "Proyectar el producto en el espacio propio del usuario es el principal catalizador de conversión; cuando el cliente no puede visualizar el acabado en su contexto real, el riesgo percibido aumenta y la decisión se pospone." },
         ],
       },
       digitalStrategy: {
@@ -156,15 +170,15 @@ export const projectsData: Project[] = [
         description:
           "I designed a virtual catalog with two distinct experiences for two completely different audiences. Sole and S•Collection coexist digitally but with differentiated journeys: Sole's centers on specifications, savings, and technical benefits, guiding the practical buyer toward a confident decision. S•Collection's centers on exploration and augmented visualization, allowing users to combine materials, colors, and textures to imagine their ideal kitchen before committing.",
         products: [
-          { title: "Sole Technical Catalog", description: "Clear information architecture that prioritizes specifications, savings, and technical benefits for the practical buyer.", image: "/projects/sole/digital-1.webp" },
-          { title: "Product Detail & QR", description: "Interactive cards with dynamic QR codes per SKU connecting the physical display with extended information and purchase channels.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
-          { title: "Model Comparator", description: "Real-time interactive visualization to customize materials, colors, and finishes on the ideal kitchen before deciding.", image: "/projects/sole/digital-3-a.webp", images: ["/projects/sole/digital-3-a.webp", "/projects/sole/digital-3-b.webp"] },
-          { title: "S•Collection Explorer", description: "Dark Mode interface that highlights the advanced technologies of the luxury line and integrates shortcuts to exclusive advisory services.", image: "/projects/sole/digital-4.webp" },
+          { title: "Sole Technical Catalog", description: "Clear information architecture that prioritizes specifications, savings, and technical benefits for the practical buyer.", description_es: "Arquitectura de información clara que prioriza especificaciones, ahorros y beneficios técnicos para el comprador práctico.", image: "/projects/sole/digital-1.webp" },
+          { title: "Product Detail & QR", description: "Interactive cards with dynamic QR codes per SKU connecting the physical display with extended information and purchase channels.", description_es: "Tarjetas interactivas con códigos QR dinámicos por SKU que conectan el exhibidor físico con información ampliada y canales de compra.", image: "/projects/sole/digital-2-a.webp", images: ["/projects/sole/digital-2-a.webp", "/projects/sole/digital-2-b.webp"] },
+          { title: "Model Comparator", description: "Real-time interactive visualization to customize materials, colors, and finishes on the ideal kitchen before deciding.", description_es: "Visualización interactiva en tiempo real para personalizar materiales, colores y acabados de la cocina ideal antes de decidir.", image: "/projects/sole/digital-3-a.webp", images: ["/projects/sole/digital-3-a.webp", "/projects/sole/digital-3-b.webp"] },
+          { title: "S•Collection Explorer", description: "Dark Mode interface that highlights the advanced technologies of the luxury line and integrates shortcuts to exclusive advisory services.", description_es: "Interfaz en Modo Oscuro que destaca las tecnologías avanzadas de la línea premium e integra accesos a servicios de asesoría exclusiva.", image: "/projects/sole/digital-4.webp" },
         ],
         insights: [
-          { title: "Two profiles, one decision", text: "Sole's practical buyer seeks immediate technical certainty; S•Collection's customer seeks aesthetic inspiration and personalization." },
-          { title: "Segmentation that converts", text: "A monolithic digital catalog generates confusion; segmenting the experience by buyer mindset doubles engagement." },
-          { title: "See to decide", text: "Augmented reality visualization reduces indecision by allowing users to try finishes and textures in real time before purchase." },
+          { title: "Two profiles, one decision", title_es: "Dos perfiles, una decisión", text: "Sole's practical buyer seeks immediate technical certainty; S•Collection's customer seeks aesthetic inspiration and personalization.", text_es: "El comprador práctico de Sole busca certeza técnica inmediata; el cliente de S•Collection busca inspiración estética y personalización." },
+          { title: "Segmentation that converts", title_es: "Segmentación que convierte", text: "A monolithic digital catalog generates confusion; segmenting the experience by buyer mindset doubles engagement.", text_es: "Un catálogo digital monolítico genera confusión; segmentar la experiencia por mentalidad de compra duplica el engagement." },
+          { title: "See to decide", title_es: "Ver para decidir", text: "Augmented reality visualization reduces indecision by allowing users to try finishes and textures in real time before purchase.", text_es: "La visualización en realidad aumentada reduce la indecisión al permitir probar acabados y texturas en tiempo real antes de la compra." },
         ],
       },
       spatialBranding: {
@@ -213,9 +227,9 @@ export const projectsData: Project[] = [
           "The pivot came when we stopped asking why people don't learn more and started asking why people can't manage their own learning. That single shift in focus changed everything.",
         ],
         insights: [
-          { title: "Visual Differentiation", text: "In markets saturated by generic minimalist aesthetics, embracing local identity and culture becomes the main asset for differentiation and cultural relevance." },
-          { title: "Emotional Connection", text: "Contemporary audiences do not connect with static brands; they seek living proposals whose personality can manifest consistently yet flexibly across physical, digital, and editorial channels." },
-          { title: "Spatial Transition", text: "The touchpoint with the exterior (the street) demands high-impact, fast-traction communication, while the interior space must be designed for permanence, comfort, and brand immersion." },
+          { title: "Visual Differentiation", title_es: "Diferenciación visual", text: "In markets saturated by generic minimalist aesthetics, embracing local identity and culture becomes the main asset for differentiation and cultural relevance.", text_es: "En mercados saturados por estéticas minimalistas genéricas, adoptar la identidad y cultura local se convierte en el principal activo de diferenciación y relevancia cultural." },
+          { title: "Emotional Connection", title_es: "Conexión emocional", text: "Contemporary audiences do not connect with static brands; they seek living proposals whose personality can manifest consistently yet flexibly across physical, digital, and editorial channels.", text_es: "Las audiencias contemporáneas no conectan con marcas estáticas; buscan propuestas vivas cuya personalidad se manifieste de forma consistente pero flexible en canales físicos, digitales y editoriales." },
+          { title: "Spatial Transition", title_es: "Transición espacial", text: "The touchpoint with the exterior (the street) demands high-impact, fast-traction communication, while the interior space must be designed for permanence, comfort, and brand immersion.", text_es: "El punto de contacto con el exterior (la calle) exige comunicación de alto impacto y tracción rápida, mientras el espacio interior debe diseñarse para la permanencia, el confort y la inmersión de marca." },
         ],
         personas: [
           {
@@ -224,8 +238,12 @@ export const projectsData: Project[] = [
             avatar: "/projects/root/persona-1.webp",
             description:
               "Translator displaced by AI. Overwhelmed by options and paralyzed by the fear of making the wrong choice. The problem is not finding content — it's trusting the path.",
+            description_es:
+              "Traductora desplazada por la IA. Abrumada por las opciones y paralizada por el miedo a elegir mal. El problema no es encontrar contenido — es confiar en el camino.",
             quote:
               "There are so many options I don't know where to start, and I'm afraid of wasting time on the wrong path.",
+            quote_es:
+              "Hay tantas opciones que no sé por dónde empezar, y tengo miedo de perder el tiempo en el camino equivocado.",
           },
           {
             tag: "USER PERSONA 2",
@@ -233,8 +251,12 @@ export const projectsData: Project[] = [
             avatar: "/projects/root/persona-2.webp",
             description:
               "UX designer who needs efficiency above all. Most platforms are too generic to adapt to her specific needs and limited time.",
+            description_es:
+              "Diseñadora UX que necesita eficiencia ante todo. La mayoría de plataformas son demasiado genéricas para adaptarse a sus necesidades específicas y tiempo limitado.",
             quote:
               "I have very little time and most platforms aren't designed for what I actually need.",
+            quote_es:
+              "Tengo muy poco tiempo y la mayoría de plataformas no están diseñadas para lo que realmente necesito.",
           },
         ],
       },
@@ -244,15 +266,15 @@ export const projectsData: Project[] = [
         description:
           "ROOT is built around a single image: a knowledge garden where lessons grow at your own pace and nothing is forced. Every design decision returned to three things: motivation (no pressure, just progress), organization (a clear path, not an open field), and entertainment — because learning that feels like homework gets abandoned. The moment that told us it was working: users saw their generated route for the first time and said 'this makes sense for me.' That was the Aha moment around which we designed everything.",
         products: [
-          { title: "Learning Dashboard", description: "Entry experience based on the metaphor of a visual garden, where users cultivate their knowledge at their own pace without the pressure of traditional learning.", image: "/projects/root/digital-1.webp" },
-          { title: "Conversational Onboarding", description: "A warm, personalized flow that asks the user 'What do you want to learn?', suggesting topics or allowing them to write any interest with AI assistance to build their unique path.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
-          { title: "Route & Units Generator", description: "The AI engine structures personalized modules and lessons based on the user's interests, allowing them to select or adjust the units of their study plan in seconds.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
-          { title: "Gamification & Rewards", description: "An organic incentive system where completing lessons makes 'flowers and orchids' grow in the user's garden, celebrating milestones and learning streaks without pressure or judgment.", image: "/projects/root/digital-4.webp" },
+          { title: "Learning Dashboard", description: "Entry experience based on the metaphor of a visual garden, where users cultivate their knowledge at their own pace without the pressure of traditional learning.", description_es: "Experiencia de entrada basada en la metáfora de un jardín visual, donde los usuarios cultivan su conocimiento a su propio ritmo sin la presión del aprendizaje tradicional.", image: "/projects/root/digital-1.webp" },
+          { title: "Conversational Onboarding", description: "A warm, personalized flow that asks the user 'What do you want to learn?', suggesting topics or allowing them to write any interest with AI assistance to build their unique path.", description_es: "Un flujo cálido y personalizado que pregunta al usuario '¿Qué quieres aprender?', sugiriendo temas o permitiendo escribir cualquier interés con asistencia de IA para construir su camino único.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
+          { title: "Route & Units Generator", description: "The AI engine structures personalized modules and lessons based on the user's interests, allowing them to select or adjust the units of their study plan in seconds.", description_es: "El motor de IA estructura módulos y lecciones personalizadas según los intereses del usuario, permitiéndole seleccionar o ajustar las unidades de su plan de estudio en segundos.", image: "/projects/root/digital-3-a.webp", images: ["/projects/root/digital-3-a.webp", "/projects/root/digital-3-b.webp"] },
+          { title: "Gamification & Rewards", description: "An organic incentive system where completing lessons makes 'flowers and orchids' grow in the user's garden, celebrating milestones and learning streaks without pressure or judgment.", description_es: "Un sistema de incentivos orgánico donde completar lecciones hace crecer 'flores y orquídeas' en el jardín del usuario, celebrando hitos y rachas de aprendizaje sin presión ni juicio.", image: "/projects/root/digital-4.webp" },
         ],
         insights: [
-          { title: "The garden as metaphor", text: "A visual system based on organic growth (a knowledge garden) conveys calm rather than the pressure of a checklist." },
-          { title: "Micro-goals without guilt", text: "Self-managed learning requires micro-measurable goals that celebrate daily progress without generating guilt for pauses." },
-          { title: "The Aha moment", text: "The 'Aha' moment occurs when the user sees their personalized route generated and feels the platform understands their real context." },
+          { title: "The garden as metaphor", title_es: "El jardín como metáfora", text: "A visual system based on organic growth (a knowledge garden) conveys calm rather than the pressure of a checklist.", text_es: "Un sistema visual basado en el crecimiento orgánico (un jardín de conocimiento) transmite calma en lugar de la presión de una lista de tareas." },
+          { title: "Micro-goals without guilt", title_es: "Micro-objetivos sin culpa", text: "Self-managed learning requires micro-measurable goals that celebrate daily progress without generating guilt for pauses.", text_es: "El aprendizaje autogestionado requiere micro-objetivos medibles que celebren el progreso diario sin generar culpa por las pausas." },
+          { title: "The Aha moment", title_es: "El momento Aha", text: "The 'Aha' moment occurs when the user sees their personalized route generated and feels the platform understands their real context.", text_es: "El momento 'Aha' ocurre cuando el usuario ve su ruta personalizada generada y siente que la plataforma entiende su contexto real." },
         ],
       },
     },
@@ -300,9 +322,9 @@ export const projectsData: Project[] = [
           "The experience was articulated around three strategic pillars: exploration, permanence, and loyalty. A key insight emerged clearly: in a luxury experience, the loyalty stage is the most critical. Technology and innovation needed to operate as an invisible layer, never competing with the product or the craftsmanship.",
         ],
         insights: [
-          { title: "Value Perception", text: "The modern luxury consumer does not seek merely to acquire a high-quality garment, but to connect with the origin and artisanal heritage behind the raw material." },
-          { title: "Navigation Pace", text: "The premium traveler and shopper requires differentiated spatial itineraries: while the transactional profile values agility and clarity in the journey, the heritage profile demands pauses and layers of immersive editorial content." },
-          { title: "Brand Coherence", text: "The promise of 'conscious luxury' fractures if there is a disconnect between the visual communication narrative and the materiality of the point of sale; the physical space must act as the tangible extension of the brand story." },
+          { title: "Value Perception", title_es: "Percepción de valor", text: "The modern luxury consumer does not seek merely to acquire a high-quality garment, but to connect with the origin and artisanal heritage behind the raw material.", text_es: "El consumidor moderno de lujo no busca meramente adquirir una prenda de alta calidad, sino conectar con el origen y el patrimonio artesanal detrás de la materia prima." },
+          { title: "Navigation Pace", title_es: "Ritmo de navegación", text: "The premium traveler and shopper requires differentiated spatial itineraries: while the transactional profile values agility and clarity in the journey, the heritage profile demands pauses and layers of immersive editorial content.", text_es: "El viajero y comprador premium requiere itinerarios espaciales diferenciados: mientras el perfil transaccional valora la agilidad y claridad en el recorrido, el perfil patrimonial demanda pausas y capas de contenido editorial inmersivo." },
+          { title: "Brand Coherence", title_es: "Coherencia de marca", text: "The promise of 'conscious luxury' fractures if there is a disconnect between the visual communication narrative and the materiality of the point of sale; the physical space must act as the tangible extension of the brand story.", text_es: "La promesa de 'lujo consciente' se fractura si existe una desconexión entre la narrativa de comunicación visual y la materialidad del punto de venta; el espacio físico debe actuar como extensión tangible de la historia de marca." },
         ],
         personas: [
           {
@@ -310,14 +332,18 @@ export const projectsData: Project[] = [
             title: "Lu Wei, 38",
             avatar: "/projects/kuna/persona-1.webp",
             description: "Executive tourist seeking cultural authenticity and vicuña fibers. Buys impulsively while traveling but requires validating quality by touch before deciding.",
+            description_es: "Turista ejecutiva que busca autenticidad cultural y fibras de vicuña. Compra impulsivamente mientras viaja pero necesita validar la calidad al tacto antes de decidir.",
             quote: "I want to take home unique and sustainable pieces that reflect the origin and heritage of the country I'm visiting.",
+            quote_es: "Quiero llevarme a casa piezas únicas y sostenibles que reflejen el origen y el patrimonio del país que visito.",
           },
           {
             tag: "USER PERSONA 2",
             title: "Claudia, 46",
             avatar: "/projects/kuna/persona-2.webp",
             description: "Diplomatic supervisor and quiet luxury consumer. Seeks timeless elegance for work events and demands personalized attention befitting the high purchase ticket.",
+            description_es: "Supervisora diplomática y consumidora de lujo silencioso. Busca elegancia atemporal para eventos laborales y exige atención personalizada acorde al alto ticket de compra.",
             quote: "If I invest in an exclusive alpaca piece, I expect both the garment and the in-store experience to be impeccable.",
+            quote_es: "Si invierto en una pieza exclusiva de alpaca, espero que tanto la prenda como la experiencia en tienda sean impecables.",
           },
         ],
       },
@@ -332,15 +358,15 @@ export const projectsData: Project[] = [
         description:
           "I designed four digital experiences to address specific business objectives and generate engagement at each touchpoint within the physical store. The Lifestyle Club turns loyalty into access, rewarding returning customers with genuinely exclusive spaces and benefits. Artistic Experience KUNA connects ancestral craftsmanship with the immediacy of the modern traveler. Express KUNA Service gives national and international visibility to ancestral techniques and contemporary Peruvian artists. And Garment Care reframes the purchase as the beginning of a relationship, not the end of one.",
         products: [
-          { title: "Garment Care", description: "Personalized post-sale care and maintenance guide based on the type of garment and selected textile fiber (Alpaca, Vicuña, Pima).", image: "/projects/kuna/digital-1.webp" },
-          { title: "Lifestyle Club", description: "A profiling questionnaire that turns loyalty into a personalized experience, recommending collections based on user preferences.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
-          { title: "Express KUNA Service", description: "Agile service designed for the modern traveler seeking curated gifts and quick purchase advice without losing the brand's exclusivity.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
-          { title: "Artistic Experience KUNA", description: "Space dedicated to decorative art pieces and ancestral techniques that showcase the work of Peruvian craftspeople and contemporary artists.", image: "/projects/kuna/digital-4.webp" },
+          { title: "Garment Care", description: "Personalized post-sale care and maintenance guide based on the type of garment and selected textile fiber (Alpaca, Vicuña, Pima).", description_es: "Guía personalizada de cuidado y mantenimiento post-venta basada en el tipo de prenda y la fibra textil seleccionada (Alpaca, Vicuña, Pima).", image: "/projects/kuna/digital-1.webp" },
+          { title: "Lifestyle Club", description: "A profiling questionnaire that turns loyalty into a personalized experience, recommending collections based on user preferences.", description_es: "Cuestionario de perfilado que convierte la lealtad en una experiencia personalizada, recomendando colecciones según las preferencias del usuario.", image: "/projects/kuna/digital-2-a.webp", images: ["/projects/kuna/digital-2-a.webp", "/projects/kuna/digital-2-b.webp"] },
+          { title: "Express KUNA Service", description: "Agile service designed for the modern traveler seeking curated gifts and quick purchase advice without losing the brand's exclusivity.", description_es: "Servicio ágil diseñado para el viajero moderno que busca regalos curados y asesoría de compra rápida sin perder la exclusividad de la marca.", image: "/projects/kuna/digital-3-a.webp", images: ["/projects/kuna/digital-3-a.webp", "/projects/kuna/digital-3-b.webp"] },
+          { title: "Artistic Experience KUNA", description: "Space dedicated to decorative art pieces and ancestral techniques that showcase the work of Peruvian craftspeople and contemporary artists.", description_es: "Espacio dedicado a piezas de arte decorativo y técnicas ancestrales que exhiben el trabajo de artesanos peruanos y artistas contemporáneos.", image: "/projects/kuna/digital-4.webp" },
         ],
         insights: [
-          { title: "Loyalty as co-creation", text: "The Lifestyle Club turns loyalty into exclusive access, making frequent customers feel like co-creators of the brand." },
-          { title: "Origin as experience", text: "Artistic Experience KUNA connects the modern traveler with the origin of the fiber through immersive digital narratives at the point of sale." },
-          { title: "The purchase as a beginning", text: "The Garment Care service transforms the final purchase into the beginning of a lasting bond of garment care and maintenance." },
+          { title: "Loyalty as co-creation", title_es: "Lealtad como cocreación", text: "The Lifestyle Club turns loyalty into exclusive access, making frequent customers feel like co-creators of the brand.", text_es: "El Lifestyle Club convierte la lealtad en acceso exclusivo, haciendo que los clientes frecuentes se sientan cocreadores de la marca." },
+          { title: "Origin as experience", title_es: "El origen como experiencia", text: "Artistic Experience KUNA connects the modern traveler with the origin of the fiber through immersive digital narratives at the point of sale.", text_es: "Artistic Experience KUNA conecta al viajero moderno con el origen de la fibra a través de narrativas digitales inmersivas en el punto de venta." },
+          { title: "The purchase as a beginning", title_es: "La compra como inicio", text: "The Garment Care service transforms the final purchase into the beginning of a lasting bond of garment care and maintenance.", text_es: "El servicio Garment Care transforma la compra final en el inicio de un vínculo duradero de cuidado y mantenimiento de la prenda." },
         ],
       },
       spatialBranding: {
@@ -387,9 +413,9 @@ export const projectsData: Project[] = [
           "Modulor's positioning gap was narrative. The firm had the expertise; what it lacked was a digital ecosystem capable of carrying that expertise to three distinct audiences without losing what made it singular.",
         ],
         insights: [
-          { title: "Strategic Alignment", text: "A visual rebrand has no business impact if it is not backed by a deep restructuring of information architecture and the usability of its digital platforms." },
-          { title: "Product Scalability", text: "The dispersion of brand assets across digital environments generates inconsistency and hinders adoption by stakeholders; unifying into a dynamic design system is indispensable for competing globally." },
-          { title: "B2B/B2C Conversion Friction", text: "Visual sophistication must be balanced with functional intuition; an interface overloaded with aesthetics but weak in information hierarchy increases abandonment rates at key funnel stages." },
+          { title: "Strategic Alignment", title_es: "Alineación estratégica", text: "A visual rebrand has no business impact if it is not backed by a deep restructuring of information architecture and the usability of its digital platforms.", text_es: "Un rebranding visual no tiene impacto de negocio si no está respaldado por una reestructuración profunda de la arquitectura de información y la usabilidad de sus plataformas digitales." },
+          { title: "Product Scalability", title_es: "Escalabilidad del producto", text: "The dispersion of brand assets across digital environments generates inconsistency and hinders adoption by stakeholders; unifying into a dynamic design system is indispensable for competing globally.", text_es: "La dispersión de activos de marca en entornos digitales genera inconsistencia y dificulta la adopción por los stakeholders; unificar en un sistema de diseño dinámico es indispensable para competir globalmente." },
+          { title: "B2B/B2C Conversion Friction", title_es: "Fricción de conversión B2B/B2C", text: "Visual sophistication must be balanced with functional intuition; an interface overloaded with aesthetics but weak in information hierarchy increases abandonment rates at key funnel stages.", text_es: "La sofisticación visual debe equilibrarse con la intuición funcional; una interfaz sobrecargada estéticamente pero débil en jerarquía de información aumenta las tasas de abandono en etapas clave del funnel." },
         ],
         personas: [
           {
@@ -397,14 +423,18 @@ export const projectsData: Project[] = [
             title: "Sofía, 39",
             avatar: "/projects/modulor/persona-1.webp",
             description: "Seeks to standardize stores, scale quickly, and see visible results. Moves through LinkedIn, industry events, and specialized media, motivated by competitive positioning.",
+            description_es: "Busca estandarizar tiendas, escalar rápido y ver resultados visibles. Se mueve en LinkedIn, eventos del sector y medios especializados, motivada por el posicionamiento competitivo.",
             quote: "I need a strategic partner that allows me to standardize and scale our points of sale without losing speed or quality in execution.",
+            quote_es: "Necesito un socio estratégico que me permita estandarizar y escalar nuestros puntos de venta sin perder velocidad ni calidad en la ejecución.",
           },
           {
             tag: "USER PERSONA 2",
             title: "Mateo, 35",
             avatar: "/projects/modulor/persona-2.webp",
             description: "Focused on quality, innovation, and brand image modernization. Values human content and cultural transformation, but navigates between internal bureaucracy and complex supplier management.",
+            description_es: "Enfocado en calidad, innovación y modernización de imagen de marca. Valora el contenido humano y la transformación cultural, pero navega entre la burocracia interna y la gestión compleja de proveedores.",
             quote: "We seek to transform our visual presence and innovate in the customer experience, overcoming internal and operational obstacles.",
+            quote_es: "Buscamos transformar nuestra presencia visual e innovar en la experiencia del cliente, superando obstáculos internos y operacionales.",
           },
         ],
       },
@@ -416,15 +446,15 @@ export const projectsData: Project[] = [
           "The rebrand uses an intense purple that distinguishes Modulor from the corporate grey aesthetic of regional consultancies. Together with a clean geometric logo, the system positions Modulor as something distinct from the firms it competes with.",
         ],
         products: [
-          { title: "Main Website & Lead Capture", description: "Powerful visual identity based on manifesto phrases and corporate purple tone. Integrates strategic subscription forms (lead capture) to connect with key clients in the design and retail industry.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
-          { title: "Project Portfolio & UI System", description: "Display of success cases (Joma, Converse, Vision Center) organized through a clear component system, with optimized visual hierarchy and an interactive button color system.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
-          { title: "Services & Featured Projects", description: "Visual structure based on a geometric iconography system and service cards (Consulting, Retail Strategy, Training), leading into a gallery of visual covers of high-impact projects.", image: "/projects/modulor/digital-3.webp", desktop: true },
-          { title: "Impact Covers & Innovative Photography", description: "Desktop editorial design using two large covers per page, backed by bold conceptual art-direction photography to convey the firm's culture and innovation.", image: "/projects/modulor/digital-4.webp", desktop: true },
+          { title: "Main Website & Lead Capture", description: "Powerful visual identity based on manifesto phrases and corporate purple tone. Integrates strategic subscription forms (lead capture) to connect with key clients in the design and retail industry.", description_es: "Identidad visual potente basada en frases manifiesto y tono corporativo púrpura. Integra formularios de suscripción estratégicos (captación de leads) para conectar con clientes clave del sector diseño y retail.", image: "/projects/modulor/digital-1-a.webp", images: ["/projects/modulor/digital-1-a.webp", "/projects/modulor/digital-1-b.webp"] },
+          { title: "Project Portfolio & UI System", description: "Display of success cases (Joma, Converse, Vision Center) organized through a clear component system, with optimized visual hierarchy and an interactive button color system.", description_es: "Exhibición de casos de éxito (Joma, Converse, Vision Center) organizados mediante un sistema de componentes claro, con jerarquía visual optimizada y un sistema interactivo de colores de botones.", image: "/projects/modulor/digital-2-a.webp", images: ["/projects/modulor/digital-2-a.webp", "/projects/modulor/digital-2-b.webp"] },
+          { title: "Services & Featured Projects", description: "Visual structure based on a geometric iconography system and service cards (Consulting, Retail Strategy, Training), leading into a gallery of visual covers of high-impact projects.", description_es: "Estructura visual basada en un sistema de iconografía geométrica y tarjetas de servicio (Consultoría, Estrategia Retail, Training), que conduce a una galería de portadas visuales de proyectos de alto impacto.", image: "/projects/modulor/digital-3.webp", desktop: true },
+          { title: "Impact Covers & Innovative Photography", description: "Desktop editorial design using two large covers per page, backed by bold conceptual art-direction photography to convey the firm's culture and innovation.", description_es: "Diseño editorial para desktop usando dos grandes portadas por página, respaldadas por fotografía conceptual de dirección de arte atrevida para transmitir la cultura e innovación de la firma.", image: "/projects/modulor/digital-4.webp", desktop: true },
         ],
         insights: [
-          { title: "Content that qualifies", text: "The Insights channel qualifies the executive audience before first contact, building brand authority." },
-          { title: "Smart flow by profile", text: "Directing the conversion flow by client type optimizes business meetings and accelerates proposal closing." },
-          { title: "Scale without losing rigor", text: "A solid web component system allows scaling case studies while maintaining visual consistency without additional effort." },
+          { title: "Content that qualifies", title_es: "Contenido que califica", text: "The Insights channel qualifies the executive audience before first contact, building brand authority.", text_es: "El canal de Insights califica a la audiencia ejecutiva antes del primer contacto, construyendo autoridad de marca." },
+          { title: "Smart flow by profile", title_es: "Flujo inteligente por perfil", text: "Directing the conversion flow by client type optimizes business meetings and accelerates proposal closing.", text_es: "Dirigir el flujo de conversión por tipo de cliente optimiza las reuniones de negocio y acelera el cierre de propuestas." },
+          { title: "Scale without losing rigor", title_es: "Escalar sin perder rigor", text: "A solid web component system allows scaling case studies while maintaining visual consistency without additional effort.", text_es: "Un sólido sistema de componentes web permite escalar casos de estudio manteniendo consistencia visual sin esfuerzo adicional." },
         ],
       },
     },
@@ -471,9 +501,9 @@ export const projectsData: Project[] = [
           "We identified that intimidation from not knowing specialty coffee jargon was blocking exploration. We designed a frictionless flow that guides users based on their taste preferences and available time.",
         ],
         insights: [
-          { title: "Category Education", text: "The specialty coffee consumer wants to explore new varieties and preparation methods, but feels intimidated by the technical and elitist language of the specialty." },
-          { title: "Community-Based Loyalty", text: "Ephemeral interactions in a pop-up format only generate long-term commercial value if they include active participation mechanisms that turn the visit into a sense of belonging." },
-          { title: "Data-Driven Design", text: "Self-discovery digital tools in the physical space not only improve the personalization of the user experience, but also function as a first-party data collection channel for the brand." },
+          { title: "Category Education", title_es: "Educación de categoría", text: "The specialty coffee consumer wants to explore new varieties and preparation methods, but feels intimidated by the technical and elitist language of the specialty.", text_es: "El consumidor de café de especialidad quiere explorar nuevas variedades y métodos de preparación, pero se siente intimidado por el lenguaje técnico y elitista de la especialidad." },
+          { title: "Community-Based Loyalty", title_es: "Fidelización basada en comunidad", text: "Ephemeral interactions in a pop-up format only generate long-term commercial value if they include active participation mechanisms that turn the visit into a sense of belonging.", text_es: "Las interacciones efímeras en formato pop-up solo generan valor comercial a largo plazo si incluyen mecanismos de participación activa que conviertan la visita en un sentido de pertenencia." },
+          { title: "Data-Driven Design", title_es: "Diseño basado en datos", text: "Self-discovery digital tools in the physical space not only improve the personalization of the user experience, but also function as a first-party data collection channel for the brand.", text_es: "Las herramientas digitales de autodescubrimiento en el espacio físico no solo mejoran la personalización de la experiencia, sino que también funcionan como canal de recopilación de datos de primera mano para la marca." },
         ],
         personas: [
           {
@@ -482,8 +512,12 @@ export const projectsData: Project[] = [
             avatar: "/projects/don-salazar/persona-1.webp",
             description:
               "University student who passes through the mall daily. Orders by habit, not by choice. Curious about specialty coffee but intimidated by not knowing what to order.",
+            description_es:
+              "Estudiante universitario que pasa por el mall diariamente. Pide por hábito, no por elección. Curioso sobre el café de especialidad pero intimidado por no saber qué pedir.",
             quote:
               "I don't know what to order beyond my usual and I don't want to look like I don't know what I'm doing.",
+            quote_es:
+              "No sé qué pedir más allá de mi habitual y no quiero parecer que no sé lo que hago.",
           },
           {
             tag: "USER PERSONA 2",
@@ -491,8 +525,12 @@ export const projectsData: Project[] = [
             avatar: "/projects/don-salazar/persona-2.webp",
             description:
               "Coffee enthusiast who follows specialty accounts and actively seeks new cafés. Has the knowledge but needs a quick learning and memorable experience.",
+            description_es:
+              "Entusiasta del café que sigue cuentas de especialidad y busca activamente nuevas cafeterías. Tiene el conocimiento pero necesita una experiencia de aprendizaje rápida y memorable.",
             quote:
               "I want a coffee that teaches me something, not just serves it to me.",
+            quote_es:
+              "Quiero un café que me enseñe algo, no que solo me lo sirva.",
           },
         ],
       },
@@ -509,15 +547,15 @@ export const projectsData: Project[] = [
           "Each screen responds to a specific moment in the journey: exploration of origin, order personalization, education about the roasting process, and connection with the coffee community.",
         ],
         products: [
-          { title: "Origin Explorer", description: "Welcome landing that connects the user with the world of 100% Peruvian specialty coffee, inviting them to discover their ideal profile from the start of the experience.", image: "/projects/don-salazar/digital-1.webp" },
-          { title: "Profiling Test & Personalization", description: "Interactive flow that asks 'What kind of coffee lover are you?' and allows selecting intensity and tasting notes to tailor the suggestion to each customer's specific taste.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
-          { title: "Methods & Cup Guide", description: "Interactive module that allows choosing the extraction method (Chemex, Aeropress, etc.) and the ideal cup, demystifying the brewing process with clear visual recommendations.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
-          { title: "Digital Ticket & Loyalty", description: "Immediate order confirmation with a service ticket and access to the community via QR code, closing the purchase flow and promoting complementary products from the catalog.", image: "/projects/don-salazar/digital-4.webp" },
+          { title: "Origin Explorer", description: "Welcome landing that connects the user with the world of 100% Peruvian specialty coffee, inviting them to discover their ideal profile from the start of the experience.", description_es: "Landing de bienvenida que conecta al usuario con el mundo del café de especialidad 100% peruano, invitándolo a descubrir su perfil ideal desde el inicio de la experiencia.", image: "/projects/don-salazar/digital-1.webp" },
+          { title: "Profiling Test & Personalization", description: "Interactive flow that asks 'What kind of coffee lover are you?' and allows selecting intensity and tasting notes to tailor the suggestion to each customer's specific taste.", description_es: "Flujo interactivo que pregunta '¿Qué tipo de amante del café eres?' y permite seleccionar intensidad y notas de cata para adaptar la sugerencia al gusto específico de cada cliente.", image: "/projects/don-salazar/digital-2-a.webp", images: ["/projects/don-salazar/digital-2-a.webp", "/projects/don-salazar/digital-2-b.webp"] },
+          { title: "Methods & Cup Guide", description: "Interactive module that allows choosing the extraction method (Chemex, Aeropress, etc.) and the ideal cup, demystifying the brewing process with clear visual recommendations.", description_es: "Módulo interactivo que permite elegir el método de extracción (Chemex, Aeropress, etc.) y la taza ideal, desmitificando el proceso de preparación con recomendaciones visuales claras.", image: "/projects/don-salazar/digital-3-a.webp", images: ["/projects/don-salazar/digital-3-a.webp", "/projects/don-salazar/digital-3-b.webp"] },
+          { title: "Digital Ticket & Loyalty", description: "Immediate order confirmation with a service ticket and access to the community via QR code, closing the purchase flow and promoting complementary products from the catalog.", description_es: "Confirmación inmediata del pedido con ticket de servicio y acceso a la comunidad vía código QR, cerrando el flujo de compra y promoviendo productos complementarios del catálogo.", image: "/projects/don-salazar/digital-4.webp" },
         ],
         insights: [
-          { title: "Specialty without barriers", text: "A taste-profile guided ordering flow (sweet, acidic, fruity) democratizes specialty without technical jargon." },
-          { title: "Digital that drives virality", text: "Digital interaction in the pop-up encourages quick learning and generates shareable content on social media." },
-          { title: "Recurrence through referral", text: "Personalized recommendation codes incentivize recurrence among groups of study peers." },
+          { title: "Specialty without barriers", title_es: "Especialidad sin barreras", text: "A taste-profile guided ordering flow (sweet, acidic, fruity) democratizes specialty without technical jargon.", text_es: "Un flujo de pedido guiado por perfil de sabor (dulce, ácido, frutal) democratiza la especialidad sin jerga técnica." },
+          { title: "Digital that drives virality", title_es: "Digital que impulsa viralidad", text: "Digital interaction in the pop-up encourages quick learning and generates shareable content on social media.", text_es: "La interacción digital en el pop-up fomenta el aprendizaje rápido y genera contenido compartible en redes sociales." },
+          { title: "Recurrence through referral", title_es: "Recurrencia por referido", text: "Personalized recommendation codes incentivize recurrence among groups of study peers.", text_es: "Los códigos de recomendación personalizados incentivan la recurrencia entre grupos de compañeros de estudio." },
         ],
       },
     },
@@ -565,9 +603,9 @@ export const projectsData: Project[] = [
           "Connecting with the audience required an omnichannel ecosystem anchored in emotional resonance. And the product layer demanded that technology and craftsmanship be showcased through iconography, immersive content, and sensory photography that sells the experience, not just the appliance.",
         ],
         insights: [
-          { title: "Luxury through restraint", text: "Contemporary luxury is not communicated by overwhelming the space, but through restraint and rigor in detail." },
-          { title: "Technology as art", text: "Emotionally connecting with the premium buyer requires treating home technology as an integrated piece of art." },
-          { title: "Selling the lifestyle", text: "Sensory photography and clean iconography sell the lifestyle before the individual appliance." },
+          { title: "Luxury through restraint", title_es: "Lujo a través de la contención", text: "Contemporary luxury is not communicated by overwhelming the space, but through restraint and rigor in detail.", text_es: "El lujo contemporáneo no se comunica abrumando el espacio, sino a través de la contención y el rigor en el detalle." },
+          { title: "Technology as art", title_es: "Tecnología como arte", text: "Emotionally connecting with the premium buyer requires treating home technology as an integrated piece of art.", text_es: "Conectar emocionalmente con el comprador premium requiere tratar la tecnología del hogar como una pieza de arte integrada." },
+          { title: "Selling the lifestyle", title_es: "Vender el estilo de vida", text: "Sensory photography and clean iconography sell the lifestyle before the individual appliance.", text_es: "La fotografía sensorial y la iconografía limpia venden el estilo de vida antes que el electrodoméstico individual." },
         ],
         personas: [
           {
@@ -575,14 +613,18 @@ export const projectsData: Project[] = [
             title: "Valeria, 35",
             avatar: "/projects/scollection/persona-1.webp",
             description: "Team leader with a sophisticated and cosmopolitan lifestyle. Seeks to integrate high-end technology and open design into her home to project status as a hostess.",
+            description_es: "Líder de equipo con un estilo de vida sofisticado y cosmopolita. Busca integrar tecnología de alta gama y diseño abierto en su hogar para proyectar estatus como anfitriona.",
             quote: "For me, the kitchen is the social center of the home; I look for products where premium technology and design speak for themselves.",
+            quote_es: "Para mí, la cocina es el centro social del hogar; busco productos donde la tecnología premium y el diseño hablen por sí solos.",
           },
           {
             tag: "USER PERSONA 2",
             title: "Chabela, 42",
             avatar: "/projects/scollection/persona-2.webp",
             description: "Homemaker and decision-maker in household purchases who trusts Sole's quality. Seeks to renovate her space with efficient, modern-design appliances as a reward for her hard work.",
+            description_es: "Ama de casa y tomadora de decisiones en compras del hogar que confía en la calidad de Sole. Busca renovar su espacio con electrodomésticos eficientes y de diseño moderno como recompensa por su esfuerzo.",
             quote: "I trust the brand's quality and want a modern kitchen that simplifies my family's daily life and looks incredible.",
+            quote_es: "Confío en la calidad de la marca y quiero una cocina moderna que simplifique la vida diaria de mi familia y se vea increíble.",
           },
         ],
       },
@@ -594,15 +636,15 @@ export const projectsData: Project[] = [
           "The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specifications, photography sells, and the interface steps aside.",
         ],
         products: [
-          { title: "SCo° Visual System", description: "Buttons in four variants, Gilroy typography, and components with editorial consistency.", image: "/projects/scollection/spatial-1.webp" },
-          { title: "SCo° Mobile App", description: "Vertical storytelling where photography sells and the interface steps aside.", image: "/projects/scollection/spatial-2.webp" },
-          { title: "Premium Catalog", description: "Collection exploration with the elegance of a luxury magazine.", image: "/projects/scollection/spatial-3.webp" },
-          { title: "Digital Signage", description: "Omnichannel signage system with QR codes and product-activated content.", image: "/projects/scollection/spatial-4.webp" },
+          { title: "SCo° Visual System", description: "Buttons in four variants, Gilroy typography, and components with editorial consistency.", description_es: "Botones en cuatro variantes, tipografía Gilroy y componentes con consistencia editorial.", image: "/projects/scollection/spatial-1.webp" },
+          { title: "SCo° Mobile App", description: "Vertical storytelling where photography sells and the interface steps aside.", description_es: "Storytelling vertical donde la fotografía vende y la interfaz se aparta.", image: "/projects/scollection/spatial-2.webp" },
+          { title: "Premium Catalog", description: "Collection exploration with the elegance of a luxury magazine.", description_es: "Exploración de colección con la elegancia de una revista de lujo.", image: "/projects/scollection/spatial-3.webp" },
+          { title: "Digital Signage", description: "Omnichannel signage system with QR codes and product-activated content.", description_es: "Sistema de señalética omnicanal con códigos QR y contenido activado por producto.", image: "/projects/scollection/spatial-4.webp" },
         ],
         insights: [
-          { title: "The system reflects the brand", text: "Every graphic piece and UI component must maintain design standards as refined as the brand's products." },
-          { title: "Vertical for immersion", text: "The vertical format in the SCo° app favors immersive and tactile exploration on mobile devices." },
-          { title: "Modular without losing luxury", text: "A modular design system with 4 variants ensures that marketing campaigns retain the luxury look & feel across any channel." },
+          { title: "The system reflects the brand", title_es: "El sistema refleja la marca", text: "Every graphic piece and UI component must maintain design standards as refined as the brand's products.", text_es: "Cada pieza gráfica y componente UI debe mantener estándares de diseño tan refinados como los productos de la marca." },
+          { title: "Vertical for immersion", title_es: "Vertical para la inmersión", text: "The vertical format in the SCo° app favors immersive and tactile exploration on mobile devices.", text_es: "El formato vertical en la app SCo° favorece la exploración inmersiva y táctil en dispositivos móviles." },
+          { title: "Modular without losing luxury", title_es: "Modular sin perder el lujo", text: "A modular design system with 4 variants ensures that marketing campaigns retain the luxury look & feel across any channel.", text_es: "Un sistema de diseño modular con 4 variantes garantiza que las campañas de marketing conserven el look & feel de lujo en cualquier canal." },
         ],
       },
     },
@@ -647,9 +689,9 @@ export const projectsData: Project[] = [
         ],
         personas: [],
         insights: [
-          { title: "Intuitive Navigation over Visual Overload", text: "In high-turnover mass retail, users don't want to get lost in crowded aisles; they demand a clear categorization and iconic signage system that allows them to find what they need and discover new products without effort or visual paralysis." },
-          { title: "Perceived Value through Functionality", text: "The convenience audience does not connect with aspirational or distant narratives; they evaluate the space through price-quality ratio, clarity of deals, and a direct experience that pragmatically validates their purchase decision." },
-          { title: "Spatial Fluidity as a Friction or Loyalty Trigger", text: "Customer satisfaction in-store is not defined solely by choosing a product, but at the exit point; implementing agile circuits with multiple checkout points transforms a quick purchase into a recurring habit." },
+          { title: "Intuitive Navigation over Visual Overload", title_es: "Navegación intuitiva sobre la sobrecarga visual", text: "In high-turnover mass retail, users don't want to get lost in crowded aisles; they demand a clear categorization and iconic signage system that allows them to find what they need and discover new products without effort or visual paralysis.", text_es: "En el retail masivo de alta rotación, los usuarios no quieren perderse en pasillos saturados; exigen un sistema de categorización claro y señalética icónica que les permita encontrar lo que necesitan y descubrir nuevos productos sin esfuerzo ni parálisis visual." },
+          { title: "Perceived Value through Functionality", title_es: "Valor percibido a través de la funcionalidad", text: "The convenience audience does not connect with aspirational or distant narratives; they evaluate the space through price-quality ratio, clarity of deals, and a direct experience that pragmatically validates their purchase decision.", text_es: "La audiencia de conveniencia no conecta con narrativas aspiracionales o distantes; evalúa el espacio a través de la relación precio-calidad, la claridad de las ofertas y una experiencia directa que valida pragmáticamente su decisión de compra." },
+          { title: "Spatial Fluidity as a Friction or Loyalty Trigger", title_es: "Fluidez espacial como detonante de fricción o lealtad", text: "Customer satisfaction in-store is not defined solely by choosing a product, but at the exit point; implementing agile circuits with multiple checkout points transforms a quick purchase into a recurring habit.", text_es: "La satisfacción del cliente en tienda no se define únicamente al elegir un producto, sino en el punto de salida; implementar circuitos ágiles con múltiples puntos de pago transforma una compra rápida en un hábito recurrente." },
         ],
       },
       digitalStrategy: {
@@ -751,15 +793,21 @@ export const projectsData: Project[] = [
         insights: [
           {
             title: "Mastery of Craft",
+            title_es: "Maestría del oficio",
             text: "Ancestral technique executed with precision to consolidate brand presence and authority in every preparation.",
+            text_es: "Técnica ancestral ejecutada con precisión para consolidar la presencia y autoridad de la marca en cada preparación.",
           },
           {
             title: "Excellence in Detail",
+            title_es: "Excelencia en el detalle",
             text: "Rigor across the entire value chain: from mise en place and ingredient quality to service attention and ritual.",
+            text_es: "Rigor en toda la cadena de valor: desde el mise en place y la calidad de los ingredientes hasta la atención al servicio y el ritual.",
           },
           {
             title: "Communion of Fused Fire",
+            title_es: "Comunión del fuego fusionado",
             text: "A meeting where the technical mastery of the Chinese wok embraces Peruvian seasoning to be experienced as a group and community.",
+            text_es: "Un encuentro donde la maestría técnica del wok chino abraza el sazón peruano para vivirse en grupo y comunidad.",
           },
         ],
       },
