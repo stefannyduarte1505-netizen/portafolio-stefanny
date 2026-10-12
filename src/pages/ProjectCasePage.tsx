@@ -14,6 +14,9 @@ const slugToTrKey: Record<string, string> = {
   modulor: 'modulor',
   'don-salazar': 'donSalazar',
   scollection: 'sCollection',
+  yuyito: 'yuyito',
+  salta: 'salta',
+  'oechsle-campaigns': 'oechsle',
 }
 
 /* ══════════════════════════════════════════
@@ -486,6 +489,10 @@ export default function ProjectCasePage() {
     'Campaign Content':                     'Contenido de Campaña',
     'Brand & Digital Strategy':             'Estrategia de Marca y Digital',
     'Spatial Brand Experience':             'Experiencia de Marca Espacial',
+    'Art Direction & Brand Experience':     'Dirección de Arte y Experiencia de Marca',
+    'Brand Strategy':                       'Estrategia de Marca',
+    'Strategy & Creative Direction':        'Estrategia y Dirección Creativa',
+    'Campaign Content & Social Reels':      'Contenido de Campaña y Social Reels',
   }
   const sTitle = (en: string) => lang === 'es' ? (sectionTitleEs[en] ?? en) : en
 

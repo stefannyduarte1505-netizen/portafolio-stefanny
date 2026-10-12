@@ -89,6 +89,23 @@ export const t = {
       digital: 'The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first — button states in four variants, typographic hierarchy in Gilroy, and component logic — so that visual consistency wouldn\'t depend on case-by-case decisions. The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specs, photography sells, and the interface steps aside.',
     },
 
+    /* ── Yuyito ── */
+    yuyito: {
+      research: 'The consulting strategy was built through a competitive benchmark (studying high-turnover retail models such as Dollarcity, Asia Sur, and Miniso) and a layout matrix articulated around three strategic axes: Store Experience, Categorization, and Interior Design, evaluated against Brand Identity, Audience, and Added Value.\n\nThe main objective was to position Yuyito as \'the preferred destination for all home needs.\' Connecting with the audience required moving away from aspirational messaging to communicate directly through functionality, price-quality ratio, and daily deals. To ensure fluidity in the physical space, the strategy considered a layout that facilitates continuous discovery, supported by a circuit of more than two strategically located checkout points to eliminate bottlenecks.',
+      digital: 'The spatial and graphic concept of Yuyito was designed to radically differentiate from the competition through a memorable chromatic personality (a bet on purple and orange tones) and a language of oval shapes that responds to the logo\'s geometry.\n\nI built a spatial design system where materiality and iconography work together: a comprehensive signage and iconography system optimizes category navigation within the store, while key areas such as campaign corners boost commercial traction throughout the year. The layout architecture not only organizes the mass offering, but transforms the journey into a quick, dynamic, and visually coherent discovery experience at every touchpoint.',
+    },
+
+    /* ── Salta ── */
+    salta: {
+      research: 'SALTA\'s proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. We understand fusion as the living flash of the flambé, where the mastery of the wok and the skill of the sauté elevate ingredients to center stage.\n\nMore than a cooking method, fire is our throughline and the symbol that unites us; the catalyst where Eastern heritage and our native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.',
+      digital: 'SALTA\'s visual identity translates the energy of fire and the gestures of the wok into a dynamic and contemporary graphic language. Through an intense color palette, character-driven typography, and a photographic direction that captures the live sauté ritual, the brand builds a sophisticated sensory universe that celebrates urban fusion fine dining.',
+    },
+
+    /* ── Oechsle ── */
+    oechsle: {
+      research: 'Development of multimedia content strategy and creative direction for Oechsle\'s seasonal campaigns. The approach combined dynamic POV visual narrative to amplify product value on digital platforms.\n\nReel production was optimized for attention capture and social interaction, with vertical formats designed for mobile and product narrative in under 15 seconds.',
+    },
+
     /* ── Don Salazar ── */
     donSalazar: {
       hero: 'Don Salazar was launching a pop-up in a mall anchored to a university campus. The business problem was concrete: students ordered the same thing every day, not because they preferred it, but because specialty coffee felt inaccessible and the risk of choosing wrong felt too high.',
@@ -186,6 +203,23 @@ export const t = {
       hero: 'S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness con criterio: diseño de alto nivel, con base tecnológica, sin perder la calidez.',
       research: 'La estrategia se construyó alrededor de tres ejes: Identidad Visual, Audiencia y Producto, evaluados desde las perspectivas de Experiencia de Marca, Diseño e Innovación. El sistema visual comunica elegancia a través de la contención. La conexión con la audiencia requería un ecosistema omnicanal anclado en resonancia emocional. Y la capa de producto exigía que la tecnología y la artesanía se mostraran a través de iconografía, contenido inmersivo y fotografía sensorial que vende la experiencia, no solo el electrodoméstico.',
       digital: 'El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso. La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.',
+    },
+
+    /* ── Yuyito ── */
+    yuyito: {
+      research: 'La estrategia de consultoría se construyó a través de un benchmark competitivo (estudiando modelos de retail de alta rotación como Dollarcity, Asia Sur y Miniso) y una matriz de layout articulada en tres ejes estratégicos: Experiencia en Tienda, Categorización y Diseño Interior, evaluados contra Identidad de Marca, Audiencia y Valor Agregado.\n\nEl objetivo principal era posicionar a Yuyito como \'el destino preferido para todas las necesidades del hogar\'. Conectar con la audiencia requirió alejarse de la comunicación aspiracional para hablar directamente a través de la funcionalidad, la relación precio-calidad y las ofertas diarias. Para garantizar fluidez en el espacio físico, la estrategia contempló un layout que facilita el descubrimiento continuo, respaldado por un circuito de más de dos puntos de caja estratégicamente ubicados para eliminar embotellamientos.',
+      digital: 'El concepto espacial y gráfico de Yuyito fue diseñado para diferenciarse radicalmente de la competencia a través de una personalidad cromática memorable (una apuesta por los tonos morados y naranjas) y un lenguaje de formas ovales que responde a la geometría del logotipo.\n\nConstruí un sistema de diseño espacial donde la materialidad y la iconografía trabajan juntas: un sistema completo de señalética e iconografía optimiza la navegación por categorías dentro de la tienda, mientras que áreas clave como los corners de campaña potencian la tracción comercial durante todo el año. La arquitectura de layout no solo organiza la oferta masiva, sino que transforma el recorrido en una experiencia de descubrimiento rápida, dinámica y visualmente coherente en cada punto de contacto.',
+    },
+
+    /* ── Salta ── */
+    salta: {
+      research: 'La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. Entendemos la fusión como el destello vivo del flambé, donde la maestría del wok y la habilidad del salteado elevan los ingredientes al centro de la escena.\n\nMás que un método de cocción, el fuego es nuestro hilo conductor y el símbolo que nos une; el catalizador donde la herencia oriental y nuestros insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.',
+      digital: 'La identidad visual de SALTA traduce la energía del fuego y los gestos del wok en un lenguaje gráfico dinámico y contemporáneo. A través de una paleta de color intensa, tipografías con carácter y una dirección fotográfica que captura el ritual del salteado en vivo, la marca construye un universo sensorial sofisticado que celebra la alta cocina de fusión urbana.',
+    },
+
+    /* ── Oechsle ── */
+    oechsle: {
+      research: 'Desarrollo de estrategia de contenido multimedia y dirección creativa para las campañas estacionales de Oechsle. El enfoque combinó narrativa visual dinámica en formato POV para amplificar el valor del producto en plataformas digitales.\n\nLa producción de Reels fue optimizada para la captura de atención e interacción social, con formatos verticales diseñados para móvil y narrativa de producto en menos de 15 segundos.',
     },
 
     /* ── Don Salazar ── */
