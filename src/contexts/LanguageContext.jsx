@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react'
 const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => sessionStorage.getItem('lang') || 'en')
+  const [lang, setLang] = useState(() => sessionStorage.getItem('lang') || 'es')
   const toggle = () => setLang(l => {
     const next = l === 'en' ? 'es' : 'en'
     sessionStorage.setItem('lang', next)
