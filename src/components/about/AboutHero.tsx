@@ -8,7 +8,7 @@ const copy = {
   en: {
     heading:  "Hi, I'm Stefanny Duarte",
     p1: 'Brand & Digital Experience Designer with over 6 years of experience in retail and corporate projects, crafting brand identities and the digital products that sustain them.',
-    p2: 'My work sits at the intersection of Branding, Product Design, and CX & Service Design — translating research into coherent, functional systems aligned with business goals, from physical retail spaces to fully digital experiences.',
+    p2: 'My work sits at the intersection of Branding, Product Design, and CX & Service Design; translating research into coherent, functional systems aligned with business goals, from physical retail spaces to fully digital experiences.',
     connect: "Let's connect on",
     or: 'or',
     watch: 'Watch my',
@@ -19,7 +19,7 @@ const copy = {
   es: {
     heading:  'Hola, soy Stefanny Duarte',
     p1: 'Diseñadora de Brand & Digital Experience con más de 6 años de experiencia en proyectos de retail y corporativos, diseñando identidades de marca y los productos digitales que las sostienen.',
-    p2: 'Mi trabajo se sitúa en la intersección de Branding, Product Design y CX & Service Design, traduciendo investigación en sistemas coherentes y funcionales alineados con los objetivos del negocio — desde espacios físicos de retail hasta experiencias completamente digitales.',
+    p2: 'Mi trabajo se sitúa en la intersección de Branding, Product Design y CX & Service Design, traduciendo investigación en sistemas coherentes y funcionales alineados con los objetivos del negocio; desde espacios físicos de retail hasta experiencias completamente digitales.',
     connect: 'Conectémonos por',
     or: 'o',
     watch: 'Mira mi',

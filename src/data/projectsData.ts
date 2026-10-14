@@ -130,7 +130,7 @@ export const projectsData: Project[] = [
         title: "Research & Strategy",
         description: [
           "The project started with a co-creation session with key business stakeholders across different perspectives. We deepened our understanding of the target audience to map their main needs and friction points, using a scenario-persona storytelling methodology to define insights conceptually.",
-          "The central challenge was clear: two brands, Sole and S•Collection, needed to coexist in the same physical space — each with a distinct user and distinct needs — yet both sharing the same aspiration: the kitchen of their dreams.",
+          "The central challenge was clear: two brands, Sole and S•Collection, needed to coexist in the same physical space; each with a distinct user and distinct needs; yet both sharing the same aspiration: the kitchen of their dreams.",
         ],
         personas: [
           {
@@ -237,9 +237,9 @@ export const projectsData: Project[] = [
             title: "Carmela, 41",
             avatar: "/projects/root/persona-1.webp",
             description:
-              "Translator displaced by AI. Overwhelmed by options and paralyzed by the fear of making the wrong choice. The problem is not finding content — it's trusting the path.",
+              "Translator displaced by AI. Overwhelmed by options and paralyzed by the fear of making the wrong choice. The problem is not finding content; it's trusting the path.",
             description_es:
-              "Traductora desplazada por la IA. Abrumada por las opciones y paralizada por el miedo a elegir mal. El problema no es encontrar contenido — es confiar en el camino.",
+              "Traductora desplazada por la IA. Abrumada por las opciones y paralizada por el miedo a elegir mal. El problema no es encontrar contenido; es confiar en el camino.",
             quote:
               "There are so many options I don't know where to start, and I'm afraid of wasting time on the wrong path.",
             quote_es:
@@ -264,7 +264,7 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Digital Strategy",
         description:
-          "ROOT is built around a single image: a knowledge garden where lessons grow at your own pace and nothing is forced. Every design decision returned to three things: motivation (no pressure, just progress), organization (a clear path, not an open field), and entertainment — because learning that feels like homework gets abandoned. The moment that told us it was working: users saw their generated route for the first time and said 'this makes sense for me.' That was the Aha moment around which we designed everything.",
+          "ROOT is built around a single image: a knowledge garden where lessons grow at your own pace and nothing is forced. Every design decision returned to three things: motivation (no pressure, just progress), organization (a clear path, not an open field), and entertainment; because learning that feels like homework gets abandoned. The moment that told us it was working: users saw their generated route for the first time and said 'this makes sense for me.' That was the Aha moment around which we designed everything.",
         products: [
           { title: "Learning Dashboard", description: "Entry experience based on the metaphor of a visual garden, where users cultivate their knowledge at their own pace without the pressure of traditional learning.", description_es: "Experiencia de entrada basada en la metáfora de un jardín visual, donde los usuarios cultivan su conocimiento a su propio ritmo sin la presión del aprendizaje tradicional.", image: "/projects/root/digital-1.webp" },
           { title: "Conversational Onboarding", description: "A warm, personalized flow that asks the user 'What do you want to learn?', suggesting topics or allowing them to write any interest with AI assistance to build their unique path.", description_es: "Un flujo cálido y personalizado que pregunta al usuario '¿Qué quieres aprender?', sugiriendo temas o permitiendo escribir cualquier interés con asistencia de IA para construir su camino único.", image: "/projects/root/digital-2-a.webp", images: ["/projects/root/digital-2-a.webp", "/projects/root/digital-2-b.webp"] },
@@ -632,7 +632,7 @@ export const projectsData: Project[] = [
         sectionNumber: "02",
         title: "Art Direction & Brand",
         description: [
-          "The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first — button states in four variants, typographic hierarchy in Gilroy and component logic — so that visual consistency didn't depend on case-by-case decisions.",
+          "The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first; button states in four variants, typographic hierarchy in Gilroy and component logic; so that visual consistency didn't depend on case-by-case decisions.",
           "The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specifications, photography sells, and the interface steps aside.",
         ],
         products: [
@@ -770,9 +770,9 @@ export const projectsData: Project[] = [
       team: "GrupoModulor Design Team.",
     },
     description:
-      "SALTA's proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. Fire is the throughline — the catalyst where Eastern heritage and native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
+      "SALTA's proposal is born from the encounter between two ancient cultures: when they collide, they ignite a transformative spark that redefines gastronomic identity. Fire is the throughline; the catalyst where Eastern heritage and native ingredients meet to celebrate a living, energetic, and contemporary culinary mastery.",
     descriptionEs:
-      "La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. El fuego es hilo conductor — el catalizador donde la herencia oriental y los insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.",
+      "La propuesta de SALTA nace del encuentro entre dos culturas milenarias: cuando colisionan, encienden una chispa transformadora que redefine la identidad gastronómica. El fuego es hilo conductor; el catalizador donde la herencia oriental y los insumos nativos se encuentran para celebrar una maestría culinaria viva, enérgica y contemporánea.",
     heroImage: "/projects/salta/cover.webp",
     spatialImages: [
       "/projects/salta/spatial-1.webp",

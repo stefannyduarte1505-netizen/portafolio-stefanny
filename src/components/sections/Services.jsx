@@ -4,7 +4,7 @@ const SERVICES = [
   {
     title: 'Experience Design',
     description:
-      'Diseño de interfaces y experiencias de usuario centradas en las personas — desde research hasta prototipos de alta fidelidad.',
+      'Diseño de interfaces y experiencias de usuario centradas en las personas; desde research hasta prototipos de alta fidelidad.',
   },
   {
     title: 'Art Direction',

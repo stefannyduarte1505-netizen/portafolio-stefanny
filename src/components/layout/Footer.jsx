@@ -202,7 +202,7 @@ export default function Footer() {
             </form>
           ) : (
             <p style={{ ...VALUE, fontSize: '1rem', marginTop: '2rem' }}>
-              Thank you — I'll be in touch soon.
+              Thank you; I'll be in touch soon.
             </p>
           )}
         </div>
