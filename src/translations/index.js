@@ -86,7 +86,7 @@ export const t = {
     /* ── S. Collection ── */
     sCollection: {
       hero: 'S•Collection is Grupo Sole\'s premium line, seeking to position itself in the market as a luxury brand. Through a brand audit, we gave it a look refresh that communicates innovation and premiumness with intention: high-level design, technology-grounded, without losing warmth.',
-      research: 'To elevate the perceived value of the premium line, we transformed technology into an intuitive visual experience; articulating clear iconography, immersive content, and sensory photography that communicates the lifestyle behind each appliance.',
+      research: 'In markets saturated with generic minimalist aesthetics, local identity and rigorous detail become the primary differentiation asset. Contemporary audiences do not connect with static brands; they seek living proposals that manifest consistently across physical, digital, and editorial channels. And in retail, the exterior space demands immediate traction, while the interior must be designed for permanence and brand immersion.',
       digital: 'The digital ecosystem was designed from a single premise: every graphic had to feel as premium as the product itself. I built the design system first; button states in four variants, typographic hierarchy in Gilroy, and component logic; so that visual consistency wouldn\'t depend on case-by-case decisions. The mobile content layer operates differently: short vertical formats for the SCo° app where storytelling leads over specs, photography sells, and the interface steps aside.',
     },
 
@@ -203,7 +203,7 @@ export const t = {
     /* ── S. Collection ── */
     sCollection: {
       hero: 'S•Collection es la línea premium de Grupo Sole y buscaba posicionarse en el mercado como una marca de lujo. A través de una auditoría de marca, le dimos un refresh de look comunicando innovación y premiumness con criterio: diseño de alto nivel, con base tecnológica, sin perder la calidez.',
-      research: 'Para elevar la percepción de valor de la línea premium, transformamos la tecnología en una experiencia visual intuitiva; articulando un sistema de iconografía clara, contenido inmersivo y fotografía sensorial que comunica el estilo de vida detrás de cada electrodoméstico.',
+      research: 'En mercados saturados por estéticas minimalistas genéricas, la identidad local y el rigor en el detalle se convierten en el principal activo de diferenciación. Las audiencias contemporáneas no conectan con marcas estáticas; buscan propuestas vivas que se manifiesten con consistencia en canales físicos, digitales y editoriales. Y en retail, el espacio exterior exige tracción inmediata, mientras el interior debe diseñarse para la permanencia y la inmersión de marca.',
       digital: 'El ecosistema digital fue diseñado desde una sola premisa: cada gráfica debía sentirse tan premium como el producto mismo. Construí el sistema de diseño primero, estados de botón en cuatro variantes, jerarquía tipográfica en Gilroy y lógica de componentes, para que la consistencia visual no dependiera de decisiones caso por caso. La capa de contenido mobile opera diferente: formatos verticales cortos para la app SCo° donde el storytelling lidera sobre las especificaciones, la fotografía vende y la interfaz se aparta.',
     },
 

@@ -600,13 +600,13 @@ export const projectsData: Project[] = [
         sectionNumber: "01",
         title: "Research & Strategy",
         description: [
-          "The strategy was built around three pillars: Visual Identity, Audience, and Product, evaluated from the perspectives of Brand Experience, Design, and Innovation. The visual system communicates elegance through restraint.",
-          "Connecting with the audience required an omnichannel ecosystem anchored in emotional resonance. And the product layer demanded that technology and craftsmanship be showcased through iconography, immersive content, and sensory photography that sells the experience, not just the appliance.",
+          "In markets saturated with generic minimalist aesthetics, local identity and rigorous detail become the primary differentiation asset. Contemporary audiences do not connect with static brands; they seek living proposals that manifest consistently across physical, digital, and editorial channels.",
+          "And in retail, the exterior space demands immediate traction, while the interior must be designed for permanence and brand immersion.",
         ],
         insights: [
-          { title: "Luxury through restraint", title_es: "Lujo a través de la contención", text: "Contemporary luxury is not communicated by overwhelming the space, but through restraint and rigor in detail.", text_es: "El lujo contemporáneo no se comunica abrumando el espacio, sino a través de la contención y el rigor en el detalle." },
-          { title: "Technology as art", title_es: "Tecnología como arte", text: "Emotionally connecting with the premium buyer requires treating home technology as an integrated piece of art.", text_es: "Conectar emocionalmente con el comprador premium requiere tratar la tecnología del hogar como una pieza de arte integrada." },
-          { title: "Selling the lifestyle", title_es: "Vender el estilo de vida", text: "Sensory photography and clean iconography sell the lifestyle before the individual appliance.", text_es: "La fotografía sensorial y la iconografía limpia venden el estilo de vida antes que el electrodoméstico individual." },
+          { title: "Visual Differentiation", title_es: "Diferenciación visual", text: "In a saturated market, adopting an identity with rigor and consistency becomes the primary competitive asset.", text_es: "En un mercado saturado, adoptar una identidad con rigor y coherencia se convierte en el principal activo competitivo." },
+          { title: "Emotional Connection", title_es: "Conexión emocional", text: "Premium audiences do not connect with static brands. They look for a consistent personality that manifests equally across digital, retail, and editorial channels.", text_es: "Las audiencias premium no conectan con marcas estáticas. Buscan una personalidad consistente que se manifieste igual en digital, retail y editorial." },
+          { title: "Spatial Transition", title_es: "Transición espacial", text: "The exterior touchpoint demands immediate impact; the interior, design for permanence and immersion. They are two distinct logics within the same system.", text_es: "El punto de contacto exterior exige impacto inmediato; el interior, diseño para la permanencia y la inmersión. Son dos lógicas distintas dentro del mismo sistema." },
         ],
         personas: [
           {
