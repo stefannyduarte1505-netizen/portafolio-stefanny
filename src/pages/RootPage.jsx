@@ -87,6 +87,24 @@ export default function RootPage() {
       <FullBleed src={`/projects/root/${lang === 'es' ? 'es/' : ''}cover-after-research.png`} />
       <ScrollSection {...SECTIONS[1]} reverse />
 
+      {/* ── Closing reflection ── */}
+      <div style={{
+        padding: `clamp(4rem,8vw,8rem) ${PAD}`,
+        maxWidth: '680px',
+      }}>
+        <p style={{
+          fontFamily: POPPINS,
+          fontWeight: 300,
+          fontSize: 'clamp(0.88rem,1.05vw,1.05rem)',
+          lineHeight: 1.9,
+          color: 'rgba(26,24,21,0.55)',
+          margin: 0,
+          fontStyle: 'italic',
+        }}>
+          {tr.root.closing}
+        </p>
+      </div>
+
     </div>
   )
 }
