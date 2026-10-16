@@ -223,7 +223,7 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
       onMouseLeave={handleMouseLeave}
       className={`
         relative overflow-hidden
-        ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[85vw] max-w-[600px]'}
+        ${desktop2col ? 'w-full' : 'flex-shrink-0 snap-center w-[78vw] max-w-[600px]'}
         h-[520px]
         rounded-[48px]
         flex flex-col justify-between
@@ -276,13 +276,48 @@ function DigitalProductCard({ product, desktop2col = false, bgColor, index = 0 }
 }
 
 function DigitalGrid({ products, bgColor }: { products: DigitalProduct[]; bgColor?: string }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [canLeft, setCanLeft]   = useState(false)
+  const [canRight, setCanRight] = useState(true)
+
+  const updateArrows = () => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanLeft(el.scrollLeft > 4)
+    setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
+  }
+
   return (
     <>
-      {/* Mobile: horizontal carousel */}
-      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
-        {products.map((p, i) => (
-          <DigitalProductCard key={i} product={p} bgColor={bgColor} index={i} />
-        ))}
+      {/* Mobile: horizontal carousel with nav arrows */}
+      <div className="md:hidden relative">
+        <div className="flex items-center gap-2 absolute right-0 -top-10 z-10">
+          <button
+            onClick={() => scrollRef.current?.scrollBy({ left: -300, behavior: 'smooth' })}
+            disabled={!canLeft}
+            aria-label="Anterior"
+            className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-200 bg-white text-neutral-600 disabled:opacity-25 transition-opacity"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <button
+            onClick={() => scrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' })}
+            disabled={!canRight}
+            aria-label="Siguiente"
+            className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-200 bg-white text-neutral-600 disabled:opacity-25 transition-opacity"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+        </div>
+        <div
+          ref={scrollRef}
+          onScroll={updateArrows}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
+        >
+          {products.map((p, i) => (
+            <DigitalProductCard key={i} product={p} bgColor={bgColor} index={i} />
+          ))}
+        </div>
       </div>
       {/* Desktop: 2×2 grid */}
       <div className="hidden md:grid md:grid-cols-2 gap-6">
