@@ -27,7 +27,7 @@ function PersonaCard({ item, bgColor }: { item: Person; index?: number; bgColor?
   const hoverBg = bgColor || '#F2F6FF'
   return (
     <article
-      className="w-full md:w-[480px] lg:w-[520px] min-h-[340px] flex-shrink-0 snap-start rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F5F5F5] transition-colors duration-300 group/avatar"
+      className="w-[82vw] md:w-[480px] lg:w-[520px] min-h-[340px] flex-shrink-0 snap-start rounded-[32px] p-8 md:p-10 flex flex-col justify-between bg-[#F5F5F5] transition-colors duration-300 group/avatar"
       onMouseEnter={e => (e.currentTarget.style.backgroundColor = hoverBg)}
       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '')}
     >
@@ -279,7 +279,7 @@ function DigitalGrid({ products, bgColor }: { products: DigitalProduct[]; bgColo
   return (
     <>
       {/* Mobile: horizontal carousel */}
-      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
+      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
         {products.map((p, i) => (
           <DigitalProductCard key={i} product={p} bgColor={bgColor} index={i} />
         ))}
